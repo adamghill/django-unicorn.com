@@ -45,10 +45,10 @@
 
             <div class="navbar-end">
                 <a class="navbar-item" href="{% url 'www:documentation' %}">
-                    Documentation
+                    <img src="{% static 'img/book.svg' %}" style="max-height: 1.5em;" />&nbsp;Documentation
                 </a>
                 <a class="navbar-item" href="https://github.com/adamghill/django-unicorn/">
-                    <img src="{% static 'img/github.svg' %}" style="max-height: 1.75rem;" />&nbsp;&nbsp;Github
+                    <img src="{% static 'img/github.svg' %}" style="max-height: 1.5em;" />&nbsp;Github
                 </a>
             </div>
         </div>
@@ -58,6 +58,41 @@
         {% block sidebar %}{% endblock sidebar %}
 
         {% block content %}{% endblock content %}
+
+        <footer class="footer mt-12">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-2 is-offset-2">
+                        <ul>
+                            <li>
+                                <img src="{% static 'img/book.svg' %}" style="max-height: 1em;" />
+                                <a href="{% url 'www:documentation' %}">Documentation</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/code.svg' %}" style="max-height: 1em;" />
+                                <a href="{% url 'www:articles' %}">Other Approaches</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column is-2 is-offset-2">
+                        <ul>
+                            <li>
+                                <img src="{% static 'img/download.svg' %}" style="max-height: 1em;" />
+                                <a href="https://pypi.org/project/django-unicorn/">django-unicorn</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
+                                <a href="https://github.com/adamghill/django-unicorn">django-unicorn</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
+                                <a href="https://github.com/adamghill/django-unicorn.com">django-unicorn.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
 </body>
 

@@ -9,15 +9,32 @@
             Advanced
         </h1>
 
+        <h4>template_name</h4>
+
         <p>
-            Classes that derive from <code>Component</code> can include a <code>Meta</code> class that provides some advanced options for the component.
+            By default, the component name is used to determine what template should be used. For example, <code>hello_world.HelloWorldView</code> would by default use <code>unicorn/hello-world.html</code>. However, you can specify a particular template by setting <code>template_name</code> in the component.
+        </p>
+
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloWorldView(UnicornView):
+    template_name = "unicorn/hello-world.html"</code></pre>
+        {% endverbatim %}
+
+        <h3>Meta</h3>
+
+        <h4>exclude</h4>
+
+        <p>
+            Classes that derive from <code>UnicornView</code> can include a <code>Meta</code> class that provides some advanced options for the component.
         </p>
 
         <p>
             By default, all properties of the component are included in the payload when hydrating the Django template. One way to prevent internal-only data from getting POSTed needlessly is to prefix the property name with <code>_</code> to indicate it should stay private.
         </p>
 
-        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_state.py
 from django_unicorn.components import UnicornView
 
 class HelloStateView(UnicornView):
@@ -38,7 +55,7 @@ class HelloStateView(UnicornView):
             Another way to prevent that data from going across the wire on every interaction is to add it to the <code>Meta</code> class's <code>exclude</code> tuple.
         </p>
 
-        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_state.py
 from django_unicorn.components import UnicornView
 
 class HelloStateView(UnicornView):

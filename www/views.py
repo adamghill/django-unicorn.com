@@ -7,6 +7,11 @@ def index(request):
     return {}
 
 
+@render_to("www/articles.html")
+def articles(request):
+    return {}
+
+
 def documentation(request, name="introduction"):
     template_name = f"www/documentation/{name}.html"
     return render(request, template_name)

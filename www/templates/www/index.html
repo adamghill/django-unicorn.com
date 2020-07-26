@@ -13,6 +13,10 @@
         background: transparent !important;
         color: #000 !important;
     }
+
+    .mt-12 {
+        margin-top: 6rem;
+    }
 </style>
 {% endcompress %}
 {% endblock styles %}
@@ -33,18 +37,19 @@
 
 <div class="box cta">
     <p class="has-text-centered">
-        <span class="tag is-primary">New</span> Version 0.2.1 is now released. See the <a
+        <span class="tag is-primary">New</span> Version 0.2.2 is now released. See the <a
             href="{% url 'www:documentation' 'changelog' %}">changelog</a> for details on breaking changes from 0.1.0.
     </p>
 </div>
+
 <section class="container">
     <div class="columns features">
         <div class="column is-4">
             <div class="card is-shady">
                 <div class="card-image has-text-centered">
-                    <img src="{% static 'img/layout.svg' %}" style="padding-top: 1.5em;">
+                    <img src="{% static 'img/layout.svg' %}" class="pt-4">
                 </div>
-                <div class="card-content" style="padding-top: 0;">
+                <div class="card-content">
                     <div class="content">
                         <h4>Add interactive elements easily</h4>
                         <p>
@@ -59,9 +64,9 @@
         <div class="column is-4">
             <div class="card is-shady">
                 <div class="card-image has-text-centered">
-                    <img src="{% static 'img/watch.svg' %}" style="padding-top: 1.5em;">
+                    <img src="{% static 'img/watch.svg' %}" class="pt-4">
                 </div>
-                <div class="card-content" style="padding-top: 0;">
+                <div class="card-content">
                     <div class="content">
                         <h4>Skip the separate Node.js watcher</h4>
                         <p>
@@ -76,9 +81,9 @@
         <div class="column is-4">
             <div class="card is-shady">
                 <div class="card-image has-text-centered">
-                    <img src="{% static 'img/zap.svg' %}" style="padding-top: 1.5em;">
+                    <img src="{% static 'img/zap.svg' %}" class="pt-4">
                 </div>
-                <div class="card-content" style="padding-top: 0;">
+                <div class="card-content">
                     <div class="content">
                         <h4>Don't build out an API if you don't need it</h4>
                         <p>
@@ -93,75 +98,55 @@
         </div>
     </div>
 
-    <div class="intro column is-8 is-offset-2" style="margin-top: 5em;">
-        <h2 class="title">Example Hello World component</h2><br>
-        <!-- <p class="subtitle">Watch the magic unfold...</p> -->
+    <div class="intro column is-8 is-offset-2 mt-12">
+        <div>
+            <h2 class="title">Example Hello World component</h2>
 
-        {% verbatim %}
-        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
+            {% verbatim %}
+            <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
 &lt;div&gt;
     &lt;input unicorn:model="name" type="text" id="text"&gt;
     Hello {{ name|title }}
 &lt;/div&gt;</code></pre>
-        {% endverbatim %}
+            {% endverbatim %}
 
-        {% verbatim %}
-        <pre data-lang="python"><code class="language-python"># hello_world.py
+            {% verbatim %}
+            <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
 
 class HelloWorldView(UnicornView):
     name = "World"</code></pre>
-        {% endverbatim %}
+            {% endverbatim %}
 
-    </div>
-    <div class="intro column is-8 is-offset-2" style="margin-top: 1em;">
-        <p style="margin-bottom: .5em;">
-            Then, include the component in a Django template.
-        </p>
+        </div>
 
-        {% verbatim %}
-        <pre data-lang="html"><code class="language-html">&lt;!-- index.html --&gt;
+        <div class="mt-4">
+            <p style="margin-bottom: .5em;">
+                Then, include the component in a Django template.
+            </p>
+
+            {% verbatim %}
+            <pre data-lang="html"><code class="language-html">&lt;!-- index.html --&gt;
 {% unicorn 'hello-world' %}</code></pre>
-        {% endverbatim %}
-    </div>
+            {% endverbatim %}
+        </div>
 
-    <div class="intro column is-8 is-offset-2" style="margin-top: 1em; margin-bottom: 10em;">
-        <p>
-            See more <a href="{% url 'www:documentation' %}">documentation</a> about how to use
-            <code>django-unicorn</code>.
-        </p>
-    </div>
-</section>
+        <div class="mt-4">
+            <p>
+                See more <a href="{% url 'www:documentation' %}">documentation</a> about how to use
+                <code>django-unicorn</code>.
+            </p>
+        </div>
 
-<footer class="footer">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-2 is-offset-2">
-                <ul>
-                    <li>
-                        <img src="{% static 'img/book.svg' %}" style="max-height: 1em;" />
-                        <a href="{% url 'www:documentation' %}">Documentation</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="column is-2 is-offset-2">
-                <ul>
-                    <li>
-                        <img src="{% static 'img/download.svg' %}" style="max-height: 1em;" />
-                        <a href="https://pypi.org/project/django-unicorn/">django-unicorn</a> (PyPI)
-                    </li>
-                    <li>
-                        <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
-                        <a href="https://github.com/adamghill/django-unicorn">django-unicorn</a> (Github)
-                    </li>
-                    <!-- <li>
-                        <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
-                        <a href="https://github.com/adamghill/django-unicorn.com">django-unicorn.com</a>
-                    </li> -->
-                </ul>
-            </div>
+        <div class="mt-12">
+            <h2 class="title">Other Approaches</h2>
+
+            <p>
+                A list of <a href="{% url 'www:articles' %}">articles</a> with approaches to use Django with other
+                frontend frameworks.
+            </p>
         </div>
     </div>
-</footer>
+</section>
 
 {% endblock content %}
