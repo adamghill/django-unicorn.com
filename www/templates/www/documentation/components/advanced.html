@@ -1,0 +1,71 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Advanced{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Advanced
+        </h1>
+
+        <p>
+            Classes that derive from <code>Component</code> can include a <code>Meta</code> class that provides some advanced options for the component.
+        </p>
+
+        <p>
+            By default, all properties of the component are included in the payload when hydrating the Django template. One way to prevent internal-only data from getting POSTed needlessly is to prefix the property name with <code>_</code> to indicate it should stay private.
+        </p>
+
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloStateView(UnicornView):
+    state = ""
+    
+    _all_states = (
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas",
+        ...
+        "Wisconsin",
+        "Wyoming",
+    )</code></pre>
+        {% endverbatim %}
+
+        <p>
+            Another way to prevent that data from going across the wire on every interaction is to add it to the <code>Meta</code> class's <code>exclude</code> tuple.
+        </p>
+
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloStateView(UnicornView):
+    state = ""
+    
+    all_states = (
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas",
+        ...
+        "Wisconsin",
+        "Wyoming",
+    )
+    
+    class Meta:
+        exclude = ("all_states", )</code></pre>
+        {% endverbatim %}
+    
+    <div class="previous">
+            <a href="{% url 'www:documentation' name='components/actions' %}">Actions</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='examples/count' %}">Count characters</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}

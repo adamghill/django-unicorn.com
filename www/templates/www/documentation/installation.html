@@ -1,0 +1,56 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Installation{% endblock subtitle %}
+
+{% block content %}
+<section class="content" style="overflow-x: scroll;">
+    <article class="section" id="main">
+        <h1>
+            Installation
+        </h1>
+
+        <p>
+            Install <code>django-unicorn</code> the same as any other Python package (preferably into a virtual environment).
+        </p>
+
+        <pre data-lang="shell"><code class="language-shell">pip install django-unicorn</code></pre>
+
+        OR
+
+        <pre data-lang="shell"><code class="language-shell">poetry add django-unicorn</code></pre>
+        
+        <p>
+            Next, install <code>django-unicorn</code> into the Django project.
+        </p>
+
+        <ol>
+        {% verbatim %}
+            <li>Add <code>"django_unicorn",</code> to the <code>INSTALLED_APPS</code> array in the Django settings file (normally settings.py)</li>
+            <li>Add <code>path("unicorn/", include("django_unicorn.urls")),</code> into the project's urls.py</li>
+            <li>Add <code>{% load unicorn %}</code> to the top of the Django HTML template</li>
+            <li>Add <code>{% unicorn_scripts %}</code> into the Django HTML template</li>
+        {% endverbatim %}
+        </ol>
+
+        <p>
+            Example code for the instructions above:
+
+            <ul>
+                <li><a href="https://github.com/adamghill/django-unicorn/blob/master/example/project/settings.py#L19">INSTALLED_APPS addition</a></li>
+                <li><a href="https://github.com/adamghill/django-unicorn/blob/master/example/project/urls.py#L9">urls.py addition</a></li>
+                <li><a href="https://github.com/adamghill/django-unicorn/blob/master/example/www/templates/www/index.html#L1">Load `unicorn` template tags</a></li>
+                <li><a href="https://github.com/adamghill/django-unicorn/blob/master/example/www/templates/www/index.html#L14">Include `unicorn_scripts` template tag</a></li>
+            </ul>
+        </p>
+
+        <div class="previous">
+            <a href="{% url 'www:index' %}">Introduction</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='components' %}">Components</a>
+        </div>
+
+    </article>
+</section>
+{% endblock content %}

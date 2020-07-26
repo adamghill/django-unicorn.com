@@ -1,0 +1,64 @@
+{% load compress static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% block subtitle %}{% endblock subtitle %} - django-unicorn{% endblock title %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600">
+
+    {% block styles %}{% endblock styles %}
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'highlight.js/10.1.1/styles/solarized-light.css' %}">
+    {% endcompress %}
+
+    {% compress js %}
+    <script src="{% static 'highlight.js/10.1.1/highlight.pack.js' %}"></script>
+    {% endcompress %}
+
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #fafafa;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong>django-unicorn ✨</strong>
+            </a>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <!-- <a class="navbar-item" href="{% url 'www:documentation' %}">
+                Documentation
+                </a> -->
+                <!-- <a class="navbar-item" href="">
+                    Screenshares
+                </a> -->
+            </div>
+
+            <div class="navbar-end">
+                <a class="navbar-item" href="{% url 'www:documentation' %}">
+                    Documentation
+                </a>
+                <a class="navbar-item" href="https://github.com/adamghill/django-unicorn/">
+                    <img src="{% static 'img/github.svg' %}" style="max-height: 1.75rem;" />&nbsp;&nbsp;Github
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block sidebar %}{% endblock sidebar %}
+
+        {% block content %}{% endblock content %}
+    </main>
+</body>
+
+</html>

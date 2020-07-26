@@ -1,0 +1,72 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Components{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Components
+        </h1>
+
+        <p>
+            <code>django-unicorn</code> uses the term "component" to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML template with specific tags and a Python class which provides the backend code for the template.
+        </p>
+
+        <p>
+            The easiest way to create your first component is to run the following Django management command after <code>django-unicorn</code> is installed.
+        </p>
+
+        <pre data-lang="shell"><code class="language-bash">python manage.py startunicorn hello-world</code></pre>
+
+        <p class="tip">
+            If this is the first component you create, you will also need to add <code>"unicorn",</code> to <code>INSTALLED_APPS</code> in your Django settings file (normally settings.py) to make sure that Django can find the component templates you create.
+        </p>
+
+        {% verbatim %}
+        Add <code>{% unicorn 'hello-world' %}</code> into the template you want to load the new component.
+        {% endverbatim %}
+
+        <p>
+            A basic example component could consist of the following template and class.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
+&lt;div&gt;
+    &lt;input unicorn:model="name" type="text" id="text"&gt;
+    Hello {{ name|title }}
+&lt;/div&gt;</code></pre>
+        {% endverbatim %}
+
+        {% verbatim %}
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloWorldView(UnicornView):
+    name = "World"</code></pre>
+        {% endverbatim %}
+
+        <p>
+            Notice that <code>unicorn:model</code> is the magic that ties the text input to the backend component. The Django template variable can use any property or method on the component as if they are context variables passed in from a view. The attribute passed into <code>unicorn:model</code> refers to the property in the component class and binds them together.
+        </p>
+
+        <p class="info">
+            <code>unicorn:model</code> updates are triggered by listening to <code>input</code> events on the element.
+        </p>
+
+        <p>
+            Therefore, when a user types into the text input, the information is passed to the backend and populates the component class which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the <code>title</code> filter above).
+        </p>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='installation' %}">Installation</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='components/templates' %}">Templates</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}

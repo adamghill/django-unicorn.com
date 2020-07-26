@@ -1,0 +1,75 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Actions{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Actions
+        </h1>
+
+        <p>
+            Components can also trigger methods from the templates.
+        </p>
+
+        <p>
+            An example action to reset the name property.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
+&lt;div&gt;
+    &lt;input unicorn:model="name" type="text" id="text"&gt;
+    Hello {{ name|title }}
+    &lt;button unicorn:action="reset"&gt;Reset&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloWorldView(UnicornView):
+    name = "World"
+
+    def reset(self):
+        self.name = ""</code></pre>
+    
+        <p>
+            When the button is clicked, the name property (and text input) will get set to an empty string.
+        </p>
+
+        <p>
+            <code>unicorn:action</code> can also pass arguments to the backend component.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
+&lt;div&gt;
+    &lt;input unicorn:model="name" type="text" id="text"&gt;
+    Hello {{ name|title }}
+    &lt;button unicorn:action="set('Bob')"&gt;Set as Bob&lt;/button&gt;
+    &lt;button unicorn:action="set()"&gt;Set default&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloWorldView(UnicornView):
+    name = "World"
+
+    def set(self, name="World"):
+        self.name = name</code></pre>
+
+        <p class="info">
+            <code>unicorn:action</code> is triggered by a <code>click</code> event on the element.
+        </p>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='components/templates' %}">Templates</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}

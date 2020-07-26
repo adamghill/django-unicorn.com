@@ -1,0 +1,88 @@
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+ENVIRONMENT = os.getenv("ENVIRONMENT", "dev")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = True
+
+ALLOWED_HOSTS = ["localhost", "www.django-unicorn.com"]
+
+ALLOWED_HOST = os.getenv("ALLOWED_HOST")
+
+if ALLOWED_HOST:
+    ALLOWED_HOSTS.append(ALLOWED_HOST)
+
+
+INSTALLED_APPS = [
+    "django.contrib.staticfiles",
+    "compressor",
+    "www",
+]
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+ROOT_URLCONF = "project.urls"
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = "project.wsgi.application"
+
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "db",}}
+
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "UTC"
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = False
+COMPRESS_CACHEABLE_PRECOMPILERS = ("text/javascript",)
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+COMPRESS_CSS_HASHING_METHOD = "content"
+COMPRESS_FILTERS = {
+    "css": [
+        "compressor.filters.css_default.CssRelativeFilter",
+        "compressor.filters.cssmin.rCSSMinFilter",
+    ],
+    "js": ["compressor.filters.jsmin.JSMinFilter"],
+}
+COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
+
+
+if ENVIRONMENT == "live":
+    DEBUG = False
+    COMPRESS_OFFLINE = True

@@ -1,0 +1,30 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Templates{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Templates
+        </h1>
+
+        <p>
+            Templates are just normal Django HTML templates, so anything you could normally do in a template will still work, including template tags, filters, loops, if statements, etc.
+        </p>
+
+        <p class="tip">
+            <code>django-unicorn</code> expects there to be a root <code>div</code> element surrounding the component template.
+        </p>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='components' %}">Components</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='components/actions' %}">Actions</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+indent() {
+  sed "s/^/       /"
+}
+
+puts-step() {
+  echo "-----> $@"
+}
+
+puts-step "Installing dependencies with poetry..."
+poetry config virtualenvs.create false 2>&1 | indent
+poetry install --no-dev 2>&1 | indent
+
+puts-step "Collect static files (part 1)..."
+python manage.py collectstatic --noinput 2>&1 | indent
+
+puts-step "Compress files..."
+python manage.py compress --force 2>&1 | indent
+
+puts-step "Collect static files (part 2)..."
+python manage.py collectstatic --noinput 2>&1 | indent
