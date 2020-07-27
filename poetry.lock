@@ -32,6 +32,21 @@ docs = ["sphinx", "zope.interface"]
 tests = ["coverage", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
 
 [[package]]
+category = "main"
+description = "Screen-scraping library"
+name = "beautifulsoup4"
+optional = false
+python-versions = "*"
+version = "4.9.1"
+
+[package.dependencies]
+soupsieve = [">1.2", "<2.0"]
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
 category = "dev"
 description = "The uncompromising code formatter."
 name = "black"
@@ -50,18 +65,6 @@ typed-ast = ">=1.4.0"
 
 [package.extras]
 d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
-
-[[package]]
-category = "main"
-description = "Various parsers for ECMA standards."
-name = "calmjs.parse"
-optional = false
-python-versions = "*"
-version = "1.2.5"
-
-[package.dependencies]
-ply = ">=3.6"
-setuptools = "*"
 
 [[package]]
 category = "dev"
@@ -126,6 +129,19 @@ rjsmin = "1.1.0"
 six = ">=1.12.0"
 
 [[package]]
+category = "main"
+description = "A magical fullstack framework for Django."
+name = "django-unicorn"
+optional = false
+python-versions = ">=3.6,<4.0"
+version = "0.2.2"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.9.1,<5.0.0"
+django = ">=3.0.0"
+orjson = ">=3.2.1,<4.0.0"
+
+[[package]]
 category = "dev"
 description = "the modular source code checker: pep8 pyflakes and co"
 name = "flake8"
@@ -181,7 +197,7 @@ description = "A Python utility / library to sort Python imports."
 name = "isort"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "5.1.1"
+version = "5.1.4"
 
 [package.extras]
 pipfile_deprecated_finder = ["pipreqs", "requirementslib", "tomlkit (>=0.5.3)"]
@@ -196,20 +212,20 @@ python-versions = "*"
 version = "0.6.1"
 
 [[package]]
+category = "main"
+description = "Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
+name = "orjson"
+optional = false
+python-versions = ">=3.6"
+version = "3.3.0"
+
+[[package]]
 category = "dev"
 description = "Utility library for gitignore style pattern matching of file paths."
 name = "pathspec"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.8.0"
-
-[[package]]
-category = "main"
-description = "Python Lex & Yacc"
-name = "ply"
-optional = false
-python-versions = "*"
-version = "3.11"
 
 [[package]]
 category = "dev"
@@ -280,6 +296,14 @@ version = "1.15.0"
 
 [[package]]
 category = "main"
+description = "A modern CSS selector implementation for Beautiful Soup."
+name = "soupsieve"
+optional = false
+python-versions = "*"
+version = "1.9.6"
+
+[[package]]
+category = "main"
 description = "Non-validating SQL parser"
 name = "sqlparse"
 optional = false
@@ -327,7 +351,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "282f93dcc9256550150b292e772c93fd8208f6b4d6ccdf8d7e1f4b28c59ff06a"
+content-hash = "2cea72932bfe1ff513c9940838a1bbc9ba276f9132ebc7ce95c0c26dd4802bdb"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -343,14 +367,14 @@ attrs = [
     {file = "attrs-19.3.0-py2.py3-none-any.whl", hash = "sha256:08a96c641c3a74e44eb59afb61a24f2cb9f4d7188748e76ba4bb5edfa3cb7d1c"},
     {file = "attrs-19.3.0.tar.gz", hash = "sha256:f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"},
 ]
+beautifulsoup4 = [
+    {file = "beautifulsoup4-4.9.1-py2-none-any.whl", hash = "sha256:e718f2342e2e099b640a34ab782407b7b676f47ee272d6739e60b8ea23829f2c"},
+    {file = "beautifulsoup4-4.9.1-py3-none-any.whl", hash = "sha256:a6237df3c32ccfaee4fd201c8f5f9d9df619b93121d01353a64a73ce8c6ef9a8"},
+    {file = "beautifulsoup4-4.9.1.tar.gz", hash = "sha256:73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"},
+]
 black = [
     {file = "black-19.10b0-py36-none-any.whl", hash = "sha256:1b30e59be925fafc1ee4565e5e08abef6b03fe455102883820fe5ee2e4734e0b"},
     {file = "black-19.10b0.tar.gz", hash = "sha256:c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"},
-]
-"calmjs.parse" = [
-    {file = "calmjs.parse-1.2.5-py2-none-any.whl", hash = "sha256:dd2c576169e683f0a06b5e8908d7b9d134e756ae75763c21b721d9937b0b422a"},
-    {file = "calmjs.parse-1.2.5-py3-none-any.whl", hash = "sha256:163ae575c478944c3a54c8e26d5cca794a977c5bf160f6aaa3731b51ae88ab99"},
-    {file = "calmjs.parse-1.2.5.zip", hash = "sha256:693d18bcfdb14f2a33f64288680adc138275d39de5980fb46f5b882df6e1dbde"},
 ]
 click = [
     {file = "click-7.1.2-py2.py3-none-any.whl", hash = "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"},
@@ -372,6 +396,10 @@ django-compressor = [
     {file = "django_compressor-2.4-py2.py3-none-any.whl", hash = "sha256:57ac0a696d061e5fc6fbc55381d2050f353b973fb97eee5593f39247bc0f30af"},
     {file = "django_compressor-2.4.tar.gz", hash = "sha256:d2ed1c6137ddaac5536233ec0a819e14009553fee0a869bea65d03e5285ba74f"},
 ]
+django-unicorn = [
+    {file = "django-unicorn-0.2.3.tar.gz", hash = "sha256:0682b21a271478f1d7545a0001b61cac7bef89e58305b300a40800dccdbff7fa"},
+    {file = "django_unicorn-0.2.3-py3-none-any.whl", hash = "sha256:0d64988756608139472ad65732acab3603c7edef108edbe198cce8f5fc7d5865"},
+]
 flake8 = [
     {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},
     {file = "flake8-3.8.3.tar.gz", hash = "sha256:f04b9fcbac03b0a3e58c0ab3a0ecc462e023a9faf046d57794184028123aa208"},
@@ -385,20 +413,33 @@ importlib-metadata = [
     {file = "importlib_metadata-1.7.0.tar.gz", hash = "sha256:90bb658cdbbf6d1735b6341ce708fc7024a3e14e99ffdc5783edea9f9b077f83"},
 ]
 isort = [
-    {file = "isort-5.1.1-py3-none-any.whl", hash = "sha256:18aa2e5d9dd7314115baa20e81e242ee4a83f0e72f14c44a642749f69cc8dc26"},
-    {file = "isort-5.1.1.tar.gz", hash = "sha256:069aa3af9b51c7f67311710e70514e685e868cd71cc1c39e78a5264f0d048c1e"},
+    {file = "isort-5.1.4-py3-none-any.whl", hash = "sha256:ae3007f72a2e9da36febd3454d8be4b175d6ca17eb765841d5fe3d038aede79d"},
+    {file = "isort-5.1.4.tar.gz", hash = "sha256:145072eedc4927cc9c1f9478f2d83b2fc1e6469df4129c02ef4e8c742207a46c"},
 ]
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
 ]
+orjson = [
+    {file = "orjson-3.3.0-cp36-cp36m-macosx_10_7_x86_64.whl", hash = "sha256:44f7344aa100c43a86716f2cf92163325792ebb8af3542f3ee084f328328207b"},
+    {file = "orjson-3.3.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:e81c14e31b4bb48b2ba6e9a47460e8cd0406f927741491859ab3bec53f447317"},
+    {file = "orjson-3.3.0-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:d33524b1aab1a34b6fdc8ae7bad83e495eea5a02712dd860113223ed6fc82106"},
+    {file = "orjson-3.3.0-cp36-none-win_amd64.whl", hash = "sha256:67136be5a6ce5ad9995f0e178851d4956e8e0175ac1e8bb80987607c6986e970"},
+    {file = "orjson-3.3.0-cp37-cp37m-macosx_10_7_x86_64.whl", hash = "sha256:8649b36460f9ab5d2d3d4bea69cb608b0ebe9f70d7119478a59632cfe6554fd4"},
+    {file = "orjson-3.3.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:d37758bc0351fee5a2b7387f61677b893b02c6b7351370afbf63ce82bd1f25cd"},
+    {file = "orjson-3.3.0-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:64569ad07ae564ebdb712bfb199de521ce5dfa78d9459d70787cac3811f01797"},
+    {file = "orjson-3.3.0-cp37-none-win_amd64.whl", hash = "sha256:657415c522d04427d1ac46ee3bde525deb199bd494c2480db40f991755ee038e"},
+    {file = "orjson-3.3.0-cp38-cp38-macosx_10_7_x86_64.whl", hash = "sha256:262aa8e8b47142d4d51dd7281afa51d2281480eb672183e79f2d90572f535e69"},
+    {file = "orjson-3.3.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:5e80e377979909283a221a3f62add9186b3aaa1028a469d6282a4d3694e04a05"},
+    {file = "orjson-3.3.0-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:67b2ed9410b426cbaa4e49a484c67225f58bc57e84a9d593006140bcd70909ae"},
+    {file = "orjson-3.3.0-cp38-none-win_amd64.whl", hash = "sha256:5ec5d1e127fc30addfb6c1d23ecc4b82ac89f0ca808572b553bcee913eb134be"},
+    {file = "orjson-3.3.0-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:28a401039e9a228ca72a0e0a1c43c80df85336ade0bf17e592e386c19ad49f47"},
+    {file = "orjson-3.3.0-cp39-cp39-manylinux2014_x86_64.whl", hash = "sha256:0d60993e1787d6d4e2bad7aac674a66bed0012251fa45c73dfe8ef9fe0b4433a"},
+    {file = "orjson-3.3.0.tar.gz", hash = "sha256:00fba178d361db5fa12787dae018c8df25207feb7eb79ec52b70259dbeab96d0"},
+]
 pathspec = [
     {file = "pathspec-0.8.0-py2.py3-none-any.whl", hash = "sha256:7d91249d21749788d07a2d0f94147accd8f845507400749ea19c1ec9054a12b0"},
     {file = "pathspec-0.8.0.tar.gz", hash = "sha256:da45173eb3a6f2a5a487efba21f050af2b41948be6ab52b6a1e3ff22bb8b7061"},
-]
-ply = [
-    {file = "ply-3.11-py2.py3-none-any.whl", hash = "sha256:096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce"},
-    {file = "ply-3.11.tar.gz", hash = "sha256:00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.6.0-py2.py3-none-any.whl", hash = "sha256:2295e7b2f6b5bd100585ebcb1f616591b652db8a741695b3d8f5d28bdc934367"},
@@ -460,6 +501,10 @@ rjsmin = [
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
+]
+soupsieve = [
+    {file = "soupsieve-1.9.6-py2.py3-none-any.whl", hash = "sha256:feb1e937fa26a69e08436aad4a9037cd7e1d4c7212909502ba30701247ff8abd"},
+    {file = "soupsieve-1.9.6.tar.gz", hash = "sha256:7985bacc98c34923a439967c1a602dc4f1e15f923b6fcf02344184f86cc7efaa"},
 ]
 sqlparse = [
     {file = "sqlparse-0.3.1-py2.py3-none-any.whl", hash = "sha256:022fb9c87b524d1f7862b3037e541f68597a730a8843245c349fc93e1643dc4e"},

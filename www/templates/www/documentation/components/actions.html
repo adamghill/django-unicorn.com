@@ -13,6 +13,8 @@
             Components can also trigger methods from the templates.
         </p>
 
+        <h3>Click</h3>
+
         <p>
             An example action to reset the name property.
         </p>
@@ -21,7 +23,7 @@
 &lt;div&gt;
     &lt;input unicorn:model="name" type="text" id="text"&gt;
     Hello {{ name|title }}
-    &lt;button unicorn:action="reset"&gt;Reset&lt;/button&gt;
+    &lt;button unicorn:click="reset"&gt;Reset&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -38,15 +40,15 @@ class HelloWorldView(UnicornView):
         </p>
 
         <p>
-            <code>unicorn:action</code> can also pass arguments to the backend component.
+            <code>unicorn:click</code> can also pass arguments to the backend component.
         </p>
 
         <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
 &lt;div&gt;
     &lt;input unicorn:model="name" type="text" id="text"&gt;
     Hello {{ name|title }}
-    &lt;button unicorn:action="set('Bob')"&gt;Set as Bob&lt;/button&gt;
-    &lt;button unicorn:action="set()"&gt;Set default&lt;/button&gt;
+    &lt;button unicorn:click="set('Bob')"&gt;Set as Bob&lt;/button&gt;
+    &lt;button unicorn:click="set()"&gt;Set default&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -59,7 +61,7 @@ class HelloWorldView(UnicornView):
         self.name = name</code></pre>
 
         <p class="info">
-            <code>unicorn:action</code> is triggered by a <code>click</code> event on the element.
+            <code>unicorn:click</code> is triggered by a <code>click</code> event on the element.
         </p>
 
         <div class="previous">
