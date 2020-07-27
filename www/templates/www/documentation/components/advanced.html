@@ -24,11 +24,11 @@ class HelloWorldView(UnicornView):
 
         <h3>Meta</h3>
 
-        <h4>exclude</h4>
-
         <p>
             Classes that derive from <code>UnicornView</code> can include a <code>Meta</code> class that provides some advanced options for the component.
         </p>
+
+        <h4>exclude</h4>
 
         <p>
             By default, all properties of the component are included in the payload when hydrating the Django template. One way to prevent internal-only data from getting POSTed needlessly is to prefix the property name with <code>_</code> to indicate it should stay private.
