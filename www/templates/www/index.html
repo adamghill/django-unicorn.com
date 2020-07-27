@@ -29,12 +29,15 @@
 <section class="hero is-info is-medium is-bold">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">
-                django-unicorn
-            </h1>
-            <h2 class="subtitle">
-                A magical fullstack framework for Django ✨
-            </h2>
+            <img src="{% static 'img/unicorn.svg' %}" height="80" width="80" style="float: left; height: 80px; top: -10px; position: relative; margin-right: 20px;" />
+            <div>
+                <h1 class="title">
+                    django-unicorn
+                </h1>
+                <h2 class="subtitle">
+                    A magical fullstack framework for Django ✨
+                </h2>
+            </div>
         </div>
     </div>
 </section>
@@ -162,6 +165,12 @@ class ClicksView(UnicornView):
                 frontend frameworks.
             </p>
         </div>
+
+        {% comment %}
+        <div class="mt-12" style="text-align: center;">
+            <img src="{% static 'img/unicorn-mono.svg' %}" height="80" width="80" />
+        </div>
+        {% endcomment %}
     </div>
 </section>
 
