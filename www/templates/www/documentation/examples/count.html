@@ -1,17 +1,27 @@
 {% extends "www/bases/documentation.html" %}
+{% load unicorn %}
 
 {% block subtitle %}Count characters{% endblock subtitle %}
 
 {% block content %}
+{% csrf_token %}
+{% unicorn_scripts %}
+
 <section class="content">
     <article class="section" id="main">
         <h1>
             Count characters
         </h1>
 
-        <p>
-            Coming soon...
-        </p>
+        {% unicorn 'count-characters' %}
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+        </div>
+    
+        <div class="next">
+            <a href="{% url 'www:documentation' name='examples/search' %}">Search</a>
+        </div>
     </article>
 </section>
 {% endblock content %}

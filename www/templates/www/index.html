@@ -155,22 +155,36 @@ class ClicksView(UnicornView):
                 See more <a href="{% url 'www:documentation' %}">documentation</a> about how to use
                 <code>django-unicorn</code>.
             </p>
-        </div>        
+        </div>
 
         <div class="mt-12">
-            <h2 class="title">Using other frontend frameworks</h2>
+            <h2 class="title">Wait, is this magic?</h2>
 
             <p>
-                Not convinced using <code>django-unicorn</code> is for you? Check out some <a href="{% url 'www:articles' %}">articles</a> elaborating how to use Django with more complicated 
+                Sort of! At least it might feel like it. 🤩
+            </p>
+
+            <div class="content">
+                <ul>
+                    <li><code>django-unicorn</code> enhances a normal Django TemplateView, so the initial render of components is SEO-friendly.
+                    <li>Next, <code>django-unicorn</code> makes an AJAX call when a specified change happens.</li>
+                    <li>Then, <code>django-unicorn</code> dynamically updates the DOM based on what changed.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="title">Using other frontend frameworks with Django</h2>
+
+            <p>
+                Not convinced using <code>django-unicorn</code> is for you? Check out some <a href="{% url 'www:articles' %}">other approaches</a> on how to use Django with other (more complicated!) 
                 frontend frameworks.
             </p>
         </div>
 
-        {% comment %}
-        <div class="mt-12" style="text-align: center;">
+        <div class="mt-4" style="text-align: center;">
             <img src="{% static 'img/unicorn-mono.svg' %}" height="80" width="80" />
         </div>
-        {% endcomment %}
     </div>
 </section>
 

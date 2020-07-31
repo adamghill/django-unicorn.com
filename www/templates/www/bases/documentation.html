@@ -56,9 +56,9 @@
                 <p>Examples</p>
                 <ul>
                     <li class="{% if request.path == '/documentation/examples/count' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/count' %}">Count characters</a></li>
-                    <li class="{% if request.path == '/documentation/examples/search' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/search' %}">Search results</a></li>
+                    <li class="{% if request.path == '/documentation/examples/search' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/search' %}">Search</a></li>
+                    <li class="{% if request.path == '/documentation/examples/click' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/click' %}">Click counter</a></li>
                     <li class="{% if request.path == '/documentation/examples/save' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/save' %}">Ajax save</a></li>
-                    <li class="{% if request.path == '/documentation/examples/loading' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/loading' %}">Loading screen</a></li>
                     <li class="{% if request.path == '/documentation/examples/pagination' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/pagination' %}">Pagination</a></li>
                 </ul>
             </li>

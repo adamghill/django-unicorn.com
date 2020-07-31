@@ -16,13 +16,11 @@
         <pre data-lang="shell"><code class="language-bash">python manage.py startunicorn hello-world</code></pre>
 
         <p>
-            The command will create a <code>unicorn</code> directory, and <code>templates</code> and <code>components</code> sub-directories if necessary.
-            Underneath the <code>components</code> directory there will be a new module and sub-class of the <code>django_unicorn.components.Component</code> class.
-            Underneath the <code>templates/unicorn</code> directory will be a example template.
+            The command will create a <code>unicorn</code> directory, and <code>templates</code> and <code>components</code> sub-directories if necessary. Underneath the <code>components</code> directory there will be a new module and subclass of <code>django_unicorn.components.UnicornView</code>. Underneath the <code>templates/unicorn</code> directory will be a example template.
         </p>
 
         <p>
-            For the example above the folder structure would look like the following.
+            The following is an example folder structure.
         </p>
 
         <pre><code class="plaintext">unicorn/

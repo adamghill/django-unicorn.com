@@ -1,7 +1,7 @@
 {% extends "www/bases/documentation.html" %}
 {% load unicorn %}
 
-{% block subtitle %}Search{% endblock subtitle %}
+{% block subtitle %}Click{% endblock subtitle %}
 
 {% block content %}
 {% csrf_token %}
@@ -10,17 +10,17 @@
 <section class="content">
     <article class="section" id="main">
         <h1>
-            Search
+            Click counter
         </h1>
 
-        {% unicorn 'search' %}
+        {% unicorn 'clicks' %}
 
         <div class="previous">
-            <a href="{% url 'www:documentation' name='examples/count' %}">Count</a>
+            <a href="{% url 'www:documentation' name='examples/search' %}">Search</a>
         </div>
     
         <div class="next">
-            <a href="{% url 'www:documentation' name='examples/click' %}">Click counter</a>
+            <a href="{% url 'www:documentation' name='examples/save' %}">Ajax save</a>
         </div>
     </article>
 </section>
