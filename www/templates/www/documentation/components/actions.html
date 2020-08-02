@@ -23,7 +23,7 @@
 &lt;div&gt;
     &lt;input unicorn:model="name" type="text" id="text"&gt;
     Hello {{ name|title }}
-    &lt;button unicorn:click="reset"&gt;Reset&lt;/button&gt;
+    &lt;button unicorn:click="reset_name"&gt;Reset Name&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -32,11 +32,15 @@ from django_unicorn.components import UnicornView
 class HelloWorldView(UnicornView):
     name = "World"
 
-    def reset(self):
+    def reset_name(self):
         self.name = ""</code></pre>
     
         <p>
             When the button is clicked, the name property (and text input) will get set to an empty string.
+        </p>
+
+        <p class="tip">
+            Instance methods, those which only take <code>self</code> as a parameter, can be called from the template with or without parenthesis.
         </p>
 
         <p>
@@ -61,7 +65,15 @@ class HelloWorldView(UnicornView):
         self.name = name</code></pre>
 
         <p class="info">
-            <code>unicorn:click</code> is triggered by a <code>click</code> event on the element.
+            The method defined by the <code>unicorn:click</code> attribute is triggered by a <code>click</code> event on the element.
+        </p>
+
+        <h4>Special methods</h4>
+
+        <h5 id="reset">reset</h5>
+
+        <p>
+            Use <code>unicorn:click="reset"</code> to be able to reset the component to its original state.
         </p>
 
         <div class="previous">

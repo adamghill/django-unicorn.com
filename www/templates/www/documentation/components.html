@@ -48,7 +48,7 @@ class HelloWorldView(UnicornView):
         {% endverbatim %}
 
         <p>
-            Notice that <code>unicorn:model</code> is the magic that ties the text input to the backend component. The Django template variable can use any property or method on the component as if they are context variables passed in from a view. The attribute passed into <code>unicorn:model</code> refers to the property in the component class and binds them together.
+            <code>unicorn:model</code> is the magic that ties the input to the backend component. The Django template variable can use any property or method on the component as if they were context variables passed in from a view. The attribute passed into <code>unicorn:model</code> refers to the property in the component class and binds them together.
         </p>
 
         <p class="info">
@@ -57,6 +57,10 @@ class HelloWorldView(UnicornView):
 
         <p>
             Therefore, when a user types into the text input, the information is passed to the backend and populates the component class which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the <code>title</code> filter above).
+        </p>
+
+        <p class="tip">
+            Never put sensitive data into a public property because it will be sent in AJAX calls and be stored in the HTML.
         </p>
 
         <div class="previous">

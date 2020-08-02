@@ -44,8 +44,8 @@
 
 <div class="box cta">
     <p class="has-text-centered">
-        <span class="tag is-primary">New</span> Version 0.2.3 is now released. See the <a
-            href="{% url 'www:documentation' 'changelog' %}">changelog</a> for details on breaking changes from 0.1.0.
+        <span class="tag is-primary">New</span> Version 0.3.0 is now released. 🎉 See the <a
+            href="{% url 'www:documentation' 'changelog' %}">changelog</a> for new features.
     </p>
 </div>
 
@@ -115,7 +115,7 @@
             <pre data-lang="html"><code class="language-html">&lt;!-- clicks.html --&gt;
 &lt;div&gt;
     &lt;button class="button is-danger" unicorn:click="subtract"&gt;-&lt;/button&gt;
-    &lt;input class="input" type="text" unicorn:model="clicks" value="{{ count }}" readonly&gt;&lt;/input&gt;
+    &lt;input class="input" type="text" unicorn:model="clicks" id="clicks" value="{{ count }}" readonly&gt;&lt;/input&gt;
     &lt;button class="button is-success" unicorn:click="add"&gt;+&lt;/button&gt;
 &lt;/div&gt;</code></pre>
             {% endverbatim %}

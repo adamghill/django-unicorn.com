@@ -22,6 +22,22 @@ class HelloWorldView(UnicornView):
     template_name = "unicorn/hello-world.html"</code></pre>
         {% endverbatim %}
 
+        <h4 id="mount">mount()</h4>
+
+        <p>
+            Gets called when the component gets initialized or <a href="#reset">reset</a>.
+        </p>
+
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+            
+class HelloWorldView(UnicornView):
+    name = "original"
+
+    def mount(self):
+        self.name = "mounted"</code></pre>
+        {% endverbatim %}
+
         <h3>Meta</h3>
 
         <p>
