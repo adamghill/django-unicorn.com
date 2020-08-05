@@ -100,13 +100,26 @@
 
     <div class="intro column is-8 is-offset-2 mt-12">
         <div>
+            <h2 class="title">Create your first component</h2>
+
+            <ol>
+                <li><a href="{% url 'www:documentation' 'installation' %}">Install</a> <code>django-unicorn</code> into your project</li>
+                <li><a href="{% url 'www:documentation' 'components' %}">Create</a> a component</li>
+                <li>Add the component to your template</li>
+                <li>🎉</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="intro column is-8 is-offset-2 mt-12">
+        <div>
             <h2 class="title">Example todo component</h2>
 
             <div class="content mb-6">
                 {% unicorn 'todo-bulma' %}
             </div>
 
-            <h4 class="subtitle">Code for the example todo component</h4>
+            <h4 class="subtitle">Code for the todo component</h4>
             {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- unicorn/templates/unicorn/todo.html --&gt;
 &lt;div&gt;
     &lt;input type=&quot;text&quot; unicorn:model=&quot;task&quot; placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
