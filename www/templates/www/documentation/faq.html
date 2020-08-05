@@ -1,0 +1,61 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}FAQ{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section">
+        <h1>
+            FAQ
+        </h1>
+
+        <h5 class="question">
+            Do I need to learn a new frontend framework for <code>django-unicorn</code>?
+        </h5>
+
+        <p>
+            Nope! <code>django-unicorn</code> gives you some magical template tags and HTML attributes to sprinkle in normal Django HTML templates. The backend code is a simple class that ultimately derives from <code>TemplateView</code>. Keep using the same Django HTML templates, template tags, filters, etc and the best-in-class Django ORM without learning another new framework of the week.
+        </p>
+
+        <h5 class="question">
+            Do I need to build an entire API to use <code>django-unicorn</code>?
+        </h5>
+
+        <p>
+            Nope! <code>Django REST framework</code> is pretty magical on its own, and if you will need a mobile app or other use for a REST API, it's a great set of abstractions to follow REST best practices. But, it can be challenging implementing a robust API even with <code>Django REST framework</code>. And I wouldn't even attempt to build an API up from scratch unless it was extremely limited.
+        </p>
+
+        <h5 class="question">
+            Do I need to need to install GraphQL to use <code>django-unicorn</code>?
+        </h5>
+
+        <p>
+            Nope! GraphQL looks like an awesome technology for specific use-cases and solves some pain points around creating a RESTful API. But, it is another peiece of technology to wrestle with.
+        </p>
+
+        <h5 class="question">
+            Do I need to run an annoying separate node.js process or learn any tedious Webpack configuration incantations to use <code>django-unicorn</code>?
+        </h5>
+
+        <p>
+            Nope! <code>django-unicorn</code> <a href="{% url 'www:documentation' name='installation' %}">installs</a> just like any normal Django package and is seamless to implement. There <em>are</em> a few "magic" attributes to sprinkle into a Django HTML template, but other than that it's just like building a regular server-side application.
+        </p>
+
+        <h5 class="question">
+            Does this replace Vue.js or React?
+        </h5>
+
+        <p>
+            Nope! In some cases, you might need to actually build an <span title="single-page application">SPA</span> in which case <code>django-unicorn</code> really isn't that helpful. In that case you might have to invest the time to learn a more involved frontend framework. Read <a href="https://tkainrad.dev/posts/use-vuejs-with-django/">Using VueJS alongside Django</a> for one approach.
+        </p>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='installation' %}">Installation</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' 'components' %}">Components</a>
+        </div>
+    </article>
+</section>
+{% endblock content %}

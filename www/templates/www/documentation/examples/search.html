@@ -1,5 +1,5 @@
 {% extends "www/bases/documentation.html" %}
-{% load unicorn %}
+{% load unicorn utils %}
 
 {% block subtitle %}Search{% endblock subtitle %}
 
@@ -14,6 +14,9 @@
         </h1>
 
         {% unicorn 'search' %}
+
+        <pre data-lang="html"><code class="language-html">{% code_include 'unicorn/templates/unicorn/search.html' %}</code></pre>
+        <pre data-lang="python"><code class="language-python">{% code_include 'unicorn/components/search.py' %}</code></pre>
 
         <div class="previous">
             <a href="{% url 'www:documentation' name='examples/count' %}">Count</a>

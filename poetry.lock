@@ -116,6 +116,17 @@ django = "*"
 
 [[package]]
 category = "main"
+description = "Django utility for a memoization decorator that uses the Django cache framework."
+name = "django-cache-memoize"
+optional = false
+python-versions = ">=3.4"
+version = "0.1.7"
+
+[package.extras]
+dev = ["flake8", "tox", "twine", "therapist", "black"]
+
+[[package]]
+category = "main"
 description = "Compresses linked and inline JavaScript or CSS into single cached files."
 name = "django-compressor"
 optional = false
@@ -393,7 +404,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "f3c8a9ed1d46446ff4b5bfa325ac942127dbe4dfb89c3781b4f874dfac68cc89"
+content-hash = "81bb826e2471218fb4ea2fe9a0d4723d558926c0c8229e7ee6fef6140f83cc3c"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -433,6 +444,10 @@ django-annoying = [
 django-appconf = [
     {file = "django-appconf-1.0.4.tar.gz", hash = "sha256:be58deb54a43d77d2e1621fe59f787681376d3cd0b8bd8e4758ef6c3a6453380"},
     {file = "django_appconf-1.0.4-py2.py3-none-any.whl", hash = "sha256:1b1d0e1069c843ebe8ae5aa48ec52403b1440402b320c3e3a206a0907e97bb06"},
+]
+django-cache-memoize = [
+    {file = "django-cache-memoize-0.1.7.tar.gz", hash = "sha256:5e96349b0159aec1eb79257199a1902ea3ed538231ce7b4fee12e563127ca657"},
+    {file = "django_cache_memoize-0.1.7-py2.py3-none-any.whl", hash = "sha256:bc7f53725558244af62197d0125732d7ec88ecc1281a3a2f37d77ae1a8c269d3"},
 ]
 django-compressor = [
     {file = "django_compressor-2.4-py2.py3-none-any.whl", hash = "sha256:57ac0a696d061e5fc6fbc55381d2050f353b973fb97eee5593f39247bc0f30af"},

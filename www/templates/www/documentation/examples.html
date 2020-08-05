@@ -1,0 +1,22 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Installation{% endblock subtitle %}
+
+{% block content %}
+<section class="content" style="overflow-x: scroll;">
+    <article class="section" id="main">
+        <h1>
+            Example components
+        </h1>
+
+        <ul>
+            <li><a href="{% url 'www:documentation' name='examples/todo' %}">Todo</a></li>
+            <li><a href="{% url 'www:documentation' name='examples/count' %}">Count characters</a></li>
+            <li><a href="{% url 'www:documentation' name='examples/search' %}">Search</a></li>
+            <li><a href="{% url 'www:documentation' name='examples/click' %}">Click counter</a></li>
+            <li><a href="{% url 'www:documentation' name='examples/save' %}">Ajax save</a></li>
+            <li><a href="{% url 'www:documentation' name='examples/pagination' %}">Pagination</a></li>
+        </ul>
+    </article>
+</section>
+{% endblock content %}

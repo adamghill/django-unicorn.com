@@ -1,0 +1,18 @@
+<div>
+    <input type="text" unicorn:model="task" placeholder="New task" id="task"></input>
+    <button unicorn:click="add">Add</button>
+
+    <p>
+        {% if tasks %}
+        <ul>
+            {% for task in tasks %}
+            <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+
+        <button unicorn:click="reset">Clear all tasks</button>
+        {% else %}
+        No tasks 🎉
+        {% endif %}
+    </p>
+</div>

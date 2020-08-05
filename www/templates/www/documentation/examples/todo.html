@@ -1,0 +1,30 @@
+{% extends "www/bases/documentation.html" %}
+{% load unicorn utils %}
+
+{% block subtitle %}Todo{% endblock subtitle %}
+
+{% block content %}
+{% csrf_token %}
+{% unicorn_scripts %}
+
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Todo
+        </h1>
+
+        {% unicorn 'todo' %}
+
+        <pre data-lang="html"><code class="language-html">{% code_include 'unicorn/templates/unicorn/todo.html' %}</code></pre>
+        <pre data-lang="python"><code class="language-python">{% code_include 'unicorn/components/todo.py' %}</code></pre>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+        </div>
+    
+        <div class="next">
+            <a href="{% url 'www:documentation' name='examples/count' %}">Count characters</a>
+        </div>
+    </article>
+</section>
+{% endblock content %}

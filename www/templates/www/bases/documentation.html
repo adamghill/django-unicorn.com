@@ -36,40 +36,41 @@
                     <li class="{% if request.path == '/documentation' %}active{% endif %}">
                         <a href="{% url 'www:documentation' %}">Introduction</a>
                         <ul class="app-sub-sidebar">
-                            <li><a class="section-link" href="{% url 'www:documentation' %}#faq">FAQ</a></li>
                             <li><a class="section-link" href="{% url 'www:documentation' %}#related">Related projects</a></li>
                         </ul>
                     </li>
-                    <li class="{% if request.path == '/documentation/installation' %}active{% endif %}"><a href="{% url 'www:documentation' name='installation' %}">Installation</a></li>
+                    <li class="{% if request.path == '/documentation/installation' %}active{% endif %}"><a href="{% url 'www:documentation' 'installation' %}">Installation</a></li>
+                    <li class="{% if request.path == '/documentation/faq' %}active{% endif %}"><a href="{% url 'www:documentation' 'faq' %}">FAQ</a></li>
                 </ul>
             </li>
             <li>
                 <p>Components</p>
                 <ul>
-                    <li class="{% if request.path == '/documentation/components' %}active{% endif %}"><a href="{% url 'www:documentation' name='components' %}">The Basics</a></li>
-                    <li class="{% if request.path == '/documentation/components/templates' %}active{% endif %}"><a href="{% url 'www:documentation' name='components/templates' %}">Templates</a></li>
-                    <li class="{% if request.path == '/documentation/components/actions' %}active{% endif %}"><a href="{% url 'www:documentation' name='components/actions' %}">Actions</a>
-                    <li class="{% if request.path == '/documentation/components/advanced' %}active{% endif %}"><a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+                    <li class="{% if request.path == '/documentation/components' %}active{% endif %}"><a href="{% url 'www:documentation' 'components' %}">The Basics</a></li>
+                    <li class="{% if request.path == '/documentation/components/templates' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/templates' %}">Templates</a></li>
+                    <li class="{% if request.path == '/documentation/components/actions' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/actions' %}">Actions</a>
+                    <li class="{% if request.path == '/documentation/components/advanced' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/advanced' %}">Advanced</a>
                 </ul>
             </li>
             <li>
                 <p>Examples</p>
                 <ul>
-                    <li class="{% if request.path == '/documentation/examples/count' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/count' %}">Count characters</a></li>
-                    <li class="{% if request.path == '/documentation/examples/search' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/search' %}">Search</a></li>
-                    <li class="{% if request.path == '/documentation/examples/click' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/click' %}">Click counter</a></li>
-                    <li class="{% if request.path == '/documentation/examples/save' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/save' %}">Ajax save</a></li>
-                    <li class="{% if request.path == '/documentation/examples/pagination' %}active{% endif %}"><a href="{% url 'www:documentation' name='examples/pagination' %}">Pagination</a></li>
+                    <li class="{% if request.path == '/documentation/examples/todo' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/todo' %}">Todo</a></li>
+                    <li class="{% if request.path == '/documentation/examples/count' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/count' %}">Count characters</a></li>
+                    <li class="{% if request.path == '/documentation/examples/search' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/search' %}">Search</a></li>
+                    <li class="{% if request.path == '/documentation/examples/click' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/click' %}">Click counter</a></li>
+                    <li class="{% if request.path == '/documentation/examples/save' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/save' %}">Ajax save</a></li>
+                    <li class="{% if request.path == '/documentation/examples/pagination' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/pagination' %}">Pagination</a></li>
                 </ul>
             </li>
             <li>
-                <p class="{% if request.path == '/documentation/cli' %}active{% endif %}"><a href="{% url 'www:documentation' name='cli' %}">CLI</a></p>
+                <p class="{% if request.path == '/documentation/cli' %}active{% endif %}"><a href="{% url 'www:documentation' 'cli' %}">CLI</a></p>
             </li>
             <!--<li>
-                <p class="{% if request.path == '/documentation/api' %}active{% endif %}"><a href="{% url 'www:documentation' name='api' %}">API</a></p>
+                <p class="{% if request.path == '/documentation/api' %}active{% endif %}"><a href="{% url 'www:documentation' 'api' %}">API</a></p>
             </li>-->
             <li>
-                <p class="{% if request.path == '/documentation/changelog' %}active{% endif %}"><a href="{% url 'www:documentation' name='changelog' %}">Changelog</a></p>
+                <p class="{% if request.path == '/documentation/changelog' %}active{% endif %}"><a href="{% url 'www:documentation' 'changelog' %}">Changelog</a></p>
             </li>
         </ul>
     </div>

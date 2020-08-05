@@ -1,26 +1,11 @@
 {% extends "www/bases/documentation.html" %}
 
-{% block subtitle %}Introduction{% endblock subtitle %}
+{% block subtitle %}Related projects{% endblock subtitle %}
 
 {% block content %}
 <section class="content">
     <article class="section">
-        <h1>
-            Introduction
-        </h1>
-
-        <p>
-            <code>django-unicorn</code> is a magical fullstack framework for Django. Instead of building additional API
-            endpoints just to provide some interactivity, <code>django-unicorn</code> is a much simpler way to provide pieces of a
-            modern website experience without moving away from all of the benefits of Django.
-        </p>
-
-        <p>
-            The goal is provide ways to seamlessly extend Django past its server-side framework roots without giving up
-            all of its niceties or having to re-build a site in a frontend framework.
-        </p>
-
-        <h3 id="related">Related projects</h3>
+        <h1>Related projects</h1>
 
         <p>
             <code>django-unicorn</code> stands on the shoulders of giants.
@@ -28,6 +13,24 @@
             <ul>
                 <li>In particular <a href="https://laravel-livewire.com/">Livewire</a>, a fullstack framework for the Laravel web framework PHP (which <code>django-unicorn</code> borrows from heavily).</li>
                 <li>It is also inspired by <a href="https://github.com/phoenixframework/phoenix_live_view">LiveView</a>, a package for the Elixir web framework, Phoenix.</li>
+            </ul>
+        </p>
+
+        <p>
+            <code>django-unicorn</code> would not be possible without a few packages.
+            <ul>
+                <li>
+                    <a href="https://www.djangoproject.com/">Django</a>, The web framework for perfectionists with deadlines.
+                </li>
+                <li>
+                    Intelligent DOM merging with <a href="https://github.com/patrick-steele-idem/morphdom">morphdom</a>.
+                </li>
+                <li>
+                    Landing page CSS from <a href="bulma.io/">Bulma</a>.
+                </li>
+                <li>
+                    Documentation CSS from <a href="https://github.com/docsifyjs/docsify/">docsify</a>.
+                </li>
             </ul>
         </p>
 
@@ -41,7 +44,7 @@
                 </li>
             </ul>
         </p>
-    
+
         <div class="next">
             <a href="{% url 'www:documentation' name='installation' %}">Installation</a>
         </div>

@@ -64,11 +64,11 @@ class HelloWorldView(UnicornView):
         </p>
 
         <div class="previous">
-            <a href="{% url 'www:documentation' name='installation' %}">Installation</a>
+            <a href="{% url 'www:documentation' 'faq' %}">FAQ</a>
         </div>
 
         <div class="next">
-            <a href="{% url 'www:documentation' name='components/templates' %}">Templates</a>
+            <a href="{% url 'www:documentation' 'components/templates' %}">Templates</a>
         </div>
     </article>
 </section>

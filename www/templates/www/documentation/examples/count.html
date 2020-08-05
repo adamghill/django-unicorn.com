@@ -1,5 +1,5 @@
 {% extends "www/bases/documentation.html" %}
-{% load unicorn %}
+{% load unicorn utils %}
 
 {% block subtitle %}Count characters{% endblock subtitle %}
 
@@ -15,8 +15,11 @@
 
         {% unicorn 'count-characters' %}
 
+        <pre data-lang="html"><code class="language-html">{% code_include 'unicorn/templates/unicorn/count-characters.html' %}</code></pre>
+        <pre data-lang="python"><code class="language-python">{% code_include 'unicorn/components/count_characters.py' %}</code></pre>
+
         <div class="previous">
-            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+            <a href="{% url 'www:documentation' name='examples/todo' %}">Todo</a>
         </div>
     
         <div class="next">
