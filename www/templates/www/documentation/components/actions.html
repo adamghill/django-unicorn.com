@@ -47,13 +47,13 @@ class HelloWorldView(UnicornView):
             <code>unicorn:click</code> can also pass arguments to the backend component.
         </p>
 
-        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
+        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
 &lt;div&gt;
     &lt;input unicorn:model="name" type="text" id="text"&gt;
-    Hello {{ name|title }}
+    Hello {{ name|title }} 👋
     &lt;button unicorn:click="set('Bob')"&gt;Set as Bob&lt;/button&gt;
     &lt;button unicorn:click="set()"&gt;Set default&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code></pre>{% endverbatim %}
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
@@ -67,6 +67,23 @@ class HelloWorldView(UnicornView):
         <p class="info">
             The method defined by the <code>unicorn:click</code> attribute is triggered by a <code>click</code> event on the element.
         </p>
+
+        <p>
+            <code>unicorn:click</code> can also set properties easily by using a property name with an equal sign and the value.
+        </p>
+
+        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
+&lt;div&gt;
+    &lt;input unicorn:model="name" type="text" id="text"&gt;
+    Hello {{ name|title }} 👋
+    &lt;button unicorn:click="name='Bob'"&gt;Set as Bob&lt;/button&gt;
+&lt;/div&gt;</code></pre>{% endverbatim %}
+
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloWorldView(UnicornView):
+    name = "World"</code></pre>
 
         <h4>Special methods</h4>
 
