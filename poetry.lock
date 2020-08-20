@@ -145,7 +145,7 @@ description = "A magical fullstack framework for Django."
 name = "django-unicorn"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "0.3.0"
+version = "0.4.0"
 
 [package.dependencies]
 beautifulsoup4 = ">=4.9.1,<5.0.0"
@@ -404,7 +404,8 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "81bb826e2471218fb4ea2fe9a0d4723d558926c0c8229e7ee6fef6140f83cc3c"
+content-hash = "9dffe1ba0ce1d97cd35ce49a88a441b2ad7af6809507ef88d37e568c54394a3e"
+lock-version = "1.0"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -454,8 +455,8 @@ django-compressor = [
     {file = "django_compressor-2.4.tar.gz", hash = "sha256:d2ed1c6137ddaac5536233ec0a819e14009553fee0a869bea65d03e5285ba74f"},
 ]
 django-unicorn = [
-    {file = "django-unicorn-0.3.0.tar.gz", hash = "sha256:84a69331b908e5ddf704fe231068cc26e45fe4bc92da779afd95d238c6aeba47"},
-    {file = "django_unicorn-0.3.0-py3-none-any.whl", hash = "sha256:83f8fef414c3c02787918a1824c7eaa479ab06187091704cf54e3328533dacc6"},
+    {file = "django-unicorn-0.4.0.tar.gz", hash = "sha256:6dcebdd91539af6287bbbf91d9f4d8b093d1ac485387bf083dec72bfce2eb782"},
+    {file = "django_unicorn-0.4.0-py3-none-any.whl", hash = "sha256:9ccdab374c89771712b2a02cbbdd335f0168f3047f569c4babd2c65456c70882"},
 ]
 flake8 = [
     {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},
