@@ -23,19 +23,23 @@
         <h3 id="related">Related projects</h3>
 
         <p>
-            <code>django-unicorn</code> stands on the shoulders of giants.
+            <code>django-unicorn</code> stands on the shoulders of giants, in particular <a href="https://github.com/patrick-steele-idem/morphdom">morphdom</a> which is integral to making the fast DOM changes happen.
+        </p>
+        <p>
+            <code>django-unicorn</code> has also been heavily inspired by a few projects in other languages and frameworks.
+        </p>
             
             <ul>
-                <li>In particular <a href="https://laravel-livewire.com/">Livewire</a>, a fullstack framework for the Laravel web framework PHP (which <code>django-unicorn</code> borrows from heavily).</li>
-                <li>It is also inspired by <a href="https://github.com/phoenixframework/phoenix_live_view">LiveView</a>, a package for the Elixir web framework, Phoenix.</li>
+                <li><a href="https://laravel-livewire.com/">Livewire</a>, a fullstack framework for the PHP web framework, Laravel.</li>
+                <li><a href="https://github.com/phoenixframework/phoenix_live_view">LiveView</a>, a library for the Elixir web framework, Phoenix.</li>
             </ul>
         </p>
 
         <p>
-            There are a few Django packages which are tangentially-related and might be interesting.
+            There are a few Django packages which are related to <code>django-unicorn</code> and might be interesting.
             <ul>
                 <li>
-                    <a href="https://github.com/edelvalle/reactor/">Reactor</a>, a LiveView library for Django.</li>
+                    <a href="https://github.com/edelvalle/reactor/">Reactor</a>, a port of Elixir's <code>LiveView</code> to Django. Especially interesting for more complicated use-cases than <code>django-unicorn</code> like chat rooms, keeping multiple browsers in sync. Uses Django channels and websockets to work its magic.</li>
                 <li>
                     <a href="https://github.com/andreyfedoseev/django-page-components">django-page-components</a>, a minimalistic framework for creating page components and using them in your Django views and templates.
                 </li>

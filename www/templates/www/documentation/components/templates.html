@@ -10,15 +10,44 @@
         </h1>
 
         <p>
-            Templates are just normal Django HTML templates, so anything you could normally do in a template will still work, including template tags, filters, loops, if statements, etc.
+            Templates are just normal Django HTML templates, so anything you could normally do in a template will still
+            work, including template tags, filters, loops, if statements, etc.
         </p>
 
         <p class="tip">
-            <code>django-unicorn</code> expects there to be a root <code>div</code> element surrounding the component template.
+            <code>django-unicorn</code> expects there to be a root <code>div</code> element surrounding the component
+            template.
         </p>
 
-        <p class="tip">
-            Setting a unique id on elements with <code>unicorn:model</code> will prevent a lag when updates occur.
+        <h2>Smooth updates</h2>
+        <p>
+            Setting a unique <code>id</code> on elements with <code>unicorn:model</code> will prevent changes to an input from being choppy when there are lots of updates in quick succession.
+
+            <pre data-lang="html"><code class="language-html">&lt;!-- choppy-updates.html -->
+&lt;input type="text" unicorn:model="name">&lt;/input></code></pre>
+
+            <pre data-lang="html"><code class="language-html">&lt;!-- smooth-updates.html -->
+&lt;input type="text" id="someFancyId" unicorn:model="name">&lt;/input></code></pre>
+        </p>
+
+        <p>
+            However, setting the same <code>id</code> on two elements with the same <code>unicorn:model</code> won't work. If the elements' <code>unicorn:key</code> is unique, the elements will stay in sync as expected.
+
+            <pre data-lang="html"><code class="language-html">&lt;!-- missing-updates.html -->
+&lt;input type="text" id="someFancyId" unicorn:model="name">&lt;/input>
+&lt;input type="text" id="someFancyId" unicorn:model="name">&lt;/input></code></pre>
+
+            <pre data-lang="html"><code class="language-html">&lt;!-- this-should-work.html -->
+&lt;input type="text" id="someFancyId" unicorn:model="name">&lt;/input>
+&lt;input type="text" id="someFancyId" unicorn:model="name" unicorn:key="someFancyKey">&lt;/input></code></pre>
+        </p>
+
+        <h2>DOM merging</h2>
+        <p>
+            The Javascript library used to merge changes in the DOM, <code>morphdom</code>, uses elements' <code>id</code> to intelligently update DOM elements. If it isn't possible to have an <code>id</code> attribute on the element, <code>unicorn:key</code> can also be used.
+
+            <pre data-lang="html"><code class="language-html">&lt;!-- fancy-key.html -->
+&lt;input type="text" unicorn:model="name" unicorn:key="someFancyKey">&lt;/input></code></pre>
         </p>
 
         <div class="previous">

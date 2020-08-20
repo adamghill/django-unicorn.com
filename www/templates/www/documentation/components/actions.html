@@ -10,10 +10,10 @@
         </h1>
 
         <p>
-            Components can also trigger methods from the templates.
+            Components can also trigger methods from the templates by listening to any valid event type. The most common events would be <code>click</code>, <code>input</code>, <code>keydown</code>, <code>keyup</code>, <code>mouseenter</code>, but <a href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN has a list of all of the browser event types available</a>.
         </p>
 
-        <h3>Click</h3>
+        <h2>Events</h2>
 
         <p>
             An example action to reset the name property.
@@ -40,11 +40,12 @@ class HelloWorldView(UnicornView):
         </p>
 
         <p class="tip">
-            Instance methods, those which only take <code>self</code> as a parameter, can be called from the template with or without parenthesis.
+            Instance methods without arguments can be called from the template with or without parenthesis.
         </p>
 
+        <h2>Passing arguments</h2>
         <p>
-            <code>unicorn:click</code> can also pass arguments to the backend component.
+            Actions can also pass arguments to the backend component.
         </p>
 
         {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
@@ -52,7 +53,7 @@ class HelloWorldView(UnicornView):
     &lt;input unicorn:model="name" type="text" id="text"&gt;
     Hello {{ name|title }} 👋
     &lt;button unicorn:click="set('Bob')"&gt;Set as Bob&lt;/button&gt;
-    &lt;button unicorn:click="set()"&gt;Set default&lt;/button&gt;
+    &lt;button unicorn:click="set()"&gt;Set default value of name argument&lt;/button&gt;
 &lt;/div&gt;</code></pre>{% endverbatim %}
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -61,22 +62,19 @@ from django_unicorn.components import UnicornView
 class HelloWorldView(UnicornView):
     name = "World"
 
-    def set(self, name="World"):
+    def set(self, name="Universe"):
         self.name = name</code></pre>
 
-        <p class="info">
-            The method defined by the <code>unicorn:click</code> attribute is triggered by a <code>click</code> event on the element.
-        </p>
-
+        <h2 id="set">Set shortcut</h2>
         <p>
-            <code>unicorn:click</code> can also set properties easily by using a property name with an equal sign and the value.
+            Actions can also set properties without requiring an explicit method.
         </p>
 
         {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
 &lt;div&gt;
     &lt;input unicorn:model="name" type="text" id="text"&gt;
     Hello {{ name|title }} 👋
-    &lt;button unicorn:click="name='Bob'"&gt;Set as Bob&lt;/button&gt;
+    &lt;button unicorn:click="name='Bob'"&gt;Set name as Bob&lt;/button&gt;
 &lt;/div&gt;</code></pre>{% endverbatim %}
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -85,13 +83,18 @@ from django_unicorn.components import UnicornView
 class HelloWorldView(UnicornView):
     name = "World"</code></pre>
 
-        <h4>Special methods</h4>
+        <h2>Special methods</h2>
 
-        <h5 id="reset">reset</h5>
+        <h3 id="reset">reset</h3>
 
         <p>
-            Use <code>unicorn:click="reset"</code> to be able to reset the component to its original state.
+            Use the method name of <code>reset</code> to revert the component to its original state.
         </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- reset-world.html --&gt;
+&lt;div&gt;
+    &lt;button unicorn:click="reset"&gt;Reset the component&lt;/button&gt;
+&lt;/div&gt;</code></pre>
 
         <div class="previous">
             <a href="{% url 'www:documentation' name='components/templates' %}">Templates</a>
