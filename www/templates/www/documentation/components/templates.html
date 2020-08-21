@@ -10,14 +10,55 @@
         </h1>
 
         <p>
-            Templates are just normal Django HTML templates, so anything you could normally do in a template will still
-            work, including template tags, filters, loops, if statements, etc.
+            Templates are just normal Django HTML templates, so anything you could normally do in a template will still work, including template tags, filters, loops, if statements, etc.
         </p>
 
         <p class="tip">
-            <code>django-unicorn</code> expects there to be a root <code>div</code> element surrounding the component
-            template.
+            <code>django-unicorn</code> expects there to be a root <code>div</code> element surrounding the component template.
         </p>
+
+        <h2>Modifiers</h2>
+
+        <h3 id="lazy">Lazy</h3>
+
+        <p>
+            To prevent updates from happening on <em>every</em> input to a textbox, you can append a <code>lazy</code> modifier to the end of <code>unicorn:model</code>. That will only update the component when a <code>blur</code> event happens.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- waits-for-blur.html -->
+&lt;div>
+    &lt;input unicorn:model.lazy="name" type="text" id="text">
+    Hello {{ name|title }}
+&lt;/div></code></pre>
+        {% endverbatim %}
+
+        <h3>Debounce</h3>
+
+        <p>
+            By default <code>django-unicorn</code> will wait 250ms to fire an <code>input</code> event when <code>unicorn:model</code> is updated. However, the <code>debounce</code> modifier configures how long to wait to fire the event. The time is always specified in milliseconds, for example: <code>unicorn:model.debounce-1000</code> would wait for 1000 milliseconds (1 second) before firing.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- waits-1-second.html -->
+&lt;div>
+    &lt;input unicorn:model.debounce-1000="name" type="text" id="text">
+    Hello {{ name|title }}
+&lt;/div></code></pre>
+        {% endverbatim %}
+
+        <h2>Chaining modifiers</h2>
+        <p>
+            The modifiers can even be chained together.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- waits-for-blur-and-then-5-seconds.html -->
+&lt;div>
+    &lt;input unicorn:model.lazy.debounce-5000="name" type="text" id="text">
+    Hello {{ name|title }}
+&lt;/div></code></pre>
+        {% endverbatim %}
 
         <h2>Smooth updates</h2>
         <p>

@@ -52,7 +52,7 @@ class HelloWorldView(UnicornView):
         </p>
 
         <p class="info">
-            <code>unicorn:model</code> updates are triggered by listening to <code>input</code> events on the element.
+            By default <code>unicorn:model</code> updates are triggered by listening to <code>input</code> events on the element. To listen to <code>blur</code>, use the <a href="{% url 'www:documentation' 'components/templates' %}#lazy">lazy</a> modifier.
         </p>
 
         <p>
@@ -62,19 +62,6 @@ class HelloWorldView(UnicornView):
         <p class="tip">
             Never put sensitive data into a public property because it will be sent in AJAX calls and be stored in the HTML.
         </p>
-
-        <h2>Modifiers</h2>
-
-        <h3>Lazy</h3>
-        To prevent updates from happening on <em>every</em> input to a textbox, you can append a <code>lazy</code> modifier to the end of <code>unicorn:model</code>. That will only update the component when a <code>blur</code> event happens.
-
-        {% verbatim %}
-        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
-&lt;div>
-    &lt;input unicorn:model.lazy="name" type="text" id="text">
-    Hello {{ name|title }}
-&lt;/div></code></pre>
-        {% endverbatim %}
 
         <div class="previous">
             <a href="{% url 'www:documentation' 'faq' %}">FAQ</a>
