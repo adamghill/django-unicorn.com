@@ -49,6 +49,22 @@
             Nope! In some cases, you might need to actually build an <span title="single-page application">SPA</span> in which case <code>django-unicorn</code> really isn't that helpful. In that case you might have to invest the time to learn a more involved frontend framework. Read <a href="https://tkainrad.dev/posts/use-vuejs-with-django/">Using VueJS alongside Django</a> for one approach.
         </p>
 
+        <h5 class="question">
+            Isn't calling an AJAX endpoint on every input slow?
+        </h5>
+
+        <p>
+            Not really! <code>django-unicorn</code> is ideal for when an AJAX call would already be required (such as hitting an API for typeahead search or update data in a database). If that isn't required, the <a href="{% url 'www:documentation' 'components/templates' %}#lazy">lazy</a> and <a href="{% url 'www:documentation' 'components/templates' %}#debounce">debounce</a> modifiers can also be used to prevent an AJAX call on every change.
+        </p>
+
+        <h5 class="question">
+            But, what about security?
+        </h5>
+
+        <p>
+            <code>django-unicorn</code> follows the best practices of Django and requires a <a href="https://docs.djangoproject.com/en/stable/ref/csrf/#how-it-works">CSRF token</a> to be set on any page that has a component. This ensures that no nefarious AJAX POSTs can be executed. <code>django-unicorn</code> also creates a unique component checksum with the Django <a href="https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-SECRET_KEY">secret key</a> on every data change which also ensures that all updates are valid.
+        </p>
+
         <div class="previous">
             <a href="{% url 'www:documentation' name='installation' %}">Installation</a>
         </div>

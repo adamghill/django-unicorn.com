@@ -22,7 +22,7 @@
         <h3 id="lazy">Lazy</h3>
 
         <p>
-            To prevent updates from happening on <em>every</em> input to a textbox, you can append a <code>lazy</code> modifier to the end of <code>unicorn:model</code>. That will only update the component when a <code>blur</code> event happens.
+            To prevent updates from happening on <em>every</em> input, you can append a <code>lazy</code> modifier to the end of <code>unicorn:model</code>. That will only update the component when a <code>blur</code> event happens.
         </p>
 
         {% verbatim %}
@@ -33,10 +33,10 @@
 &lt;/div></code></pre>
         {% endverbatim %}
 
-        <h3>Debounce</h3>
+        <h3 id="debounce">Debounce</h3>
 
         <p>
-            By default <code>django-unicorn</code> will wait 250ms to fire an <code>input</code> event when <code>unicorn:model</code> is updated. However, the <code>debounce</code> modifier configures how long to wait to fire the event. The time is always specified in milliseconds, for example: <code>unicorn:model.debounce-1000</code> would wait for 1000 milliseconds (1 second) before firing.
+            The <code>debounce</code> modifier configures how long to wait to fire an event. The time is always specified in milliseconds, for example: <code>unicorn:model.debounce-1000</code> would wait for 1000 milliseconds (1 second) before firing the message.
         </p>
 
         {% verbatim %}

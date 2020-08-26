@@ -19,12 +19,12 @@
             An example action to reset the name property.
         </p>
 
-        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
-&lt;div&gt;
-    &lt;input unicorn:model="name" type="text" id="text"&gt;
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+&lt;div>
+    &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }}
-    &lt;button unicorn:click="reset_name"&gt;Reset Name&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+    &lt;button unicorn:click="reset_name">Reset Name&lt;/button>
+&lt;/div></code></pre>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
@@ -48,13 +48,13 @@ class HelloWorldView(UnicornView):
             Actions can also pass arguments to the backend component.
         </p>
 
-        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
-&lt;div&gt;
-    &lt;input unicorn:model="name" type="text" id="text"&gt;
+        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+&lt;div>
+    &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }} 👋
-    &lt;button unicorn:click="set('Bob')"&gt;Set as Bob&lt;/button&gt;
-    &lt;button unicorn:click="set()"&gt;Set default value of name argument&lt;/button&gt;
-&lt;/div&gt;</code></pre>{% endverbatim %}
+    &lt;button unicorn:click="set('Bob')">Set as Bob&lt;/button>
+    &lt;button unicorn:click="set()">Set default value of name argument&lt;/button>
+&lt;/div></code></pre>{% endverbatim %}
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
@@ -70,12 +70,12 @@ class HelloWorldView(UnicornView):
             Actions can also set properties without requiring an explicit method.
         </p>
 
-        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
-&lt;div&gt;
-    &lt;input unicorn:model="name" type="text" id="text"&gt;
+        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+&lt;div>
+    &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }} 👋
-    &lt;button unicorn:click="name='Bob'"&gt;Set name as Bob&lt;/button&gt;
-&lt;/div&gt;</code></pre>{% endverbatim %}
+    &lt;button unicorn:click="name='Bob'">Set name as Bob&lt;/button>
+&lt;/div></code></pre>{% endverbatim %}
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
@@ -91,10 +91,23 @@ class HelloWorldView(UnicornView):
             Use the method name of <code>reset</code> to revert the component to its original state.
         </p>
 
-        <pre data-lang="html"><code class="language-html">&lt;!-- reset-world.html --&gt;
-&lt;div&gt;
-    &lt;button unicorn:click="reset"&gt;Reset the component&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+        <pre data-lang="html"><code class="language-html">&lt;!-- reset-world.html -->
+&lt;div>
+    &lt;button unicorn:click="reset">Reset the component&lt;/button>
+&lt;/div></code></pre>
+
+        <h2 id="calling-methods">Calling methods</h2>
+
+        <p>
+            Sometimes you need to trigger a method on a component from regular Javascript. That is possible with <code>Unicorn.call()</code>. It can be called from anywhere else on the page.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- index.html -->
+{% unicorn 'hello-world' %}
+        
+&lt;button onclick="Unicorn.call('hello-world', 'set_name');">Set the name from outside the component&lt;/button></code></pre>
+        {% endverbatim %}
 
         <div class="previous">
             <a href="{% url 'www:documentation' name='components/templates' %}">Templates</a>

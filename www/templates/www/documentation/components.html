@@ -31,20 +31,18 @@
             A basic example component could consist of the following template and class.
         </p>
 
-        {% verbatim %}
-        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html --&gt;
-&lt;div&gt;
-    &lt;input unicorn:model="name" type="text" id="text"&gt;
-    Hello {{ name|title }}
-&lt;/div&gt;</code></pre>
-        {% endverbatim %}
-
-        {% verbatim %}
         <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
 
 class HelloWorldView(UnicornView):
     name = "World"</code></pre>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+&lt;div>
+    &lt;input unicorn:model="name" type="text" id="text">
+    Hello {{ name|title }}
+&lt;/div></code></pre>
         {% endverbatim %}
 
         <p>
@@ -52,15 +50,83 @@ class HelloWorldView(UnicornView):
         </p>
 
         <p class="info">
-            By default <code>unicorn:model</code> updates are triggered by listening to <code>input</code> events on the element. To listen to <code>blur</code>, use the <a href="{% url 'www:documentation' 'components/templates' %}#lazy">lazy</a> modifier.
+            By default <code>unicorn:model</code> updates are triggered by listening to <code>input</code> events on the element. To listen for the <code>blur</code> event instead, use the <a href="{% url 'www:documentation' 'components/templates' %}#lazy">lazy</a> modifier.
         </p>
 
         <p>
-            Therefore, when a user types into the text input, the information is passed to the backend and populates the component class which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the <code>title</code> filter above).
+            When a user types into the text input, the information is passed to the backend and populates the component class, which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the <code>title</code> filter above).
         </p>
 
+        <h2>Supported property types</h2>
+
+        <p>
+            Properties of the component can be of many different types, including <code>str</code>, <code>int</code>, <code>list</code>, <code>dictionary</code>, <code>Django Model</code>, <code>Django QuerySet</code>, or <code>custom class</code>.
+        </p>
+
+        <h3>Dictionary and Django Models</h3>
+        <p>
+            <code>Dictionaries</code> and <code>Django models</code> can be used similary by <code>unicorn:model</code>.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+from book.models import Book
+    
+class HelloWorldView(UnicornView):
+    book = Book.objects.get(title='American Gods')
+    book_ratings = {'excellent': {'title: 'American Gods'}}</code></pre>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+&lt;div>
+    &lt;input unicorn:model="book.title" type="text" id="model">
+    &lt;input unicorn:model="book_ratings.excellent.title" type="text" id="dictionary">
+&lt;/div></code></pre>
+
+        <h3>Django QuerySet</h3>
+        <p>
+            <code>Django QuerySet</code> can be referenced similary to the Django template language in a <code>unicorn:model</code>.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+from book.models import Book
+    
+class HelloWorldView(UnicornView):
+    books = Book.objects.all()</code></pre>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+&lt;div>
+    &lt;input unicorn:model="books.0.title" type="text" id="text">
+&lt;/div></code></pre>
+
+        <h3>Custom class</h3>
+        <p>
+            Custom classes need to define how they are serialized. You can serialize the class when the <code>UnicornView</code> is instantiated, or define a <code>to_json</code> method on the object to return a a dictionary that can be used to serialize.
+
+            Inheriting from <code>unicorn.components.UnicornField</code> is a quick way to serialize a custom class, but note that it just calls <code>self.__dict__</code>, so it is not doing anything smart under the hood.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView, UnicornField
+
+class Author(UnicornField):
+    def __init(self):
+        self.name = 'Neil Gaiman'
+    
+    # Not needed because inherited from `UnicornField`
+    # def to_json(self):
+    #    return {'name': self.name}
+
+class HelloWorldView(UnicornView):
+    author = Author()</code></pre>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+&lt;div>
+    &lt;input unicorn:model="author.name" type="text" id="author_name">
+&lt;/div></code></pre>
+
         <p class="tip">
-            Never put sensitive data into a public property because it will be sent in AJAX calls and be stored in the HTML.
+            Never put sensitive data into a public property because the information it will embedded in the HTML.
         </p>
 
         <div class="previous">
