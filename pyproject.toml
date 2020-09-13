@@ -17,6 +17,7 @@ django-unicorn = "0.6.0"
 django-cache-memoize = "^0.1.7"
 django-redis = "^4.12.1"
 httpx = "^0.14.2"
+sentry-sdk = "^0.17.4"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
