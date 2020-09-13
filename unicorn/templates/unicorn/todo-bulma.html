@@ -1,7 +1,7 @@
 <div>
     <div class="field has-addons">
         <p class="control">
-            <input class="input" type="text" unicorn:model="task" placeholder="New task" id="task"></input>
+            <input class="input" type="text" unicorn:model.lazy="task" placeholder="New task" id="task"></input>
         </p>
         <p class="control">
             <button unicorn:click="add" class="button is-info">Add</button>&nbsp;&nbsp;<button unicorn:click="reset" class="button is-danger" {% if not tasks %}disabled{% endif %} style="border-radius: 4px;">Clear all tasks</button>
