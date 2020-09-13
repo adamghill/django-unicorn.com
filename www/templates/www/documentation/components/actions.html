@@ -16,14 +16,14 @@
         <h2>Events</h2>
 
         <p>
-            An example action to reset the name property.
+            An example action to clear the name property.
         </p>
 
-        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+        <pre data-lang="html"><code class="language-html">&lt;!-- clear-name.html -->
 &lt;div>
     &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }}
-    &lt;button unicorn:click="reset_name">Reset Name&lt;/button>
+    &lt;button unicorn:click="clear_name">Clear Name&lt;/button>
 &lt;/div></code></pre>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -32,7 +32,7 @@ from django_unicorn.components import UnicornView
 class HelloWorldView(UnicornView):
     name = "World"
 
-    def reset_name(self):
+    def clear_name(self):
         self.name = ""</code></pre>
     
         <p>
@@ -45,7 +45,7 @@ class HelloWorldView(UnicornView):
 
         <h2>Passing arguments</h2>
         <p>
-            Actions can also pass arguments to the backend component.
+            Actions can also pass some types of arguments to the backend component.
         </p>
 
         {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
@@ -88,7 +88,7 @@ class HelloWorldView(UnicornView):
         <h3 id="reset">reset</h3>
 
         <p>
-            Use the method name of <code>reset</code> to revert the component to its original state.
+            Revert the component to its original state.
         </p>
 
         <pre data-lang="html"><code class="language-html">&lt;!-- reset-world.html -->
@@ -96,10 +96,21 @@ class HelloWorldView(UnicornView):
     &lt;button unicorn:click="reset">Reset the component&lt;/button>
 &lt;/div></code></pre>
 
+        <h3 id="refresh">refresh</h3>
+
+        <p>
+            Refreshes the component from its current state.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- refresh-world.html -->
+&lt;div>
+    &lt;button unicorn:click="refresh">Refresh the component&lt;/button>
+&lt;/div></code></pre>
+
         <h2 id="calling-methods">Calling methods</h2>
 
         <p>
-            Sometimes you need to trigger a method on a component from regular Javascript. That is possible with <code>Unicorn.call()</code>. It can be called from anywhere else on the page.
+            Sometimes you need to trigger a method on a component from regular Javascript. That is possible with <code>Unicorn.call()</code>. It can be called from anywhere on the page.
         </p>
 
         {% verbatim %}
@@ -114,7 +125,7 @@ class HelloWorldView(UnicornView):
         </div>
 
         <div class="next">
-            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+            <a href="{% url 'www:documentation' name='components/validation' %}">Validation</a>
         </div>
     </article>
 </section>

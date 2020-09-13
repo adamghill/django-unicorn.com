@@ -65,6 +65,14 @@
             <code>django-unicorn</code> follows the best practices of Django and requires a <a href="https://docs.djangoproject.com/en/stable/ref/csrf/#how-it-works">CSRF token</a> to be set on any page that has a component. This ensures that no nefarious AJAX POSTs can be executed. <code>django-unicorn</code> also creates a unique component checksum with the Django <a href="https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-SECRET_KEY">secret key</a> on every data change which also ensures that all updates are valid.
         </p>
 
+        <h5 class="question">
+            What browsers does <code>django-unicorn</code> support?
+        </h5>
+
+        <p>
+            <code>django-unicorn</code> mostly targets modern browsers, but the project would appreciate any PRs to help support legacy browsers.
+        </p>
+
         <div class="previous">
             <a href="{% url 'www:documentation' name='installation' %}">Installation</a>
         </div>

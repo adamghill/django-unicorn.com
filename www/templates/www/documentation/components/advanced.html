@@ -38,6 +38,48 @@ class HelloWorldView(UnicornView):
         self.name = "mounted"</code></pre>
         {% endverbatim %}
 
+        <h4 id="hydrate">hydrate()</h4>
+
+        <p>
+            Gets called when the component data gets set.
+        </p>
+
+        <h4 id="updating">updating(name, value)</h4>
+
+        <p>
+            Gets called before each property that gets set.
+        </p>
+
+        <h4 id="updated">updated(name, value)</h4>
+
+        <p>
+            Gets called after each property gets set.
+        </p>
+
+        <h4 id="updating_property_name">updating_{property_name}(value)</h4>
+
+        <p>
+            Gets called before the specified property gets set.
+        </p>
+
+        <h4 id="updated_property_name">updated_{property_name}(value)</h4>
+
+        <p>
+            Gets called after the specified property gets set.
+        </p>
+
+        <h4 id="calling">calling(name, args)</h4>
+
+        <p>
+            Gets called before each method that gets called.
+        </p>
+
+        <h4 id="called">called(name, args)</h4>
+
+        <p>
+            Gets called after each method gets called.
+        </p>
+
         <h3>Meta</h3>
 
         <p>
@@ -88,15 +130,15 @@ class HelloStateView(UnicornView):
     )
     
     class Meta:
-        exclude = ("all_states", )</code></pre>
-        {% endverbatim %}
+        exclude = ("all_states", )</code></pre>{% endverbatim %}
     
-    <div class="previous">
-            <a href="{% url 'www:documentation' name='components/actions' %}">Actions</a>
-        </div>
+        <div class="previous">
+                <a href="{% url 'www:documentation' name='components/validation' %}">Validation</a>
+            </div>
 
-        <div class="next">
-            <a href="{% url 'www:documentation' name='examples/todo' %}">Todo</a>
+            <div class="next">
+                <a href="{% url 'www:documentation' name='examples/todo' %}">Todo</a>
+            </div>
         </div>
     </article>
 </section>

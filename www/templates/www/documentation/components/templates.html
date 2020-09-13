@@ -17,6 +17,28 @@
             <code>django-unicorn</code> expects there to be a root <code>div</code> element surrounding the component template.
         </p>
 
+        <h2 id="polling">Polling</h2>
+
+        <p>
+            <code>unicorn:poll</code> can be added to the root <code>div</code> element of a component to have it refresh the component automatically every 2 seconds. The polling is smart enough that it won't poll when the page is not active.
+        </p>
+
+        <p>
+            A method can also be specified if there is a specific method on the component that should called every time the polling fires. For example, <code>unicorn:poll="get_updates"</code> would call the <code>get_updates</code> method instead of the built-in <code>refresh</code> method.
+        </p>
+
+        <p>
+            To define a different refresh time in milliseconds, a modifier can be added as well. <code>unicorn:poll.1000</code> would fire the <code>refresh</code> method every 1 second, instead of the default 2 seconds.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- polling_every_five_seconds.html -->
+&lt;div unicorn:poll.5000="get_updates">
+    &lt;input unicorn:model="update" type="text" id="text">
+    {{ update }}
+&lt;/div></code></pre>
+        {% endverbatim %}
+
         <h2>Modifiers</h2>
 
         <h3 id="lazy">Lazy</h3>

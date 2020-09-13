@@ -60,7 +60,7 @@ class HelloWorldView(UnicornView):
         <h2>Supported property types</h2>
 
         <p>
-            Properties of the component can be of many different types, including <code>str</code>, <code>int</code>, <code>list</code>, <code>dictionary</code>, <code>Django Model</code>, <code>Django QuerySet</code>, or <code>custom class</code>.
+            Properties of the component can be of many different types, including <code>str</code>, <code>int</code>, <code>list</code>, <code>dictionary</code>, <code>Django Model</code>, <code>Django QuerySet</code>, or <code>custom classes</code>.
         </p>
 
         <h3>Dictionary and Django Models</h3>
@@ -100,10 +100,13 @@ class HelloWorldView(UnicornView):
 &lt;/div></code></pre>
 
         <h3>Custom class</h3>
-        <p>
-            Custom classes need to define how they are serialized. You can serialize the class when the <code>UnicornView</code> is instantiated, or define a <code>to_json</code> method on the object to return a a dictionary that can be used to serialize.
 
-            Inheriting from <code>unicorn.components.UnicornField</code> is a quick way to serialize a custom class, but note that it just calls <code>self.__dict__</code>, so it is not doing anything smart under the hood.
+        <p>
+            Custom classes need to define how they are serialized. If you have access to the object to serialize, you can define a <code>to_json</code> method on the object to return a dictionary that can be used to serialize. Inheriting from <code>unicorn.components.UnicornField</code> is a quick way to serialize a custom class, but note that it just calls <code>self.__dict__</code> under the hood, so it is not doing anything smart. <code>from_json</code> would need to be defined to deserialize the dictionary back into the actual class.
+        </p>
+
+        <p>
+            Another option is to set the <code>form_class</code> on the component and utilize Django's built-in forms and widgets to handle how the class should be deserialized. More details are provided in the <a href="{% url 'www:documentation' 'components/validation' %}">validation</a> section.
         </p>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -126,7 +129,7 @@ class HelloWorldView(UnicornView):
 &lt;/div></code></pre>
 
         <p class="tip">
-            Never put sensitive data into a public property because the information it will embedded in the HTML.
+            Never put sensitive data into a public property because that information will publicly available in the HTML source code.
         </p>
 
         <div class="previous">

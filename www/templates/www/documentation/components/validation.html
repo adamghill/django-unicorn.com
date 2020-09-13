@@ -1,0 +1,145 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Advanced{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Validation
+        </h1>
+
+        <p>
+            <code>django-unicorn</code> uses Django <code>forms</code> infrastructure for all validation. This means that a form could be re-used between any other Django views and a <code>django-unicorn</code>.
+        </p>
+
+        <p>
+            Using the Django <code>forms</code> system provides a way to serialize/deserialize certain classes (for example, <code>datetime</code> and <code>uuid</code>) and a way to validate properties of a class.
+        </p>
+
+        <p class="tip">
+            There are many <a href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#built-in-field-classes">built-in fields available for Django form fields</a> which can be used to validate text inputs.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># book.py
+from django_unicorn.components import UnicornView
+from .forms import BookForm
+    
+class BookView(UnicornView):
+    form_class = BookForm
+
+    title = ""
+    publish_date = ""</code></pre>
+
+        <pre data-lang="python"><code class="language-python"># forms.py
+from django import forms
+
+class BookForm(forms.Form):
+    title = forms.CharField(max_length=100, required=True)
+    publish_date = forms.DateField(required=True)</code></pre>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- book.html -->
+&lt;div>
+    &lt;input unicorn:model="title" type="text" id="title">&lt;br />
+    &lt;input unicorn:model="publish_date" type="text" id="publish-date">&lt;br />
+    &lt;button unicorn:click="validate">Validate&lt;/button>
+&lt;/div></code></pre>
+
+        <p>
+            Because of the <code>form_class = BookForm</code> defined on the <code>UnicornView</code> above, <code>django-unicorn</code> will automatically validate that the title has a value and is less than 100 characters. The <code>publish_date</code> will also be converted into a <code>datetime</code> from the string representation in the text input.
+        </p>
+
+        <h2>Showing validation errors</h2>
+
+        <p>
+            As the form is filled out the appropriate inputs will be validated. There are a few ways to show the validation messages.
+        </p>
+
+        <h3>Highlighting the invalid form</h3>
+
+        <p>
+            When a model form is invalid, a special <code>unicorn:error</code> attribute is added to the element. Depending on whether it is an <code>invalid</code> or <code>required</code> error code, the attribute will be <code>unicorn:error:invalid</code> or <code>unicorn:error:required</code>. The value of the attribute will be the validation message.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- highlight-input-errors.html -->
+&lt;div>
+    &lt;style>
+        [unicorn\:error\:invalid] {
+            border: 1px solid red !important;
+        }
+        [unicorn\:error\:required] {
+            border: 1px solid red !important;
+        }
+    &lt;/style>
+
+    &lt;input unicorn:model="publish_date" type="text" id="publish-date" unicorn:error:invalid="Enter a valid date/time.">&lt;br />
+&lt;div></code></pre>
+
+        <h3>Showing a specific error message</h3>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- show-error-message.html -->
+&lt;div>
+    &lt;input unicorn:model="publish_date" type="text" id="publish-date">&lt;br />
+    &lt;span class="error">{{ unicorn.errors.publish_date.0.message }}&lt;/span>
+&lt;div></code></pre>
+        {% endverbatim %}
+
+        <h3>Showing all the error messages</h3>
+
+        <p>
+            There is a <code>unicorn_errors</code> template tag that shows all errors for the component. It should provide an example of how to display component errors in a more specific way if needed.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- show-all-error-messages.html -->
+{% load unicorn %}
+
+&lt;div>
+    {% unicorn_errors %}
+
+    &lt;input unicorn:model="publish_date" type="text" id="publish-date">&lt;br />
+&lt;div></code></pre>
+        {% endverbatim %}
+
+        <h3>Validate the entire component</h3>
+
+        <p>
+            The magic action method <code>validate</code> can be used to validate the whole component by the front-end.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- validate.html -->
+&lt;div>
+    &lt;input unicorn:model="publish_date" type="text" id="publish-date">&lt;br />
+    &lt;button unicorn:click="validate">Validate&lt;/button>
+&lt;div></code></pre>
+
+        <p>
+            The <code>validate</code> can also be used inside of the component.
+        </p>
+
+        <pre data-lang="python"><code class="language-python">&lt;!-- validate.py -->
+from django_unicorn.components import UnicornView
+from .forms import BookForm
+
+class BookView(UnicornView):
+    form_class = BookForm
+
+    text = "hello"
+    number = ""
+
+    def set_text(self):
+        self.text = "world"
+        self.validate()</code></pre>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='components/actions' %}">Actions</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}
