@@ -73,6 +73,14 @@
             <code>django-unicorn</code> mostly targets modern browsers, but the project would appreciate any PRs to help support legacy browsers.
         </p>
 
+        <h5 class="question">
+            How to make sure that the new Javascript is served when a new version of <code>django-unicorn</code> is released?
+        </h5>
+
+        <p>
+            <code>django-unicorn</code> works great with <a href="https://whitenoise.evans.io/en/stable/">whitenoise</a>'s ability to serve static assets with a filename based on a hash of the file.  <a href="http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support">CompressedManifestStaticFilesStorage</a> works great for this purpose and is used by <a href="https://www.django-unicorn.com/">django-unicorn.com</a> for this very purpose. Example code can be found at <a href="https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72">https://github.com/adamghill/django-unicorn.com/</a>.
+        </p>
+
         <div class="previous">
             <a href="{% url 'www:documentation' name='installation' %}">Installation</a>
         </div>
