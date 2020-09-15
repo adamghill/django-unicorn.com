@@ -6,5 +6,6 @@ class TodoBulmaView(UnicornView):
     tasks = []
 
     def add(self):
-        self.tasks.append(self.task)
-        self.task = ""
+        if self.task:
+            self.tasks.append(self.task)
+            self.task = ""
