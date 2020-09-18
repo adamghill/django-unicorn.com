@@ -3,7 +3,7 @@ from django import forms
 
 
 class TodoForm(forms.Form):
-    task = forms.CharField(min_length=1, max_length=20, required=True)
+    task = forms.CharField(min_length=2, max_length=20, required=True)
 
 
 class TodoBulmaView(UnicornView):
