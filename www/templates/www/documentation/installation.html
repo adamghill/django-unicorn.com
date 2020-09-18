@@ -28,7 +28,7 @@
             <li>Add <code>"django_unicorn",</code> to the <code>INSTALLED_APPS</code> array in the Django settings file (normally settings.py)</li>
             <li>Add <code>path("unicorn/", include("django_unicorn.urls")),</code> into the project's urls.py</li>
             <li>Add <code>{% load unicorn %}</code> to the top of the Django HTML template</li>
-            <li>Add <code>{% unicorn_scripts %}</code> into the Django HTML template</li>
+            <li>Add <code>{% unicorn_scripts %}</code> into the Django HTML template and make sure that <code>{% csrf_token %}</code> is somewhere on the page</li>
         {% endverbatim %}
         </ol>
 
