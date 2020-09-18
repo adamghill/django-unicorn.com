@@ -122,7 +122,8 @@
             <h4 class="subtitle">Code for the todo component</h4>
             {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- unicorn/templates/unicorn/todo.html --&gt;
 &lt;div&gt;
-    &lt;input type=&quot;text&quot; unicorn:model=&quot;task&quot; placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
+    &lt;input type=&quot;text&quot; unicorn:model.lazy=&quot;task&quot; unicorn:keyup.enter=&quot;add&quot;
+        placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
     &lt;button unicorn:click=&quot;add&quot;&gt;Add&lt;/button&gt;
     &lt;button unicorn:click=&quot;reset&quot;&gt;Clear all tasks&lt;/button&gt;
 
@@ -143,6 +144,11 @@
             
             <pre data-lang="python"><code class="language-python"># unicorn/components/todo.py
 from django_unicorn.components import UnicornView
+from django import forms
+
+
+class TodoForm(forms.Form):
+    task = forms.CharField(min_length=1, max_length=20, required=True)
 
 
 class TodoView(UnicornView):
@@ -150,8 +156,9 @@ class TodoView(UnicornView):
     tasks = []
 
     def add(self):
-        self.tasks.append(self.task)
-        self.task = ""</code></pre>
+        if self.is_valid():
+            self.tasks.append(self.task)
+            self.task = ""</code></pre>
         </div>
 
         <div class="mt-4">
@@ -161,6 +168,9 @@ class TodoView(UnicornView):
 
             {% verbatim %}
             <pre data-lang="html"><code class="language-html">&lt;!-- index.html --&gt;
+{% load unicorn %}
+{% csrf_token %}
+
 {% unicorn 'todo' %}</code></pre>
             {% endverbatim %}
         </div>
