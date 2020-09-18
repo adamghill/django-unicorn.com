@@ -132,6 +132,24 @@ class BookView(UnicornView):
         self.text = "world"
         self.validate()</code></pre>
 
+        <p>
+            The <code>is_valid</code> can also be used inside of the component to check if a component is valid.
+        </p>
+
+        <pre data-lang="python"><code class="language-python">&lt;!-- validate.py -->
+from django_unicorn.components import UnicornView
+from .forms import BookForm
+
+class BookView(UnicornView):
+    form_class = BookForm
+
+    text = "hello"
+    number = ""
+
+    def set_text(self):
+        if self.is_valid():
+            self.text = "world"</code></pre>
+
         <div class="previous">
             <a href="{% url 'www:documentation' name='components/actions' %}">Actions</a>
         </div>
