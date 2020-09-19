@@ -86,6 +86,8 @@ COMPRESS_FILTERS = {
 }
 COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
 
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 if ENVIRONMENT == "live":
     DEBUG = False
