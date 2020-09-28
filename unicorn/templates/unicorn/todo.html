@@ -1,5 +1,7 @@
 <div>
-    <input type="text" unicorn:model.lazy="task" placeholder="New task" id="task"></input>
+    <form unicorn:submit.prevent="add">
+        <input type="text" unicorn:model.lazy="task" placeholder="New task" id="task"></input>
+    </form>
     <button unicorn:click="add">Add</button>
 
     <p>

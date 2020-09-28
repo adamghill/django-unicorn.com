@@ -9,10 +9,34 @@
             Changelog
         </h1>
 
+        <h3>0.7.1</h3>
+        <ul>
+            <li>Fix bug where multiple actions would trigger multiple payloads.</li>
+            <li>Handle lazy models that are children of an action model better.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.7.0...0.7.1">All changes since 0.7.0</a>.
+
+        <h3>0.7.0</h3>
+        <ul>
+            <li>Parse <a href="{% url 'www:documentation' 'components/actions' %}#argument-types">action method arguments</a> as basic Python objects</li>
+            <li><a href="{% url 'www:documentation' 'components/actions' %}#modifiers">Stop and prevent modifiers</a> on actions</li>
+            <li><a href="{% url 'www:documentation' 'components/templates' %}#defer">Defer modifier</a> on model</li>
+            <li>Support for multiple actions on the same element</li>
+            <li>Django setting to <a href="{% url 'www:documentation' 'settings' %}#minimize">minimize</a> the Javascript</li>
+        </ul>
+
+        <h4>Breaking changes</h4>
+        <ul>
+            <li>Remove unused <code>unicorn_styles</code> template tag</li>
+            <li>Use dash for poll timing instead of dot</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.6.5...0.7.0">All changes since 0.6.5</a>.
+
         <h3>0.6.5</h3>
         <ul>
             <li>Attempt to get the CSRF token from the cookie first before looking at the CSRF token.</li>
         </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.6.4...0.6.5">All changes since 0.6.4</a>.
 
         <h3>0.6.4</h3>
         <ul>
@@ -20,24 +44,28 @@
             <li>Add <code>is_valid</code> method to component to more easily check if a component has validation errors.</li>
             <li>Better error message if the CSRF token is not available.</li>
         </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.6.3...0.6.4">All changes since 0.6.3</a>.
 
         <h3>0.6.3</h3>
         <ul>
             <li>Fix bug where model elements weren't getting updated values when an action was being called during the same component update.</li>
             <li>Fix bug where some action event listeners were duplicated.</li>
         </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.6.2...0.6.3">All changes since 0.6.2</a>.
 
         <h3>0.6.2</h3>
         <ul>
             <li>More robust fix for de-duping multiple actions.</li>
             <li>Fix bug where conditionally added actions didn't get an event listener.</li>
         </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.6.1...0.6.2">All changes since 0.6.1</a>.
 
         <h3>0.6.1</h3>
         <ul>
             <li>Fix model sync getting lost when there is an action (<a href="https://github.com/adamghill/django-unicorn/issues/39">issue 39</a>).</li>
             <li>Small fix for validations.</li>
         </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.6.0...0.6.1">All changes since 0.6.0</a>.
 
         <h3>0.6.0</h3>
         <ul>
@@ -45,6 +73,7 @@
             <li><a href="{% url 'www:documentation' 'components/templates' %}#polling">Polling</a> for component updates.</li>
             <li><a href="{% url 'www:documentation' 'components/advanced' %}">More component hooks</a></li>
         </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.5.0...0.6.0">All changes since 0.5.0</a>.
 
         <h3>0.5.0</h3>
         <ul>
@@ -54,51 +83,60 @@
             <li><a href="{% url 'www:documentation' 'components/templates' %}#lazy">Lazy</a> modifier to listen for <code>blur</code> instead of <code>input</code> on <code>unicorn:model</code>.</li>
             <li>Better support for <code>textarea</code> HTML element.</li>
         </ul>
-
-        <a href="https://github.com/adamghill/django-unicorn/compare/0.4.0...0.5.0">All changes</a> since 0.4.0
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.4.0...0.5.0">All changes since 0.4.0</a>.
 
         <h3>0.4.0</h3>
-        
         <ul>
             <li><a href="{% url 'www:documentation' 'components/actions' %}#set">Set shortcut</a> for setting properties.</li>
             <li>Listen for any valid event, not just <code>click</code>.</li>
             <li>Better handling for model updates when element ids aren't unique.</li>
         </ul>
-
-        <a href="https://github.com/adamghill/django-unicorn/compare/0.3.0...0.4.0">All changes</a> since 0.3.0
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.3.0...0.4.0">All changes since 0.3.0</a>.
 
         <h3>0.3.0</h3>
-        
         <ul>
             <li>Add <a href="{% url 'www:documentation' 'components/advanced' %}#mount">mount hook</a>.</li>
             <li>Add <a href="{% url 'www:documentation' 'components/actions' %}#reset">reset</a> action.</li>
             <li>Remove lag when typing fast in a text input and overall improved performance.</li>
             <li>Better error handling for exceptional cases.</li>
         </ul>
-
-        <a href="https://github.com/adamghill/django-unicorn/compare/0.2.3...0.3.0">All changes</a> since 0.2.3
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.2.3...0.3.0">All changes since 0.2.3</a>.
 
         <h3>0.2.3</h3>
-        Fix for creating default folders when running `startunicorn`.
+        <ul>
+            <li>Fix for creating default folders when running `startunicorn`.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.2.2...0.2.3">All changes since 0.2.2</a>.
 
         <h3>0.2.2</h3>
-        Set default <code>template_name</code> if it's missing in component.
+        <ul>
+            <li>Set default <code>template_name</code> if it's missing in component.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.2.1...0.2.2">All changes since 0.2.1</a>.
 
         <h3>0.2.1</h3>
-        Fix <code>startunicorn</code> Django management command.
+        <ul>
+            <li>Fix <code>startunicorn</code> Django management command.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.2.0...0.2.1">All changes since 0.2.0</a>.
 
         <h3>0.2.0</h3>
-        Switch from <code>Component</code> class to <code>UnicornView</code> to follow the conventions of class-based views.
-
         <ul>
+            <li>Switch from <code>Component</code> class to <code>UnicornView</code> to follow the conventions of class-based views.</li>
             <li><a href="https://github.com/adamghill/django-unicorn/issues/4">Investigate using class-based view instead of the custom Component class</a></li>
         </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.1.1...0.2.0">All changes since 0.1.1</a>.
 
         <h3>0.1.1</h3>
-        Fix package readme and repository link.
+        <ul>
+            <li>Fix package readme and repository link.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.1.0...0.1.1">All changes since 0.1.0</a>.
 
         <h3>0.1.0</h3>
-        Initial version with basic functionality.
+        <ul>
+            <li>Initial version with basic functionality.</li>
+        </ul>
     </article>
 </section>
 {% endblock content %}

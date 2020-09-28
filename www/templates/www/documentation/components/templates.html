@@ -28,12 +28,12 @@
         </p>
 
         <p>
-            To define a different refresh time in milliseconds, a modifier can be added as well. <code>unicorn:poll.1000</code> would fire the <code>refresh</code> method every 1 second, instead of the default 2 seconds.
+            To define a different refresh time in milliseconds, a modifier can be added as well. <code>unicorn:poll-1000</code> would fire the <code>refresh</code> method every 1 second, instead of the default 2 seconds.
         </p>
 
         {% verbatim %}
         <pre data-lang="html"><code class="language-html">&lt;!-- polling_every_five_seconds.html -->
-&lt;div unicorn:poll.5000="get_updates">
+&lt;div unicorn:poll-5000="get_updates">
     &lt;input unicorn:model="update" type="text" id="text">
     {{ update }}
 &lt;/div></code></pre>
@@ -42,7 +42,6 @@
         <h2>Modifiers</h2>
 
         <h3 id="lazy">Lazy</h3>
-
         <p>
             To prevent updates from happening on <em>every</em> input, you can append a <code>lazy</code> modifier to the end of <code>unicorn:model</code>. That will only update the component when a <code>blur</code> event happens.
         </p>
@@ -50,13 +49,12 @@
         {% verbatim %}
         <pre data-lang="html"><code class="language-html">&lt;!-- waits-for-blur.html -->
 &lt;div>
-    &lt;input unicorn:model.lazy="name" type="text" id="text">
+    &lt;input unicorn:model.lazy="name" type="text" id="name">
     Hello {{ name|title }}
 &lt;/div></code></pre>
         {% endverbatim %}
 
         <h3 id="debounce">Debounce</h3>
-
         <p>
             The <code>debounce</code> modifier configures how long to wait to fire an event. The time is always specified in milliseconds, for example: <code>unicorn:model.debounce-1000</code> would wait for 1000 milliseconds (1 second) before firing the message.
         </p>
@@ -64,14 +62,32 @@
         {% verbatim %}
         <pre data-lang="html"><code class="language-html">&lt;!-- waits-1-second.html -->
 &lt;div>
-    &lt;input unicorn:model.debounce-1000="name" type="text" id="text">
+    &lt;input unicorn:model.debounce-1000="name" type="text" id="name">
     Hello {{ name|title }}
+&lt;/div></code></pre>
+        {% endverbatim %}
+
+        <h3 id="defer">Defer</h3>
+        <p>
+            The <code>defer</code> modifier will store and save model changes until the next action gets triggered. This is useful to prevent additional network requests until an action is triggered.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- defer.html -->
+&lt;div>
+    &lt;input unicorn:model.defer="task" type="text" id="task">
+    &lt;button unicorn:click="add">Add task&lt;/button>
+    &lt;ul>
+        {% for task in tasks %}
+        &lt;li>{{ task }}&lt;/li>
+        {% endfor %}
+    &lt;/ul>
 &lt;/div></code></pre>
         {% endverbatim %}
 
         <h2>Chaining modifiers</h2>
         <p>
-            The modifiers can even be chained together.
+            Some modifiers can even be chained together.
         </p>
 
         {% verbatim %}

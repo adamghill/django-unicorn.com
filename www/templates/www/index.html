@@ -44,7 +44,7 @@
 
 <div class="box cta">
     <p class="has-text-centered">
-        <span class="tag is-primary">New</span> Version <strong>0.6.5</strong> is now released. 🎉 See the <a
+        <span class="tag is-primary">New</span> Version <strong>0.7.1</strong> is now released. 🎉 See the <a
             href="{% url 'www:documentation' 'changelog' %}">changelog</a> for new features.
     </p>
 </div>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="card-content">
                     <div class="content">
-                        <h4>Add modern site functionality easily</h4>
+                        <h4>Add modern site functionality</h4>
                         <p>
                             Quickly add in simple interactions to regular Django templates without learning a new templating language.
                         </p>
@@ -122,7 +122,10 @@
             <h4 class="subtitle">Code for the todo component</h4>
             {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- unicorn/templates/unicorn/todo.html --&gt;
 &lt;div&gt;
-    &lt;input type=&quot;text&quot; unicorn:model.lazy=&quot;task&quot; unicorn:keyup.enter=&quot;add&quot;
+    &lt;input type=&quot;text&quot;
+        unicorn:model.defer=&quot;task&quot;
+        unicorn:keyup.enter=&quot;add&quot;
+        unicorn:keyup.escape=&quot;task=&#39;&#39;&quot;
         placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
     &lt;button unicorn:click=&quot;add&quot;&gt;Add&lt;/button&gt;
     &lt;button unicorn:click=&quot;reset&quot;&gt;Clear all tasks&lt;/button&gt;
@@ -169,9 +172,8 @@ class TodoView(UnicornView):
             {% verbatim %}
             <pre data-lang="html"><code class="language-html">&lt;!-- index.html --&gt;
 {% load unicorn %}
-{% csrf_token %}
 
-{% unicorn 'todo' %}</code></pre>
+{% unicorn &quot;todo&quot; %}</code></pre>
             {% endverbatim %}
         </div>
 
@@ -196,7 +198,7 @@ class TodoView(UnicornView):
                 </ul>
 
                 <p>
-                    The end result is that you can focus on writing regular Django templates and simple Python classes without needing to switch to another language or build unnecessary plumbing. Best of all, the Javascript portion of the library is around <strong>13 KB minified</strong> (<strong>around 5 KB</strong> gzipped).
+                    The end result is that you can focus on writing regular Django templates and simple Python classes without needing to switch to another language or build unnecessary plumbing. Best of all, the Javascript portion of the library is around <strong>14 KB minified</strong> (<strong>around 5 KB</strong> gzipped).
                 </p>
             </div>
         </div>

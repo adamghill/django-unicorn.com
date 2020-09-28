@@ -10,21 +10,23 @@
         </h1>
 
         <p>
-            Components can also trigger methods from the templates by listening to any valid event type. The most common events would be <code>click</code>, <code>input</code>, <code>keydown</code>, <code>keyup</code>, <code>mouseenter</code>, but <a href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN has a list of all of the browser event types available</a>.
+            Components can also trigger methods from the templates by listening to any valid event type. The most common events would be <code>click</code>, <code>input</code>, <code>keydown</code>, <code>keyup</code>, and <code>mouseenter</code>, but <a href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN has a list of all of the browser event types available</a>.
         </p>
 
         <h2>Events</h2>
 
         <p>
-            An example action to clear the name property.
+            An example action to call the <code>clear_name</code> method on the component.
         </p>
 
+        {% verbatim %}
         <pre data-lang="html"><code class="language-html">&lt;!-- clear-name.html -->
 &lt;div>
     &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }}
     &lt;button unicorn:click="clear_name">Clear Name&lt;/button>
 &lt;/div></code></pre>
+        {% endverbatim %}
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
@@ -36,7 +38,7 @@ class HelloWorldView(UnicornView):
         self.name = ""</code></pre>
     
         <p>
-            When the button is clicked, the name property (and text input) will get set to an empty string.
+            When the button is clicked, the <code>name</code> property will get set to an empty string. Then, the component will intelligently re-render itself and the text input will update to match the property on the component.
         </p>
 
         <p class="tip">
@@ -45,16 +47,18 @@ class HelloWorldView(UnicornView):
 
         <h2>Passing arguments</h2>
         <p>
-            Actions can also pass some types of arguments to the backend component.
+            Actions can also pass basic types of arguments to the backend component.
         </p>
 
-        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
 &lt;div>
     &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }} 👋
     &lt;button unicorn:click="set('Bob')">Set as Bob&lt;/button>
     &lt;button unicorn:click="set()">Set default value of name argument&lt;/button>
-&lt;/div></code></pre>{% endverbatim %}
+&lt;/div></code></pre>
+        {% endverbatim %}
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
 from django_unicorn.components import UnicornView
@@ -64,6 +68,27 @@ class HelloWorldView(UnicornView):
 
     def set(self, name="Universe"):
         self.name = name</code></pre>
+
+        <h3 id="argument-types">Argument types</h3>
+        <p>
+            Arguments can be most basic Python types, including <code>string</code>, <code>int</code>, <code>float</code>, <code>list</code>, <code>tuple</code>, <code>dictionary</code>, <code>set</code>, <code>datetime</code>, and <code>UUID4</code>.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- argument-types.html -->
+&lt;div>
+    &lt;button unicorn:click="update(99)">Pass int&lt;/button>
+    &lt;button unicorn:click="update(1.234)">Pass float&lt;/button>
+    &lt;button unicorn:click="update({'key': 'value'})">Pass dictionary&lt;/button>
+    &lt;button unicorn:click="update([1, 2, 3])">Pass list&lt;/button>
+    &lt;button unicorn:click="update((1, 2, 3))">Pass tuple&lt;/button>
+    &lt;button unicorn:click="update({1, 2, 3})">Pass set&lt;/button>
+    &lt;button unicorn:click="update(2020-09-12T01:01:01)">Pass datetime&lt;/button>
+    &lt;button unicorn:click="update(90144cb9-fc47-476d-b124-d543b0cff091)">Pass UUID&lt;/button>
+&lt;/div></code></pre>
+
+        <p class="tip">
+            Strings will be converted to <code>datetime</code> if they are successfully parsed by Django's <code><a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime">parse_datetime</a></code> method.
+        </p>
 
         <h2 id="set">Set shortcut</h2>
         <p>
@@ -83,10 +108,34 @@ from django_unicorn.components import UnicornView
 class HelloWorldView(UnicornView):
     name = "World"</code></pre>
 
+        <h2 id="modifiers">Modifiers</h2>
+        <p>
+            Similar to models, actions also have modifiers which change how the method gets called.
+        </p>
+
+        <h3 id="prevent">prevent</h3>
+        <p>
+            Prevents the default action the browser would use for that element. The same as calling <code>preventDefault</code>.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- prevent-modifier.html -->
+&lt;div>
+    &lt;button unicorn:click.prevent="name='Bob'">Set name as Bob&lt;/button>
+&lt;/div></code></pre>
+
+        <h3 id="stop">stop</h3>
+        <p>
+            Stops the event from bubbling up the event chain. The same as calling <code>stopPropagation</code>.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- stop-modifier.html -->
+&lt;div>
+    &lt;button unicorn:click.stop="name='Bob'">Set name as Bob&lt;/button>
+&lt;/div></code></pre>
+
         <h2>Special methods</h2>
 
         <h3 id="reset">reset</h3>
-
         <p>
             Revert the component to its original state.
         </p>
@@ -97,9 +146,8 @@ class HelloWorldView(UnicornView):
 &lt;/div></code></pre>
 
         <h3 id="refresh">refresh</h3>
-
         <p>
-            Refreshes the component from its current state.
+            Refresh and re-render the component from its current state.
         </p>
 
         <pre data-lang="html"><code class="language-html">&lt;!-- refresh-world.html -->

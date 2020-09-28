@@ -66,6 +66,9 @@
                 </ul>
             </li>
             <li>
+                <p class="{% if request.path == '/documentation/settings' %}active{% endif %}"><a href="{% url 'www:documentation' 'settings' %}">Settings</a></p>
+            </li>
+            <li>
                 <p class="{% if request.path == '/documentation/cli' %}active{% endif %}"><a href="{% url 'www:documentation' 'cli' %}">CLI</a></p>
             </li>
             <!--<li>

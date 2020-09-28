@@ -34,7 +34,7 @@
 
     <div class="field has-addons">
         <p class="control">
-            <input class="input" type="text" unicorn:model.lazy="task" unicorn:keyup.enter="add" placeholder="New task" id="task"></input>
+            <input class="input" type="text" unicorn:model.defer="task" unicorn:keyup.enter="add" unicorn:keyup.escape="task=''" placeholder="New task" id="task"></input>
         </p>
         <p class="control">
             <button unicorn:click="add" class="button is-info">Add</button>&nbsp;&nbsp;

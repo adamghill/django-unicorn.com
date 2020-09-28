@@ -1,0 +1,29 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Settings{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Settings
+        </h1>
+
+        <p>
+            <code>django-unicorn</code> stores all settings in a dictionary under the <code>DJANGO_UNICORN</code> setting attribute in the Django settings file.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># settings.py
+DJANGO_UNICORN = {
+    "MINIMIZE": False
+}
+</code></pre>
+
+        <h3 id="minimize">MINIMIZE</h3>
+        <p>
+            Provides a way to control if the minimized version of <code>unicorn.min.js</code> is used. Defaults to the negation of <code>DEBUG</code>.
+        </p>
+
+    </article>
+</section>
+{% endblock content %}
