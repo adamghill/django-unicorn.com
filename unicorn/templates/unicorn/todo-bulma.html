@@ -38,8 +38,11 @@
         </p>
         <p class="control">
             <button unicorn:click="add" class="button is-info">Add</button>&nbsp;&nbsp;
-            <button unicorn:click="reset" class="button is-danger" {% if not tasks %}disabled{% endif %} style="border-radius: 4px;">Clear all tasks</button>
         </p>
+
+        <div class="control">
+            <button unicorn:click="reset" class="button is-danger" {% if not tasks %}disabled{% endif %} style="border-radius: 4px;">Clear <span class="is-hidden-mobile">&nbsp;all tasks</span></button>
+        </div>
     </div>
 
     <p>

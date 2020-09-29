@@ -51,7 +51,7 @@
 
 <section class="container">
     <div class="columns features">
-        <div class="column is-4">
+        <div class="column is-4 mx-4">
             <div class="card is-shady">
                 <div class="card-image has-text-centered">
                     <img src="{% static 'img/layout.svg' %}" class="pt-4">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="column is-4">
+        <div class="column is-4 mx-4">
             <div class="card is-shady">
                 <div class="card-image has-text-centered">
                     <img src="{% static 'img/watch.svg' %}" class="pt-4">
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="column is-4">
+        <div class="column is-4 mx-4">
             <div class="card is-shady">
                 <div class="card-image has-text-centered">
                     <img src="{% static 'img/zap.svg' %}" class="pt-4">
@@ -102,10 +102,10 @@
         <div>
             <h2 class="title">Create your first component</h2>
 
-            <ol>
-                <li><a href="{% url 'www:documentation' 'installation' %}">Install</a> <code>django-unicorn</code> into your project</li>
+            <ol class="mx-4">
+                <li><a href="{% url 'www:documentation' 'installation' %}">Install</a> <code>django-unicorn</code></li>
                 <li><a href="{% url 'www:documentation' 'components' %}">Create</a> a component</li>
-                <li>Add the component to your template</li>
+                <li>Add the component to your template with {% verbatim %}<code>{% unicorn 'component-name' %}</code>{% endverbatim %}</li>
                 <li>🎉</li>
             </ol>
         </div>
@@ -119,28 +119,27 @@
                 {% unicorn 'todo-bulma' %}
             </div>
 
-            <h4 class="subtitle">Code for the todo component</h4>
             {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- unicorn/templates/unicorn/todo.html --&gt;
 &lt;div&gt;
-    &lt;input type=&quot;text&quot;
-        unicorn:model.defer=&quot;task&quot;
-        unicorn:keyup.enter=&quot;add&quot;
-        unicorn:keyup.escape=&quot;task=&#39;&#39;&quot;
-        placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
-    &lt;button unicorn:click=&quot;add&quot;&gt;Add&lt;/button&gt;
-    &lt;button unicorn:click=&quot;reset&quot;&gt;Clear all tasks&lt;/button&gt;
+  &lt;input type=&quot;text&quot;
+    unicorn:model.defer=&quot;task&quot;
+    unicorn:keyup.enter=&quot;add&quot;
+    unicorn:keyup.escape=&quot;task=&#39;&#39;&quot;
+    placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
+  &lt;button unicorn:click=&quot;add&quot;&gt;Add&lt;/button&gt;
+  &lt;button unicorn:click=&quot;reset&quot;&gt;Clear all tasks&lt;/button&gt;
 
-    &lt;p&gt;
-        {% if tasks %}
-        &lt;ul&gt;
-            {% for task in tasks %}
-            &lt;li&gt;{{ task }}&lt;/li&gt;
-            {% endfor %}
-        &lt;/ul&gt;
-        {% else %}
-        No tasks 🎉
-        {% endif %}
-    &lt;/p&gt;
+  &lt;p&gt;
+    {% if tasks %}
+      &lt;ul&gt;
+        {% for task in tasks %}
+          &lt;li&gt;{{ task }}&lt;/li&gt;
+        {% endfor %}
+      &lt;/ul&gt;
+    {% else %}
+      No tasks 🎉
+    {% endif %}
+  &lt;/p&gt;
 &lt;/div&gt;</code></pre>{% endverbatim %}
 
             <br />
@@ -162,19 +161,6 @@ class TodoView(UnicornView):
         if self.is_valid():
             self.tasks.append(self.task)
             self.task = ""</code></pre>
-        </div>
-
-        <div class="mt-4">
-            <p class="mb-1">
-                Then, include the component in a Django template.
-            </p>
-
-            {% verbatim %}
-            <pre data-lang="html"><code class="language-html">&lt;!-- index.html --&gt;
-{% load unicorn %}
-
-{% unicorn &quot;todo&quot; %}</code></pre>
-            {% endverbatim %}
         </div>
 
         <div class="mt-4">

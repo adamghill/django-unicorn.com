@@ -32,23 +32,35 @@
             <a class="navbar-item" href="/">
                 <strong>django-unicorn ✨</strong>
             </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
 
-        <div class="navbar-menu">
-            <div class="navbar-start">
-                <!-- <a class="navbar-item" href="{% url 'www:documentation' %}">
+        <div class="navbar-menu" id="navMenu">
+            <!-- <div class="navbar-start">
+                <a class="navbar-item" href="{% url 'www:documentation' %}">
                 Documentation
-                </a> -->
-                <!-- <a class="navbar-item" href="">
+                </a>
+                <a class="navbar-item" href="">
                     Screenshares
-                </a> -->
-            </div>
+                </a>
+            </div> -->
 
             <div class="navbar-end">
                 <a class="navbar-item" href="{% url 'www:documentation' %}">
                     <img src="{% static 'img/book.svg' %}" style="max-height: 1.5em;" />&nbsp;Documentation
                 </a>
                 <a class="navbar-item" href="https://github.com/adamghill/django-unicorn/">
+                    <!-- <span class="is-hidden-tablet">
+                        <img src="{% static 'img/github.svg' %}" style="max-height: 1.5em;" />&nbsp;Github
+                    </span>
+                    <span class="is-hidden-mobile" style="padding-top: 6px;">
+                        <img src="https://img.shields.io/github/stars/adamghill/django-unicorn.svg?style=for-the-badge&label=GitHub&logo=github" />
+                    </span> -->
                     <img src="{% static 'img/github.svg' %}" style="max-height: 1.5em;" />&nbsp;Github
                 </a>
             </div>
@@ -83,15 +95,11 @@
                         <ul>
                             <li>
                                 <img src="{% static 'img/download.svg' %}" style="max-height: 1em;" />
-                                <a href="https://pypi.org/project/django-unicorn/">django-unicorn</a>
+                                <a href="https://pypi.org/project/django-unicorn/">PyPI</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
-                                <a href="https://github.com/adamghill/django-unicorn">django-unicorn</a>
-                            </li>
-                            <li>
-                                <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
-                                <a href="https://github.com/adamghill/django-unicorn.com">django-unicorn.com</a>
+                                <a href="https://github.com/adamghill/django-unicorn">GitHub</a>
                             </li>
                             <li>
                                 Unicorn logo from <a href="https://openmoji.org/library/#search=unicorn&emoji=1F984">openmoji</a>
@@ -102,6 +110,33 @@
             </div>
         </footer>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+                // Add a click event on each of them
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+    
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+    
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+    
+                    });
+                });
+            }
+    
+        });
+    </script>
 </body>
 
 </html>
