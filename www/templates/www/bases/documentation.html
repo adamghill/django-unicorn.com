@@ -48,6 +48,7 @@
                 <ul>
                     <li class="{% if request.path == '/documentation/components' %}active{% endif %}"><a href="{% url 'www:documentation' 'components' %}">The Basics</a></li>
                     <li class="{% if request.path == '/documentation/components/templates' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/templates' %}">Templates</a></li>
+                    <li class="{% if request.path == '/documentation/components/django-models' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/django-models' %}">Django models</a></li>
                     <li class="{% if request.path == '/documentation/components/actions' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/actions' %}">Actions</a>
                     <li class="{% if request.path == '/documentation/components/validation' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/validation' %}">Validation</a>
                     <li class="{% if request.path == '/documentation/components/advanced' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/advanced' %}">Advanced</a>

@@ -18,7 +18,6 @@
         </p>
 
         <h2 id="polling">Polling</h2>
-
         <p>
             <code>unicorn:poll</code> can be added to the root <code>div</code> element of a component to have it refresh the component automatically every 2 seconds. The polling is smart enough that it won't poll when the page is not active.
         </p>
@@ -39,7 +38,7 @@
 &lt;/div></code></pre>
         {% endverbatim %}
 
-        <h2>Modifiers</h2>
+        <h2>Model Modifiers</h2>
 
         <h3 id="lazy">Lazy</h3>
         <p>
@@ -87,7 +86,7 @@
 
         <h2>Chaining modifiers</h2>
         <p>
-            Some modifiers can even be chained together.
+            <code>Lazy</code> and <code>debounce</code> modifiers can even be chained together.
         </p>
 
         {% verbatim %}
@@ -98,7 +97,9 @@
 &lt;/div></code></pre>
         {% endverbatim %}
 
-        <h2>Smooth updates</h2>
+        <h2>Key</h2>
+
+        <h3>Smooth updates</h3>
         <p>
             Setting a unique <code>id</code> on elements with <code>unicorn:model</code> will prevent changes to an input from being choppy when there are lots of updates in quick succession.
 
@@ -110,7 +111,7 @@
         </p>
 
         <p>
-            However, setting the same <code>id</code> on two elements with the same <code>unicorn:model</code> won't work. If the elements' <code>unicorn:key</code> is unique, the elements will stay in sync as expected.
+            However, setting the same <code>id</code> on two elements with the same <code>unicorn:model</code> won't work. The <code>unicorn:key</code> attribute can be used to make sure that the elements can be synced as expected.
 
             <pre data-lang="html"><code class="language-html">&lt;!-- missing-updates.html -->
 &lt;input type="text" id="someFancyId" unicorn:model="name">&lt;/input>
@@ -121,12 +122,9 @@
 &lt;input type="text" id="someFancyId" unicorn:model="name" unicorn:key="someFancyKey">&lt;/input></code></pre>
         </p>
 
-        <h2>DOM merging</h2>
+        <h3>DOM merging</h3>
         <p>
-            The Javascript library used to merge changes in the DOM, <code>morphdom</code>, uses elements' <code>id</code> to intelligently update DOM elements. If it isn't possible to have an <code>id</code> attribute on the element, <code>unicorn:key</code> can also be used.
-
-            <pre data-lang="html"><code class="language-html">&lt;!-- fancy-key.html -->
-&lt;input type="text" unicorn:model="name" unicorn:key="someFancyKey">&lt;/input></code></pre>
+            The Javascript library used to merge changes in the DOM, <code>morphdom</code>, uses an element's <code>id</code> to intelligently update DOM elements. If it isn't possible to have an <code>id</code> attribute on the element, <code>unicorn:key</code> will be used if it is available.
         </p>
 
         <div class="previous">
@@ -134,7 +132,7 @@
         </div>
 
         <div class="next">
-            <a href="{% url 'www:documentation' name='components/actions' %}">Actions</a>
+            <a href="{% url 'www:documentation' name='components/django-models' %}">Django models</a>
         </div>
     </article>
 </section>

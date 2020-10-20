@@ -50,13 +50,11 @@ class BookForm(forms.Form):
         </p>
 
         <h2>Showing validation errors</h2>
-
         <p>
             As the form is filled out the appropriate inputs will be validated. There are a few ways to show the validation messages.
         </p>
 
         <h3>Highlighting the invalid form</h3>
-
         <p>
             When a model form is invalid, a special <code>unicorn:error</code> attribute is added to the element. Depending on whether it is an <code>invalid</code> or <code>required</code> error code, the attribute will be <code>unicorn:error:invalid</code> or <code>unicorn:error:required</code>. The value of the attribute will be the validation message.
         </p>
@@ -86,7 +84,6 @@ class BookForm(forms.Form):
         {% endverbatim %}
 
         <h3>Showing all the error messages</h3>
-
         <p>
             There is a <code>unicorn_errors</code> template tag that shows all errors for the component. It should provide an example of how to display component errors in a more specific way if needed.
         </p>
@@ -103,7 +100,6 @@ class BookForm(forms.Form):
         {% endverbatim %}
 
         <h3>Validate the entire component</h3>
-
         <p>
             The magic action method <code>validate</code> can be used to validate the whole component by the front-end.
         </p>

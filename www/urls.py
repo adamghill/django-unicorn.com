@@ -9,6 +9,6 @@ urlpatterns = [
     path("articles", views.articles, name="articles"),
     path("documentation", views.documentation, name="documentation"),
     re_path(
-        r"^documentation/(?P<name>[\w/]+)$", views.documentation, name="documentation",
+        r"^documentation/(?P<name>[\w/-]+)$", views.documentation, name="documentation",
     ),
 ]

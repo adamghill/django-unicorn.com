@@ -28,10 +28,10 @@
 &lt;/div></code></pre>
         {% endverbatim %}
 
-        <pre data-lang="python"><code class="language-python"># hello_world.py
+        <pre data-lang="python"><code class="language-python"># clear_name.py
 from django_unicorn.components import UnicornView
 
-class HelloWorldView(UnicornView):
+class ClearNameView(UnicornView):
     name = "World"
 
     def clear_name(self):
@@ -51,7 +51,7 @@ class HelloWorldView(UnicornView):
         </p>
 
         {% verbatim %}
-        <pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+        <pre data-lang="html"><code class="language-html">&lt;!-- passing-args.html -->
 &lt;div>
     &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }} 👋
@@ -60,10 +60,10 @@ class HelloWorldView(UnicornView):
 &lt;/div></code></pre>
         {% endverbatim %}
 
-        <pre data-lang="python"><code class="language-python"># hello_world.py
+        <pre data-lang="python"><code class="language-python"># passing_args.py
 from django_unicorn.components import UnicornView
 
-class HelloWorldView(UnicornView):
+class PassingArgsView(UnicornView):
     name = "World"
 
     def set(self, name="Universe"):
@@ -95,17 +95,17 @@ class HelloWorldView(UnicornView):
             Actions can also set properties without requiring an explicit method.
         </p>
 
-        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- hello-world.html -->
+        {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- set-shortcut.html -->
 &lt;div>
     &lt;input unicorn:model="name" type="text" id="text">
     Hello {{ name|title }} 👋
     &lt;button unicorn:click="name='Bob'">Set name as Bob&lt;/button>
 &lt;/div></code></pre>{% endverbatim %}
 
-        <pre data-lang="python"><code class="language-python"># hello_world.py
+        <pre data-lang="python"><code class="language-python"># set_shortcut.py
 from django_unicorn.components import UnicornView
 
-class HelloWorldView(UnicornView):
+class SetShortcutView(UnicornView):
     name = "World"</code></pre>
 
         <h2 id="modifiers">Modifiers</h2>
@@ -140,7 +140,7 @@ class HelloWorldView(UnicornView):
             Revert the component to its original state.
         </p>
 
-        <pre data-lang="html"><code class="language-html">&lt;!-- reset-world.html -->
+        <pre data-lang="html"><code class="language-html">&lt;!-- reset-method.html -->
 &lt;div>
     &lt;button unicorn:click="reset">Reset the component&lt;/button>
 &lt;/div></code></pre>
@@ -150,7 +150,7 @@ class HelloWorldView(UnicornView):
             Refresh and re-render the component from its current state.
         </p>
 
-        <pre data-lang="html"><code class="language-html">&lt;!-- refresh-world.html -->
+        <pre data-lang="html"><code class="language-html">&lt;!-- refresh-method.html -->
 &lt;div>
     &lt;button unicorn:click="refresh">Refresh the component&lt;/button>
 &lt;/div></code></pre>
@@ -169,7 +169,7 @@ class HelloWorldView(UnicornView):
         {% endverbatim %}
 
         <div class="previous">
-            <a href="{% url 'www:documentation' name='components/templates' %}">Templates</a>
+            <a href="{% url 'www:documentation' name='components/django-models' %}">Django models</a>
         </div>
 
         <div class="next">

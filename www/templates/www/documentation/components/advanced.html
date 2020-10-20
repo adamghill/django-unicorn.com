@@ -10,7 +10,6 @@
         </h1>
 
         <h4>template_name</h4>
-
         <p>
             By default, the component name is used to determine what template should be used. For example, <code>hello_world.HelloWorldView</code> would by default use <code>unicorn/hello-world.html</code>. However, you can specify a particular template by setting <code>template_name</code> in the component.
         </p>
@@ -23,7 +22,6 @@ class HelloWorldView(UnicornView):
         {% endverbatim %}
 
         <h4 id="mount">mount()</h4>
-
         <p>
             Gets called when the component gets initialized or <a href="{% url 'www:documentation' 'components/actions' %}#reset">reset</a>.
         </p>
@@ -39,55 +37,46 @@ class HelloWorldView(UnicornView):
         {% endverbatim %}
 
         <h4 id="hydrate">hydrate()</h4>
-
         <p>
             Gets called when the component data gets set.
         </p>
 
         <h4 id="updating">updating(name, value)</h4>
-
         <p>
             Gets called before each property that gets set.
         </p>
 
         <h4 id="updated">updated(name, value)</h4>
-
         <p>
             Gets called after each property gets set.
         </p>
 
         <h4 id="updating_property_name">updating_{property_name}(value)</h4>
-
         <p>
             Gets called before the specified property gets set.
         </p>
 
         <h4 id="updated_property_name">updated_{property_name}(value)</h4>
-
         <p>
             Gets called after the specified property gets set.
         </p>
 
         <h4 id="calling">calling(name, args)</h4>
-
         <p>
             Gets called before each method that gets called.
         </p>
 
         <h4 id="called">called(name, args)</h4>
-
         <p>
             Gets called after each method gets called.
         </p>
 
         <h3>Meta</h3>
-
         <p>
             Classes that derive from <code>UnicornView</code> can include a <code>Meta</code> class that provides some advanced options for the component.
         </p>
 
         <h4>exclude</h4>
-
         <p>
             By default, all properties of the component are included in the payload when hydrating the Django template. One way to prevent internal-only data from getting POSTed needlessly is to prefix the property name with <code>_</code> to indicate it should stay private.
         </p>
