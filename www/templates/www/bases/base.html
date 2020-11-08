@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="{% static 'highlight.js/10.1.1/styles/solarized-light.css' %}">
     {% endcompress %}
 
-    <script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.js"></script>
+    <script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
     {% compress js %}
     <script src="{% static 'highlight.js/10.1.1/highlight.pack.js' %}"></script>
