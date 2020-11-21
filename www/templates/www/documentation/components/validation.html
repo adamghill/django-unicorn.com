@@ -49,7 +49,7 @@ class BookForm(forms.Form):
             Because of the <code>form_class = BookForm</code> defined on the <code>UnicornView</code> above, <code>django-unicorn</code> will automatically validate that the title has a value and is less than 100 characters. The <code>publish_date</code> will also be converted into a <code>datetime</code> from the string representation in the text input.
         </p>
 
-        <h2>Showing validation errors</h2>
+        <h2 id="showing">Showing validation errors</h2>
         <p>
             As the form is filled out the appropriate inputs will be validated. There are a few ways to show the validation messages.
         </p>
@@ -99,7 +99,7 @@ class BookForm(forms.Form):
 &lt;div></code></pre>
         {% endverbatim %}
 
-        <h3>Validate the entire component</h3>
+        <h2 id="validate">Validate the entire component</h2>
         <p>
             The magic action method <code>validate</code> can be used to validate the whole component by the front-end.
         </p>
@@ -151,7 +151,7 @@ class BookView(UnicornView):
         </div>
 
         <div class="next">
-            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+            <a href="{% url 'www:documentation' name='components/loading-states' %}">Loading States</a>
         </div>
     </article>
 </section>

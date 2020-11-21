@@ -9,6 +9,17 @@
             Changelog
         </h1>
 
+        <h3>0.9.0</h3>
+        <ul>
+            <li><a href="{% url 'www:documentation' 'components/loading-states' %}">Loading states</a> for improved UX.</li>
+            <li><code>$event</code> <a href="{% url 'www:documentation' 'components/actions' %}#event">special argument</a> for <code>actions</code>.</li>
+            <li><code>u</code> <a href="{% url 'www:documentation' 'components' %}#unicorn-attributes">unicorn attribute</a>.</li>
+            <li><code>APPS</code> <a href="{% url 'www:documentation' 'settings' %}#apps">setting</a> for determing where to look for components.</li>
+            <li>Add support for parent elements for non-db models.</li>
+            <li>Fix: Handle if <code>Meta</code> doesn't exist for db models.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.8.0...0.9.0">All changes since 0.8.0</a>.
+
         <h3>0.8.0</h3>
         <ul>
             <li>Add much more elaborate support for dealing with <a href="{% url 'www:documentation' 'models' %}">Django models</a>.</li>

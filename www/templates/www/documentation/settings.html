@@ -10,18 +10,24 @@
         </h1>
 
         <p>
-            <code>django-unicorn</code> stores all settings in a dictionary under the <code>DJANGO_UNICORN</code> setting attribute in the Django settings file.
+            <code>django-unicorn</code> stores all settings in a dictionary under the <code>DJANGO_UNICORN</code> setting attribute in the Django settings file. All settings are optional.
         </p>
 
         <pre data-lang="python"><code class="language-python"># settings.py
 DJANGO_UNICORN = {
-    "MINIMIZE": False
+    "MINIMIZE": True,
+    "APPS": ["unicorn"]
 }
 </code></pre>
 
-        <h3 id="minimize">MINIMIZE</h3>
+        <h2 id="minimize">MINIMIZE</h2>
         <p>
-            Provides a way to control if the minimized version of <code>unicorn.min.js</code> is used. Defaults to the negation of <code>DEBUG</code>.
+            Provides a way to control if the minimized version of <code>unicorn.min.js</code> is used. Defaults to <code>!DEBUG</code>.
+        </p>
+
+        <h2 id="apps">APPS</h2>
+        <p>
+            Specify the modules to look for components. Defaults to <code>["unicorn"]</code>.
         </p>
 
     </article>

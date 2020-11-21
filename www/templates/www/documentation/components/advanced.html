@@ -6,8 +6,10 @@
 <section class="content">
     <article class="section" id="main">
         <h1>
-            Advanced components
+            Advanced
         </h1>
+
+        <h2 id="properties">Properties</h2>
 
         <h4>template_name</h4>
         <p>
@@ -20,6 +22,8 @@ from django_unicorn.components import UnicornView
 class HelloWorldView(UnicornView):
     template_name = "unicorn/hello-world.html"</code></pre>
         {% endverbatim %}
+
+        <h2 id="methods">Methods</h2>
 
         <h4 id="mount">mount()</h4>
         <p>
@@ -71,7 +75,7 @@ class HelloWorldView(UnicornView):
             Gets called after each method gets called.
         </p>
 
-        <h3>Meta</h3>
+        <h2 id="meta">Meta</h2>
         <p>
             Classes that derive from <code>UnicornView</code> can include a <code>Meta</code> class that provides some advanced options for the component.
         </p>

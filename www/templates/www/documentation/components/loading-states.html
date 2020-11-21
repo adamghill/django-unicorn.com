@@ -1,0 +1,135 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Loading States{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Loading States
+        </h1>
+
+        <p>
+            Because <code>django-unicorn</code> requires an AJAX request for any component updates, it is helpful to provide some context to the user that an action is happening.
+        </p>
+
+        <h2 id="toggling-elements">Toggling Elements</h2>
+
+        <p>
+            Elements with the <code>unicorn:loading</code> attribute are only visible when an action is in process.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- loading.html -->
+&lt;div>
+    &lt;button unicorn:click="update">Update&lt;/button>
+
+    &lt;div unicorn:loading>Updating!&lt;/div>
+&lt;/div></code></pre>
+
+        <p>
+            When the <em>Update</em> button is clicked, the "Updating!" message will show until the action is complete, and then it will re-hide itself.
+        </p>
+
+        <p class="tip">
+            Loading elements get shown or removed with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden"><code>hidden</code></a> attribute. One drawback to this approach is that setting the style <code>display</code> property overrides this functionality.
+        </p>
+
+        <p>
+            You can also hide an element while an action is processed by adding a <code>remove</code> modifier.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- loading-remove.html -->
+&lt;div>
+    &lt;button unicorn:click="update">Update&lt;/button>
+
+    &lt;div unicorn:loading.remove>Not currently updating!&lt;/div>
+&lt;/div></code></pre>
+
+        <p>
+            If there are multiple actions that happen in the component, you can show or hide a loading element for a specifc action by targetting another element's <code>id</code> with <code>unicorn:target</code>.
+        </p>
+            
+        <pre data-lang="html"><code class="language-html">&lt;!-- loading-target-id.html -->
+&lt;div>
+    &lt;button unicorn:click="update" id="updateId">Update&lt;/button>
+    &lt;button unicorn:click="delete" id="deleteId">Delete&lt;/button>
+
+    &lt;div unicorn:loading unicorn:target="updateId">Updating!&lt;/div>
+    &lt;div unicorn:loading unicorn:target="deleteId">Deleting!&lt;/div>
+&lt;/div></code></pre>
+
+    <p>
+        An element's <code>unicorn:key</code> can also be targeted.
+    </p>
+            
+        <pre data-lang="html"><code class="language-html">&lt;!-- loading-target-key.html -->
+&lt;div>
+    &lt;button unicorn:click="update" unicorn:key="updateKey">Update&lt;/button>
+    &lt;button unicorn:click="delete" unicorn:key="deleteKey">Delete&lt;/button>
+
+    &lt;div unicorn:loading unicorn:target="updateKey">Updating!&lt;/div>
+    &lt;div unicorn:loading unicorn:target="deleteKey">Deleting!&lt;/div>
+&lt;/div></code></pre>
+
+        <h2 id="toggling-attributes">Toggling Attributes</h2>
+
+        <p>
+            Elements with an action event can also include an <code>unicorn:loading</code> attribute with either an <code>attr</code> or <code>class</code> modifier.
+        </p>
+
+        <h3>attr</h3>
+
+        <p>
+            Set the specified attribute on the element that is triggering the action. 
+        </p>
+
+        <p>
+            This example will disable the <em>Update</em> button when it is clicked and remove the attribute once the action is completed.
+        </p>
+            
+        <pre data-lang="html"><code class="language-html">&lt;!-- loading-attr.html -->
+&lt;div>
+    &lt;button unicorn:click="update" unicorn:loading.attr="disabled">Update&lt;/button>
+&lt;/div></code></pre>
+        
+        <h3>class</h3>
+
+        <p>
+            Add the specified class to the element that is triggering the action. 
+        </p>
+
+        <p>
+            This example will add a <code>loading</code> class to the <em>Update</em> button when it is clicked and remove the class once the action is completed.
+        </p>
+            
+        <pre data-lang="html"><code class="language-html">&lt;!-- loading-class.html -->
+&lt;div>
+    &lt;button unicorn:click="update" unicorn:loading.class="loading">Update&lt;/button>
+&lt;/div></code></pre>
+        
+        <h3>class.remove</h3>
+
+        <p>
+            Remove the specified class from the element that is triggering the action.
+        </p>
+
+        <p>
+            This example will remove a <code>active</code> class from the <em>Update</em> button when it is clicked and add the class back once the action is completed.
+        </p>
+            
+        <pre data-lang="html"><code class="language-html">&lt;!-- loading-class-remove.html -->
+&lt;div>
+    &lt;button unicorn:click="update" unicorn:loading.class.remove="active">Update&lt;/button>
+&lt;/div></code></pre>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='components/validation' %}">Validation</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}

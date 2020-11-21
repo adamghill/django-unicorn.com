@@ -44,35 +44,19 @@
         </div>
 
         <div class="navbar-menu" id="navMenu">
-            <!-- <div class="navbar-start">
-                <a class="navbar-item" href="{% url 'www:documentation' %}">
-                Documentation
-                </a>
-                <a class="navbar-item" href="">
-                    Screenshares
-                </a>
-            </div> -->
-
             <div class="navbar-end">
                 <a class="navbar-item" href="{% url 'www:documentation' %}">
                     <img src="{% static 'img/book.svg' %}" style="max-height: 1.5em;" />&nbsp;Documentation
                 </a>
-                {% comment %}
-                <a class="navbar-item" href="https://github.com/adamghill/django-unicorn/">
-                    <!-- <span class="is-hidden-tablet">
-                        <img src="{% static 'img/github.svg' %}" style="max-height: 1.5em;" />&nbsp;Github
-                    </span>
-                    <span class="is-hidden-mobile" style="padding-top: 6px;">
-                        <img src="https://img.shields.io/github/stars/adamghill/django-unicorn.svg?style=for-the-badge&label=GitHub&logo=github" />
-                    </span> -->
-                    <img src="{% static 'img/github.svg' %}" style="max-height: 1.5em;" />&nbsp;Github
+                <a class="navbar-item" href="{% url 'www:screencasts' %}">
+                    <img src="{% static 'img/monitor.svg' %}" style="max-height: 1.5em;" />&nbsp;Screencasts
                 </a>
-                {% endcomment %}
-
-                <span style="margin-top: .8rem; margin-right: .8rem;">
-                    <!-- <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a> -->
+                <div style="margin-top: .8rem; margin-right: .8rem;">
                     <a class="navbar-item github-button" href="https://github.com/adamghill/django-unicorn" data-size="large" data-show-count="true" aria-label="Star adamghill/django-unicorn on GitHub">Star</a>
-                </span>
+                </div>
+                <div style="margin-top: .8rem; margin-right: .8rem;">
+                    <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -90,6 +74,10 @@
                             <li>
                                 <img src="{% static 'img/book.svg' %}" style="max-height: 1em;" />
                                 <a href="{% url 'www:documentation' %}">Documentation</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/monitor.svg' %}" style="max-height: 1em;" />
+                                <a href="{% url 'www:screencasts' %}">Screencasts</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/tool.svg' %}" style="max-height: 1em;" />
@@ -112,7 +100,10 @@
                                 <a href="https://github.com/adamghill/django-unicorn">GitHub</a>
                             </li>
                             <li>
-                                Unicorn logo from <a href="https://openmoji.org/library/#search=unicorn&emoji=1F984">openmoji</a>
+                                <a href="https://openmoji.org/library/#search=unicorn&emoji=1F984">Unicorn logo</a>
+                            </li>
+                            <li>
+                                <a href="https://feathericons.com/">Feather Icons</a>
                             </li>
                         </ul>
                     </div>

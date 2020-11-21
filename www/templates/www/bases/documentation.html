@@ -36,48 +36,168 @@
                     <li class="{% if request.path == '/documentation' %}active{% endif %}">
                         <a href="{% url 'www:documentation' %}">Introduction</a>
                         <ul class="app-sub-sidebar">
-                            <li><a class="section-link" href="{% url 'www:documentation' %}#related">Related projects</a></li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' %}#related">Related Projects</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="{% if request.path == '/documentation/installation' %}active{% endif %}"><a href="{% url 'www:documentation' 'installation' %}">Installation</a></li>
-                    <li class="{% if request.path == '/documentation/faq' %}active{% endif %}"><a href="{% url 'www:documentation' 'faq' %}">FAQ</a></li>
+                    <li class="{% if request.path == '/documentation/installation' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'installation' %}">Installation</a>
+                        </li>
+                    <li class="{% if request.path == '/documentation/faq' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'faq' %}">FAQ</a>
+                    </li>
+                    <li>
+                        <p class="{% if request.path == '/documentation/changelog' %}active{% endif %}">
+                            <a href="{% url 'www:documentation' 'changelog' %}">Changelog</a>
+                        </p>
+                    </li>
                 </ul>
             </li>
             <li>
                 <p>Components</p>
                 <ul>
-                    <li class="{% if request.path == '/documentation/components' %}active{% endif %}"><a href="{% url 'www:documentation' 'components' %}">The Basics</a></li>
-                    <li class="{% if request.path == '/documentation/components/templates' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/templates' %}">Templates</a></li>
-                    <li class="{% if request.path == '/documentation/components/django-models' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/django-models' %}">Django models</a></li>
-                    <li class="{% if request.path == '/documentation/components/actions' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/actions' %}">Actions</a>
-                    <li class="{% if request.path == '/documentation/components/validation' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/validation' %}">Validation</a>
-                    <li class="{% if request.path == '/documentation/components/advanced' %}active{% endif %}"><a href="{% url 'www:documentation' 'components/advanced' %}">Advanced</a>
+                    <li class="{% if request.path == '/documentation/components' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components' %}">The Basics</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#unicorn-attributes">Unicorn Attributes</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#property-types">Supported Property Types</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if request.path == '/documentation/components/templates' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/templates' %}">Templates</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#polling">Polling</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#modifiers">Modifiers</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#chaining-modifiers">Chaining Modifiers</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#key">Key</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if request.path == '/documentation/components/django-models' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/django-models' %}">Django Models</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#class-model">Class Model</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#instance-model">Instance Model</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#db-model">DbModel</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#queryset">Queryset</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if request.path == '/documentation/components/actions' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/actions' %}">Actions</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#events">Events</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#passing-arguments">Passing Arguments</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#set">Set Shortcut</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#modifiers">Modifiers</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#special-methods">Special Methods</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#calling-methods">Calling Methods</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if request.path == '/documentation/components/validation' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/validation' %}">Validation</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/validation' %}#showing">Showing Validation Errors</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/validation' %}#validate">Validate the Entire Component</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if request.path == '/documentation/components/loading-states' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/loading-states' %}">Loading States</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/loading-states' %}#toggling-elements">Toggling Elements</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/loading-states' %}#toggling-attributes">Toggling Attributes</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if request.path == '/documentation/components/advanced' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/advanced' %}">Advanced</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/advanced' %}#properties">Properties</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/advanced' %}#methods">Methods</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/advanced' %}#meta">Meta</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
                 <p>Examples</p>
                 <ul>
-                    <li class="{% if request.path == '/documentation/examples/todo' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/todo' %}">Todo</a></li>
-                    <li class="{% if request.path == '/documentation/examples/count' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/count' %}">Count characters</a></li>
-                    <li class="{% if request.path == '/documentation/examples/search' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/search' %}">Search</a></li>
-                    <li class="{% if request.path == '/documentation/examples/click' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/click' %}">Click counter</a></li>
-                    <li class="{% if request.path == '/documentation/examples/validation' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/validation' %}">Validation</a></li>
+                    <li class="{% if request.path == '/documentation/examples/todo' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'examples/todo' %}">Todo</a>
+                        </li>
+                    <li class="{% if request.path == '/documentation/examples/count' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'examples/count' %}">Count characters</a>
+                    </li>
+                    <li class="{% if request.path == '/documentation/examples/search' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'examples/search' %}">Search</a>
+                    </li>
+                    <li class="{% if request.path == '/documentation/examples/click' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'examples/click' %}">Click Counter</a>
+                    </li>
+                    <li class="{% if request.path == '/documentation/examples/validation' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'examples/validation' %}">Validation</a>
+                    </li>
                     <!-- <li class="{% if request.path == '/documentation/examples/save' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/save' %}">Ajax save</a></li>
                     <li class="{% if request.path == '/documentation/examples/pagination' %}active{% endif %}"><a href="{% url 'www:documentation' 'examples/pagination' %}">Pagination</a></li> -->
                 </ul>
             </li>
             <li>
-                <p class="{% if request.path == '/documentation/settings' %}active{% endif %}"><a href="{% url 'www:documentation' 'settings' %}">Settings</a></p>
+                <p class="{% if request.path == '/documentation/settings' %}active{% endif %}">
+                    <a href="{% url 'www:documentation' 'settings' %}">Settings</a>
+                </p>
             </li>
             <li>
-                <p class="{% if request.path == '/documentation/cli' %}active{% endif %}"><a href="{% url 'www:documentation' 'cli' %}">CLI</a></p>
+                <p class="{% if request.path == '/documentation/cli' %}active{% endif %}">
+                    <a href="{% url 'www:documentation' 'cli' %}">CLI</a>
+                </p>
             </li>
             <!--<li>
                 <p class="{% if request.path == '/documentation/api' %}active{% endif %}"><a href="{% url 'www:documentation' 'api' %}">API</a></p>
             </li>-->
-            <li>
-                <p class="{% if request.path == '/documentation/changelog' %}active{% endif %}"><a href="{% url 'www:documentation' 'changelog' %}">Changelog</a></p>
-            </li>
         </ul>
     </div>
 </aside>

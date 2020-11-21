@@ -10,39 +10,47 @@
         </h1>
 
         <p>
-            <code>django-unicorn</code> is a magical full-stack framework for Django. Instead of building additional API
-            endpoints just to provide some interactivity, <code>django-unicorn</code> is a much simpler way to provide pieces of a
-            modern website experience without moving away from all of the benefits of Django.
+            <code>django-unicorn</code> is a magical full-stack framework for Django. Instead of building additional API endpoints to provide website interactivity, <code>django-unicorn</code> provides the pieces of a modern website experience without moving away from all of the benefits of Django.
         </p>
-
+            
         <p>
-            The goal is provide ways to seamlessly extend Django past its server-side framework roots without giving up
-            all of its niceties or having to re-build a site in a frontend framework.
+            <code>django-unicorn</code> seamlessly extends Django past its server-side framework roots without giving up all of its niceties or re-building your website.
         </p>
 
         <h3 id="related">Related projects</h3>
 
         <p>
-            <code>django-unicorn</code> stands on the shoulders of giants, in particular <a href="https://github.com/patrick-steele-idem/morphdom">morphdom</a> which is integral to making the fast DOM changes happen.
+            <code>django-unicorn</code> stands on the shoulders of giants, in particular <a href="https://github.com/patrick-steele-idem/morphdom">morphdom</a> which is integral for merging DOM changes.
         </p>
+
         <p>
-            <code>django-unicorn</code> has also been heavily inspired by a few projects in other languages and frameworks.
+            A few inspirational projects in other languages and frameworks.
         </p>
             
             <ul>
-                <li><a href="https://laravel-livewire.com/">Livewire</a>, a full-stack framework for the PHP web framework, Laravel.</li>
-                <li><a href="https://github.com/phoenixframework/phoenix_live_view">LiveView</a>, a library for the Elixir web framework, Phoenix.</li>
+                <li>
+                    <a href="https://laravel-livewire.com/">Livewire</a>, a full-stack framework for the PHP web framework, Laravel.
+                </li>
+                <li>
+                    <a href="https://github.com/phoenixframework/phoenix_live_view">LiveView</a>, a library for the Elixir web framework, Phoenix that uses websockets.
+                </li>
+                <li>
+                    <a href="https://docs.stimulusreflex.com">StimulusReflex</a>, a library for the Ruby web framework, Ruby on Rails that uses websockets.
+                </li>
             </ul>
         </p>
 
         <p>
-            There are a few Django packages which are related to <code>django-unicorn</code> and might be interesting.
+            Some Django packages which aim to solve similar problems as <code>django-unicorn</code>.
             <ul>
                 <li>
                     <a href="https://github.com/edelvalle/reactor/">Reactor</a>, a port of Elixir's <code>LiveView</code> to Django. Especially interesting for more complicated use-cases than <code>django-unicorn</code> can handle like chat rooms, keeping multiple browsers in sync, etc. Uses Django channels and websockets to work its magic.
                 </li>
                 <li>
-                    <a href="https://sockpuppet.argpar.se/">Sockpuppet</a>, a port of Rail's <a href="https://docs.stimulusreflex.com/">StimulusReflex</a>. Also requires Django channels and websockets.
+                    <a href="https://sockpuppet.argpar.se/">Sockpuppet</a>, a port of Ruby on Rail's <code>StimulusReflex</code>. Requires Django channels and websockets.
+                </li>
+                <li>
+                    <a href="https://github.com/zodman/inertia-django">Django inertia.js adapter</a>, which allows Django to use <a href="https://inertiajs.com">inertia.js</a> to build an SPA without building an API.
                 </li>
                 <li>
                     <a href="https://github.com/andreyfedoseev/django-page-components">django-page-components</a>, a minimalistic framework for creating page components and using them in your Django views and templates.

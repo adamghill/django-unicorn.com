@@ -57,7 +57,13 @@ class HelloWorldView(UnicornView):
             When a user types into the text input, the information is passed to the backend and populates the component class, which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the <code>title</code> filter above).
         </p>
 
-        <h2>Supported property types</h2>
+        <h2 id="unicorn-attributes">Unicorn attributes</h2>
+
+        <p>
+            Attributes for <code>django-unicorn</code> usually start with <code>unicorn:</code>, however the shortcut <code>u:</code> is also supported. So, for example, <code>unicorn:model</code> could also be written as <code>u:model</code>.
+        </p>
+
+        <h2 id="property-types">Supported property types</h2>
 
         <p>
             Properties of the component can be of many different types, including <code>str</code>, <code>int</code>, <code>list</code>, <code>dictionary</code>, <code>Django Model</code>, <code>Django QuerySet</code>, or <code>custom classes</code>.
