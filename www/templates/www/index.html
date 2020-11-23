@@ -123,11 +123,12 @@
 
             {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- unicorn/templates/unicorn/todo.html --&gt;
 &lt;div&gt;
-  &lt;input type=&quot;text&quot;
-    unicorn:model.defer=&quot;task&quot;
-    unicorn:keyup.enter=&quot;add&quot;
-    unicorn:keyup.escape=&quot;task=&#39;&#39;&quot;
-    placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
+  &lt;form unicorn:submit.prevent="add">
+    &lt;input type=&quot;text&quot;
+      unicorn:model.defer=&quot;task&quot;
+      unicorn:keyup.escape=&quot;task=&#39;&#39;&quot;
+      placeholder=&quot;New task&quot; id=&quot;task&quot;&gt;&lt;/input&gt;
+  &lt;/form>
   &lt;button unicorn:click=&quot;add&quot;&gt;Add&lt;/button&gt;
   &lt;button unicorn:click=&quot;reset&quot;&gt;Clear all tasks&lt;/button&gt;
 
@@ -150,10 +151,8 @@
 from django_unicorn.components import UnicornView
 from django import forms
 
-
 class TodoForm(forms.Form):
     task = forms.CharField(min_length=2, max_length=20, required=True)
-
 
 class TodoView(UnicornView):
     task = ""
