@@ -9,9 +9,17 @@
             Changelog
         </h1>
 
+        <h3>0.9.4</h3>
+        <ul>
+            <li>Fix: Prevent Django <code>CharField</code> form field from stripping whitespaces when used for validation.</li>
+            <li>Fix: Handle edge case that would generate a null exception.</li>
+            <li>Fix: Only change loading state when an action method gets called, not on every event fire.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.9.1...0.9.3">All changes since 0.9.1</a>.
+
         <h3>0.9.3</h3>
         <ul>
-            <li>Handle child elements triggering an event which should be handle by an unicorn element.</li>
+            <li>Handle child elements triggering an event which should be handled by a parent unicorn element.</li>
         </ul>
         <a href="https://github.com/adamghill/django-unicorn/compare/0.9.1...0.9.3">All changes since 0.9.1</a>.
 
