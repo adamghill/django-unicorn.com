@@ -180,7 +180,7 @@ redis = ">=3.0.0"
 
 [[package]]
 name = "django-unicorn"
-version = "0.9.3"
+version = "0.9.4"
 description = "A magical full-stack framework for Django."
 category = "main"
 optional = false
@@ -572,7 +572,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "b8b06601394da90a45b28afb020d42d2356da28a4948bcca67c23406f2ee03b4"
+content-hash = "e9bc5078994ff58273cc3a14bb793b74b8d9243872830cd09d1e4ce350cd1b5b"
 
 [metadata.files]
 appdirs = [
@@ -636,8 +636,8 @@ django-redis = [
     {file = "django_redis-4.12.1-py3-none-any.whl", hash = "sha256:1133b26b75baa3664164c3f44b9d5d133d1b8de45d94d79f38d1adc5b1d502e5"},
 ]
 django-unicorn = [
-    {file = "django-unicorn-0.9.3.tar.gz", hash = "sha256:801cc01be07b6e0c4daba8709e5c356b7a16feba4397d4cf092ef22384dfe222"},
-    {file = "django_unicorn-0.9.3-py3-none-any.whl", hash = "sha256:7419600ef6178efa75188301c969c46ff879494cca535ad6cabfbebae9eea657"},
+    {file = "django-unicorn-0.9.4.tar.gz", hash = "sha256:a8850665773452184f0f04ead40738c7c2ebdcb524d0b4c61d49c98a2b36919f"},
+    {file = "django_unicorn-0.9.4-py3-none-any.whl", hash = "sha256:35e78839fbc5f1a0ae7de79a0ee2c6f43c0e02c55891dfc1800e0b1b2aa60783"},
 ]
 flake8 = [
     {file = "flake8-3.8.4-py2.py3-none-any.whl", hash = "sha256:749dbbd6bfd0cf1318af27bf97a14e28e5ff548ef8e5b1566ccfb25a11e7c839"},
