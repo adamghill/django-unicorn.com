@@ -27,6 +27,49 @@
         Add <code>{% unicorn 'hello-world' %}</code> into the template you want to load the new component.
         {% endverbatim %}
 
+        <h2 id="component-arguments">Component arguments</h2>
+
+        <p>
+            <code>kwargs</code> can be passed into the <code>unicorn</code> templatetag from the template. The <code>kwargs</code> will be available in the component <a href="{% url 'www:documentation' 'components/advanced' %}#__init__"></a><code>__init__</code></a> method.
+        </p>
+
+        <p class="tip">
+            When overriding <code>__init__</code> calling <code>super().__init__(**kwargs)</code> is required for the component to initialize properly.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloWorldView(UnicornView):
+    name = "World"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(**kwargs)  # calling super is required
+        self.name = kwargs.get("name")</code></pre>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- index.html -->
+{% unicorn 'hello-world' name="Universe" %}</code></pre>
+        {% endverbatim %}
+
+        <p>
+            Regular Django template variables can also be passed in as an argument as long as it is available in the template context.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># views.py
+from django.shortcuts import render
+
+def index(request):
+    context = {"hello": {"world": {"name": "Galaxy"}}}
+    return render(request, "index.html", context)</code></pre>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- index.html -->
+{% unicorn 'hello-world' name=hello.world.name %}</code></pre>
+        {% endverbatim %}
+
+        <h2 id="example-component">Example component</h2>
+
         <p>
             A basic example component could consist of the following template and class.
         </p>
@@ -60,7 +103,7 @@ class HelloWorldView(UnicornView):
         <h2 id="unicorn-attributes">Unicorn attributes</h2>
 
         <p>
-            Attributes for <code>django-unicorn</code> usually start with <code>unicorn:</code>, however the shortcut <code>u:</code> is also supported. So, for example, <code>unicorn:model</code> could also be written as <code>u:model</code>.
+            Attributes used in component templates usually start with <code>unicorn:</code>, however the shortcut <code>u:</code> is also supported. So, for example, <code>unicorn:model</code> could also be written as <code>u:model</code>.
         </p>
 
         <h2 id="property-types">Supported property types</h2>
@@ -71,7 +114,7 @@ class HelloWorldView(UnicornView):
 
         <h3>Dictionary and Django Models</h3>
         <p>
-            <code>Dictionaries</code> and <code>Django models</code> can be used similary by <code>unicorn:model</code>.
+            <code>Dictionaries</code> and <code>Django models</code> can be used similarly by <code>unicorn:model</code>.
         </p>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -90,7 +133,7 @@ class HelloWorldView(UnicornView):
 
         <h3>Django QuerySet</h3>
         <p>
-            <code>Django QuerySet</code> can be referenced similary to the Django template language in a <code>unicorn:model</code>.
+            <code>Django QuerySet</code> can be referenced similarly to the Django template language in a <code>unicorn:model</code>.
         </p>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -119,7 +162,7 @@ class HelloWorldView(UnicornView):
 from django_unicorn.components import UnicornView, UnicornField
 
 class Author(UnicornField):
-    def __init(self):
+    def __init__(self):
         self.name = 'Neil Gaiman'
     
     # Not needed because inherited from `UnicornField`

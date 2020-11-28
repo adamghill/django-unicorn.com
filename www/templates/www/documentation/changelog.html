@@ -9,6 +9,13 @@
             Changelog
         </h1>
 
+        <h3>0.10.0</h3>
+        <ul>
+            <li>Add support for <a href="{% url 'www:documentation' 'components' %}#component-arguments">passing kwargs</a> into the component on the template</li>
+            <li>Provide access to the <a href="{% url 'www:documentation' 'components/advanced' %}#request">current request</a> in the component's methods</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.9.4...0.10.0">All changes since 0.9.4</a>.
+
         <h3>0.9.4</h3>
         <ul>
             <li>Fix: Prevent Django <code>CharField</code> form field from stripping whitespaces when used for validation.</li>

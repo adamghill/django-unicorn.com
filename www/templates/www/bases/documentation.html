@@ -61,10 +61,16 @@
                         <a href="{% url 'www:documentation' 'components' %}">The Basics</a>
                         <ul class="app-sub-sidebar">
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#unicorn-attributes">Unicorn Attributes</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#component-arguments">Component arguments</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#property-types">Supported Property Types</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#example-component">Example component</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#unicorn-attributes">Unicorn attributes</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components' %}#property-types">Supported property types</a>
                             </li>
                         </ul>
                     </li>
@@ -75,10 +81,10 @@
                                 <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#polling">Polling</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#modifiers">Modifiers</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#modifiers">Model modifiers</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#chaining-modifiers">Chaining Modifiers</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#chaining-modifiers">Chaining modifiers</a>
                             </li>
                             <li>
                                 <a class="section-link" href="{% url 'www:documentation' 'components/templates' %}#key">Key</a>
@@ -86,13 +92,13 @@
                         </ul>
                     </li>
                     <li class="{% if request.path == '/documentation/components/django-models' %}active{% endif %}">
-                        <a href="{% url 'www:documentation' 'components/django-models' %}">Django Models</a>
+                        <a href="{% url 'www:documentation' 'components/django-models' %}">Django models</a>
                         <ul class="app-sub-sidebar">
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#class-model">Class Model</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#class-model">Class model</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#instance-model">Instance Model</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#instance-model">Instance model</a>
                             </li>
                             <li>
                                 <a class="section-link" href="{% url 'www:documentation' 'components/django-models' %}#db-model">DbModel</a>
@@ -109,19 +115,19 @@
                                 <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#events">Events</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#passing-arguments">Passing Arguments</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#passing-arguments">Passing arguments</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#set">Set Shortcut</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#set">Set shortcut</a>
                             </li>
                             <li>
                                 <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#modifiers">Modifiers</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#special-methods">Special Methods</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#special-methods">Special methods</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#calling-methods">Calling Methods</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/actions' %}#calling-methods">Calling methods</a>
                             </li>
                         </ul>
                     </li>
@@ -129,21 +135,21 @@
                         <a href="{% url 'www:documentation' 'components/validation' %}">Validation</a>
                         <ul class="app-sub-sidebar">
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/validation' %}#showing">Showing Validation Errors</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/validation' %}#showing">Showing validation errors</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/validation' %}#validate">Validate the Entire Component</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/validation' %}#validate">Validate the entire component</a>
                             </li>
                         </ul>
                     </li>
                     <li class="{% if request.path == '/documentation/components/loading-states' %}active{% endif %}">
-                        <a href="{% url 'www:documentation' 'components/loading-states' %}">Loading States</a>
+                        <a href="{% url 'www:documentation' 'components/loading-states' %}">Loading states</a>
                         <ul class="app-sub-sidebar">
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/loading-states' %}#toggling-elements">Toggling Elements</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/loading-states' %}#toggling-elements">Toggling elements</a>
                             </li>
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/loading-states' %}#toggling-attributes">Toggling Attributes</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/loading-states' %}#toggling-attributes">Toggling attributes</a>
                             </li>
                         </ul>
                     </li>
@@ -151,7 +157,10 @@
                         <a href="{% url 'www:documentation' 'components/advanced' %}">Advanced</a>
                         <ul class="app-sub-sidebar">
                             <li>
-                                <a class="section-link" href="{% url 'www:documentation' 'components/advanced' %}#properties">Properties</a>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/advanced' %}#class-properties">Class properties</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/advanced' %}#instance-properties">Instance properties</a>
                             </li>
                             <li>
                                 <a class="section-link" href="{% url 'www:documentation' 'components/advanced' %}#methods">Methods</a>
@@ -176,7 +185,7 @@
                         <a href="{% url 'www:documentation' 'examples/search' %}">Search</a>
                     </li>
                     <li class="{% if request.path == '/documentation/examples/click' %}active{% endif %}">
-                        <a href="{% url 'www:documentation' 'examples/click' %}">Click Counter</a>
+                        <a href="{% url 'www:documentation' 'examples/click' %}">Click counter</a>
                     </li>
                     <li class="{% if request.path == '/documentation/examples/validation' %}active{% endif %}">
                         <a href="{% url 'www:documentation' 'examples/validation' %}">Validation</a>

@@ -180,7 +180,7 @@ redis = ">=3.0.0"
 
 [[package]]
 name = "django-unicorn"
-version = "0.9.4"
+version = "0.10.0"
 description = "A magical full-stack framework for Django."
 category = "main"
 optional = false
@@ -191,6 +191,7 @@ beautifulsoup4 = ">=4.9.1,<5.0.0"
 django = ">=3.0.0"
 orjson = ">=3.2.1,<4.0.0"
 shortuuid = ">=1.0.1,<2.0.0"
+wrapt = ">=1.12.1,<2.0.0"
 
 [[package]]
 name = "flake8"
@@ -558,6 +559,14 @@ python-versions = ">=3.5, <4"
 brotli = ["brotli"]
 
 [[package]]
+name = "wrapt"
+version = "1.12.1"
+description = "Module for decorators, wrappers and monkey patching."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "zipp"
 version = "3.4.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -572,7 +581,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "e9bc5078994ff58273cc3a14bb793b74b8d9243872830cd09d1e4ce350cd1b5b"
+content-hash = "073777b99d9740dc629a377913b2c4154577a7d49261e72c49d4d0571af8db34"
 
 [metadata.files]
 appdirs = [
@@ -636,8 +645,8 @@ django-redis = [
     {file = "django_redis-4.12.1-py3-none-any.whl", hash = "sha256:1133b26b75baa3664164c3f44b9d5d133d1b8de45d94d79f38d1adc5b1d502e5"},
 ]
 django-unicorn = [
-    {file = "django-unicorn-0.9.4.tar.gz", hash = "sha256:a8850665773452184f0f04ead40738c7c2ebdcb524d0b4c61d49c98a2b36919f"},
-    {file = "django_unicorn-0.9.4-py3-none-any.whl", hash = "sha256:35e78839fbc5f1a0ae7de79a0ee2c6f43c0e02c55891dfc1800e0b1b2aa60783"},
+    {file = "django-unicorn-0.10.0.tar.gz", hash = "sha256:1acbd61eeccc6c0a916510a9ebddb20b947481c86980ce51f803da8368cc0851"},
+    {file = "django_unicorn-0.10.0-py3-none-any.whl", hash = "sha256:723ef62c4cdc377fba0d633227f9416c0872d42b6df5c2e0f1cacf9322897924"},
 ]
 flake8 = [
     {file = "flake8-3.8.4-py2.py3-none-any.whl", hash = "sha256:749dbbd6bfd0cf1318af27bf97a14e28e5ff548ef8e5b1566ccfb25a11e7c839"},
@@ -889,6 +898,9 @@ urllib3 = [
 whitenoise = [
     {file = "whitenoise-5.2.0-py2.py3-none-any.whl", hash = "sha256:05d00198c777028d72d8b0bbd234db605ef6d60e9410125124002518a48e515d"},
     {file = "whitenoise-5.2.0.tar.gz", hash = "sha256:05ce0be39ad85740a78750c86a93485c40f08ad8c62a6006de0233765996e5c7"},
+]
+wrapt = [
+    {file = "wrapt-1.12.1.tar.gz", hash = "sha256:b62ffa81fb85f4332a4f609cab4ac40709470da05643a082ec1eb88e6d9b97d7"},
 ]
 zipp = [
     {file = "zipp-3.4.0-py3-none-any.whl", hash = "sha256:102c24ef8f171fd729d46599845e95c7ab894a4cf45f5de11a44cc7444fb1108"},

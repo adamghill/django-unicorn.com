@@ -9,7 +9,7 @@
             Advanced
         </h1>
 
-        <h2 id="properties">Properties</h2>
+        <h2 id="class-properties">Class properties</h2>
 
         <h4>template_name</h4>
         <p>
@@ -23,7 +23,42 @@ class HelloWorldView(UnicornView):
     template_name = "unicorn/hello-world.html"</code></pre>
         {% endverbatim %}
 
+        <h2 id="instance-properties">Instance properties</h2>
+
+        <h4 id="request">request</h4>
+        <p>
+            The current <code>request</code> is available on <code>self</code> in the component's methods.
+        </p>
+
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+
+class HelloWorldView(UnicornView):
+    def __init__(self, *args, **kwargs):
+        super.__init__(**kwargs)
+        print("Initial request that rendered the component", self.request)
+
+    def test(self):
+        print("callMethod request to re-render the component", self.request)</code></pre>
+        {% endverbatim %}
+
         <h2 id="methods">Methods</h2>
+
+        <h4 id="__init__">__init__()</h4>
+        <p>
+            Gets called when the component gets constructed for the very first time. Note that constructed components get cached to reduce the amount of time discovering and instantiating them, so <code>__init__</code> only gets called the very first time the component gets rendered.
+        </p>
+
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+            
+class HelloWorldView(UnicornView):
+    name = "original"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(**kwargs)
+        self.name = "initialized"</code></pre>
+        {% endverbatim %}
 
         <h4 id="mount">mount()</h4>
         <p>
@@ -45,9 +80,19 @@ class HelloWorldView(UnicornView):
             Gets called when the component data gets set.
         </p>
 
+        {% verbatim %}<pre data-lang="python"><code class="language-python"># hello_world.py
+from django_unicorn.components import UnicornView
+            
+class HelloWorldView(UnicornView):
+    name = "original"
+
+    def hydrate(self):
+        self.name = "hydrated"</code></pre>
+        {% endverbatim %}
+
         <h4 id="updating">updating(name, value)</h4>
         <p>
-            Gets called before each property that gets set.
+            Gets called before each property that will get set.
         </p>
 
         <h4 id="updated">updated(name, value)</h4>
