@@ -11,6 +11,8 @@
 
         <h3>0.10.1</h3>
         <ul>
+            <li>Use LRU cache for constructed components to prevent ever-expanding memory.</li>
+            <li>Loosen <code>beautifulsoup4</code> version requirement.</li>
             <li>Fix bug to handle floats so that they don't lose precision when serialized to JSON.</li>
             <li>Fix bug to handle related models (ForeignKeys, OneToOne, etc) fields in Django models.</li>
         </ul>
