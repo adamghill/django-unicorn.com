@@ -42,7 +42,42 @@ class HelloWorldView(UnicornView):
         print("callMethod request to re-render the component", self.request)</code></pre>
         {% endverbatim %}
 
-        <h2 id="methods">Methods</h2>
+        <h2 id="custom-methods">Custom methods</h2>
+        <p>
+            Defined component instance methods with no arguments are made available to the Django template context and can be called like a property.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># states.py
+from django_unicorn.components import UnicornView
+
+class StateView(UnicornView):
+    def all_states(self):
+        return ["Alabama", "Alaska", "Arizona", ...]</code></pre>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- states.html -->
+&lt;div>
+    &lt;ul>
+    {% for state in all_states %}
+    &lt;li>{{ state }}&lt;/li>
+    {% endfor %}
+    &lt;/ul>
+&lt;/div>{% endverbatim %}</code></pre>
+
+        <p class="tip">
+            If the method is intensive and will be called multiple times, it can be cached with Django's <code><a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.functional.cached_property">cached_property</a></code> to prevent duplicate API requests or database queries. The method will only be executed once per component rendering.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># states.py
+from django.utils.functional import cached_property
+from django_unicorn.components import UnicornView
+
+class StateView(UnicornView):
+    @cached_property
+    def all_states(self):
+        return ["Alabama", "Alaska", "Arizona", ...]</code></pre>
+
+        <h2 id="methods">Instance methods</h2>
 
         <h4 id="__init__">__init__()</h4>
         <p>
