@@ -112,9 +112,9 @@ class HelloWorldView(UnicornView):
             Properties of the component can be of many different types, including <code>str</code>, <code>int</code>, <code>list</code>, <code>dictionary</code>, <code>Django Model</code>, <code>Django QuerySet</code>, or <code>custom classes</code>.
         </p>
 
-        <h3>Dictionary and Django Models</h3>
+        <h3>Accessing nested fields</h3>
         <p>
-            <code>Dictionaries</code> and <code>Django models</code> can be used similarly by <code>unicorn:model</code>.
+            Fields in a <code>dictionary</code> or Django model can be accessed similarly to the Django template language with "dot-notation".
         </p>
 
         <pre data-lang="python"><code class="language-python"># hello_world.py
@@ -130,6 +130,10 @@ class HelloWorldView(UnicornView):
     &lt;input unicorn:model="book.title" type="text" id="model">
     &lt;input unicorn:model="book_ratings.excellent.title" type="text" id="dictionary">
 &lt;/div></code></pre>
+
+        <p class="tip">
+            <a href="{% url 'www:documentation' 'components/django-models' %}">Django models</a> has many more details about using Django models in <code>django-unicorn</code>.
+        </p>
 
         <h3>Django QuerySet</h3>
         <p>
@@ -148,10 +152,14 @@ class HelloWorldView(UnicornView):
     &lt;input unicorn:model="books.0.title" type="text" id="text">
 &lt;/div></code></pre>
 
+        <p class="tip">
+            <a href="{% url 'www:documentation' 'components/django-models' %}#queryset">Django models</a> has many more details about using Django QuerySets in <code>django-unicorn</code>.
+        </p>
+
         <h3>Custom class</h3>
 
         <p>
-            Custom classes need to define how they are serialized. If you have access to the object to serialize, you can define a <code>to_json</code> method on the object to return a dictionary that can be used to serialize. Inheriting from <code>unicorn.components.UnicornField</code> is a quick way to serialize a custom class, but note that it just calls <code>self.__dict__</code> under the hood, so it is not doing anything smart. <code>from_json</code> would need to be defined to deserialize the dictionary back into the actual class.
+            Custom classes need to define how they are serialized. If you have access to the object to serialize, you can define a <code>to_json</code> method on the object to return a dictionary that can be used to serialize. Inheriting from <code>unicorn.components.UnicornField</code> is a quick way to serialize a custom class, but note that it just calls <code>self.__dict__</code> under the hood, so it is not doing anything particularly smart.
         </p>
 
         <p>
