@@ -9,6 +9,13 @@
             Changelog
         </h1>
 
+        <h3>0.10.1</h3>
+        <ul>
+            <li>Fix bug to handle floats so that they don't lose precision when serialized to JSON.</li>
+            <li>Fix bug to handle related models (ForeignKeys, OneToOne, etc) fields in Django models.</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.10.0...0.10.1">All changes since 0.10.0</a>.
+
         <h3>0.10.0</h3>
         <ul>
             <li>Add support for <a href="{% url 'www:documentation' 'components' %}#component-arguments">passing kwargs</a> into the component on the template</li>
