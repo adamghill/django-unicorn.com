@@ -42,7 +42,7 @@ class BookForm(forms.Form):
 &lt;div>
     &lt;input unicorn:model="title" type="text" id="title">&lt;br />
     &lt;input unicorn:model="publish_date" type="text" id="publish-date">&lt;br />
-    &lt;button unicorn:click="validate">Validate&lt;/button>
+    &lt;button unicorn:click="$validate">Validate&lt;/button>
 &lt;/div></code></pre>
 
         <p>
@@ -101,17 +101,17 @@ class BookForm(forms.Form):
 
         <h2 id="validate">Validate the entire component</h2>
         <p>
-            The magic action method <code>validate</code> can be used to validate the whole component by the front-end.
+            The magic action method <code>$validate</code> can be used to validate the whole component by the front-end.
         </p>
 
         <pre data-lang="html"><code class="language-html">&lt;!-- validate.html -->
 &lt;div>
     &lt;input unicorn:model="publish_date" type="text" id="publish-date">&lt;br />
-    &lt;button unicorn:click="validate">Validate&lt;/button>
+    &lt;button unicorn:click="$validate">Validate&lt;/button>
 &lt;div></code></pre>
 
         <p>
-            The <code>validate</code> can also be used inside of the component.
+            The <code>validate</code> method can also be used inside of the component.
         </p>
 
         <pre data-lang="python"><code class="language-python">&lt;!-- validate.py -->
