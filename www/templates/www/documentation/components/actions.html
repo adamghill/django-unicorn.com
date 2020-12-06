@@ -147,6 +147,16 @@ class SetShortcutView(UnicornView):
 
         <h2 id="special-methods">Special methods</h2>
 
+        <h3 id="refresh">refresh</h3>
+        <p>
+            Refresh and re-render the component from its current state.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- refresh-method.html -->
+&lt;div>
+    &lt;button unicorn:click="refresh">Refresh the component&lt;/button>
+&lt;/div></code></pre>
+
         <h3 id="reset">reset</h3>
         <p>
             Revert the component to its original state.
@@ -157,14 +167,28 @@ class SetShortcutView(UnicornView):
     &lt;button unicorn:click="reset">Reset the component&lt;/button>
 &lt;/div></code></pre>
 
-        <h3 id="refresh">refresh</h3>
+        <h3 id="toggle">toggle</h3>
         <p>
-            Refresh and re-render the component from its current state.
+            Toggle a field on the component. Can only be used for fields that are booleans.
         </p>
 
-        <pre data-lang="html"><code class="language-html">&lt;!-- refresh-method.html -->
+        <pre data-lang="html"><code class="language-html">&lt;!-- toggle-method.html -->
 &lt;div>
-    &lt;button unicorn:click="refresh">Refresh the component&lt;/button>
+&lt;button unicorn:click="toggle('check')">Toggle the check field&lt;/button>
+&lt;/div></code></pre>
+
+        <p class="tip">
+            Multiple fields can be toggled at the same time by passing in multiple fields at a time. <code>unicorn:click="toggle('check', 'another_check', 'a_third_check')"</code>
+        </p>
+
+        <h3 id="validate">validate</h3>
+        <p>
+            Validate the component.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- validate-method.html -->
+&lt;div>
+&lt;button unicorn:click="validate">Validate the component&lt;/button>
 &lt;/div></code></pre>
 
         <h2 id="calling-methods">Calling methods</h2>
