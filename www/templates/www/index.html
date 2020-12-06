@@ -23,10 +23,32 @@
 
 {% endblock styles %}
 
+{% block head_js %}
+<script src="{% static 'roughnotation/rough-notation.iife.js' %}"></script>
+
+<script>
+window.onload = function(event) {
+    RoughNotation.annotate(document.querySelector('#magical'), { type: 'underline', color: '#f8f4ff', iterations: 2, animationDuration: 500}).show();
+    RoughNotation.annotate(document.querySelector('#magic'), { type: 'underline', color: 'blue', iterations: 2, animationDuration: 500}).show();
+
+    var highlightOptions = { type: 'highlight', color: 'yellow', iterations: 1, animationDuration: 500};
+    RoughNotation.annotate(document.querySelector('#size'), highlightOptions).show();
+
+    RoughNotation.annotationGroup([
+        RoughNotation.annotate(document.querySelector('#add'), highlightOptions),
+        RoughNotation.annotate(document.querySelector('#skip'), highlightOptions),
+        RoughNotation.annotate(document.querySelector('#no'), highlightOptions),
+    ]).show();
+};
+</script>
+
+{% unicorn_scripts %}
+{% endblock head_js %}
+
 {% block content %}
 
 {% csrf_token %}
-{% unicorn_scripts %}
+
 
 <section class="hero is-info is-medium is-bold">
     <div class="hero-body">
@@ -36,8 +58,8 @@
                 <h1 class="title">
                     django-unicorn
                 </h1>
-                <h2 class="subtitle">
-                    A magical full-stack framework for Django ✨
+                <h2 class="subtitle" id="stuff">
+                    A <span id="magical">magical</span> full-stack framework for Django ✨
                 </h2>
             </div>
         </div>
@@ -60,7 +82,7 @@
                 </div>
                 <div class="card-content">
                     <div class="content">
-                        <h4>Add modern site functionality</h4>
+                        <h4><span id="add">Add modern site functionality</span></h4>
                         <p>
                             Quickly add in simple interactions to regular Django templates without learning a new templating language.
                         </p>
@@ -75,7 +97,7 @@
                 </div>
                 <div class="card-content">
                     <div class="content">
-                        <h4>Skip the Javascript build tools</h4>
+                        <h4><span id="skip">Skip the Javascript build tools</span></h4>
                         <p>
                             Stop fighting with a new Javascript build tool and separate process to use yet another frontend framework.
                         </p>
@@ -90,7 +112,7 @@
                 </div>
                 <div class="card-content">
                     <div class="content">
-                        <h4>No API required</h4>
+                        <h4><span id="no">No API required</span></h4>
                         <p>
                             Building a complete API is complicated and complex. Skip creating a bunch of serializers and just use Django.
                         </p>
@@ -171,7 +193,7 @@ class TodoView(UnicornView):
         </div>
 
         <div class="mt-12">
-            <h2 class="title">Wait, is this magic?</h2>
+            <h2 class="title">Wait, is this <span id="magic">magic</span>?</h2>
 
             <p>
                 Sort of! At least it might feel like it. 🤩
@@ -185,7 +207,7 @@ class TodoView(UnicornView):
                 </ul>
 
                 <p>
-                    The end result is that you can focus on writing regular Django templates and Python classes without needing to switch to another language or build unnecessary plumbing. Best of all, the Javascript portion is a paltry <strong>~6 KB</strong> gzipped.
+                    The end result is that you can focus on writing regular Django templates and Python classes without needing to switch to another language or build unnecessary plumbing. Best of all, the Javascript portion is a paltry <span id="size"><strong>~6 KB</strong></span> gzipped.
                 </p>
             </div>
         </div>
