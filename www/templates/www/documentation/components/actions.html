@@ -145,6 +145,44 @@ class SetShortcutView(UnicornView):
     &lt;input type="text" unicorn:change="update($event.target.value.trim())">Update&lt;/input>
 &lt;/div></code></pre>
 
+        <h3 id="model">$model</h3>
+        <p>
+            Sends the current <code>db_model</code> to an action.
+        </p>
+
+        <p class="tip">
+            <code>$model</code> requires <code><a href="{% url 'www:documentation' name='components/django-models' %}#db-model">db_models</a></code> to be defined in the component's <code>Meta</code> class. The component method must also be decorated with <code>django_unicorn.decorators.db_model</code> and must have at least one argument (which will be converted into the specified Django model from the frontend).
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># model.py
+from django_unicorn.components import UnicornView
+from django_unicorn.db import DbModel
+from django_unicorn.decorators import db_model
+from .models import Book
+
+class ModelView(UnicornView):
+    books = Book.models.all()
+
+    @db_model
+    def delete(self, book):
+        book.delete()
+
+    class Meta:
+        db_models = [DbModel("book", Book)]</code></pre>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- model.html -->
+&lt;div>
+    &lt;div unicorn:db="book">
+        {% for book in books %}
+        &lt;div unicorn:pk="{{ book.pk }}">
+            &lt;input type="text" unicorn:change="delete($model)">Delete the current book&lt;/input>
+        &lt;/div>
+        {% endfor %}
+    &lt;/div>
+&lt;/div></code></pre>
+        {% endverbatim %}
+
         <h2 id="special-methods">Special methods</h2>
 
         <h3 id="refresh">$refresh</h3>
