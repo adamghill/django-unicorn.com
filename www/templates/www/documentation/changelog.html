@@ -11,8 +11,8 @@
 
         <h3>0.11.0</h3>
         <ul>
-            <li><a href="{% url 'www:documentation' 'components/actions' %}#model""><code>$model</code></a> special argument and decorator.</li>
-            <li><a href="{% url 'www:documentation' 'components/actions' %}#toggle""><code>$toggle</code></a> special method.</li>
+            <li><a href="{% url 'www:documentation' 'components/actions' %}#model"><code>$model</code></a> special argument and decorator.</li>
+            <li><a href="{% url 'www:documentation' 'components/actions' %}#toggle"><code>$toggle</code></a> special method.</li>
             <li>Support nested properties when using the <a href="{% url 'www:documentation' 'components/actions' %}#set">set shortcut</a>.</li>
             <li>Fix action string arguments that would get spaces removed inadvertantly.</li>
         </ul>
@@ -20,10 +20,10 @@
         <h4>Breaking changes</h4>
         <ul>
             <li>
-                All existing special methods now start with a <code>$</code> to signify they are magical. Therefore, <code>refresh</code> is now <code>$refresh</code>, <code>reset</code> is now <code>$reset</code>, and <code>validate</code> is now <code>$validate</code>.
+                All existing special methods now start with a <code>$</code> to signify they are magical. Therefore, <code>refresh</code> is now <a href="{% url 'www:documentation' 'components/actions' %}#refresh"><code>$refresh</code></a>, <code>reset</code> is now <a href="{% url 'www:documentation' 'components/actions' %}#reset"><code>$reset</code></a>, and <code>validate</code> is now <a href="{% url 'www:documentation' 'components/actions' %}#validate"><code>$validate</code></a>.
             </li>
         </ul>
-        <a href="https://github.com/adamghill/django-unicorn/compare/0.10.0...0.10.1">All changes since 0.10.0</a>.
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.10.1...0.11.0">All changes since 0.10.1</a>.
 
         <h3>0.10.1</h3>
         <ul>

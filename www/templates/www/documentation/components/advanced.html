@@ -65,7 +65,7 @@ class StateView(UnicornView):
 &lt;/div>{% endverbatim %}</code></pre>
 
         <p class="tip">
-            If the method is intensive and will be called multiple times, it can be cached with Django's <code><a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.functional.cached_property">cached_property</a></code> to prevent duplicate API requests or database queries. The method will only be executed once per component rendering.
+            If the method is intensive and will be called multiple times, it can be cached with Django's <a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.functional.cached_property"><code>cached_property</code></a> to prevent duplicate API requests or database queries. The method will only be executed once per component rendering.
         </p>
 
         <pre data-lang="python"><code class="language-python"># states.py

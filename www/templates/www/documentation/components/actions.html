@@ -87,7 +87,7 @@ class PassingArgsView(UnicornView):
 &lt;/div></code></pre>
 
         <p class="tip">
-            Strings will be converted to <code>datetime</code> if they are successfully parsed by Django's <code><a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime">parse_datetime</a></code> method.
+            Strings will be converted to <code>datetime</code> if they are successfully parsed by Django's <a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime"><code>parse_datetime</code></a> method.
         </p>
 
         <h2 id="set">Set shortcut</h2>
@@ -151,7 +151,7 @@ class SetShortcutView(UnicornView):
         </p>
 
         <p class="tip">
-            <code>$model</code> requires <code><a href="{% url 'www:documentation' name='components/django-models' %}#db-model">db_models</a></code> to be defined in the component's <code>Meta</code> class. The component method must also be decorated with <code>django_unicorn.decorators.db_model</code> and must have at least one argument (which will be converted into the specified Django model from the frontend).
+            <code>$model</code> requires <a href="{% url 'www:documentation' name='components/django-models' %}#db-model"><code>db_models</code></a> to be defined in the component's <code>Meta</code> class. The component method must also be decorated with <code>django_unicorn.decorators.db_model</code> and must have at least one argument (which will be converted into the specified Django model from the frontend).
         </p>
 
         <pre data-lang="python"><code class="language-python"># model.py
