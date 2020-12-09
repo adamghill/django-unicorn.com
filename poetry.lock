@@ -67,6 +67,14 @@ typed-ast = ">=1.4.0"
 d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
+name = "cachetools"
+version = "4.1.1"
+description = "Extensible memoizing collections and decorators"
+category = "main"
+optional = false
+python-versions = "~=3.5"
+
+[[package]]
 name = "certifi"
 version = "2020.11.8"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -180,14 +188,15 @@ redis = ">=3.0.0"
 
 [[package]]
 name = "django-unicorn"
-version = "0.10.0"
+version = "0.11.0"
 description = "A magical full-stack framework for Django."
 category = "main"
 optional = false
 python-versions = ">=3.6,<4.0"
 
 [package.dependencies]
-beautifulsoup4 = ">=4.9.1,<5.0.0"
+beautifulsoup4 = ">=4.8.0"
+cachetools = ">=4.1.1,<5.0.0"
 django = ">=3.0.0"
 orjson = ">=3.2.1,<4.0.0"
 shortuuid = ">=1.0.1,<2.0.0"
@@ -581,7 +590,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "073777b99d9740dc629a377913b2c4154577a7d49261e72c49d4d0571af8db34"
+content-hash = "4d4f156b015661faa18f487ad47907d5e5641bd63f9b99bb8ae38709958ed9f1"
 
 [metadata.files]
 appdirs = [
@@ -604,6 +613,10 @@ beautifulsoup4 = [
 black = [
     {file = "black-19.10b0-py36-none-any.whl", hash = "sha256:1b30e59be925fafc1ee4565e5e08abef6b03fe455102883820fe5ee2e4734e0b"},
     {file = "black-19.10b0.tar.gz", hash = "sha256:c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"},
+]
+cachetools = [
+    {file = "cachetools-4.1.1-py3-none-any.whl", hash = "sha256:513d4ff98dd27f85743a8dc0e92f55ddb1b49e060c2d5961512855cda2c01a98"},
+    {file = "cachetools-4.1.1.tar.gz", hash = "sha256:bbaa39c3dede00175df2dc2b03d0cf18dd2d32a7de7beb68072d13043c9edb20"},
 ]
 certifi = [
     {file = "certifi-2020.11.8-py2.py3-none-any.whl", hash = "sha256:1f422849db327d534e3d0c5f02a263458c3955ec0aae4ff09b95f195c59f4edd"},
@@ -645,8 +658,8 @@ django-redis = [
     {file = "django_redis-4.12.1-py3-none-any.whl", hash = "sha256:1133b26b75baa3664164c3f44b9d5d133d1b8de45d94d79f38d1adc5b1d502e5"},
 ]
 django-unicorn = [
-    {file = "django-unicorn-0.10.0.tar.gz", hash = "sha256:1acbd61eeccc6c0a916510a9ebddb20b947481c86980ce51f803da8368cc0851"},
-    {file = "django_unicorn-0.10.0-py3-none-any.whl", hash = "sha256:723ef62c4cdc377fba0d633227f9416c0872d42b6df5c2e0f1cacf9322897924"},
+    {file = "django-unicorn-0.11.0.tar.gz", hash = "sha256:99f704818a46172c2a2b6479417a1deff37e9aec35a51a644dbaf5e7a9fa6ccd"},
+    {file = "django_unicorn-0.11.0-py3-none-any.whl", hash = "sha256:6a83ea222ead4e49b575ca99c5007d1ebdae5020372bde48211242ca31e74ead"},
 ]
 flake8 = [
     {file = "flake8-3.8.4-py2.py3-none-any.whl", hash = "sha256:749dbbd6bfd0cf1318af27bf97a14e28e5ff548ef8e5b1566ccfb25a11e7c839"},
