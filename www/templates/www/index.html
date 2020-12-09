@@ -30,6 +30,7 @@
 window.onload = function(event) {
     RoughNotation.annotate(document.querySelector('#magical'), { type: 'underline', color: '#f8f4ff', iterations: 2, animationDuration: 500}).show();
     RoughNotation.annotate(document.querySelector('#magic'), { type: 'underline', color: 'blue', iterations: 2, animationDuration: 500}).show();
+    RoughNotation.annotate(document.querySelector('#other'), { type: 'crossed-off', color: '#FF3333', iterations: 2, animationDuration: 500}).show();
 
     var highlightOptions = { type: 'highlight', color: 'yellow', iterations: 1, animationDuration: 500};
     RoughNotation.annotate(document.querySelector('#size'), highlightOptions).show();
@@ -230,7 +231,7 @@ class TodoView(UnicornView):
         </div>
 
         <div class="mt-12">
-            <h2 class="title">Using other frontend frameworks with Django</h2>
+            <h2 class="title">Using <span id="other">other</span> frontend frameworks with Django</h2>
 
             <p>
                 Not convinced using <code>django-unicorn</code> is for you? Check out some <a href="{% url 'www:articles' %}">other approaches to integrate Django with a frontend framework</a>.
