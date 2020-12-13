@@ -9,12 +9,19 @@
             Changelog
         </h1>
 
+        <h3>0.11.2</h3>
+        <ul>
+            <li>Fix encoding issue with default component template on Windows (<a href="https://github.com/adamghill/django-unicorn/issues/91">#91</a>)</li>>
+            <li>Fix circular import when creating the component (<a href="https://github.com/adamghill/django-unicorn/issues/92">#92</a>)</li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.11.0...0.11.2">All changes since 0.11.0</a>.
+
         <h3>0.11.0</h3>
         <ul>
             <li><a href="{% url 'www:documentation' 'components/actions' %}#model"><code>$model</code></a> special argument and decorator.</li>
             <li><a href="{% url 'www:documentation' 'components/actions' %}#toggle"><code>$toggle</code></a> special method.</li>
             <li>Support nested properties when using the <a href="{% url 'www:documentation' 'components/actions' %}#set">set shortcut</a>.</li>
-            <li>Fix action string arguments that would get spaces removed inadvertantly.</li>
+            <li>Fix action string arguments that would get spaces removed inadvertently.</li>
         </ul>
 
         <h4>Breaking changes</h4>
