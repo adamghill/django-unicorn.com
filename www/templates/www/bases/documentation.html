@@ -145,6 +145,20 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="{% if request.path == '/documentation/components/redirecting' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/redirecting' %}">Redirecting</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/redirecting' %}#redirect">Redirect</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/redirecting' %}#hash-update">HashUpdate</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/redirecting' %}#location-update">LocationUpdate</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="{% if request.path == '/documentation/components/loading-states' %}active{% endif %}">
                         <a href="{% url 'www:documentation' 'components/loading-states' %}">Loading states</a>
                         <ul class="app-sub-sidebar">
