@@ -9,6 +9,14 @@
             Changelog
         </h1>
 
+        <h3 id="0.13.0">0.13.0</h3>
+        <ul>
+            <li><a href="{% url 'www:documentation' 'components' %}#component-key">Component key</a> to allow disambiguation of components of the same name</li>
+            <li><a href="{% url 'www:documentation' 'components/actions' %}#returnValue">$returnValue</a> special argument</li>
+            <li>Get the last action method's <a href="{% url 'www:documentation' 'components/actions' %}#return-values">return value</a></li>
+        </ul>
+        <a href="https://github.com/adamghill/django-unicorn/compare/0.12.0...0.13.0">All changes since 0.12.0</a>.
+
         <h3 id="0.12.0">0.12.0</h3>
         <ul>
             <li><a href="{% url 'www:documentation' 'components/redirecting' %}">Redirect</a> from action method in component</li>
@@ -104,7 +112,7 @@
             <li><a href="{% url 'www:documentation' 'components/actions' %}#modifiers">Stop and prevent modifiers</a> on actions</li>
             <li><a href="{% url 'www:documentation' 'components/templates' %}#defer">Defer modifier</a> on model</li>
             <li>Support for multiple actions on the same element</li>
-            <li>Django setting to <a href="{% url 'www:documentation' 'settings' %}#minimize">minimize</a> the Javascript</li>
+            <li>Django setting to <a href="{% url 'www:documentation' 'settings' %}#minimize">minimize</a> the JavaScript</li>
         </ul>
 
         <h4>Breaking changes</h4>
@@ -159,7 +167,7 @@
 
         <h3>0.5.0</h3>
         <ul>
-            <li><a href="{% url 'www:documentation' 'components/actions' %}#calling-methods">Call</a> component method from Javascript.</li>
+            <li><a href="{% url 'www:documentation' 'components/actions' %}#calling-methods">Call</a> component method from JavaScript.</li>
             <li>Support classes, dictionaries, Django Models, (read-only) Django QuerySets properties on a component.</li>
             <li><a href="{% url 'www:documentation' 'components/templates' %}#debounce">Debounce</a> modifier to change how fast changes are sent to the backend from <code>unicorn:model</code>.</li>
             <li><a href="{% url 'www:documentation' 'components/templates' %}#lazy">Lazy</a> modifier to listen for <code>blur</code> instead of <code>input</code> on <code>unicorn:model</code>.</li>

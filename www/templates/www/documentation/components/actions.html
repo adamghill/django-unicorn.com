@@ -183,6 +183,16 @@ class ModelView(UnicornView):
 &lt;/div></code></pre>
         {% endverbatim %}
 
+        <h3 id="returnValue">$returnValue</h3>
+        <p>
+            A reference to the last return value from an action method.
+        </p>
+
+        <pre data-lang="html"><code class="language-html">&lt;!-- returnValue.html -->
+&lt;div>
+    &lt;input type="text" unicorn:change="update($returnValue.trim())">Update&lt;/input>
+&lt;/div></code></pre>
+
         <h2 id="special-methods">Special methods</h2>
 
         <h3 id="refresh">$refresh</h3>
@@ -232,7 +242,7 @@ class ModelView(UnicornView):
         <h2 id="calling-methods">Calling methods</h2>
 
         <p>
-            Sometimes you need to trigger a method on a component from regular Javascript. That is possible with <code>Unicorn.call()</code>. It can be called from anywhere on the page.
+            Sometimes you need to trigger a method on a component from regular JavaScript. That is possible with <code>Unicorn.call()</code>. It can be called from anywhere on the page.
         </p>
 
         {% verbatim %}
@@ -240,6 +250,19 @@ class ModelView(UnicornView):
 {% unicorn 'hello-world' %}
         
 &lt;button onclick="Unicorn.call('hello-world', 'set_name');">Set the name from outside the component&lt;/button></code></pre>
+        {% endverbatim %}
+
+        <h2 id="return-values">Return values</h2>
+
+        <p>
+            To retrieve the last action method's return value, use <code>Unicorn.getReturnValue()</code>.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- index.html -->
+{% unicorn 'hello-world' %}
+        
+&lt;button onclick="alert(Unicorn.getReturnValue('hello-world'));">Get the last return value&lt;/button></code></pre>
         {% endverbatim %}
 
         <div class="previous">

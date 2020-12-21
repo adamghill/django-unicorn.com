@@ -24,7 +24,11 @@
         </p>
 
         {% verbatim %}
-        Add <code>{% unicorn 'hello-world' %}</code> into the template you want to load the new component.
+        Add <code>{% unicorn 'hello-world' %}</code> into the template where you want to load the new component.
+
+        <p class="tip" id="component-key">
+            If there are multiple of the same components on the page, a <code>key</code> kwarg can be passed into the template. For example, <code>{% unicorn 'hello-world' key='helloWorldKey' %}</code>.
+        </p>
         {% endverbatim %}
 
         <h2 id="component-arguments">Component arguments</h2>
