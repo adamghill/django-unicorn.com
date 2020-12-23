@@ -1,7 +1,7 @@
 {% extends "www/bases/base.html" %}
 {% load compress static unicorn utils %}
 
-{% block title %}django-unicorn{% endblock title %}
+{% block title %}Unicorn{% endblock title %}
 
 {% block styles %}
 
@@ -57,7 +57,7 @@ window.onload = function(event) {
             <img src="{% static 'img/unicorn.svg' %}" height="80" width="80" style="float: left; height: 80px; top: -10px; position: relative; margin-right: 20px;" />
             <div>
                 <h1 class="title">
-                    django-unicorn
+                    Unicorn
                 </h1>
                 <h2 class="subtitle" id="stuff">
                     A <span id="magical">magical</span> full-stack framework for Django ✨
@@ -128,7 +128,7 @@ window.onload = function(event) {
             <h2 class="title">Create your first component</h2>
 
             <ol class="mx-4">
-                <li><a href="{% url 'www:documentation' 'installation' %}">Install</a> <code>django-unicorn</code></li>
+                <li><a href="{% url 'www:documentation' 'installation' %}">Install</a> <code>Unicorn</code></li>
                 <li><a href="{% url 'www:documentation' 'components' %}">Create</a> a component</li>
                 <li>Add the component to your template with {% verbatim %}<code>{% unicorn 'component-name' %}</code>{% endverbatim %}</li>
                 <li>🎉</li>
@@ -189,7 +189,7 @@ class TodoView(UnicornView):
 
         <div class="mt-4">
             <p>
-                Other <a href="{% url 'www:documentation' 'examples' %}">example components</a>. Or read all of the <a href="{% url 'www:documentation' %}">documentation</a> about how to use <code>django-unicorn</code>.
+                Other <a href="{% url 'www:documentation' 'examples' %}">example components</a>. Or read all of the <a href="{% url 'www:documentation' %}">documentation</a> about how to use <code>Unicorn</code>.
             </p>
         </div>
 
@@ -202,9 +202,9 @@ class TodoView(UnicornView):
 
             <div class="content">
                 <ul>
-                    <li><code>django-unicorn</code> progressively enhances a normal Django view, so the initial render of components is <strong>fast</strong> and great for <strong>SEO</strong>.
-                    <li>Next, <code>django-unicorn</code> binds to the elements you specify and automatically makes AJAX calls when needed.</li>
-                    <li>Then, <code>django-unicorn</code> dynamically updates the DOM.</li>
+                    <li><code>Unicorn</code> progressively enhances a normal Django view, so the initial render of components is <strong>fast</strong> and great for <strong>SEO</strong>.
+                    <li>Next, <code>Unicorn</code> binds to the elements you specify and automatically makes AJAX calls when needed.</li>
+                    <li>Then, <code>Unicorn</code> dynamically updates the DOM.</li>
                 </ul>
 
                 <p>
@@ -217,7 +217,7 @@ class TodoView(UnicornView):
             <h2 class="title">Sponsoring</h2>
 
             <p>
-                Help encourage development for more features and bug fixes on <code>django-unicorn</code> by <a href="https://github.com/sponsors/adamghill">sponsoring me on GitHub</a>. Sponsorship benefits (some are dependant on the sponsorship level):
+                Help encourage development for more features and bug fixes on <code>Unicorn</code> by <a href="https://github.com/sponsors/adamghill">sponsoring me on GitHub</a>. Sponsorship benefits (some are dependant on the sponsorship level):
             </p>
 
             <div class="content">
@@ -225,7 +225,7 @@ class TodoView(UnicornView):
                     <li>My undying appreciation and a warm glow from helping support open-source projects for Django.</li>
                     <li>Listed on <a href="{% url 'www:sponsors' %}">django-unicorn.com/sponsors.</a></li>
                     <li>Prioritized handling of <a href="https://github.com/adamghill/django-unicorn/issues">bugs and issues in GitHub.</a></li>
-                    <li>Access to additional <a href="{% url 'www:screencasts' %}">screencasts</a> detailing advanced use-cases for <code>django-unicorn</code> (coming soon).</li>
+                    <li>Access to additional <a href="{% url 'www:screencasts' name='installation' %}">screencasts</a> detailing advanced use-cases for <code>Unicorn</code> (coming soon).</li>
                 </ul>
             </div>
         </div>
@@ -234,7 +234,7 @@ class TodoView(UnicornView):
             <h2 class="title">Using <span id="other">other</span> frontend frameworks with Django</h2>
 
             <p>
-                Not convinced using <code>django-unicorn</code> is for you? Check out some <a href="{% url 'www:articles' %}">other approaches to integrate Django with a frontend framework</a>.
+                Not convinced using <code>Unicorn</code> is for you? Check out some <a href="{% url 'www:articles' %}">other approaches to integrate Django with a frontend framework</a>.
             </p>
         </div>
 

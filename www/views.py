@@ -16,9 +16,9 @@ def articles(request):
 
 
 @cache_page(60 * 15)
-@render_to("www/screencasts.html")
-def screencasts(request):
-    return {}
+def screencasts(request, name="installation"):
+    template_name = f"www/screencasts/{name}.html"
+    return render(request, template_name)
 
 
 @cache_page(60 * 15)

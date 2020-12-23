@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}{% block subtitle %}{% endblock subtitle %} - django-unicorn{% endblock title %}</title>
+    <title>{% block title %}{% block subtitle %}{% endblock subtitle %} - Unicorn{% endblock title %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -36,7 +36,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #fafafa;">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <strong>django-unicorn ✨</strong>
+                <strong>🦄 ✨</strong>
             </a>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
@@ -51,7 +51,7 @@
                 <a class="navbar-item" href="{% url 'www:documentation' %}">
                     <img src="{% static 'img/book.svg' %}" style="max-height: 1.5em;" />&nbsp;Documentation
                 </a>
-                <a class="navbar-item" href="{% url 'www:screencasts' %}">
+                <a class="navbar-item" href="{% url 'www:screencasts' name='installation' %}">
                     <img src="{% static 'img/monitor.svg' %}" style="max-height: 1.5em;" />&nbsp;Screencasts
                 </a>
                 <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
@@ -86,7 +86,7 @@
                             </li>
                             <li>
                                 <img src="{% static 'img/monitor.svg' %}" style="max-height: 1em;" />
-                                <a href="{% url 'www:screencasts' %}">Screencasts</a>
+                                <a href="{% url 'www:screencasts' name='installation' %}">Screencasts</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/tool.svg' %}" style="max-height: 1em;" />

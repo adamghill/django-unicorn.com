@@ -10,7 +10,7 @@
         </h1>
 
         <p>
-            <code>django-unicorn</code> provides tight integration with Django <code>Models</code> and <code>Querysets</code> to handle typical Django workflows. There are multiple ways to integrate a Django model with a component. They all work a little differently and which option you choose to do depends on the situation.
+            <code>Unicorn</code> provides tight integration with Django <code>Models</code> and <code>Querysets</code> to handle typical Django workflows. There are multiple ways to integrate a Django model with a component. They all work a little differently and which option you choose to do depends on the situation.
         </p>
 
 
@@ -74,7 +74,7 @@ class InstanceAttributeView(UnicornView):
 
         <h2 id="db-model">DbModel</h2>
         <p>
-            If there is no reason to have a class or instance attribute, then <code>django-unicorn</code> also provides a <code>DbModel</code> class that ties a simple name used in the front-end to a Django model defined in the component.
+            If there is no reason to have a class or instance attribute, then <code>Unicorn</code> also provides a <code>DbModel</code> class that ties a simple name used in the front-end to a Django model defined in the component.
         </p>
 
         <p><code>DbModel</code> can also live in a parent element and surround a group of inputs. The <code>unicorn:field</code> attribute is used for Django's model fields.
@@ -115,7 +115,7 @@ class DbModelView(UnicornView):
         </p>
 
         <p class="tip">
-            A blank value for an <code>unicorn:pk</code> attribute signals to <code>django-unicorn</code> to create a new instance of the underlying Django <code>model</code> of the queryset.
+            A blank value for an <code>unicorn:pk</code> attribute signals to <code>Unicorn</code> to create a new instance of the underlying Django <code>model</code> of the queryset.
         </p>
 
         {% verbatim %}
