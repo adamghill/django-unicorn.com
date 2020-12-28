@@ -1,0 +1,58 @@
+{% extends "www/bases/documentation.html" %}
+
+{% block subtitle %}Redirecting{% endblock subtitle %}
+
+{% block content %}
+<section class="content">
+    <article class="section" id="main">
+        <h1>
+            Polling
+        </h1>
+
+        <p>
+            <code>unicorn:poll</code> can be added to the root <code>div</code> element of a component to have it refresh the component automatically every 2 seconds. The polling is smart enough that it won't poll when the page is inactive.
+        </p>
+
+        <pre data-lang="python"><code class="language-python"># polling.py
+from django.utils.timezone import now
+from django_unicorn.components import UnicornView
+
+class PollingView(UnicornView):
+    current_time = now()</code></pre>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- polling.html -->
+&lt;div unicorn:poll>
+    {{ current_time }}
+&lt;/div></code></pre>
+        {% endverbatim %}
+
+        <p>
+            A method can also be specified if there is a specific method on the component that should called every time the polling fires. For example, <code>unicorn:poll="get_updates"</code> would call the <code>get_updates</code> method instead of the built-in <code>refresh</code> method.
+        </p>
+
+        <p>
+            To define a different refresh time in milliseconds, a modifier can be added as well. <code>unicorn:poll-1000</code> would fire the <code>refresh</code> method every 1 second, instead of the default 2 seconds.
+        </p>
+
+        {% verbatim %}
+        <pre data-lang="html"><code class="language-html">&lt;!-- polling_every_five_seconds.html -->
+&lt;div unicorn:poll-5000="get_updates">
+    &lt;input unicorn:model="update" type="text" id="text">
+    {{ update }}
+&lt;/div></code></pre>
+        {% endverbatim %}
+
+        <h2 id="disable">Disable polling</h2>
+
+        <div class="previous">
+            <a href="{% url 'www:documentation' name='components/loading-states' %}">Loading States</a>
+        </div>
+
+        <div class="next">
+            <a href="{% url 'www:documentation' name='components/advanced' %}">Advanced</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}
