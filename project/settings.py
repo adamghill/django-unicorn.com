@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "www.django-unicorn.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "www.django-unicorn.com"]
 
 ALLOWED_HOST = os.getenv("ALLOWED_HOST")
 
@@ -88,6 +88,11 @@ COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+INTERNAL_IPS = (
+    "127.0.0.1",
+    "localhost",
+)
 
 if ENVIRONMENT == "live":
     DEBUG = False
