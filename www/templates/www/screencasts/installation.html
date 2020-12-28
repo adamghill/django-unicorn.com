@@ -16,10 +16,150 @@
 
 <section class="container pt-4">
     <div class="columns features">
-        <div class="column">
-            <p> 
-                <iframe src="https://player.vimeo.com/video/494214339" width="640" height="362" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </p>
+        <div class="column is-two-thirds">
+            <div class="card">
+                <div class="card-image" style="text-align: center;">
+                  <figure class="image">
+                    <iframe src="https://player.vimeo.com/video/494214339" width="640" height="362" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                  </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4">Installation</p>
+                            <p class="subtitle is-6">How to install django-unicorn and create a basic component.</p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                            The code changes are reflected in <a href="https://github.com/adamghill/magical-creatures/compare/1f4a7a0d08b453e332d544c3efb0e2a4aaf51bee..3e0b85689b8a33ae29218cab277f902131a6b5c8">these changes</a> in the <a href="https://github.com/adamghill/magical-creatures">magical-creatures</a> repository.
+                        </p>
+                    </div>
+              
+                    <div class="content">
+                        <p class="title is-6 pt-4">Transcript</p>
+                        <p>
+                            Hello! Welcome to the <em>very</em> first screencast for Unicorn, the magical full-stack framework for Django.
+                        </p>
+
+                        <p>
+                            In this episode I'll show you how to install Unicorn and create a basic component. You can see I just created a brand new Django project and we can see the fancy rocketship getting ready to blast off!
+                        </p>
+
+                        <p>
+                            So, let's look at the code.
+                        </p>
+
+                        <p>
+                            I already added a "www" app to have a simple index page to put our components on.
+                        </p>
+
+                        <p>
+                            I'm using <code>poetry</code> to install Python packages, but of course installing with <code>pip</code> will work just fine as well.
+                        </p>
+
+                        <p>
+                            Ok! So, the library is installed. There are two steps to start using it in Django.
+                        </p>
+
+                        <p>
+                            First, add "django-unicorn" to the <code>INSTALLED_APPS</code> in your settings file.
+                        </p>
+
+                        <p>
+                            Second, add the url route.
+                        </p>
+
+                        <p>
+                            Now, Unicorn is integrated with Django. Let's create a new component to see how it all works. Built into Unicorn is a Django management command to create new components. Let's create a new component to track magical creature sightings.
+                        </p>
+
+                        <p>
+                            Awesome! So, we have a component. Now what?! For our first component, we need to tell Django where to look for templates. Let's register the "unicorn" folder that just got created in <code>INSTALLED_APPS</code>.
+                        </p>
+
+                        <p>
+                            Alright, now we can start integrating that new component we created earlier into our template.
+                        </p>
+
+                        <p>
+                            We'll need to load the Unicorn template tags so they can be used later on.
+                        </p>
+
+                        <p>
+                            Make sure that the Django CSRF tokens are available because they will protect us from cross-site scripting attacks.
+                        </p>
+
+                        <p>
+                            Load the JavaScript required for Unicorn.
+                        </p>
+
+                        <p>
+                            And finally, our new component!
+                        </p>
+
+                        <p>
+                            Let's update the "sighting" component and refresh the page and voila! we now have a more complicated Django "includes" templatetag. :)
+                        </p>
+
+                        <p>
+                            But, now is where things get more fun!
+                        </p>
+
+                        <p>
+                            Let's add a textbox on our component to count how many times we've seen a magical creature.
+                        </p>
+
+                        <p>
+                            And that wraps up the first screencast on how to install Unicorn!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-one-third">
+            <nav class="panel">
+                <p class="panel-heading">
+                  Screencasts
+                </p>
+                <!-- <p class="panel-tabs">
+                  <a class="is-active">All</a>
+                  <a>Free</a>
+                  <a>Requires Sponsor</a>
+                </p> -->
+                <a class="panel-block is-active" href="{% url 'www:screencasts' 'installation' %}">
+                  Installation
+                </a>
+                <div class="panel-block">
+                    <span style="color: grey;">Models &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Actions &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Using Django Models &nbsp;(coming soon)</span>
+                </div>
+                <p class="panel-heading">
+                    Sponsorship required
+                    <span style="margin-left: 1rem;"><a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a></span>
+                </p>
+                <div class="panel-block">
+                    <span style="color: grey;">Polling &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Validation &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Redirecting &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Loading states &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Advanced components &nbsp;(coming soon)</span>
+                </div>
+            </nav>
         </div>
     </div>
 </section>
