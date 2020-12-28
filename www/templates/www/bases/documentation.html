@@ -173,6 +173,17 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="{% if request.path == '/documentation/components/polling' %}active{% endif %}">
+                        <a href="{% url 'www:documentation' 'components/polling' %}">Polling</a>
+                        <ul class="app-sub-sidebar">
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/polling' %}#redirect">Redirect</a>
+                            </li>
+                            <li>
+                                <a class="section-link" href="{% url 'www:documentation' 'components/polling' %}#hash-update">HashUpdate</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="{% if request.path == '/documentation/components/advanced' %}active{% endif %}">
                         <a href="{% url 'www:documentation' 'components/advanced' %}">Advanced</a>
                         <ul class="app-sub-sidebar">
