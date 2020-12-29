@@ -1,0 +1,94 @@
+{% extends "www/bases/base.html" %}
+{% load compress static unicorn utils %}
+
+{% block title %}Models Screencast - Unicorn{% endblock title %}
+
+{% block styles %}
+
+{% compress css %}
+<link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+<link res="stylesheet" href="{% static 'css/main.css' %}">
+{% endcompress %}
+
+{% endblock styles %}
+
+{% block content %}
+
+<section class="container pt-4">
+    <div class="columns features">
+        <div class="column is-two-thirds">
+            <div class="card">
+                <div class="card-image" style="text-align: center;">
+                  <figure class="image">
+                    <iframe src="https://player.vimeo.com/video/495363382" width="640" height="362" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                  </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4">Models</p>
+                            <p class="subtitle is-6">How to use models in <code>Unicorn</code>.</p>
+                        </div>
+                    </div>
+
+                    <!--
+                    <div class="content">
+                        <p>
+                            The code changes are reflected in <a href="https://github.com/adamghill/magical-creatures/compare/1f4a7a0d08b453e332d544c3efb0e2a4aaf51bee..3e0b85689b8a33ae29218cab277f902131a6b5c8">these changes</a> in the <a href="https://github.com/adamghill/magical-creatures">magical-creatures</a> repository.
+                        </p>
+                    </div>
+              
+                    <div class="content">
+                        <p class="title is-6 pt-4">Transcript</p>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+        <div class="column is-one-third">
+            <nav class="panel">
+                <p class="panel-heading">
+                  Screencasts
+                </p>
+                <!-- <p class="panel-tabs">
+                  <a class="is-active">All</a>
+                  <a>Free</a>
+                  <a>Requires Sponsor</a>
+                </p> -->
+                <a class="panel-block" href="{% url 'www:screencasts' 'installation' %}">
+                  Installation
+                </a>
+                <a class="panel-block is-active" href="{% url 'www:screencasts' 'models' %}">
+                    Models
+                </a>
+                <div class="panel-block">
+                    <span style="color: grey;">Actions &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Using Django Models &nbsp;(coming soon)</span>
+                </div>
+                <p class="panel-heading">
+                    Sponsorship required
+                    <span style="margin-left: 1rem;"><a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a></span>
+                </p>
+                <div class="panel-block">
+                    <span style="color: grey;">Polling &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Validation &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Redirecting &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Loading states &nbsp;(coming soon)</span>
+                </div>
+                <div class="panel-block">
+                    <span style="color: grey;">Advanced components &nbsp;(coming soon)</span>
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
