@@ -14,19 +14,6 @@ poetry add django-unicorn
 
 Next, install `Unicorn` into the Django project.
 
-```{admonition} Here's my title
-:class: warning
-
-Here's my admonition content
-```
-
-```{eval-rst}
-.. autoclass:: django_unicorn.components.HashUpdate
-    :members:
-    :private-members:
-    :special-members:
-```
-
 - Add `"django_unicorn",` to the `INSTALLED_APPS` array in the Django settings file (normally settings.py)
 - Add `path("unicorn/", include("django_unicorn.urls")),` into the project's urls.py
 - Add `{% load unicorn %}` to the top of the Django HTML template

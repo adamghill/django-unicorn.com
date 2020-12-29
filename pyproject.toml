@@ -24,6 +24,7 @@ furo = "^2020.12.9-beta.21"
 myst-parser = "^0.13.0"
 sphinx-copybutton = "^0.3.1"
 sphinx-autobuild = "^2020.9.1"
+linkify-it-py = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"

@@ -5,8 +5,11 @@ name = "r"
 execute = "poetry run ./manage.py runserver 0:8000"
 long_running = true
 
+[[commands]]
 name = "sb"
 execute = "poetry run sphinx-build -b html source docs"
 
+[[commands]]
 name = "sa"
 execute = "poetry run sphinx-autobuild -b html source docs"
+long_running = true

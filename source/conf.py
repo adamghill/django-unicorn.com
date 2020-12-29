@@ -36,7 +36,10 @@ extensions = [
     "myst_parser",
     "sphinx_copybutton",
     "sphinx.ext.napoleon",
+    "sphinx.ext.autosectionlabel",
 ]
+
+autosectionlabel_prefix_document = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -59,3 +62,6 @@ html_theme = "furo"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 html_title = "Unicorn"
+
+myst_heading_anchors = 2
+myst_enable_extensions = ["linkify", "colon_fence"]

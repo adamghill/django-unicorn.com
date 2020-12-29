@@ -10,6 +10,8 @@ introduction
 installation
 faq
 changelog
+components
+actions
 ```
 
 ```{toctree}
