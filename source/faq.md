@@ -22,7 +22,7 @@ Nope! In some cases, you might need to actually build an <span title="single-pag
 
 ## Isn't calling an AJAX endpoint on every input slow?
 
-Not really! `Unicorn` is ideal for when an AJAX call would already be required (such as hitting an API for typeahead search or update data in a database). If that isn't required, the [lazy](#lazy) and [debounce](#debounce) modifiers can also be used to prevent an AJAX call on every change.
+Not really! `Unicorn` is ideal for when an AJAX call would already be required (such as hitting an API for typeahead search or update data in a database). If that isn't required, the [lazy](actions.md#lazy) and [debounce](actions.md#debounce) modifiers can also be used to prevent an AJAX call on every change.
 
 ## But, what about security?
 

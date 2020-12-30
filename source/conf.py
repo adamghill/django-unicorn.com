@@ -37,6 +37,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx.ext.napoleon",
     "sphinx.ext.autosectionlabel",
+    "rst2pdf.pdfbuilder",
 ]
 
 autosectionlabel_prefix_document = True
@@ -60,8 +61,61 @@ html_theme = "furo"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+html_static_path = ["source/_static"]
 html_title = "Unicorn"
+html_css_files = [
+    "styles/nav.css",
+]
+html_theme_options = {
+    "sidebar_hide_name": True,
+    "announcement": """
+<!--
+<script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+-->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #fafafa;">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/" style="margin-top: 6px;">
+            <strong>🦄 ✨</strong>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="/documentations">
+                <img src="/static/img/book.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Documentation
+            </a>
+            <a class="navbar-item" href="/screencasts/installation">
+                <img src="/static/img/monitor.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Screencasts
+            </a>
+            <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
+                <img src="/static/img/twitter.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
+            </a>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions" data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="navbar-item github-button" href="https://github.com/adamghill/django-unicorn" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star adamghill/django-unicorn on GitHub">Star</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
+            </div>
+        </div>
+    </div>
+</nav>
+""",
+}
 
 myst_heading_anchors = 2
 myst_enable_extensions = ["linkify", "colon_fence"]
+
+pdf_documents = [
+    ("index", "unicorn-0.13.0", "Unicorn", "Adam Hill"),
+]

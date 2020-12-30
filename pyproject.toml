@@ -18,19 +18,20 @@ django-cache-memoize = "^0.1.7"
 django-redis = "^4.12.1"
 httpx = "^0.14.2"
 sentry-sdk = "^0.17.4"
-Sphinx = "^3.4.1"
-django-docs = "^0.3.1"
-furo = "^2020.12.9-beta.21"
-myst-parser = "^0.13.0"
-sphinx-copybutton = "^0.3.1"
-sphinx-autobuild = "^2020.9.1"
-linkify-it-py = "^1.0.1"
+django-docs = {git = "https://github.com/adamghill/django-docs", branch = "dirhtml-support"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
 isort = "^5.1.1"
 black = "^19.10b0"
 mypy = "^0.782"
+furo = "^2020.12.30-beta.24"
+Sphinx = "^3.4.1"
+myst-parser = "^0.13.0"
+sphinx-copybutton = "^0.3.1"
+sphinx-autobuild = "^2020.9.1"
+linkify-it-py = "^1.0.1"
+rst2pdf = "^0.98"
 
 [build-system]
 requires = ["poetry>=0.12"]
