@@ -7,7 +7,7 @@ long_running = true
 
 [[commands]]
 name = "sb"
-execute = "poetry run sphinx-build -b dirhtml source docs"
+execute = "poetry run sphinx-build -E -a -b dirhtml source docs"
 
 [[commands]]
 name = "sa"
@@ -16,4 +16,4 @@ long_running = true
 
 [[commands]]
 name = "sp"
-execute = "poetry run sphinx-build -b pdf source docs"
+execute = "poetry run sphinx-build -E -a -b pdf source docs"

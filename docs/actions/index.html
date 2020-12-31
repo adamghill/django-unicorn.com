@@ -1,0 +1,542 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Validation" href="../validation/" /><link rel="prev" title="Django Models" href="../django-models/" />
+
+    <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
+        <title>Actions - Unicorn</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=26485485040e7aaf717c13fd0188a5ad2c2deb60">
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script defer="defer" src="../_static/jquery.js"></script>
+    <script defer="defer" src="../_static/underscore.js"></script>
+    <script defer="defer" src="../_static/doctools.js"></script>
+    <script defer="defer" src="../_static/clipboard.min.js"></script>
+    <script defer="defer" src="../_static/copybutton.js"></script>
+    <script defer src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     
+<!--
+<script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+-->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #fafafa;">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/" style="margin-top: 6px;">
+            <strong>🦄 ✨</strong>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="/documentations">
+                <img src="/static/img/book.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Documentation
+            </a>
+            <a class="navbar-item" href="/screencasts/installation">
+                <img src="/static/img/monitor.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Screencasts
+            </a>
+            <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
+                <img src="/static/img/twitter.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
+            </a>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions" data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="navbar-item github-button" href="https://github.com/adamghill/django-unicorn" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star adamghill/django-unicorn on GitHub">Star</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
+            </div>
+        </div>
+    </div>
+</nav>
+ 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../"><div class="brand">Unicorn</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../">
+  
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search/">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="actions">
+<h1>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h1>
+<p>Components can also trigger methods from the templates by listening to any valid event type. The most common events would be <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">keydown</span></code>, <code class="docutils literal notranslate"><span class="pre">keyup</span></code>, and <code class="docutils literal notranslate"><span class="pre">mouseenter</span></code>, but <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN has a list of all of the browser event types available</a>.</p>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
+<p>An example action to call the <code class="docutils literal notranslate"><span class="pre">clear_name</span></code> method on the component.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- clear-name.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
+  Hello {{ name|title }}
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"clear_name"</span><span class="p">&gt;</span>Clear Name<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># clear_name.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">ClearNameView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
+
+    <span class="k">def</span> <span class="nf">clear_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">""</span>
+</pre></div>
+</div>
+<p>When the button is clicked, the <code class="docutils literal notranslate"><span class="pre">name</span></code> property will get set to an empty string. Then, the component will intelligently re-render itself and the text input will update to match the property on the component.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Instance methods without arguments can be called from the template with or without parenthesis.</p>
+</div>
+</div>
+<div class="section" id="passing-arguments">
+<h2>Passing arguments<a class="headerlink" href="#passing-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Actions can also pass basic Python types to the backend component.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- passing-args.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
+  Hello {{ name|title }} 👋
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set('Bob')"</span><span class="p">&gt;</span>Set as Bob<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set()"</span><span class="p">&gt;</span>Set default value of name argument<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># passing_args.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">PassingArgsView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
+
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Universe"</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</pre></div>
+</div>
+<div class="section" id="argument-types">
+<h3>Argument types<a class="headerlink" href="#argument-types" title="Permalink to this headline">¶</a></h3>
+<p>Arguments can be most basic Python types, including <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, and <code class="docutils literal notranslate"><span class="pre">UUID4</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- argument-types.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(99)"</span><span class="p">&gt;</span>Pass int<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(1.234)"</span><span class="p">&gt;</span>Pass float<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update({'key': 'value'})"</span><span class="p">&gt;</span>Pass dictionary<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update([1, 2, 3])"</span><span class="p">&gt;</span>Pass list<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update((1, 2, 3))"</span><span class="p">&gt;</span>Pass tuple<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update({1, 2, 3})"</span><span class="p">&gt;</span>Pass set<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(2020-09-12T01:01:01)"</span><span class="p">&gt;</span>Pass datetime<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(90144cb9-fc47-476d-b124-d543b0cff091)"</span><span class="p">&gt;</span>
+    Pass UUID
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Strings will be converted to <code class="docutils literal notranslate"><span class="pre">datetime</span></code> if they are successfully parsed by Django’s <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime"><code class="docutils literal notranslate"><span class="pre">parse_datetime</span></code></a> method.</p>
+</div>
+</div>
+</div>
+<div class="section" id="set-shortcut">
+<h2>Set shortcut<a class="headerlink" href="#set-shortcut" title="Permalink to this headline">¶</a></h2>
+<p>Actions can also set properties without requiring an explicit method.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- set-shortcut.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
+  Hello {{ name|title }} 👋
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"name='Bob'"</span><span class="p">&gt;</span>Set name as Bob<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set_shortcut.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">SetShortcutView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modifiers">
+<h2>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h2>
+<p>Similar to models, actions also have modifiers which change how the method gets called.</p>
+<div class="section" id="prevent">
+<h3>prevent<a class="headerlink" href="#prevent" title="Permalink to this headline">¶</a></h3>
+<p>Prevents the default action the browser would use for that element. The same as calling <code class="docutils literal notranslate"><span class="pre">preventDefault</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- prevent-modifier.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">"name='Bob'"</span><span class="p">&gt;</span>Set name as Bob<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stop">
+<h3>stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
+<p>Stops the event from bubbling up the event chain. The same as calling <code class="docutils literal notranslate"><span class="pre">stopPropagation</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- stop-modifier.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">"name='Bob'"</span><span class="p">&gt;</span>Set name as Bob<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="special-arguments">
+<h2>Special arguments<a class="headerlink" href="#special-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="event">
+<h3>$event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h3>
+<p>A reference to the event that triggered the action.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- event.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:change</span><span class="o">=</span><span class="s">"update($event.target.value.trim())"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="model">
+<h3>$model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<p>Sends the current <code class="docutils literal notranslate"><span class="pre">db_model</span></code> to an action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">$model</span></code> requires <a class="reference internal" href="../django-models/#dbmodel"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">db_models</span></code></span></a> to be defined in the component’s <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class. The component method must also be decorated with <code class="docutils literal notranslate"><span class="pre">django_unicorn.decorators.db_model</span></code> and must have at least one argument (which will be converted into the specified Django model from the frontend).</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.db</span> <span class="kn">import</span> <span class="n">DbModel</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.decorators</span> <span class="kn">import</span> <span class="n">db_model</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Book</span>
+
+<span class="k">class</span> <span class="nc">ModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="nd">@db_model</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book</span><span class="p">):</span>
+        <span class="n">book</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">DbModel</span><span class="p">(</span><span class="s2">"book"</span><span class="p">,</span> <span class="n">Book</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- model.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:db</span><span class="o">=</span><span class="s">"book"</span><span class="p">&gt;</span>
+        {% for book in books %}
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:pk</span><span class="o">=</span><span class="s">"{{ book.pk }}"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:change</span><span class="o">=</span><span class="s">"delete($model)"</span><span class="p">&gt;</span>Delete the current book<span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        {% endfor %}
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="returnvalue">
+<h3>$returnValue<a class="headerlink" href="#returnvalue" title="Permalink to this headline">¶</a></h3>
+<p>A reference to the last return value from an action method.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- returnValue.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:change</span><span class="o">=</span><span class="s">"update($returnValue.trim())"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="special-methods">
+<h2>Special methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="refresh">
+<h3>$refresh<a class="headerlink" href="#refresh" title="Permalink to this headline">¶</a></h3>
+<p>Refresh and re-render the component from its current state.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- refresh-method.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$refresh"</span><span class="p">&gt;</span>Refresh the component<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reset">
+<h3>$reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
+<p>Revert the component to its original state.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- reset-method.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$reset"</span><span class="p">&gt;</span>Reset the component<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="toggle">
+<h3>$toggle<a class="headerlink" href="#toggle" title="Permalink to this headline">¶</a></h3>
+<p>Toggle a field on the component. Can only be used for fields that are booleans.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- toggle-method.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('check')"</span><span class="p">&gt;</span>Toggle the check field<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Multiple fields can be toggled at the same time by passing in multiple fields at a time: <code class="docutils literal notranslate"><span class="pre">unicorn:click="$toggle('check',</span> <span class="pre">'another_check',</span> <span class="pre">'a_third_check')"</span></code>. Nested properties are also supported: <code class="docutils literal notranslate"><span class="pre">unicorn:click="$toggle('nested.check')"</span></code>.</p>
+</div>
+</div>
+<div class="section" id="validate">
+<h3>$validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h3>
+<p>Validates the component.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- validate-method.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$validate"</span><span class="p">&gt;</span>Validate the component<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="calling-methods">
+<h2>Calling methods<a class="headerlink" href="#calling-methods" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you need to trigger a method on a component from regular JavaScript. That is possible with <code class="docutils literal notranslate"><span class="pre">Unicorn.call()</span></code>. It can be called from anywhere on the page.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-world' %}
+
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Unicorn.call('hello-world', 'set_name');"</span><span class="p">&gt;</span>
+  Set the name from outside the component
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-values">
+<h2>Return values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<p>To retrieve the last action method’s return value, use <code class="docutils literal notranslate"><span class="pre">Unicorn.getReturnValue()</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-world' %}
+
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"alert(Unicorn.getReturnValue('hello-world'));"</span><span class="p">&gt;</span>
+  Get the last return value
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../validation/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Validation</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../django-models/">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Django Models</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Adam Hill
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/actions.md.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Actions</a><ul>
+<li><a class="reference internal" href="#events">Events</a></li>
+<li><a class="reference internal" href="#passing-arguments">Passing arguments</a><ul>
+<li><a class="reference internal" href="#argument-types">Argument types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#set-shortcut">Set shortcut</a></li>
+<li><a class="reference internal" href="#modifiers">Modifiers</a><ul>
+<li><a class="reference internal" href="#prevent">prevent</a></li>
+<li><a class="reference internal" href="#stop">stop</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#special-arguments">Special arguments</a><ul>
+<li><a class="reference internal" href="#event">$event</a></li>
+<li><a class="reference internal" href="#model">$model</a></li>
+<li><a class="reference internal" href="#returnvalue">$returnValue</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#special-methods">Special methods</a><ul>
+<li><a class="reference internal" href="#refresh">$refresh</a></li>
+<li><a class="reference internal" href="#reset">$reset</a></li>
+<li><a class="reference internal" href="#toggle">$toggle</a></li>
+<li><a class="reference internal" href="#validate">$validate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calling-methods">Calling methods</a></li>
+<li><a class="reference internal" href="#return-values">Return values</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+  </body>
+</html>

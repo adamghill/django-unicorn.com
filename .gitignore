@@ -111,3 +111,5 @@ TODO.md
 
 node_modules/
 staticfiles/
+
+docs/.doctrees

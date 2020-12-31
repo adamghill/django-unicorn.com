@@ -1,0 +1,548 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Components" href="../components/" /><link rel="prev" title="FAQ" href="../faq/" />
+
+    <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
+        <title>Changelog - Unicorn</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=26485485040e7aaf717c13fd0188a5ad2c2deb60">
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script defer="defer" src="../_static/jquery.js"></script>
+    <script defer="defer" src="../_static/underscore.js"></script>
+    <script defer="defer" src="../_static/doctools.js"></script>
+    <script defer="defer" src="../_static/clipboard.min.js"></script>
+    <script defer="defer" src="../_static/copybutton.js"></script>
+    <script defer src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     
+<!--
+<script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+-->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #fafafa;">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/" style="margin-top: 6px;">
+            <strong>🦄 ✨</strong>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="/documentations">
+                <img src="/static/img/book.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Documentation
+            </a>
+            <a class="navbar-item" href="/screencasts/installation">
+                <img src="/static/img/monitor.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Screencasts
+            </a>
+            <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
+                <img src="/static/img/twitter.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
+            </a>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions" data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="navbar-item github-button" href="https://github.com/adamghill/django-unicorn" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star adamghill/django-unicorn on GitHub">Star</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
+            </div>
+        </div>
+    </div>
+</nav>
+ 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../"><div class="brand">Unicorn</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../">
+  
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search/">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v0-14-0">
+<h2>v0.14.0<a class="headerlink" href="#v0-14-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dynamically disable polling</p></li>
+<li><p>Basic support for <a class="reference external" href="https://pydantic-docs.helpmanual.io"><code class="docutils literal notranslate"><span class="pre">pydantic</span></code></a> models</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.13.0...0.14.0">All changes since 0.13.0</a>.</p>
+</div>
+<div class="section" id="v0-13-0">
+<h2>v0.13.0<a class="headerlink" href="#v0-13-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../components/#component-key"><span class="std std-doc">Component key</span></a> to allow disambiguation of components of the same name</p></li>
+<li><p><a class="reference internal" href="../actions/#returnvalue"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$returnValue</span></code></span></a> special argument</p></li>
+<li><p>Get the last action method’s <a class="reference internal" href="../actions/#return-values"><span class="std std-doc">return value</span></a></p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.12.0...0.13.0">All changes since 0.12.0</a>.</p>
+</div>
+<div class="section" id="v0-12-0">
+<h2>v0.12.0<a class="headerlink" href="#v0-12-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../redirecting/"><span class="doc std std-doc">Redirect</span></a> from action method in component</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.11.2...0.12.0">All changes since 0.11.2</a>.</p>
+</div>
+<div class="section" id="v0-11-2">
+<h2>v0.11.2<a class="headerlink" href="#v0-11-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix encoding issue with default component template on Windows (<a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/91">#91</a>)</p></li>
+<li><p>Fix circular import when creating the component (<a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/92">#92</a>)</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.11.0...0.11.2">All changes since 0.11.0</a>.</p>
+</div>
+<div class="section" id="v0-11-0">
+<h2>v0.11.0<a class="headerlink" href="#v0-11-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../actions/#model"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$model</span></code></span></a> special argument and decorator.</p></li>
+<li><p><a class="reference internal" href="../actions/#toggle"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$toggle</span></code></span></a> special method.</p></li>
+<li><p>Support nested properties when using the <a class="reference internal" href="../actions/#set-shortcut"><span class="std std-doc">set shortcut</span></a>.</p></li>
+<li><p>Fix action string arguments that would get spaces removed inadvertently.</p></li>
+</ul>
+<p><strong>Breaking changes</strong></p>
+<ul class="simple">
+<li><p>All existing special methods now start with a <code class="docutils literal notranslate"><span class="pre">$</span></code> to signify they are magical. Therefore, <code class="docutils literal notranslate"><span class="pre">refresh</span></code> is now <a class="reference internal" href="../actions/#refresh"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$refresh</span></code></span></a>, <code class="docutils literal notranslate"><span class="pre">reset</span></code> is now <a class="reference internal" href="../actions/#reset"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$reset</span></code></span></a>, and <code class="docutils literal notranslate"><span class="pre">validate</span></code> is now <a class="reference internal" href="../actions/#validate"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$validate</span></code></span></a>.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.10.1...0.11.0">All changes since 0.10.1</a>.</p>
+</div>
+<div class="section" id="v0-10-1">
+<h2>v0.10.1<a class="headerlink" href="#v0-10-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use LRU cache for constructed components to prevent ever-expanding memory.</p></li>
+<li><p>Loosen <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> version requirement.</p></li>
+<li><p>Fix bug to handle floats so that they don’t lose precision when serialized to JSON.</p></li>
+<li><p>Fix bug to handle related models (ForeignKeys, OneToOne, etc) fields in Django models.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.10.0...0.10.1">All changes since 0.10.0</a>.</p>
+</div>
+<div class="section" id="v0-10-0">
+<h2>v0.10.0<a class="headerlink" href="#v0-10-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add support for <a class="reference internal" href="../components/#component-arguments"><span class="std std-doc">passing kwargs</span></a> into the component on the template</p></li>
+<li><p>Provide access to the <a class="reference internal" href="../advanced/#request"><span class="std std-doc">current request</span></a> in the component’s methods</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.9.4...0.10.0">All changes since 0.9.4</a>.</p>
+</div>
+<div class="section" id="v0-9-4">
+<h2>v0.9.4<a class="headerlink" href="#v0-9-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix: Prevent Django <code class="docutils literal notranslate"><span class="pre">CharField</span></code> form field from stripping whitespaces when used for validation.</p></li>
+<li><p>Fix: Handle edge case that would generate a null exception.</p></li>
+<li><p>Fix: Only change loading state when an action method gets called, not on every event fire.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.9.1...0.9.3">All changes since 0.9.1</a>.</p>
+</div>
+<div class="section" id="v0-9-3">
+<h2>v0.9.3<a class="headerlink" href="#v0-9-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Handle child elements triggering an event which should be handled by a parent unicorn element.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.9.1...0.9.3">All changes since 0.9.1</a>.</p>
+</div>
+<div class="section" id="v0-9-1">
+<h2>v0.9.1<a class="headerlink" href="#v0-9-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix: certain actions weren’t triggering model values to get set correctly</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.9.0...0.9.1">All changes since 0.9.0</a>.</p>
+</div>
+<div class="section" id="v0-9-0">
+<h2>v0.9.0<a class="headerlink" href="#v0-9-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../loading-states/"><span class="doc std std-doc">Loading states</span></a> for improved UX.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$event</span></code> <a class="reference internal" href="../actions/#events"><span class="std std-doc">special argument</span></a> for <code class="docutils literal notranslate"><span class="pre">actions</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> <a class="reference internal" href="../components/#unicorn-attributes"><span class="std std-doc">unicorn attribute</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">APPS</span></code> <a class="reference internal" href="../settings/#apps"><span class="std std-doc">setting</span></a> for determing where to look for components.</p></li>
+<li><p>Add support for parent elements for non-db models.</p></li>
+<li><p>Fix: Handle if <code class="docutils literal notranslate"><span class="pre">Meta</span></code> doesn’t exist for db models.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.8.0...0.9.0">All changes since 0.8.0</a>.</p>
+</div>
+<div class="section" id="v0-8-0">
+<h2>v0.8.0<a class="headerlink" href="#v0-8-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add much more elaborate support for dealing with <a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django models</span></a>.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.7.1...0.8.0">All changes since 0.7.1</a>.</p>
+</div>
+<div class="section" id="v0-7-1">
+<h2>v0.7.1<a class="headerlink" href="#v0-7-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix bug where multiple actions would trigger multiple payloads.</p></li>
+<li><p>Handle lazy models that are children of an action model better.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.7.0...0.7.1">All changes since 0.7.0</a>.</p>
+</div>
+<div class="section" id="v0-7-0">
+<h2>v0.7.0<a class="headerlink" href="#v0-7-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Parse <a class="reference internal" href="../actions/#passing-arguments"><span class="std std-doc">action method arguments</span></a> as basic Python objects</p></li>
+<li><p><a class="reference internal" href="../actions/#modifiers"><span class="std std-doc">Stop and prevent modifiers</span></a> on actions</p></li>
+<li><p><a class="reference internal" href="../templates/#defer"><span class="std std-doc">Defer modifier</span></a> on model</p></li>
+<li><p>Support for multiple actions on the same element</p></li>
+<li><p>Django setting to <a class="reference internal" href="../settings/#minimize"><span class="std std-doc">minimize</span></a> the JavaScript</p></li>
+</ul>
+<p><strong>Breaking changes</strong></p>
+<ul class="simple">
+<li><p>Remove unused <code class="docutils literal notranslate"><span class="pre">unicorn_styles</span></code> template tag</p></li>
+<li><p>Use dash for poll timing instead of dot</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.6.5...0.7.0">All changes since 0.6.5</a>.</p>
+</div>
+<div class="section" id="v0-6-5">
+<h2>v0.6.5<a class="headerlink" href="#v0-6-5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Attempt to get the CSRF token from the cookie first before looking at the CSRF token.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.6.4...0.6.5">All changes since 0.6.4</a>.</p>
+</div>
+<div class="section" id="v0-6-4">
+<h2>v0.6.4<a class="headerlink" href="#v0-6-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix bug where lazy models weren’t sending values before an action was called</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">is_valid</span></code> method to component to more easily check if a component has validation errors.</p></li>
+<li><p>Better error message if the CSRF token is not available.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.6.3...0.6.4">All changes since 0.6.3</a>.</p>
+</div>
+<div class="section" id="v0-6-3">
+<h2>v0.6.3<a class="headerlink" href="#v0-6-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix bug where model elements weren’t getting updated values when an action was being called during the same component update.</p></li>
+<li><p>Fix bug where some action event listeners were duplicated.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.6.2...0.6.3">All changes since 0.6.2</a>.</p>
+</div>
+<div class="section" id="v0-6-2">
+<h2>v0.6.2<a class="headerlink" href="#v0-6-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>More robust fix for de-duping multiple actions.</p></li>
+<li><p>Fix bug where conditionally added actions didn’t get an event listener.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.6.1...0.6.2">All changes since 0.6.1</a>.</p>
+</div>
+<div class="section" id="v0-6-1">
+<h2>v0.6.1<a class="headerlink" href="#v0-6-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix model sync getting lost when there is an action (<a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/39">issue 39</a>).</p></li>
+<li><p>Small fix for validations.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.6.0...0.6.1">All changes since 0.6.0</a>.</p>
+</div>
+<div class="section" id="v0-6-0">
+<h2>v0.6.0<a class="headerlink" href="#v0-6-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../validation/"><span class="doc std std-doc">Realtime validation</span></a> of a Unicorn model.</p></li>
+<li><p><a class="reference internal" href="../polling/"><span class="doc std std-doc">Polling</span></a> for component updates.</p></li>
+<li><p><a class="reference internal" href="../advanced/"><span class="doc std std-doc">More component hooks</span></a></p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.5.0...0.6.0">All changes since 0.5.0</a>.</p>
+</div>
+<div class="section" id="v0-5-0">
+<h2>v0.5.0<a class="headerlink" href="#v0-5-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../actions/#calling-methods"><span class="std std-doc">Call</span></a> component method from JavaScript.</p></li>
+<li><p>Support classes, dictionaries, Django Models, (read-only) Django QuerySets properties on a component.</p></li>
+<li><p><a class="reference internal" href="../templates/#debounce"><span class="std std-doc">Debounce</span></a> modifier to change how fast changes are sent to the backend from <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>.</p></li>
+<li><p><a class="reference internal" href="../templates/#lazy"><span class="std std-doc">Lazy</span></a> modifier to listen for <code class="docutils literal notranslate"><span class="pre">blur</span></code> instead of <code class="docutils literal notranslate"><span class="pre">input</span></code> on <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>.</p></li>
+<li><p>Better support for <code class="docutils literal notranslate"><span class="pre">textarea</span></code> HTML element.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.4.0...0.5.0">All changes since 0.4.0</a>.</p>
+</div>
+<div class="section" id="v0-4-0">
+<h2>v0.4.0<a class="headerlink" href="#v0-4-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../actions/#set-shortcut"><span class="std std-doc">Set shortcut</span></a> for setting properties.</p></li>
+<li><p>Listen for any valid event, not just <code class="docutils literal notranslate"><span class="pre">click</span></code>.</p></li>
+<li><p>Better handling for model updates when element ids aren’t unique.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.3.0...0.4.0">All changes since 0.3.0</a>.</p>
+</div>
+<div class="section" id="v0-3-0">
+<h2>v0.3.0<a class="headerlink" href="#v0-3-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add <a class="reference internal" href="../advanced/#mount"><span class="std std-doc">mount hook</span></a>.</p></li>
+<li><p>Add <a class="reference internal" href="../actions/#reset"><span class="std std-doc">reset</span></a> action.</p></li>
+<li><p>Remove lag when typing fast in a text input and overall improved performance.</p></li>
+<li><p>Better error handling for exceptional cases.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.2.3...0.3.0">All changes since 0.2.3</a>.</p>
+</div>
+<div class="section" id="v0-2-3">
+<h2>v0.2.3<a class="headerlink" href="#v0-2-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix for creating default folders when running <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code>.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.2.2...0.2.3">All changes since 0.2.2</a>.</p>
+</div>
+<div class="section" id="v0-2-2">
+<h2>v0.2.2<a class="headerlink" href="#v0-2-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Set default <code class="docutils literal notranslate"><span class="pre">template_name</span></code> if it’s missing in component.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.2.1...0.2.2">All changes since 0.2.1</a>.</p>
+</div>
+<div class="section" id="v0-2-1">
+<h2>v0.2.1<a class="headerlink" href="#v0-2-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> Django management command.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.2.0...0.2.1">All changes since 0.2.0</a>.</p>
+</div>
+<div class="section" id="v0-2-0">
+<h2>v0.2.0<a class="headerlink" href="#v0-2-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Switch from <code class="docutils literal notranslate"><span class="pre">Component</span></code> class to <code class="docutils literal notranslate"><span class="pre">UnicornView</span></code> to follow the conventions of class-based views.</p></li>
+<li><p><a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/4">Investigate using class-based view instead of the custom Component class</a></p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.1.1...0.2.0">All changes since 0.1.1</a>.</p>
+</div>
+<div class="section" id="v0-1-1">
+<h2>v0.1.1<a class="headerlink" href="#v0-1-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix package readme and repository link.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.1.0...0.1.1">All changes since 0.1.0</a>.</p>
+</div>
+<div class="section" id="v0-1-0">
+<h2>v0.1.0<a class="headerlink" href="#v0-1-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Initial version with basic functionality.</p></li>
+</ul>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../components/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Components</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../faq/">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">FAQ</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Adam Hill
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/changelog.md.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-14-0">v0.14.0</a></li>
+<li><a class="reference internal" href="#v0-13-0">v0.13.0</a></li>
+<li><a class="reference internal" href="#v0-12-0">v0.12.0</a></li>
+<li><a class="reference internal" href="#v0-11-2">v0.11.2</a></li>
+<li><a class="reference internal" href="#v0-11-0">v0.11.0</a></li>
+<li><a class="reference internal" href="#v0-10-1">v0.10.1</a></li>
+<li><a class="reference internal" href="#v0-10-0">v0.10.0</a></li>
+<li><a class="reference internal" href="#v0-9-4">v0.9.4</a></li>
+<li><a class="reference internal" href="#v0-9-3">v0.9.3</a></li>
+<li><a class="reference internal" href="#v0-9-1">v0.9.1</a></li>
+<li><a class="reference internal" href="#v0-9-0">v0.9.0</a></li>
+<li><a class="reference internal" href="#v0-8-0">v0.8.0</a></li>
+<li><a class="reference internal" href="#v0-7-1">v0.7.1</a></li>
+<li><a class="reference internal" href="#v0-7-0">v0.7.0</a></li>
+<li><a class="reference internal" href="#v0-6-5">v0.6.5</a></li>
+<li><a class="reference internal" href="#v0-6-4">v0.6.4</a></li>
+<li><a class="reference internal" href="#v0-6-3">v0.6.3</a></li>
+<li><a class="reference internal" href="#v0-6-2">v0.6.2</a></li>
+<li><a class="reference internal" href="#v0-6-1">v0.6.1</a></li>
+<li><a class="reference internal" href="#v0-6-0">v0.6.0</a></li>
+<li><a class="reference internal" href="#v0-5-0">v0.5.0</a></li>
+<li><a class="reference internal" href="#v0-4-0">v0.4.0</a></li>
+<li><a class="reference internal" href="#v0-3-0">v0.3.0</a></li>
+<li><a class="reference internal" href="#v0-2-3">v0.2.3</a></li>
+<li><a class="reference internal" href="#v0-2-2">v0.2.2</a></li>
+<li><a class="reference internal" href="#v0-2-1">v0.2.1</a></li>
+<li><a class="reference internal" href="#v0-2-0">v0.2.0</a></li>
+<li><a class="reference internal" href="#v0-1-1">v0.1.1</a></li>
+<li><a class="reference internal" href="#v0-1-0">v0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+  </body>
+</html>

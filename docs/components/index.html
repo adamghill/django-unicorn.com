@@ -1,0 +1,440 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Templates" href="../templates/" /><link rel="prev" title="Changelog" href="../changelog/" />
+
+    <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
+        <title>Components - Unicorn</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=26485485040e7aaf717c13fd0188a5ad2c2deb60">
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script defer="defer" src="../_static/jquery.js"></script>
+    <script defer="defer" src="../_static/underscore.js"></script>
+    <script defer="defer" src="../_static/doctools.js"></script>
+    <script defer="defer" src="../_static/clipboard.min.js"></script>
+    <script defer="defer" src="../_static/copybutton.js"></script>
+    <script defer src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     
+<!--
+<script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+-->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #fafafa;">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/" style="margin-top: 6px;">
+            <strong>🦄 ✨</strong>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="/documentations">
+                <img src="/static/img/book.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Documentation
+            </a>
+            <a class="navbar-item" href="/screencasts/installation">
+                <img src="/static/img/monitor.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Screencasts
+            </a>
+            <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
+                <img src="/static/img/twitter.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
+            </a>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions" data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="navbar-item github-button" href="https://github.com/adamghill/django-unicorn" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star adamghill/django-unicorn on GitHub">Star</a>
+            </div>
+            <div style="margin-top: .8rem; margin-right: .8rem;">
+                <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
+            </div>
+        </div>
+    </div>
+</nav>
+ 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../"><div class="brand">Unicorn</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../">
+  
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search/">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="components">
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses the term “component” to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML template with specific tags and a Python class which provides the backend code for the template.</p>
+<p>The easiest way to create your first component is to run the following Django management command after <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is installed.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python manage.py startunicorn hello-world
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If this is the first component you create, you will also need to add <code class="docutils literal notranslate"><span class="pre">"unicorn",</span></code> to <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your Django settings file (normally <a class="reference external" href="http://settings.py">settings.py</a>) to make sure that Django can find the component templates you create.</p>
+</div>
+<p>Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'hello-world'</span> <span class="pre">%}</span></code> into the template where you want to load the new component.</p>
+<div class="section" id="component-key">
+<h2>Component key<a class="headerlink" href="#component-key" title="Permalink to this headline">¶</a></h2>
+<p>If there are multiple of the same components on the page, a <code class="docutils literal notranslate"><span class="pre">key</span></code> kwarg can be passed into the template. For example, <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'hello-world'</span> <span class="pre">key='helloWorldKey'</span> <span class="pre">%}</span></code>.</p>
+</div>
+<div class="section" id="component-arguments">
+<h2>Component arguments<a class="headerlink" href="#component-arguments" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">kwargs</span></code> can be passed into the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> templatetag from the template. The <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> will be available in the component <a class="reference internal" href="../advanced/#init"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">__init__</span></code></span></a> method.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When overriding <code class="docutils literal notranslate"><span class="pre">__init__</span></code> calling <code class="docutils literal notranslate"><span class="pre">super().__init__(**kwargs)</span></code> is required for the component to initialize properly.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># calling super is required</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-world' name="Universe" %}
+</pre></div>
+</div>
+<p>Regular Django template variables can also be passed in as an argument as long as it is available in the template context.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># views.py</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"hello"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"world"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Galaxy"</span><span class="p">}}}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"index.html"</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-world' name=hello.world.name %}
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-component">
+<h2>Example component<a class="headerlink" href="#example-component" title="Permalink to this headline">¶</a></h2>
+<p>A basic example component could consist of the following template and class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-world.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+  Hello {{ name|title }}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> is the magic that ties the input to the backend component. The Django template variable can use any property or method on the component as if they were context variables passed in from a view. The attribute passed into <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> refers to the property in the component class and binds them together.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> updates are triggered by listening to <code class="docutils literal notranslate"><span class="pre">input</span></code> events on the element. To listen for the <code class="docutils literal notranslate"><span class="pre">blur</span></code> event instead, use the <a class="reference internal" href="../templates/#lazy"><span class="std std-doc">lazy</span></a> modifier.</p>
+</div>
+<p>When a user types into the text input, the information is passed to the backend and populates the component class, which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the <code class="docutils literal notranslate"><span class="pre">title</span></code> filter above).</p>
+</div>
+<div class="section" id="unicorn-attributes">
+<h2>Unicorn attributes<a class="headerlink" href="#unicorn-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Attributes used in component templates usually start with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code>, however the shortcut <code class="docutils literal notranslate"><span class="pre">u:</span></code> is also supported. So, for example, <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> could also be written as <code class="docutils literal notranslate"><span class="pre">u:model</span></code>.</p>
+</div>
+<div class="section" id="supported-property-types">
+<h2>Supported property types<a class="headerlink" href="#supported-property-types" title="Permalink to this headline">¶</a></h2>
+<p>Properties of the component can be of many different types, including <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Model</span></code>, <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">QuerySet</span></code>, or <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">classes</span></code>.</p>
+<div class="section" id="accessing-nested-fields">
+<h3>Accessing nested fields<a class="headerlink" href="#accessing-nested-fields" title="Permalink to this headline">¶</a></h3>
+<p>Fields in a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> or Django model can be accessed similarly to the Django template language with “dot-notation”.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">book.models</span> <span class="kn">import</span> <span class="n">Book</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'American Gods'</span><span class="p">)</span>
+    <span class="n">book_ratings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'excellent'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'title: '</span><span class="n">American</span> <span class="n">Gods</span><span class="s1">'}}</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-world.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"model"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span>
+    <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"book_ratings.excellent.title"</span>
+    <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+    <span class="na">id</span><span class="o">=</span><span class="s">"dictionary"</span>
+  <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django models</span></a> has many more details about using Django models in <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
+</div>
+</div>
+<div class="section" id="django-queryset">
+<h3>Django QuerySet<a class="headerlink" href="#django-queryset" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">QuerySet</span></code> can be referenced similarly to the Django template language in a <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">book.models</span> <span class="kn">import</span> <span class="n">Book</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+<span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-world.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"books.0.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="../django-models/#queryset"><span class="std std-doc">Django models</span></a> has many more details about using Django QuerySets in <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
+</div>
+</div>
+<div class="section" id="custom-class">
+<h3>Custom class<a class="headerlink" href="#custom-class" title="Permalink to this headline">¶</a></h3>
+<p>Custom classes need to define how they are serialized. If you have access to the object to serialize, you can define a <code class="docutils literal notranslate"><span class="pre">to_json</span></code> method on the object to return a dictionary that can be used to serialize. Inheriting from <code class="docutils literal notranslate"><span class="pre">unicorn.components.UnicornField</span></code> is a quick way to serialize a custom class, but note that it just calls <code class="docutils literal notranslate"><span class="pre">self.__dict__</span></code> under the hood, so it is not doing anything particularly smart.</p>
+<p>Another option is to set the <code class="docutils literal notranslate"><span class="pre">form_class</span></code> on the component and utilize Django’s built-in forms and widgets to handle how the class should be deserialized. More details are provided in <a class="reference internal" href="../validation/"><span class="doc std std-doc">validation</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span><span class="p">,</span> <span class="n">UnicornField</span>
+
+<span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">UnicornField</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Neil Gaiman'</span>
+
+    <span class="c1"># Not needed because inherited from `UnicornField`</span>
+    <span class="c1"># def to_json(self):</span>
+    <span class="c1">#    return {'name': self.name}</span>
+
+    <span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="n">Author</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-world.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"author.name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"author_name"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Never put sensitive data into a public property because that information will publicly available in the HTML source code.</p>
+</div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../templates/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Templates</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../changelog/">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Changelog</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Adam Hill
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/components.md.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Components</a><ul>
+<li><a class="reference internal" href="#component-key">Component key</a></li>
+<li><a class="reference internal" href="#component-arguments">Component arguments</a></li>
+<li><a class="reference internal" href="#example-component">Example component</a></li>
+<li><a class="reference internal" href="#unicorn-attributes">Unicorn attributes</a></li>
+<li><a class="reference internal" href="#supported-property-types">Supported property types</a><ul>
+<li><a class="reference internal" href="#accessing-nested-fields">Accessing nested fields</a></li>
+<li><a class="reference internal" href="#django-queryset">Django QuerySet</a></li>
+<li><a class="reference internal" href="#custom-class">Custom class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+  </body>
+</html>
