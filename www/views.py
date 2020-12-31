@@ -1,5 +1,5 @@
 from annoying.decorators import render_to
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
 
@@ -34,3 +34,12 @@ def sponsors(request):
 def documentation(request, name="introduction"):
     template_name = f"www/documentation/{name}.html"
     return render(request, template_name)
+
+
+@render_to("www/examples.html")
+def examples(request):
+    return {}
+
+
+def docs_redirect(request, name):
+    return redirect(name + "/")

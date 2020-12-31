@@ -30,8 +30,6 @@ cli
 
 `Unicorn` is a reactive component framework that progressively enhances a normal Django view, makes AJAX calls in the background, and dynamically updates the DOM.
 
-`Unicorn` is a magical full-stack framework for Django. Instead of building additional API endpoints to provide website interactivity, `Unicorn` provides the pieces of a modern website experience without moving away from all of the benefits of Django.
-
 `Unicorn` seamlessly extends Django past its server-side framework roots without giving up all of its niceties or re-building your website.
 
 ## Related projects

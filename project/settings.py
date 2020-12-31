@@ -100,7 +100,9 @@ COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
+# django-docs settings
 DOCS_ROOT = os.path.join(BASE_DIR, "docs")
+DOCS_DIRHTML = True
 
 INTERNAL_IPS = (
     "127.0.0.1",

@@ -18,7 +18,7 @@ django-cache-memoize = "^0.1.7"
 django-redis = "^4.12.1"
 httpx = "^0.14.2"
 sentry-sdk = "^0.17.4"
-django-docs = {git = "https://github.com/adamghill/django-docs", branch = "dirhtml-support"}
+django-docs = {git = "https://github.com/adamghill/django-docs", rev = "a68af62786589bc381d81a165cd8344519931526"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"

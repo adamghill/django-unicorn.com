@@ -50,11 +50,14 @@
 
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
-                <a class="navbar-item" href="{% url 'www:documentation' %}">
+                <a class="navbar-item" href="/docs/">
                     <img src="{% static 'img/book.svg' %}" style="max-height: 1.5em;" />&nbsp;Documentation
                 </a>
                 <a class="navbar-item" href="{% url 'www:screencasts' name='installation' %}">
-                    <img src="{% static 'img/monitor.svg' %}" style="max-height: 1.5em;" />&nbsp;Screencasts
+                    <img src="{% static 'img/video.svg' %}" style="max-height: 1.5em;" />&nbsp;Screencasts
+                </a>
+                <a class="navbar-item" href="{% url 'www:examples' %}">
+                    <img src="{% static 'img/tool.svg' %}" style="max-height: 1.5em;" />&nbsp;Examples
                 </a>
                 <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
                     <img src="{% static 'img/twitter.svg' %}" style="max-height: 1.5em;" />&nbsp;&nbsp;
