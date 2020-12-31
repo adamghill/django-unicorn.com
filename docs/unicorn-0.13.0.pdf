@@ -1336,12 +1336,12 @@ endobj
 endobj
 258 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 388 0 R /XYZ 40.01575 705.0394 0 ] /Rect [ 60.01575 784.0394 132.2657 796.0394 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 388 0 R /XYZ 40.01575 747.0394 0 ] /Rect [ 60.01575 784.0394 132.2657 796.0394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 259 0 obj
 <<
-/Border [ 0 0 0 ] /Contents () /Dest [ 388 0 R /XYZ 40.01575 705.0394 0 ] /Rect [ 544.1398 784.7894 555.2598 796.7894 ] /Subtype /Link /Type /Annot
+/Border [ 0 0 0 ] /Contents () /Dest [ 388 0 R /XYZ 40.01575 747.0394 0 ] /Rect [ 544.1398 784.7894 555.2598 796.7894 ] /Subtype /Link /Type /Annot
 >>
 endobj
 260 0 obj
@@ -2183,77 +2183,77 @@ endobj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/patrick-steele-idem/morphdom)
->> /Border [ 0 0 0 ] /Rect [ 291.5657 667.8394 339.3557 679.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 291.5657 709.8394 339.3557 721.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 378 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://laravel-livewire.com/)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 628.8394 99.68575 640.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 670.8394 99.68575 682.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 379 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/phoenixframework/phoenix_live_view)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 610.8394 103.0257 622.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 652.8394 103.0257 664.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 380 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://docs.stimulusreflex.com)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 592.8394 129.6957 604.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 634.8394 129.6957 646.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 381 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://hotwire.dev)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 574.8394 96.90575 586.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 616.8394 96.90575 628.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 382 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/edelvalle/reactor/)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 526.8394 98.02575 538.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 568.8394 98.02575 580.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 383 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/mikeabrahamsen/Flask-Meld)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 496.8394 111.9057 508.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 538.8394 111.9057 550.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 384 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://sockpuppet.argpar.se/)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 478.8394 115.8257 490.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 520.8394 115.8257 532.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 385 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/zodman/inertia-django)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 460.8394 174.8548 472.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 502.8394 174.8548 514.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 386 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://gitlab.com/Mojeer/django_components)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 430.8394 150.8357 442.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 472.8394 150.8357 484.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 387 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/andreyfedoseev/django-page-components)
->> /Border [ 0 0 0 ] /Rect [ 63.01575 400.8394 176.4057 412.8394 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 63.01575 442.8394 176.4057 454.8394 ] /Subtype /Link /Type /Annot
 >>
 endobj
 388 0 obj
@@ -2274,7 +2274,7 @@ endobj
 endobj
 390 0 obj
 <<
-/Author () /CreationDate (D:20201230235025+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20201230235025+05'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+/Author () /CreationDate (D:20201231143039+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20201231143039+05'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
   /Subject (\(unspecified\)) /Title () /Trapped /False
 >>
 endobj
@@ -2924,7 +2924,7 @@ endobj
 endobj
 515 0 obj
 <<
-/Dest [ 388 0 R /XYZ 40.01575 705.0394 0 ] /Parent 392 0 R /Prev 514 0 R /Title (Related projects)
+/Dest [ 388 0 R /XYZ 40.01575 747.0394 0 ] /Parent 392 0 R /Prev 514 0 R /Title (Related projects)
 >>
 endobj
 516 0 obj
@@ -2984,7 +2984,7 @@ q
 1 0 0 1 40.01575 524.1606 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2.4 Tm /F1 12 Tf 14.4 TL 204.93 0 Td (December 30, 2020) Tj T* -204.93 0 Td ET
+BT 1 0 0 1 0 2.4 Tm /F1 12 Tf 14.4 TL 204.93 0 Td (December 31, 2020) Tj T* -204.93 0 Td ET
 Q
 Q
 q
@@ -17833,24 +17833,18 @@ endstream
 endobj
 550 0 obj
 <<
-/Length 6383
+/Length 5946
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 40.01575 751.0394 cm
-q
-BT 1 0 0 1 0 26 Tm 2.203606 Tw 12 TL /F3 10 Tf 0 0 0 rg (Unicorn) Tj /F1 10 Tf ( is a magical full-stack framework for Django. Instead of building additional API endpoints to provide) Tj T* 0 Tw .330256 Tw (website interactivity, ) Tj /F3 10 Tf (Unicorn) Tj /F1 10 Tf ( provides the pieces of a modern website experience without moving away from all of) Tj T* 0 Tw (the benefits of Django.) Tj T* ET
-Q
-Q
-q
-1 0 0 1 40.01575 721.0394 cm
+1 0 0 1 40.01575 763.0394 cm
 q
 BT 1 0 0 1 0 14 Tm 1.582131 Tw 12 TL /F3 10 Tf 0 0 0 rg (Unicorn) Tj /F1 10 Tf ( seamlessly extends Django past its server-side framework roots without giving up all of its niceties or) Tj T* 0 Tw (re-building your website.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 40.01575 685.8394 cm
+1 0 0 1 40.01575 727.8394 cm
 q
 .8 .8 .8 RG
 .3 w
@@ -17862,26 +17856,26 @@ BT 1 0 0 1 0 3.2 Tm 19.2 TL /F2 16 Tf .12549 .262745 .360784 rg (Related project
 Q
 Q
 q
-1 0 0 1 40.01575 667.8394 cm
+1 0 0 1 40.01575 709.8394 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F3 10 Tf 0 0 0 rg (Unicorn) Tj /F1 10 Tf ( stands on the shoulders of giants, in particular ) Tj 0 0 .501961 rg (morphdom) Tj 0 0 0 rg ( which is integral for merging DOM changes.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 40.01575 649.8394 cm
+1 0 0 1 40.01575 691.8394 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (A few inspirational projects in other languages and frameworks.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 40.01575 643.8394 cm
+1 0 0 1 40.01575 685.8394 cm
 Q
 q
-1 0 0 1 40.01575 643.8394 cm
+1 0 0 1 40.01575 685.8394 cm
 Q
 q
-1 0 0 1 40.01575 631.8394 cm
+1 0 0 1 40.01575 673.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -17901,10 +17895,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 625.8394 cm
+1 0 0 1 40.01575 667.8394 cm
 Q
 q
-1 0 0 1 40.01575 613.8394 cm
+1 0 0 1 40.01575 655.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -17924,10 +17918,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 607.8394 cm
+1 0 0 1 40.01575 649.8394 cm
 Q
 q
-1 0 0 1 40.01575 595.8394 cm
+1 0 0 1 40.01575 637.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -17947,10 +17941,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 589.8394 cm
+1 0 0 1 40.01575 631.8394 cm
 Q
 q
-1 0 0 1 40.01575 565.8394 cm
+1 0 0 1 40.01575 607.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -17970,22 +17964,22 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 565.8394 cm
+1 0 0 1 40.01575 607.8394 cm
 Q
 q
-1 0 0 1 40.01575 547.8394 cm
+1 0 0 1 40.01575 589.8394 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Some Python packages which aim to solve similar problems as ) Tj /F3 10 Tf (Unicorn) Tj /F1 10 Tf (.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 40.01575 541.8394 cm
+1 0 0 1 40.01575 583.8394 cm
 Q
 q
-1 0 0 1 40.01575 541.8394 cm
+1 0 0 1 40.01575 583.8394 cm
 Q
 q
-1 0 0 1 40.01575 517.8394 cm
+1 0 0 1 40.01575 559.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -18005,10 +17999,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 511.8394 cm
+1 0 0 1 40.01575 553.8394 cm
 Q
 q
-1 0 0 1 40.01575 499.8394 cm
+1 0 0 1 40.01575 541.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -18028,10 +18022,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 493.8394 cm
+1 0 0 1 40.01575 535.8394 cm
 Q
 q
-1 0 0 1 40.01575 481.8394 cm
+1 0 0 1 40.01575 523.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -18051,10 +18045,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 475.8394 cm
+1 0 0 1 40.01575 517.8394 cm
 Q
 q
-1 0 0 1 40.01575 451.8394 cm
+1 0 0 1 40.01575 493.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -18074,10 +18068,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 445.8394 cm
+1 0 0 1 40.01575 487.8394 cm
 Q
 q
-1 0 0 1 40.01575 421.8394 cm
+1 0 0 1 40.01575 463.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -18097,10 +18091,10 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 415.8394 cm
+1 0 0 1 40.01575 457.8394 cm
 Q
 q
-1 0 0 1 40.01575 391.8394 cm
+1 0 0 1 40.01575 433.8394 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -18120,7 +18114,7 @@ q
 Q
 Q
 q
-1 0 0 1 40.01575 391.8394 cm
+1 0 0 1 40.01575 433.8394 cm
 Q
 q
 1 0 0 1 34.01575 807.2126 cm
@@ -18873,45 +18867,45 @@ xref
 0000434434 00000 n 
 0000442306 00000 n 
 0000450268 00000 n 
-0000456704 00000 n 
-0000457119 00000 n 
-0000457154 00000 n 
-0000457189 00000 n 
-0000457224 00000 n 
-0000457259 00000 n 
-0000457294 00000 n 
-0000457329 00000 n 
-0000457364 00000 n 
-0000457399 00000 n 
-0000457434 00000 n 
-0000457469 00000 n 
-0000457504 00000 n 
-0000457539 00000 n 
-0000457574 00000 n 
-0000457609 00000 n 
-0000457644 00000 n 
-0000457680 00000 n 
-0000457716 00000 n 
-0000457752 00000 n 
-0000457788 00000 n 
-0000457824 00000 n 
-0000457860 00000 n 
-0000457896 00000 n 
-0000457932 00000 n 
-0000457968 00000 n 
-0000458004 00000 n 
-0000458040 00000 n 
-0000458076 00000 n 
-0000458112 00000 n 
-0000458148 00000 n 
-0000458184 00000 n 
-0000458220 00000 n 
-0000458256 00000 n 
-0000458292 00000 n 
+0000456267 00000 n 
+0000456682 00000 n 
+0000456717 00000 n 
+0000456752 00000 n 
+0000456787 00000 n 
+0000456822 00000 n 
+0000456857 00000 n 
+0000456892 00000 n 
+0000456927 00000 n 
+0000456962 00000 n 
+0000456997 00000 n 
+0000457032 00000 n 
+0000457067 00000 n 
+0000457102 00000 n 
+0000457137 00000 n 
+0000457172 00000 n 
+0000457207 00000 n 
+0000457243 00000 n 
+0000457279 00000 n 
+0000457315 00000 n 
+0000457351 00000 n 
+0000457387 00000 n 
+0000457423 00000 n 
+0000457459 00000 n 
+0000457495 00000 n 
+0000457531 00000 n 
+0000457567 00000 n 
+0000457603 00000 n 
+0000457639 00000 n 
+0000457675 00000 n 
+0000457711 00000 n 
+0000457747 00000 n 
+0000457783 00000 n 
+0000457819 00000 n 
+0000457855 00000 n 
 trailer
 <<
 /ID 
-[<22b3f465fdd597f1a59cfeb4adb510e9><22b3f465fdd597f1a59cfeb4adb510e9>]
+[<2bde71163da1b00c4fc062b8f107cb51><2bde71163da1b00c4fc062b8f107cb51>]
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
 /Info 390 0 R
@@ -18919,5 +18913,5 @@ trailer
 /Size 586
 >>
 startxref
-458328
+457891
 %%EOF

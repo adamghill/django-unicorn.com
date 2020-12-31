@@ -28,6 +28,16 @@ settings
 cli
 ```
 
+```{toctree}
+:caption: Development
+:maxdepth: 2
+:hidden:
+
+PDF <https://www.django-unicorn.com/docs/unicorn-0.13.0.pdf>
+GitHub <https://github.com/adamghill/django-unicorn>
+Sponsor <https://github.com/sponsors/adamghill>
+```
+
 `Unicorn` is a reactive component framework that progressively enhances a normal Django view, makes AJAX calls in the background, and dynamically updates the DOM.
 
 `Unicorn` seamlessly extends Django past its server-side framework roots without giving up all of its niceties or re-building your website.

@@ -100,3 +100,7 @@ a {
 .sidebar-drawer {
   border-top: 1px solid var(--color-sidebar-search-border);
 }
+
+.highlight .err {
+  border: none;
+}
