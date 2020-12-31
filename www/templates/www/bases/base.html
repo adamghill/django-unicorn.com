@@ -15,6 +15,16 @@
 
     {% compress css %}
     <link rel="stylesheet" href="{% static 'highlight.js/10.1.1/styles/solarized-light.css' %}">
+    <style>
+        .hljs {
+            background: transparent !important;
+            color: #000 !important;
+        }
+    
+        .mt-12 {
+            margin-top: 6rem;
+        }
+    </style>
     {% endcompress %}
 
     {% if not debug %}
@@ -56,7 +66,7 @@
                 <a class="navbar-item" href="{% url 'www:screencasts' name='installation' %}">
                     <img src="{% static 'img/video.svg' %}" style="max-height: 1.5em;" />&nbsp;Screencasts
                 </a>
-                <a class="navbar-item" href="{% url 'www:examples' %}">
+                <a class="navbar-item" href="{% url 'www:examples' name='todo' %}">
                     <img src="{% static 'img/tool.svg' %}" style="max-height: 1.5em;" />&nbsp;Examples
                 </a>
                 <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">

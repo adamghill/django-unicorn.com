@@ -23,6 +23,11 @@ def screencasts(request, name="installation"):
     return render(request, template_name)
 
 
+def examples(request, name="todo"):
+    template_name = f"www/examples/{name}.html"
+    return render(request, template_name)
+
+
 @cache_page(60 * 15)
 @render_to("www/sponsors.html")
 def sponsors(request):
@@ -34,11 +39,6 @@ def sponsors(request):
 def documentation(request, name="introduction"):
     template_name = f"www/documentation/{name}.html"
     return render(request, template_name)
-
-
-@render_to("www/examples.html")
-def examples(request):
-    return {}
 
 
 def docs_redirect(request, name):
