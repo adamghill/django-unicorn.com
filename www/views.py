@@ -34,11 +34,9 @@ def sponsors(request):
     return {}
 
 
-@cache_page(60 * 15)
 @csrf_protect
 def documentation(request, name="introduction"):
-    template_name = f"www/documentation/{name}.html"
-    return render(request, template_name)
+    return redirect("/docs/")
 
 
 def docs_redirect(request, name):
