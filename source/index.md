@@ -1,20 +1,11 @@
 # Unicorn
 
 ```{toctree}
-:caption: Introduction
-:maxdepth: 2
-:hidden:
-
-installation
-faq
-changelog
-```
-
-```{toctree}
 :caption: Documentation
 :maxdepth: 2
 :hidden:
 
+installation
 components
 templates
 django-models
@@ -29,11 +20,13 @@ cli
 ```
 
 ```{toctree}
-:caption: Development
+:caption: Misc
 :maxdepth: 2
 :hidden:
 
-PDF <https://www.django-unicorn.com/docs/unicorn-0.13.0.pdf>
+changelog
+faq
+PDF <https://www.django-unicorn.com/docs/unicorn-0.14.0.pdf>
 GitHub <https://github.com/adamghill/django-unicorn>
 Sponsor <https://github.com/sponsors/adamghill>
 ```

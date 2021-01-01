@@ -23,7 +23,7 @@ copyright = "2020, Adam Hill"
 author = "Adam Hill"
 
 # The full version, including alpha/beta/rc tags
-release = "0.13.0"
+release = "0.14.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -119,5 +119,5 @@ myst_heading_anchors = 3
 myst_enable_extensions = ["linkify", "colon_fence"]
 
 pdf_documents = [
-    ("index", "unicorn-0.13.0", "Unicorn", "Adam Hill"),
+    ("index", "unicorn-0.14.0", "Unicorn", "Adam Hill"),
 ]
