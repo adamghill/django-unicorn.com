@@ -2,7 +2,8 @@
 
 ## v0.14.0
 
-- Dynamically disable polling
+- [Disable poll](polling.md#disable-poll) with a component field
+- Dynamically change polling options with [PollUpdate](polling.md#pollupdate)
 - Basic support for [`pydantic`](https://pydantic-docs.helpmanual.io) models
 
 [All changes since 0.13.0](https://github.com/adamghill/django-unicorn/compare/0.13.0...0.14.0).

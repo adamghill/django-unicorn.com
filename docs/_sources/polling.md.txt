@@ -27,3 +27,84 @@ To define a different refresh time in milliseconds, a modifier can be added as w
   {{ update }}
 </div>
 ```
+
+## Disable poll
+
+Polling can dynamically be disabled by checking a boolean field from the component.
+
+```python
+# poll_disable.py
+from django.utils.timezone import now
+from django_unicorn.components import UnicornView
+
+class PollDisableView(UnicornView):
+    polling_disabled = False
+    current_time = now()
+
+    def get_date(self):
+        self.current_time = now()
+```
+
+:::{code} html
+:force:
+
+<!-- poll-disable.html -->
+<div unicorn:poll-1000="get_date" unicorn:poll.disable="polling_disabled">
+    current_time: {{ current_time|date:"s" }}<br />
+    <button u:click="$toggle('polling_disabled')">Toggle Polling</button>
+</div>
+:::
+
+````{note}
+The field passed into `unicorn:poll.disable` can be negated with an exclamation point.
+
+```python
+# poll_disable_negation.py
+from django.utils.timezone import now
+from django_unicorn.components import UnicornView
+
+class PollDisableNegationView(UnicornView):
+    polling_enabled = True
+    current_time = now()
+
+    def get_date(self):
+        self.current_time = now()
+```
+
+:::{code} html
+:force:
+
+<!-- poll-disable-negation.html -->
+<div unicorn:poll-1000="get_date" unicorn:poll.disable="!polling_enabled">
+    current_time: {{ current_time|date:"s" }}<br />
+    <button u:click="$toggle('polling_enabled')">Toggle Polling</button>
+</div>
+:::
+````
+
+## PollUpdate
+
+A poll can be dynamically updated by returning a `PollUpdate` object from an action method. The timing and method can be updated, or it can be disabled.
+
+```python
+# poll_update.py
+from django.utils.timezone import now
+from django_unicorn.components import PollUpdate, UnicornView
+
+class PollingUpdateView(UnicornView):
+    polling_disabled = False
+    current_time = now()
+
+    def get_date(self):
+        self.current_time = now()
+        return PollUpdate(timing=2000, disable=False, method="get_date")
+```
+
+:::{code} html
+:force:
+
+<!-- poll-update.html -->
+<div unicorn:poll-1000="get_date">
+    current_time: {{ current_time|date:"s" }}<br />
+</div>
+:::

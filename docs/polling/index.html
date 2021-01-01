@@ -144,7 +144,7 @@
       <a href="../"><div class="brand">Unicorn</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -197,7 +197,7 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="polling">
@@ -223,6 +223,75 @@
   {{ update }}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
+</div>
+<div class="section" id="disable-poll">
+<h2>Disable poll<a class="headerlink" href="#disable-poll" title="Permalink to this headline">¶</a></h2>
+<p>Polling can dynamically be disabled by checking a boolean field from the component.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># poll_disable.py</span>
+<span class="kn">from</span> <span class="nn">django.utils.timezone</span> <span class="kn">import</span> <span class="n">now</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">PollDisableView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">polling_disabled</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- poll-disable.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-1000</span><span class="o">=</span><span class="s">"get_date"</span> <span class="na">unicorn:poll</span><span class="err">.</span><span class="na">disable</span><span class="o">=</span><span class="s">"polling_disabled"</span><span class="p">&gt;</span>
+    current_time: {{ current_time|date:"s" }}<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">u:click</span><span class="o">=</span><span class="s">"$toggle('polling_disabled')"</span><span class="p">&gt;</span>Toggle Polling<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The field passed into <code class="docutils literal notranslate"><span class="pre">unicorn:poll.disable</span></code> can be negated with an exclamation point.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># poll_disable_negation.py</span>
+<span class="kn">from</span> <span class="nn">django.utils.timezone</span> <span class="kn">import</span> <span class="n">now</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">PollDisableNegationView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">polling_enabled</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- poll-disable-negation.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-1000</span><span class="o">=</span><span class="s">"get_date"</span> <span class="na">unicorn:poll</span><span class="err">.</span><span class="na">disable</span><span class="o">=</span><span class="s">"!polling_enabled"</span><span class="p">&gt;</span>
+    current_time: {{ current_time|date:"s" }}<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">u:click</span><span class="o">=</span><span class="s">"$toggle('polling_enabled')"</span><span class="p">&gt;</span>Toggle Polling<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pollupdate">
+<h2>PollUpdate<a class="headerlink" href="#pollupdate" title="Permalink to this headline">¶</a></h2>
+<p>A poll can be dynamically updated by returning a <code class="docutils literal notranslate"><span class="pre">PollUpdate</span></code> object from an action method. The timing and method can be updated, or it can be disabled.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># poll_update.py</span>
+<span class="kn">from</span> <span class="nn">django.utils.timezone</span> <span class="kn">import</span> <span class="n">now</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">PollUpdate</span><span class="p">,</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">PollingUpdateView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">polling_disabled</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PollUpdate</span><span class="p">(</span><span class="n">timing</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">disable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"get_date"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- poll-update.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-1000</span><span class="o">=</span><span class="s">"get_date"</span><span class="p">&gt;</span>
+    current_time: {{ current_time|date:"s" }}<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -268,8 +337,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Polling</a><ul>
+<li><a class="reference internal" href="#disable-poll">Disable poll</a></li>
+<li><a class="reference internal" href="#pollupdate">PollUpdate</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
