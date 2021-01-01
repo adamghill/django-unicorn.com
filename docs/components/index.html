@@ -203,15 +203,23 @@
         <div class="section" id="components">
 <h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses the term “component” to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML template with specific tags and a Python class which provides the backend code for the template.</p>
+<div class="section" id="create-a-component">
+<h2>Create a component<a class="headerlink" href="#create-a-component" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to create your first component is to run the following Django management command after <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is installed.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python manage.py startunicorn hello-world
 </pre></div>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If this is the first component you create, you will also need to add <code class="docutils literal notranslate"><span class="pre">"unicorn",</span></code> to <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>) to make sure that Django can find the component templates you create.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If this is the first component you create, you will also need to add <code class="docutils literal notranslate"><span class="pre">"unicorn",</span></code> to <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>) to make sure that Django can find the created component templates.</p>
+<p>Also, make sure that there is a <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></code> in your HTML somewhere to prevent cross-site scripting attacks while using <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change which apps <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> looks in for components with the <a class="reference internal" href="../settings/#apps"><span class="std std-doc">APPS setting</span></a>.</p>
 </div>
 <p>Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'hello-world'</span> <span class="pre">%}</span></code> into the template where you want to load the new component.</p>
+</div>
 <div class="section" id="component-key">
 <h2>Component key<a class="headerlink" href="#component-key" title="Permalink to this headline">¶</a></h2>
 <p>If there are multiple of the same components on the page, a <code class="docutils literal notranslate"><span class="pre">key</span></code> kwarg can be passed into the template. For example, <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'hello-world'</span> <span class="pre">key='helloWorldKey'</span> <span class="pre">%}</span></code>.</p>
@@ -421,6 +429,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Components</a><ul>
+<li><a class="reference internal" href="#create-a-component">Create a component</a></li>
 <li><a class="reference internal" href="#component-key">Component key</a></li>
 <li><a class="reference internal" href="#component-arguments">Component arguments</a></li>
 <li><a class="reference internal" href="#example-component">Example component</a></li>

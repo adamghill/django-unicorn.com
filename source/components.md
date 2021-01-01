@@ -2,14 +2,22 @@
 
 `Unicorn` uses the term "component" to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML template with specific tags and a Python class which provides the backend code for the template.
 
+## Create a component
+
 The easiest way to create your first component is to run the following Django management command after `Unicorn` is installed.
 
 ```shell
 python manage.py startunicorn hello-world
 ```
 
-```{tip}
-If this is the first component you create, you will also need to add `"unicorn",` to `INSTALLED_APPS` in your Django settings file (normally `settings.py`) to make sure that Django can find the component templates you create.
+```{warning}
+If this is the first component you create, you will also need to add `"unicorn",` to `INSTALLED_APPS` in your Django settings file (normally `settings.py`) to make sure that Django can find the created component templates.
+
+Also, make sure that there is a `{% csrf_token %}` in your HTML somewhere to prevent cross-site scripting attacks while using `Unicorn`.
+```
+
+```{note}
+Change which apps `Unicorn` looks in for components with the [APPS setting](settings.md#apps).
 ```
 
 Add `{% unicorn 'hello-world' %}` into the template where you want to load the new component.

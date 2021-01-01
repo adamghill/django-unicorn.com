@@ -144,7 +144,7 @@
       <a href="../"><div class="brand">Unicorn</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -197,11 +197,13 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-unicorn">
+<h2>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code><a class="headerlink" href="#install-unicorn" title="Permalink to this headline">¶</a></h2>
 <p>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> the same as any other Python package (preferably into a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install django-unicorn
 </pre></div>
@@ -214,14 +216,41 @@
 <p class="admonition-title">Note</p>
 <p>If attempting to install <code class="docutils literal notranslate"><span class="pre">django-unicorn</span></code> and <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is preventing the installation from succeeding, check whether it is using 32-bit Python. Unfortunately, <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is only supported on 64-bit Python. More details in <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/105">issue #105</a>.</p>
 </div>
-<p>Next, install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> into the Django project.</p>
-<ul class="simple">
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">"django_unicorn",</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> array in the Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>)</p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">path("unicorn/",</span> <span class="pre">include("django_unicorn.urls")),</span></code> into the projects <code class="docutils literal notranslate"><span class="pre">urls.py</span></code></p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">unicorn</span> <span class="pre">%}</span></code> to the top of the Django HTML template</p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn_scripts</span> <span class="pre">%}</span></code> into the Django HTML template</p></li>
-</ul>
+</div>
+<div class="section" id="integrate-unicorn-with-django">
+<h2>Integrate <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with Django<a class="headerlink" href="#integrate-unicorn-with-django" title="Permalink to this headline">¶</a></h2>
+<p>1. Add <code class="docutils literal notranslate"><span class="pre">"django_unicorn",</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> array in the Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="c1"># other apps</span>
+    <span class="s2">"django_unicorn"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>2. Add <code class="docutils literal notranslate"><span class="pre">path("unicorn/",</span> <span class="pre">include("django_unicorn.urls")),</span></code>into the project’s<code class="docutils literal notranslate"><span class="pre">urls.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># urls.py</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="c1"># other urls</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">"unicorn/"</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">"django_unicorn.urls"</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>3. Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">unicorn</span> <span class="pre">%}</span></code> to the top of the Django HTML template</p>
+<p>4. Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn_scripts</span> <span class="pre">%}</span></code> and <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></code> into a Django HTML template</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+{% load unicorn %}
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    {% unicorn_scripts %}
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    {% csrf_token %}
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 <p>Then, <a class="reference internal" href="../components/"><span class="doc std std-doc">create a component</span></a>.</p>
+</div>
 </div>
 
       </article>
@@ -266,8 +295,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#install-unicorn">Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code></a></li>
+<li><a class="reference internal" href="#integrate-unicorn-with-django">Integrate <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with Django</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

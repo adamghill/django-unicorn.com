@@ -1,5 +1,7 @@
 # Installation
 
+## Install `Unicorn`
+
 Install `Unicorn` the same as any other Python package (preferably into a [virtual environment](https://docs.python.org/3/tutorial/venv.html)).
 
 ```shell
@@ -16,11 +18,43 @@ poetry add django-unicorn
 If attempting to install `django-unicorn` and `orjson` is preventing the installation from succeeding, check whether it is using 32-bit Python. Unfortunately, `orjson` is only supported on 64-bit Python. More details in [issue #105](https://github.com/adamghill/django-unicorn/issues/105).
 ```
 
-Next, install `Unicorn` into the Django project.
+## Integrate `Unicorn` with Django
 
-- Add `"django_unicorn",` to the `INSTALLED_APPS` array in the Django settings file (normally `settings.py`)
-- Add `path("unicorn/", include("django_unicorn.urls")),` into the projects `urls.py`
-- Add `{% load unicorn %}` to the top of the Django HTML template
-- Add `{% unicorn_scripts %}` into the Django HTML template
+1\. Add `"django_unicorn",` to the `INSTALLED_APPS` array in the Django settings file (normally `settings.py`)
+
+```python
+# settings.py
+INSTALLED_APPS = (
+    # other apps
+    "django_unicorn",
+)
+```
+
+2\. Add `path("unicorn/", include("django_unicorn.urls")),`into the project's`urls.py`
+
+```python
+# urls.py
+urlpatterns = (
+    # other urls
+    path("unicorn/", include("django_unicorn.urls")),
+)
+```
+
+3\. Add `{% load unicorn %}` to the top of the Django HTML template
+
+4\. Add `{% unicorn_scripts %}` and `{% csrf_token %}` into a Django HTML template
+
+```html
+<!-- index.html -->
+{% load unicorn %}
+<html>
+  <head>
+    {% unicorn_scripts %}
+  </head>
+  <body>
+    {% csrf_token %}
+  </body>
+</html>
+```
 
 Then, [create a component](components.md).
