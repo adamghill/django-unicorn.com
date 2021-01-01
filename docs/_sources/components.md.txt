@@ -9,7 +9,7 @@ python manage.py startunicorn hello-world
 ```
 
 ```{tip}
-If this is the first component you create, you will also need to add `"unicorn",` to `INSTALLED_APPS` in your Django settings file (normally settings.py) to make sure that Django can find the component templates you create.
+If this is the first component you create, you will also need to add `"unicorn",` to `INSTALLED_APPS` in your Django settings file (normally `settings.py`) to make sure that Django can find the component templates you create.
 ```
 
 Add `{% unicorn 'hello-world' %}` into the template where you want to load the new component.

@@ -202,7 +202,7 @@
         </label>
         <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> the same as any other Python package (preferably into a virtual environment).</p>
+<p>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> the same as any other Python package (preferably into a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install django-unicorn
 </pre></div>
 </div>
@@ -210,10 +210,14 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>poetry add django-unicorn
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If attempting to install <code class="docutils literal notranslate"><span class="pre">django-unicorn</span></code> and <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is preventing the installation from succeeding, check whether it is using 32-bit Python. Unfortunately, <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is only supported on 64-bit Python. More details in <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/105">issue #105</a>.</p>
+</div>
 <p>Next, install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> into the Django project.</p>
 <ul class="simple">
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">"django_unicorn",</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> array in the Django settings file (normally <a class="reference external" href="http://settings.py">settings.py</a>)</p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">path("unicorn/",</span> <span class="pre">include("django_unicorn.urls")),</span></code> into the project’s <a class="reference external" href="http://urls.py">urls.py</a></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">"django_unicorn",</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> array in the Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">path("unicorn/",</span> <span class="pre">include("django_unicorn.urls")),</span></code> into the projects <code class="docutils literal notranslate"><span class="pre">urls.py</span></code></p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">unicorn</span> <span class="pre">%}</span></code> to the top of the Django HTML template</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn_scripts</span> <span class="pre">%}</span></code> into the Django HTML template</p></li>
 </ul>
