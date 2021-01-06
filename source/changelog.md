@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.14.1
+
+- Prevent the currently focused model element from updating after the AJAX request finishes ([#100](https://github.com/adamghill/django-unicorn/issues/100)).
+
+[All changes since 0.14.0](https://github.com/adamghill/django-unicorn/compare/0.14.0...0.14.1).
+
 ## v0.14.0
 
 - [Disable poll](polling.md#disable-poll) with a component field

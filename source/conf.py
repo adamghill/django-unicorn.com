@@ -119,5 +119,5 @@ myst_heading_anchors = 3
 myst_enable_extensions = ["linkify", "colon_fence"]
 
 pdf_documents = [
-    ("index", "unicorn-0.14.0", "Unicorn", "Adam Hill"),
+    ("index", "unicorn-0.14.1", "Unicorn", "Adam Hill"),
 ]

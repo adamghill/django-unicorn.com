@@ -26,7 +26,7 @@ cli
 
 changelog
 faq
-PDF <https://www.django-unicorn.com/docs/unicorn-0.13.0.pdf>
+PDF <https://www.django-unicorn.com/docs/unicorn-0.14.1.pdf>
 GitHub <https://github.com/adamghill/django-unicorn>
 Sponsor <https://github.com/sponsors/adamghill>
 ```
