@@ -1,6 +1,88 @@
 # Django Models
 
-`Unicorn` provides tight integration with Django `Models` and `Querysets` to handle typical Django workflows. There are multiple ways to integrate a Django model with a component. They all work a little differently and which option you choose to do depends on the situation.
+`Unicorn` provides tight integration with Django `Models` and `Querysets` to handle typical Django workflows. There are multiple ways to integrate a Django model with a component. They all work a little differently and which option you choose to use depends on the situation.
+
+## DbModel
+
+One way to use Django models is by utilizing the `DbModel` class that provides a way from the front-end to refer to a Django model. The value of the `unicorn:db` attribute refers to the first argument when constructing a `DbModel` and `unicorn:field` is used for the model's field that should be bound to the input.
+
+Another benefit of `DbModel` is that it enables the use of the [`$model`](actions.md#model) special action variable.
+
+:::{code} html
+:force: true
+
+<!-- db-model.html -->
+<div>
+  <div>
+    <input unicorn:db="book" unicorn:field.defer="title" type="text" id="title" />
+    {{ book.title }}
+  </div>
+  <div>
+    <input unicorn:db="book" unicorn:field.defer="description" type="text" id="description" />
+    {{ book.description }}
+  </div>
+  <button unicorn:click="save">Save</button>
+</div>
+:::
+
+```python
+# db_model.py
+from django_unicorn.components import UnicornView
+from django_unicorn.db import DbModel
+from books.models import Book
+
+class DbModelView(UnicornView):
+    class Meta:
+        db_models = [DbModel("book", Book)]
+
+    def save(self):
+        print("A new book will be created automatically")
+        pass
+```
+
+`unicorn:db` can also live in a parent element and surround a group of `unicorn:field` inputs.
+
+:::{code} html
+:force: true
+
+<!-- db-model.html -->
+<div>
+  <div unicorn:db="book">
+    <div>
+      <input unicorn:field.defer="title" type="text" id="title" />
+      {{ book.title }}
+    </div>
+    <div>
+      <input unicorn:field.defer="description" type="text" id="description" />
+      {{ book.description }}
+    </div>
+  </div>
+  <button unicorn:click="save">Save</button>
+</div>
+:::
+
+`unicorn:pk` can be used so that an existing model is updated instead of a new model is created. More information about `unicorn:pk` is in [queryset](#queryset).
+
+:::{code} html
+:force: true
+
+<!-- db-model.html -->
+<div>
+  <div unicorn:db="book">
+    <div unicorn:pk="1">
+      <div>
+        <input unicorn:field.defer="title" type="text" id="title" />
+        {{ book.title }}
+      </div>
+      <div>
+        <input unicorn:field.defer="description" type="text" id="description" />
+        {{ book.description }}
+      </div>
+    </div>
+  </div>
+  <button unicorn:click="save">Save</button>
+</div>
+:::
 
 ## Class Model
 
@@ -64,47 +146,6 @@ class InstanceModelView(UnicornView):
         self.book.save()
 ```
 
-## DbModel
-
-If there is no reason to have a class or instance attribute, then `Unicorn` also provides a `DbModel` class that ties a simple name used in the front-end to a Django model defined in the component.
-
-`unicorn:db` can also live in a parent element and surround a group of inputs. The `unicorn:field` attribute is used for the model's fields.
-
-:::{code} html
-:force: true
-
-<!-- db-model.html -->
-<div>
-  <div unicorn:db="book">
-    <div>
-      <input unicorn:field.defer="title" type="text" id="title" />
-      {{ book.title }}
-    </div>
-    <div>
-      <input unicorn:field.defer="description" type="text" id="description" />
-      {{ book.description }}
-    </div>
-  </div>
-
-<button unicorn:click="save">Save</button>
-
-</div>
-:::
-
-```python
-# db_model.py
-from django_unicorn.components import UnicornView
-from django_unicorn.db import DbModel
-from books.models import Book
-
-class DbModelView(UnicornView):
-    class Meta:
-        db_models = [DbModel("book", Book)]
-
-    def save(self):
-        pass
-```
-
 ## Queryset
 
 Binding models to a Django `Queryset` is done by setting an `unicorn:pk` attribute with the `model`'s `pk` (normally an integer in an `id` field, but could be a custom [`primary_key`](https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.Field.primary_key)).
@@ -144,9 +185,7 @@ A blank value for an `unicorn:pk` attribute signals to `Unicorn` to create a new
     {% endfor %}
 
   </div>
-
-<button unicorn:click="save">Save</button>
-
+  <button unicorn:click="save">Save</button>
 </div>
 :::
 
