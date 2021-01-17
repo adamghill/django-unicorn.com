@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.15.1
+
+- Fix bug where a component name has a dash in its name
+
+[All changes since 0.15.1](https://github.com/adamghill/django-unicorn/compare/0.15.0...0.15.1).
+
 ## v0.15.0
 
 - Add support for [child components](child-components.md)
