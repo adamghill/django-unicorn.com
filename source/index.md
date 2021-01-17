@@ -37,18 +37,26 @@ Sponsor <https://github.com/sponsors/adamghill>
 
 `Unicorn` stands on the shoulders of giants, in particular [morphdom](https://github.com/patrick-steele-idem/morphdom) which is integral for merging DOM changes.
 
-A few inspirational projects in other languages and frameworks.
+### Inspirational projects in other languages
 
 - [Livewire](https://laravel-livewire.com/), a full-stack framework for the PHP web framework, Laravel.
 - [LiveView](https://github.com/phoenixframework/phoenix_live_view), a library for the Elixir web framework, Phoenix, that uses websockets.
 - [StimulusReflex](https://docs.stimulusreflex.com), a library for the Ruby web framework, Ruby on Rails, that uses websockets.
 - [Hotwire](https://hotwire.dev), "is an alternative approach to building modern web applications without using much JavaScript by sending HTML instead of JSON over the wire". Uses AJAX, but can also use websockets.
 
-Some Python packages which aim to solve similar problems as `Unicorn`.
+### Full-stack framework Python packages
 
 - [Reactor](https://github.com/edelvalle/reactor/), a port of Elixir's `LiveView` to Django. Especially interesting for more complicated use-cases like chat rooms, keeping multiple browsers in sync, etc. Uses Django channels and websockets to work its magic.
 - [Flask-Meld](https://github.com/mikeabrahamsen/Flask-Meld), a port of `Unicorn` to Flask. Uses websockets.
 - [Sockpuppet](https://sockpuppet.argpar.se/), a port of Ruby on Rail's `StimulusReflex`. Requires Django channels and websockets.
 - [Django inertia.js adapter](https://github.com/zodman/inertia-django) allows Django to use <a href="https://inertiajs.com">inertia.js</a> to build an SPA without building an API.
+- [Hotwire for Django](https://github.com/hotwire-django) contains a few different repositiories to integrate [Hotwire](https://hotwire.dev) or its separate libraries into Django.
+
+### Django packages to integrate lightweight frontend frameworks
+
+- [django-htmx](https://github.com/adamchainz/django-htmx) which has extensions for using Django with [htmx](https://htmx.org/).
+
+### Django component packages
+
 - [django-components](https://gitlab.com/Mojeer/django_components), which provides declarative and composable components for Django, inspired by JavaScript frameworks.
 - [django-page-components](https://github.com/andreyfedoseev/django-page-components), a minimalistic framework for creating page components and using them in your Django views and templates.
