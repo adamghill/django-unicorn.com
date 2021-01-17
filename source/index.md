@@ -8,6 +8,7 @@
 installation
 components
 templates
+child-components
 django-models
 actions
 validation

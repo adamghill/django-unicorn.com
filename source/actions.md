@@ -132,6 +132,31 @@ Stops the event from bubbling up the event chain. The same as calling `stopPropa
 </div>
 :::
 
+### discard
+
+Discards any model updates from being saved before calling the specified method on the view. Useful for a cancel button.
+
+:::{code} html
+:force: true
+
+<!-- discard-modifier.html -->
+<div>
+    <input type="text" unicorn:model="name">
+    <button unicorn:click.discard="cancel">Cancel</button>
+</div>
+:::
+
+```python
+# discard_modifier.py
+from django_unicorn.components import UnicornView
+
+class DiscardModifierView(UnicornView):
+    name = None
+
+    def cancel(self):
+        pass
+```
+
 ## Special arguments
 
 ### $event

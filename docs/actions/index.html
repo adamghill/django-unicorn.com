@@ -166,6 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
@@ -312,6 +313,27 @@
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">"name='Bob'"</span><span class="p">&gt;</span>Set name as Bob<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="discard">
+<h3>discard<a class="headerlink" href="#discard" title="Permalink to this headline">¶</a></h3>
+<p>Discards any model updates from being saved before calling the specified method on the view. Useful for a cancel button.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- discard-modifier.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">discard</span><span class="o">=</span><span class="s">"cancel"</span><span class="p">&gt;</span>Cancel<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># discard_modifier.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">DiscardModifierView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
@@ -513,6 +535,7 @@
 <li><a class="reference internal" href="#modifiers">Modifiers</a><ul>
 <li><a class="reference internal" href="#prevent">prevent</a></li>
 <li><a class="reference internal" href="#stop">stop</a></li>
+<li><a class="reference internal" href="#discard">discard</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#special-arguments">Special arguments</a><ul>

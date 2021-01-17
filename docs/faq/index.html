@@ -166,6 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
@@ -235,6 +236,17 @@
 <h2>How to make sure that the new JavaScript is served when a new version of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is released?<a class="headerlink" href="#how-to-make-sure-that-the-new-javascript-is-served-when-a-new-version-of-unicorn-is-released" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> works great with the <a class="reference external" href="https://whitenoise.evans.io/en/stable/">whitenoise</a> ability to serve static assets with a filename based on a hash of the file. <a class="reference external" href="http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support">CompressedManifestStaticFilesStorage</a> works great for this purpose and is used by <a class="reference external" href="https://www.django-unicorn.com/">django-unicorn.com</a> for this very purpose. Example code can be found at <a class="reference external" href="https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72">https://github.com/adamghill/django-unicorn.com/</a>.</p>
 </div>
+<div class="section" id="what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js">
+<h2>What is the difference between <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> and lighter front-end frameworks like <code class="docutils literal notranslate"><span class="pre">htmx</span></code> or <code class="docutils literal notranslate"><span class="pre">alpine.js</span></code>?<a class="headerlink" href="#what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://htmx.org/">htmx</a> and <a class="reference external" href="https://github.com/alpinejs/alpine">alpine.js</a> are great libraries to provide interactivity to your HTML. Both of those libraries are generalized front-end framework that you could use with any server-side framework (or just regular HTML). They are both well-supported, battle-tested, and answers to how they work are probably Google-able (or on <a class="reference external" href="https://stackoverflow.com/questions/tagged/alpine.js">Stackoverflow</a>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> isn’t in the same league as either <code class="docutils literal notranslate"><span class="pre">htmx</span></code> or <code class="docutils literal notranslate"><span class="pre">alpine.js</span></code>. But, the benefit of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is that it is tightly integrated with Django and it should “feel” like an extension of the core Django experience. For example:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../redirecting/"><span class="doc std std-doc">redirecting</span></a> from an action uses the Django <code class="docutils literal notranslate"><span class="pre">redirect</span></code> shortcut</p></li>
+<li><p><a class="reference internal" href="../validation/"><span class="doc std std-doc">validation</span></a> uses Django forms</p></li>
+<li><p><a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django Models</span></a> are tightly integrated into <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> (especially with the <a class="reference internal" href="../actions/#model"><span class="std std-doc">$model</span></a> special argument)</p></li>
+<li><p>you won’t have to create extra URLs/views for AJAX calls to send back HTML because <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> handles all of that for you</p></li>
+</ul>
+</div>
 </div>
 
       </article>
@@ -293,6 +305,7 @@
 <li><a class="reference internal" href="#but-what-about-security">But, what about security?</a></li>
 <li><a class="reference internal" href="#what-browsers-does-unicorn-support">What browsers does <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> support?</a></li>
 <li><a class="reference internal" href="#how-to-make-sure-that-the-new-javascript-is-served-when-a-new-version-of-unicorn-is-released">How to make sure that the new JavaScript is served when a new version of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is released?</a></li>
+<li><a class="reference internal" href="#what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js">What is the difference between <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> and lighter front-end frameworks like <code class="docutils literal notranslate"><span class="pre">htmx</span></code> or <code class="docutils literal notranslate"><span class="pre">alpine.js</span></code>?</a></li>
 </ul>
 </li>
 </ul>

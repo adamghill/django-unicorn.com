@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.15.0
+
+- Add support for [child components](child-components.md)
+- Add [discard](actions.md#discard) action modifier
+- Add support for referring to components in a folder structure
+- Remove restriction that component templates must start with a div
+- Remove restriction that component root can't also have `unicorn:model` or `unicorn:action`
+
+[All changes since 0.15.0](https://github.com/adamghill/django-unicorn/compare/0.14.1...0.15.0).
+
 ## v0.14.1
 
 - Prevent the currently focused model element from updating after the AJAX request finishes ([#100](https://github.com/adamghill/django-unicorn/issues/100)).

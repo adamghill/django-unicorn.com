@@ -3,7 +3,7 @@
 Templates are just normal Django HTML templates, so anything you could normally do in a Django template will still work, including template tags, filters, loops, if statements, etc.
 
 ```{warning}
-`Unicorn` requires there to be a root `div` element surrounding the component template.
+`Unicorn` requires there to be one root element surrounding the component template.
 ```
 
 ## Model modifiers

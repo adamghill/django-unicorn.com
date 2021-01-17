@@ -35,3 +35,14 @@ Not really! `Unicorn` is ideal for when an AJAX call would already be required (
 ## How to make sure that the new JavaScript is served when a new version of `Unicorn` is released?
 
 `Unicorn` works great with the [whitenoise](https://whitenoise.evans.io/en/stable/) ability to serve static assets with a filename based on a hash of the file. [CompressedManifestStaticFilesStorage](http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support) works great for this purpose and is used by [django-unicorn.com](https://www.django-unicorn.com/) for this very purpose. Example code can be found at [https://github.com/adamghill/django-unicorn.com/](https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72).
+
+## What is the difference between `Unicorn` and lighter front-end frameworks like `htmx` or `alpine.js`?
+
+[htmx](https://htmx.org/) and [alpine.js](https://github.com/alpinejs/alpine) are great libraries to provide interactivity to your HTML. Both of those libraries are generalized front-end framework that you could use with any server-side framework (or just regular HTML). They are both well-supported, battle-tested, and answers to how they work are probably Google-able (or on [Stackoverflow](https://stackoverflow.com/questions/tagged/alpine.js)).
+
+`Unicorn` isn't in the same league as either `htmx` or `alpine.js`. But, the benefit of `Unicorn` is that it is tightly integrated with Django and it should "feel" like an extension of the core Django experience. For example:
+
+- [redirecting](redirecting.md) from an action uses the Django `redirect` shortcut
+- [validation](validation.md) uses Django forms
+- [Django Models](django-models.md) are tightly integrated into `Unicorn` (especially with the [$model](actions.md#model) special argument)
+- you won't have to create extra URLs/views for AJAX calls to send back HTML because `Unicorn` handles all of that for you

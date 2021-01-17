@@ -166,6 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="django-models/">Django Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="validation/">Validation</a></li>
@@ -207,22 +208,38 @@
 <div class="section" id="related-projects">
 <h2>Related projects<a class="headerlink" href="#related-projects" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> stands on the shoulders of giants, in particular <a class="reference external" href="https://github.com/patrick-steele-idem/morphdom">morphdom</a> which is integral for merging DOM changes.</p>
-<p>A few inspirational projects in other languages and frameworks.</p>
+<div class="section" id="inspirational-projects-in-other-languages">
+<h3>Inspirational projects in other languages<a class="headerlink" href="#inspirational-projects-in-other-languages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://laravel-livewire.com/">Livewire</a>, a full-stack framework for the PHP web framework, Laravel.</p></li>
 <li><p><a class="reference external" href="https://github.com/phoenixframework/phoenix_live_view">LiveView</a>, a library for the Elixir web framework, Phoenix, that uses websockets.</p></li>
 <li><p><a class="reference external" href="https://docs.stimulusreflex.com">StimulusReflex</a>, a library for the Ruby web framework, Ruby on Rails, that uses websockets.</p></li>
 <li><p><a class="reference external" href="https://hotwire.dev">Hotwire</a>, “is an alternative approach to building modern web applications without using much JavaScript by sending HTML instead of JSON over the wire”. Uses AJAX, but can also use websockets.</p></li>
 </ul>
-<p>Some Python packages which aim to solve similar problems as <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
+</div>
+<div class="section" id="full-stack-framework-python-packages">
+<h3>Full-stack framework Python packages<a class="headerlink" href="#full-stack-framework-python-packages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/edelvalle/reactor/">Reactor</a>, a port of Elixir’s <code class="docutils literal notranslate"><span class="pre">LiveView</span></code> to Django. Especially interesting for more complicated use-cases like chat rooms, keeping multiple browsers in sync, etc. Uses Django channels and websockets to work its magic.</p></li>
 <li><p><a class="reference external" href="https://github.com/mikeabrahamsen/Flask-Meld">Flask-Meld</a>, a port of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> to Flask. Uses websockets.</p></li>
 <li><p><a class="reference external" href="https://sockpuppet.argpar.se/">Sockpuppet</a>, a port of Ruby on Rail’s <code class="docutils literal notranslate"><span class="pre">StimulusReflex</span></code>. Requires Django channels and websockets.</p></li>
 <li><p><a class="reference external" href="https://github.com/zodman/inertia-django">Django inertia.js adapter</a> allows Django to use <a href="https://inertiajs.com">inertia.js</a> to build an SPA without building an API.</p></li>
+<li><p><a class="reference external" href="https://github.com/hotwire-django">Hotwire for Django</a> contains a few different repositiories to integrate <a class="reference external" href="https://hotwire.dev">Hotwire</a> or its separate libraries into Django.</p></li>
+</ul>
+</div>
+<div class="section" id="django-packages-to-integrate-lightweight-frontend-frameworks">
+<h3>Django packages to integrate lightweight frontend frameworks<a class="headerlink" href="#django-packages-to-integrate-lightweight-frontend-frameworks" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/adamchainz/django-htmx">django-htmx</a> which has extensions for using Django with <a class="reference external" href="https://htmx.org/">htmx</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="django-component-packages">
+<h3>Django component packages<a class="headerlink" href="#django-component-packages" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li><p><a class="reference external" href="https://gitlab.com/Mojeer/django_components">django-components</a>, which provides declarative and composable components for Django, inspired by JavaScript frameworks.</p></li>
 <li><p><a class="reference external" href="https://github.com/andreyfedoseev/django-page-components">django-page-components</a>, a minimalistic framework for creating page components and using them in your Django views and templates.</p></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -271,7 +288,13 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Unicorn</a><ul>
-<li><a class="reference internal" href="#related-projects">Related projects</a></li>
+<li><a class="reference internal" href="#related-projects">Related projects</a><ul>
+<li><a class="reference internal" href="#inspirational-projects-in-other-languages">Inspirational projects in other languages</a></li>
+<li><a class="reference internal" href="#full-stack-framework-python-packages">Full-stack framework Python packages</a></li>
+<li><a class="reference internal" href="#django-packages-to-integrate-lightweight-frontend-frameworks">Django packages to integrate lightweight frontend frameworks</a></li>
+<li><a class="reference internal" href="#django-component-packages">Django component packages</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
