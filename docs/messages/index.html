@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Components" href="../components/" /><link rel="prev" title="Unicorn" href="../" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Advanced" href="../advanced/" /><link rel="prev" title="Polling" href="../polling/" />
 
     <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
-        <title>Installation - Unicorn</title>
+        <title>Messages - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -144,7 +144,7 @@
       <a href="../"><div class="brand">Unicorn</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -163,7 +163,7 @@
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
@@ -173,7 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
@@ -196,59 +196,33 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="install-unicorn">
-<h2>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code><a class="headerlink" href="#install-unicorn" title="Permalink to this headline">¶</a></h2>
-<p>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> the same as any other Python package (preferably into a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>).</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install django-unicorn
+        <div class="section" id="messages">
+<h1>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> supports Django messages and they work the same as if the template was rendered server-side. When the <code class="docutils literal notranslate"><span class="pre">update</span></code> action is fired, a success message will be added to the request and will show up inside the component.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;!-- messages.html --&gt;
+&lt;div&gt;
+    {% if messages %}
+    &lt;ul class="messages"&gt;
+        {% for message in messages %}
+        &lt;li{% if message.tags %} class="{{ message.tags }}"{% endif %}&gt;{{ message }}&lt;/li&gt;
+        {% endfor %}
+    &lt;/ul&gt;
+    {% endif %}
+
+    &lt;button unicorn:click="update"&gt;Update&lt;/button&gt;
 </pre></div>
 </div>
-<p>OR</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>poetry add django-unicorn
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># messages.py</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">MessagesView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="s2">"update called"</span><span class="p">)</span>
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If attempting to install <code class="docutils literal notranslate"><span class="pre">django-unicorn</span></code> and <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is preventing the installation from succeeding, check whether it is using 32-bit Python. Unfortunately, <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is only supported on 64-bit Python. More details in <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/105">issue #105</a>.</p>
-</div>
-</div>
-<div class="section" id="integrate-unicorn-with-django">
-<h2>Integrate <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with Django<a class="headerlink" href="#integrate-unicorn-with-django" title="Permalink to this headline">¶</a></h2>
-<p>1. Add <code class="docutils literal notranslate"><span class="pre">"django_unicorn",</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> array in the Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
-<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="c1"># other apps</span>
-    <span class="s2">"django_unicorn"</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>2. Add <code class="docutils literal notranslate"><span class="pre">path("unicorn/",</span> <span class="pre">include("django_unicorn.urls")),</span></code>into the project’s<code class="docutils literal notranslate"><span class="pre">urls.py</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># urls.py</span>
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="c1"># other urls</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"unicorn/"</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">"django_unicorn.urls"</span><span class="p">)),</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>3. Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">unicorn</span> <span class="pre">%}</span></code> to the top of the Django HTML template</p>
-<p>4. Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn_scripts</span> <span class="pre">%}</span></code> and <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></code> into a Django HTML template</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
-{% load unicorn %}
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    {% unicorn_scripts %}
-  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    {% csrf_token %}
-  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<p>Then, <a class="reference internal" href="../components/"><span class="doc std std-doc">create a component</span></a>.</p>
 </div>
 </div>
 
@@ -256,23 +230,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../components/">
+          <a class="next-page" href="../advanced/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Components</div>
+                <div class="title">Advanced</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../">
+          <a class="prev-page" href="../polling/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">Polling</div>
                 
               </div>
             </a>
@@ -286,7 +260,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../_sources/installation.md.txt"
+            <a class="muted-link" href="../_sources/messages.md.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -294,28 +268,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#install-unicorn">Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code></a></li>
-<li><a class="reference internal" href="#integrate-unicorn-with-django">Integrate <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with Django</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

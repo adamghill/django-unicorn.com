@@ -15,6 +15,7 @@ validation
 redirecting
 loading-states
 polling
+messages
 advanced
 settings
 cli

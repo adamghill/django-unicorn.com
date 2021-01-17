@@ -45,5 +45,5 @@ Not really! `Unicorn` is ideal for when an AJAX call would already be required (
 - [redirecting](redirecting.md) from an action uses the Django `redirect` shortcut
 - [validation](validation.md) uses Django forms
 - [Django Models](django-models.md) are tightly integrated into `Unicorn` (especially with the [$model](actions.md#model) special argument)
-- Django messages "just work" the way you would expect them to
+- Django [messages](messages.md) "just work" the way you would expect them to
 - you won't have to create extra URLs/views for AJAX calls to send back HTML because `Unicorn` handles all of that for you
