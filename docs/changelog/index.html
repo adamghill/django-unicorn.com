@@ -161,7 +161,7 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Documentation</span></p>
+  <p class="caption"><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -169,17 +169,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
@@ -201,6 +205,15 @@
         </label>
         <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v0-16-0">
+<h2>v0.16.0<a class="headerlink" href="#v0-16-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../dirty-states/"><span class="doc std std-doc">Dirty states</span></a> for when there is a change that hasn’t been synced yet.</p></li>
+<li><p>Add support for setting <a class="reference internal" href="../loading-states/#class"><span class="std std-doc">multiple classes for loading states</span></a>.</p></li>
+<li><p>Attempt to handle when the component gets out of sync with an invalid checksum error.</p></li>
+<li><p>Performance tweaks when there isn’t a change to a model or dbModel with lazy or defer modifiers.</p></li>
+</ul>
+</div>
 <div class="section" id="v0-15-1">
 <h2>v0.15.1<a class="headerlink" href="#v0-15-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -535,6 +548,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-16-0">v0.16.0</a></li>
 <li><a class="reference internal" href="#v0-15-1">v0.15.1</a></li>
 <li><a class="reference internal" href="#v0-15-0">v0.15.0</a></li>
 <li><a class="reference internal" href="#v0-14-1">v0.14.1</a></li>

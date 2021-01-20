@@ -1,6 +1,6 @@
 # Loading States
 
-Because `Unicorn` requires an AJAX request for any component updates, it is helpful to provide some context to the user that an action is happening.
+`Unicorn` requires an AJAX request for any component updates, so it is helpful to provide some context to the user that an action is happening.
 
 ## Toggling Elements
 
@@ -81,16 +81,16 @@ This example will disable the _Update_ button when it is clicked and remove the 
 
 ### class
 
-Add the specified class to the element that is triggering the action.
+Add the specified class(es) to the element that is triggering the action.
 
-This example will add a `loading` class to the _Update_ button when it is clicked and remove the class once the action is completed.
+This example will add `loading` and `spinner` classes to the _Update_ button when it is clicked and remove the classes once the action is completed.
 
 :::{code} html
 :force: true
 
 <!-- loading-class.html -->
 <div>
-  <button unicorn:click="update" unicorn:loading.class="loading">Update</button>
+  <button unicorn:click="update" unicorn:loading.class="loading spinner">Update</button>
 </div>
 :::
 

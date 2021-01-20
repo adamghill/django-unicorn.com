@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.16.0
+
+- [Dirty states](dirty-states.md) for when there is a change that hasn't been synced yet.
+- Add support for setting [multiple classes for loading states](loading-states.md#class).
+- Attempt to handle when the component gets out of sync with an invalid checksum error.
+- Performance tweaks when there isn't a change to a model or dbModel with lazy or defer modifiers.
+
 ## v0.15.1
 
 - Fix bug where a component name has a dash in its name

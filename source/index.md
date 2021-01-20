@@ -1,7 +1,7 @@
 # Unicorn
 
 ```{toctree}
-:caption: Documentation
+:caption: Basics
 :maxdepth: 2
 :hidden:
 
@@ -11,14 +11,20 @@ templates
 child-components
 django-models
 actions
+```
+
+```{toctree}
+:caption: Features
+:maxdepth: 2
+:hidden:
+
 validation
 redirecting
 loading-states
+dirty-states
 polling
 messages
 advanced
-settings
-cli
 ```
 
 ```{toctree}
@@ -26,6 +32,8 @@ cli
 :maxdepth: 2
 :hidden:
 
+settings
+cli
 changelog
 faq
 PDF <https://www.django-unicorn.com/docs/unicorn-latest.pdf>

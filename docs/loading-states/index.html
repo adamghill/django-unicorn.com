@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Polling" href="../polling/" /><link rel="prev" title="Redirecting" href="../redirecting/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Dirty States" href="../dirty-states/" /><link rel="prev" title="Redirecting" href="../redirecting/" />
 
     <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
         <title>Loading States - Unicorn</title>
@@ -161,25 +161,29 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Documentation</span></p>
-<ul class="current">
+  <p class="caption"><span class="caption-text">Basics</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Loading States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
@@ -201,7 +205,7 @@
         </label>
         <div class="section" id="loading-states">
 <h1>Loading States<a class="headerlink" href="#loading-states" title="Permalink to this headline">¶</a></h1>
-<p>Because <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> requires an AJAX request for any component updates, it is helpful to provide some context to the user that an action is happening.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> requires an AJAX request for any component updates, so it is helpful to provide some context to the user that an action is happening.</p>
 <div class="section" id="toggling-elements">
 <h2>Toggling Elements<a class="headerlink" href="#toggling-elements" title="Permalink to this headline">¶</a></h2>
 <p>Elements with the <code class="docutils literal notranslate"><span class="pre">unicorn:loading</span></code> attribute are only visible when an action is in process.</p>
@@ -266,11 +270,11 @@
 </div>
 <div class="section" id="class">
 <h3>class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h3>
-<p>Add the specified class to the element that is triggering the action.</p>
-<p>This example will add a <code class="docutils literal notranslate"><span class="pre">loading</span></code> class to the <em>Update</em> button when it is clicked and remove the class once the action is completed.</p>
+<p>Add the specified class(es) to the element that is triggering the action.</p>
+<p>This example will add <code class="docutils literal notranslate"><span class="pre">loading</span></code> and <code class="docutils literal notranslate"><span class="pre">spinner</span></code> classes to the <em>Update</em> button when it is clicked and remove the classes once the action is completed.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading-class.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span> <span class="na">unicorn:loading</span><span class="err">.</span><span class="na">class</span><span class="o">=</span><span class="s">"loading"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span> <span class="na">unicorn:loading</span><span class="err">.</span><span class="na">class</span><span class="o">=</span><span class="s">"loading spinner"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -295,12 +299,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../polling/">
+          <a class="next-page" href="../dirty-states/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Polling</div>
+                <div class="title">Dirty States</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
