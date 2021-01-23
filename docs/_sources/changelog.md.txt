@@ -1,11 +1,19 @@
 # Changelog
 
+## v0.16.1
+
+- Remove debounce from action methods to reduce any perceived lag.
+
+[All changes since 0.15.1](https://github.com/adamghill/django-unicorn/compare/0.16.0...0.16.1).
+
 ## v0.16.0
 
 - [Dirty states](dirty-states.md) for when there is a change that hasn't been synced yet.
 - Add support for setting [multiple classes for loading states](loading-states.md#class).
 - Attempt to handle when the component gets out of sync with an invalid checksum error.
 - Performance tweaks when there isn't a change to a model or dbModel with lazy or defer modifiers.
+
+[All changes since 0.15.1](https://github.com/adamghill/django-unicorn/compare/0.15.1...0.16.0).
 
 ## v0.15.1
 
