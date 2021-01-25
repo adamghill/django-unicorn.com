@@ -1,10 +1,23 @@
 # Changelog
 
+## v0.17.1
+
+- Remove stray print statement.
+- Fix bug where child components would sometimes lose their action events.
+
+[All changes since 0.17.0](https://github.com/adamghill/django-unicorn/compare/0.17.0...0.17.1).
+
+## v0.17.0
+
+- Target DOM changes from an action to only a portion of the DOM with [partial updates](partial-updates.md).
+
+[All changes since 0.16.1](https://github.com/adamghill/django-unicorn/compare/0.16.1...0.17.0).
+
 ## v0.16.1
 
 - Remove debounce from action methods to reduce any perceived lag.
 
-[All changes since 0.15.1](https://github.com/adamghill/django-unicorn/compare/0.16.0...0.16.1).
+[All changes since 0.16.0](https://github.com/adamghill/django-unicorn/compare/0.16.0...0.16.1).
 
 ## v0.16.0
 

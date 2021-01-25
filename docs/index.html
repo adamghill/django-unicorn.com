@@ -176,6 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loading-states/">Loading States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dirty-states/">Dirty States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-updates/">Partial Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced/">Advanced</a></li>
@@ -231,8 +232,52 @@
 <li><p><a class="reference external" href="https://github.com/mikeabrahamsen/Flask-Meld">Flask-Meld</a>, a port of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> to Flask. Uses websockets.</p></li>
 <li><p><a class="reference external" href="https://sockpuppet.argpar.se/">Sockpuppet</a>, a port of Ruby on Rail’s <code class="docutils literal notranslate"><span class="pre">StimulusReflex</span></code>. Requires Django channels and websockets.</p></li>
 <li><p><a class="reference external" href="https://github.com/zodman/inertia-django">Django inertia.js adapter</a> allows Django to use <a href="https://inertiajs.com">inertia.js</a> to build an SPA without building an API.</p></li>
-<li><p><a class="reference external" href="https://github.com/hotwire-django">Hotwire for Django</a> contains a few different repositiories to integrate <a class="reference external" href="https://hotwire.dev">Hotwire</a> or its separate libraries into Django.</p></li>
+<li><p><a class="reference external" href="https://github.com/hotwire-django">Hotwire for Django</a> contains a few different repositiories to integrate <a class="reference external" href="https://hotwire.dev">Hotwire</a> with Django.</p></li>
 </ul>
+<div class="section" id="comparison">
+<h4>Comparison<a class="headerlink" href="#comparison" title="Permalink to this headline">¶</a></h4>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Repo</p></th>
+<th class="text-align:center head"><p>Django</p></th>
+<th class="text-align:center head"><p>Flask</p></th>
+<th class="text-align:center head"><p>AJAX</p></th>
+<th class="text-align:center head"><p>Websockets</p></th>
+<th class="text-align:center head"><p>Stars</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><a class="reference external" href="https://github.com/adamghill/django-unicorn">Unicorn</a></p></td>
+<td class="text-align:center"><p>✔</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p>✔️</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/adamghill/django-unicorn?label=%20&amp;style=flat-square"/></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><a class="reference external" href="https://github.com/edelvalle/reactor/">Reactor</a></p></td>
+<td class="text-align:center"><p>✔️</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p>✔️</p></td>
+<td class="text-align:center"><p><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/edelvalle/reactor?label=%20&amp;style=flat-square"/></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><a class="reference external" href="https://github.com/jonathan-s/django-sockpuppet">Sockpuppet</a></p></td>
+<td class="text-align:center"><p>✔️</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p>✔️</p></td>
+<td class="text-align:center"><p><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/jonathan-s/django-sockpuppet?label=%20&amp;style=flat-square"/></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><a class="reference external" href="https://github.com/mikeabrahamsen/Flask-Meld">Flask-Meld</a></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p>✔️</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p>✔️</p></td>
+<td class="text-align:center"><p><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mikeabrahamsen/Flask-Meld?label=%20&amp;style=flat-square"/></p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
 </div>
 <div class="section" id="django-packages-to-integrate-lightweight-frontend-frameworks">
 <h3>Django packages to integrate lightweight frontend frameworks<a class="headerlink" href="#django-packages-to-integrate-lightweight-frontend-frameworks" title="Permalink to this headline">¶</a></h3>
@@ -297,7 +342,10 @@
 <li><a class="reference internal" href="#">Unicorn</a><ul>
 <li><a class="reference internal" href="#related-projects">Related projects</a><ul>
 <li><a class="reference internal" href="#inspirational-projects-in-other-languages">Inspirational projects in other languages</a></li>
-<li><a class="reference internal" href="#full-stack-framework-python-packages">Full-stack framework Python packages</a></li>
+<li><a class="reference internal" href="#full-stack-framework-python-packages">Full-stack framework Python packages</a><ul>
+<li><a class="reference internal" href="#comparison">Comparison</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#django-packages-to-integrate-lightweight-frontend-frameworks">Django packages to integrate lightweight frontend frameworks</a></li>
 <li><a class="reference internal" href="#django-component-packages">Django component packages</a></li>
 </ul>

@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Advanced" href="../advanced/" /><link rel="prev" title="Polling" href="../polling/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Polling" href="../polling/" /><link rel="prev" title="Dirty States" href="../dirty-states/" />
 
     <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
-        <title>Messages - Unicorn</title>
+        <title>Partial Updates - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -144,7 +144,7 @@
       <a href="../"><div class="brand">Unicorn</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -176,9 +176,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../partial-updates/">Partial Updates</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Partial Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
@@ -201,33 +201,57 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="messages">
-<h1>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> supports Django messages and they work the same as if the template was rendered server-side. When the <code class="docutils literal notranslate"><span class="pre">update</span></code> action is fired, a success message will be added to the request and will show up inside the component.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;!-- messages.html --&gt;
-&lt;div&gt;
-    {% if messages %}
-    &lt;ul class="messages"&gt;
-        {% for message in messages %}
-        &lt;li{% if message.tags %} class="{{ message.tags }}"{% endif %}&gt;{{ message }}&lt;/li&gt;
-        {% endfor %}
-    &lt;/ul&gt;
-    {% endif %}
-
-    &lt;button unicorn:click="update"&gt;Update&lt;/button&gt;
-</pre></div>
+        <div class="section" id="partial-updates">
+<h1>Partial Updates<a class="headerlink" href="#partial-updates" title="Permalink to this headline">¶</a></h1>
+<p>Normally <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will send the entire component’s rendered HTML on every action to make sure that any changes to the context is reflected on the page. However, to reduce latency and minimize the amount of data that has to be sent over the network, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> allows actions to only update a portion of the page through the <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code> attribute.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code> will look in the current component’s template for an <code class="docutils literal notranslate"><span class="pre">id</span></code> or <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>. If an element can’t be found with the specified target, the entire component will be morphed like usual.</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># messages.py</span>
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># partial_update.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
-<span class="k">class</span> <span class="nc">MessagesView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="s2">"update called"</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PartialUpdateView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">checked</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>{{ checked }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('checked')"</span> <span class="na">unicorn:partial</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>
+    Toggle checked
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="target-by-id">
+<h2>Target by id<a class="headerlink" href="#target-by-id" title="Permalink to this headline">¶</a></h2>
+<p>To only target an element <code class="docutils literal notranslate"><span class="pre">id</span></code> add the <code class="docutils literal notranslate"><span class="pre">id</span></code> modifier to <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update-id.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>{{ checked }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('checked')"</span> <span class="na">unicorn:partial</span><span class="err">.</span><span class="na">id</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>
+    Toggle checked
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="target-by-key">
+<h2>Target by key<a class="headerlink" href="#target-by-key" title="Permalink to this headline">¶</a></h2>
+<p>To only target an element <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> add the <code class="docutils literal notranslate"><span class="pre">key</span></code> modifier to <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update-key.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"checked-key"</span><span class="p">&gt;</span>{{ checked }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('checked')"</span> <span class="na">unicorn:partial</span><span class="err">.</span><span class="na">key</span><span class="o">=</span><span class="s">"checked-key"</span><span class="p">&gt;</span>
+    Toggle checked
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -235,23 +259,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../advanced/">
+          <a class="next-page" href="../polling/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Advanced</div>
+                <div class="title">Polling</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../polling/">
+          <a class="prev-page" href="../dirty-states/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Polling</div>
+                <div class="title">Dirty States</div>
                 
               </div>
             </a>
@@ -265,7 +289,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../_sources/messages.md.txt"
+            <a class="muted-link" href="../_sources/partial-updates.md.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -273,8 +297,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Partial Updates</a><ul>
+<li><a class="reference internal" href="#target-by-id">Target by id</a></li>
+<li><a class="reference internal" href="#target-by-key">Target by key</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

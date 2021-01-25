@@ -22,6 +22,7 @@ validation
 redirecting
 loading-states
 dirty-states
+partial-updates
 polling
 messages
 advanced
@@ -60,7 +61,16 @@ Sponsor <https://github.com/sponsors/adamghill>
 - [Flask-Meld](https://github.com/mikeabrahamsen/Flask-Meld), a port of `Unicorn` to Flask. Uses websockets.
 - [Sockpuppet](https://sockpuppet.argpar.se/), a port of Ruby on Rail's `StimulusReflex`. Requires Django channels and websockets.
 - [Django inertia.js adapter](https://github.com/zodman/inertia-django) allows Django to use <a href="https://inertiajs.com">inertia.js</a> to build an SPA without building an API.
-- [Hotwire for Django](https://github.com/hotwire-django) contains a few different repositiories to integrate [Hotwire](https://hotwire.dev) or its separate libraries into Django.
+- [Hotwire for Django](https://github.com/hotwire-django) contains a few different repositiories to integrate [Hotwire](https://hotwire.dev) with Django.
+
+#### Comparison
+
+| Repo                                                          | Django | Flask | AJAX | Websockets |                                                       Stars                                                        |
+| :------------------------------------------------------------ | :----: | :---: | :--: | :--------: | :----------------------------------------------------------------------------------------------------------------: |
+| [Unicorn](https://github.com/adamghill/django-unicorn)        |   ✔    |       |  ✔️  |            |   ![GitHub Repo stars](https://img.shields.io/github/stars/adamghill/django-unicorn?label=%20&style=flat-square)   |
+| [Reactor](https://github.com/edelvalle/reactor/)              |   ✔️   |       |      |     ✔️     |      ![GitHub Repo stars](https://img.shields.io/github/stars/edelvalle/reactor?label=%20&style=flat-square)       |
+| [Sockpuppet](https://github.com/jonathan-s/django-sockpuppet) |   ✔️   |       |      |     ✔️     | ![GitHub Repo stars](https://img.shields.io/github/stars/jonathan-s/django-sockpuppet?label=%20&style=flat-square) |
+| [Flask-Meld](https://github.com/mikeabrahamsen/Flask-Meld)    |        |  ✔️   |      |     ✔️     |  ![GitHub Repo stars](https://img.shields.io/github/stars/mikeabrahamsen/Flask-Meld?label=%20&style=flat-square)   |
 
 ### Django packages to integrate lightweight frontend frameworks
 
