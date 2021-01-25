@@ -61,7 +61,7 @@
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
                 <a class="navbar-item" href="/docs/">
-                    <img src="{% static 'img/book.svg' %}" style="max-height: 1.5em;" />&nbsp;Documentation
+                    <img src="{% static 'img/book.svg' %}" style="max-height: 1.5em;" />&nbsp;Docs
                 </a>
                 <a class="navbar-item" href="{% url 'www:screencasts' name='installation' %}">
                     <img src="{% static 'img/video.svg' %}" style="max-height: 1.5em;" />&nbsp;Screencasts
@@ -97,15 +97,15 @@
                         <ul>
                             <li>
                                 <img src="{% static 'img/book.svg' %}" style="max-height: 1em;" />
-                                <a href="/docs/">Documentation</a>
+                                <a href="/docs/">Docs</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/video.svg' %}" style="max-height: 1em;" />
-                                <a href="{% url 'www:screencasts' name='installation' %}">Screencasts</a>
+                                <a href="{% url 'www:screencasts' 'installation' %}">Screencasts</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/tool.svg' %}" style="max-height: 1em;" />
-                                <a href="/docs/changelog/">Changelog</a>
+                                <a href="{% url 'www:examples' 'todo' %}">Examples</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />

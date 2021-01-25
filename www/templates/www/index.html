@@ -58,7 +58,7 @@ window.onload = function(event) {
 
 <div class="box cta">
     <p class="has-text-centered">
-        <span class="tag is-primary">New</span> 0.16.1 has been released with a small performance tweak. See the <a href="/docs/changelog/#v0-16-1">changelog</a> for more details. 🎉 
+        <span class="tag is-primary">New</span> 0.17.1 has been released with <a href="/docs/partial-updates/">partial updates</a>. See the <a href="/docs/changelog/#v0-17-1">changelog</a> for more details. 🎉 
     </p>
 </div>
 
@@ -116,9 +116,9 @@ window.onload = function(event) {
             <h2 class="title">Create your first component</h2>
 
             <ol class="mx-4">
-                <li><a href="{% url 'www:documentation' 'installation' %}">Install</a> <code>Unicorn</code></li>
-                <li><a href="{% url 'www:documentation' 'components' %}">Create</a> a component</li>
-                <li>Add the component to your template with {% verbatim %}<code>{% unicorn 'component-name' %}</code>{% endverbatim %}</li>
+                <li><a href="/docs/installation/">Install</a> <code>Unicorn</code></li>
+                <li><a href="/docs/components/">Create</a> a component</li>
+                <li>Load the <code>Unicorn</code> templatetag with {% verbatim %}<code>{% load unicorn %}</code>{% endverbatim %} and add the component to your template with {% verbatim %}<code>{% unicorn 'component-name' %}</code>{% endverbatim %}</li>
                 <li>🎉</li>
             </ol>
         </div>
@@ -177,7 +177,7 @@ class TodoView(UnicornView):
 
         <div class="mt-4">
             <p>
-                Other <a href="{% url 'www:documentation' 'examples' %}">example components</a>. Or read all of the <a href="{% url 'www:documentation' %}">documentation</a> about how to use <code>Unicorn</code>.
+                Other <a href="{% url 'www:examples' 'todo' %}">example components</a>. Or read all of the <a href="/docs/">documentation</a> about how to use <code>Unicorn</code>.
             </p>
         </div>
 
@@ -196,7 +196,7 @@ class TodoView(UnicornView):
                 </ul>
 
                 <p>
-                    The end result is that you can focus on writing regular Django templates and Python classes without needing to switch to another language or build unnecessary plumbing. Best of all, the JavaScript portion is a paltry <span id="size"><strong>~7 KB</strong></span> gzipped.
+                    The end result is that you can focus on writing regular Django templates and Python classes without needing to switch to another language or build unnecessary plumbing. Best of all, the JavaScript portion is a paltry <span id="size"><strong>~8 KB</strong></span> gzipped.
                 </p>
             </div>
         </div>
