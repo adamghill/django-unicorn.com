@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.17.2
+
+- Don't send the parent context in the response for child components that specify a partial update.
+- Add support for element models to specify a partial update.
+- Add support for polls to specify a partial update.
+- Handle `date`, `time`, `timespan` when passed as arguments from JavaScript.
+- Render child component template's JavaScript initialization with the parent's as opposed to inserting a new script tag after the child component is rendered.
+- Bug fix: prevent an error when rendering a Django model with a date-related field, but a string value.
+
+[All changes since 0.17.1](https://github.com/adamghill/django-unicorn/compare/0.17.1...0.17.2).
+
 ## v0.17.1
 
 - Remove stray print statement.
