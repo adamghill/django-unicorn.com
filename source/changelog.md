@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.18.0
+
+- Only send updated data back in the response to reduce network latency.
+- Experimental support for [queuing up requests](queue-requests.md) to alleviate race conditions when functions take a long time to process.
+- Use type hints on [component view attributes](django-models.md#class-model) if needed.
+- Bug fix: prevent race condition where an instantiated component class would be inadvertently re-used for component views that are slow to render
+- Bug fix: use the correct component name to call a [component method from "outside" the component](actions.md#calling-methods).
+- Deprecated: `DJANGO_UNICORN` setting has been renamed to `UNICORN`.
+
+[All changes since 0.17.2](https://github.com/adamghill/django-unicorn/compare/0.17.2...0.18.0).
+
 ## v0.17.2
 
 - Don't send the parent context in the response for child components that specify a partial update.

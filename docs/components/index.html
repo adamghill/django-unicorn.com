@@ -161,14 +161,20 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Basics</span></p>
+  <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../">Unicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Features</span></p>
 <ul>
@@ -180,13 +186,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
@@ -206,7 +211,7 @@
         </label>
         <div class="section" id="components">
 <h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses the term “component” to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML template with specific tags and a Python class which provides the backend code for the template.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses the term “component” to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML <code class="docutils literal notranslate"><span class="pre">template</span></code> with specific tags and a Python <code class="docutils literal notranslate"><span class="pre">view</span></code> class which provides the backend code for the template.</p>
 <div class="section" id="create-a-component">
 <h2>Create a component<a class="headerlink" href="#create-a-component" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to create your first component is to run the following Django management command after <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is installed.</p>
@@ -271,7 +276,7 @@
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
 <span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
 </pre></div>
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-world.html --&gt;</span>
@@ -331,7 +336,7 @@
 <span class="kn">from</span> <span class="nn">book.models</span> <span class="kn">import</span> <span class="n">Book</span>
 
 <span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-<span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-world.html --&gt;</span>
@@ -354,7 +359,7 @@
 
 <span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">UnicornField</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Neil Gaiman'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Neil Gaiman'</span>
 
     <span class="c1"># Not needed because inherited from `UnicornField`</span>
     <span class="c1"># def to_json(self):</span>

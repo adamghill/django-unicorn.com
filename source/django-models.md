@@ -111,6 +111,23 @@ class ClassModelView(UnicornView):
         self.book.save()
 ```
 
+````{note}
+Type hints can also be used to instantiate the model as expected.
+
+```python
+# class_model.py
+from django_unicorn.components import UnicornView
+from books.models import Book
+
+class ClassModelView(UnicornView):
+    book: Book = None
+
+    def save(self):
+        self.book.save()
+```
+
+````
+
 ## Instance Model
 
 Django models can be initialized in the component's `__init__` method similar to how a "normal" class would initialize an instance variable.
@@ -195,7 +212,7 @@ from django_unicorn.components import UnicornView
 from books.models import Book
 
 class QuerysetView(UnicornView):
-books = Book.objects.none()
+    books = Book.objects.none()
 
     def hydrate(self):
         # Using `hydrate` is the best way to make sure that QuerySets

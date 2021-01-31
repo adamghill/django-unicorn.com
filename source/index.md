@@ -1,6 +1,16 @@
 # Unicorn
 
 ```{toctree}
+:caption: Intro
+:maxdepth: 2
+:hidden:
+
+self
+changelog
+faq
+```
+
+```{toctree}
 :caption: Basics
 :maxdepth: 2
 :hidden:
@@ -8,9 +18,9 @@
 installation
 components
 templates
+actions
 child-components
 django-models
-actions
 ```
 
 ```{toctree}
@@ -26,6 +36,7 @@ partial-updates
 polling
 messages
 advanced
+queue-requests
 ```
 
 ```{toctree}
@@ -35,8 +46,6 @@ advanced
 
 settings
 cli
-changelog
-faq
 PDF <https://www.django-unicorn.com/docs/unicorn-latest.pdf>
 GitHub <https://github.com/adamghill/django-unicorn>
 Sponsor <https://github.com/sponsors/adamghill>

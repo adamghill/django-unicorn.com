@@ -1,6 +1,6 @@
 # Components
 
-`Unicorn` uses the term "component" to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML template with specific tags and a Python class which provides the backend code for the template.
+`Unicorn` uses the term "component" to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML `template` with specific tags and a Python `view` class which provides the backend code for the template.
 
 ## Create a component
 
@@ -76,7 +76,7 @@ A basic example component could consist of the following template and class.
 from django_unicorn.components import UnicornView
 
 class HelloWorldView(UnicornView):
-name = "World"
+    name = "World"
 ```
 
 ```html
@@ -143,7 +143,7 @@ from django_unicorn.components import UnicornView
 from book.models import Book
 
 class HelloWorldView(UnicornView):
-books = Book.objects.all()
+    books = Book.objects.all()
 ```
 
 ```html
@@ -169,7 +169,7 @@ from django_unicorn.components import UnicornView, UnicornField
 
 class Author(UnicornField):
     def __init__(self):
-    self.name = 'Neil Gaiman'
+        self.name = 'Neil Gaiman'
 
     # Not needed because inherited from `UnicornField`
     # def to_json(self):

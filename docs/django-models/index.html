@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Actions" href="../actions/" /><link rel="prev" title="Child components" href="../child-components/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Validation" href="../validation/" /><link rel="prev" title="Child components" href="../child-components/" />
 
     <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
         <title>Django Models - Unicorn</title>
@@ -161,14 +161,20 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Basics</span></p>
+  <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../">Unicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Django Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Features</span></p>
 <ul>
@@ -180,13 +186,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
@@ -298,6 +303,21 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Type hints can also be used to instantiate the model as expected.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># class_model.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
+
+<span class="k">class</span> <span class="nc">ClassModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">book</span><span class="p">:</span> <span class="n">Book</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="instance-model">
 <h2>Instance Model<a class="headerlink" href="#instance-model" title="Permalink to this headline">¶</a></h2>
@@ -374,7 +394,7 @@
 <span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
 
 <span class="k">class</span> <span class="nc">QuerysetView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-<span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+    <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">hydrate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Using `hydrate` is the best way to make sure that QuerySets</span>
@@ -392,12 +412,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../actions/">
+          <a class="next-page" href="../validation/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Actions</div>
+                <div class="title">Validation</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
