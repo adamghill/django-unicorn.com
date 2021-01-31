@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.18.0
+## v0.18.0
 
 - Only send updated data back in the response to reduce network latency.
 - Experimental support for [queuing up requests](queue-requests.md) to alleviate race conditions when functions take a long time to process.
