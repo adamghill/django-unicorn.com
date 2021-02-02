@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Django Models" href="../django-models/" /><link rel="prev" title="Actions" href="../actions/" />
 
-    <meta name="generator" content="sphinx-3.4.1, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.4.3, furo 2020.12.30.beta24"/>
         <title>Child components - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -163,7 +163,7 @@
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption"><span class="caption-text">Intro</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../">Unicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../">Intro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
@@ -252,6 +252,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">view</span></code> will always be the current component’s view, so passing <code class="docutils literal notranslate"><span class="pre">view</span></code> into <code class="docutils literal notranslate"><span class="pre">parent</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">parent=view</span></code>) will always create the relationship correctly.</p>
+</div>
 </div>
 <div class="section" id="child-component">
 <h2>Child component<a class="headerlink" href="#child-component" title="Permalink to this headline">¶</a></h2>
@@ -280,6 +284,10 @@
 <div class="section" id="multiple-children">
 <h2>Multiple children<a class="headerlink" href="#multiple-children" title="Permalink to this headline">¶</a></h2>
 <p>If we want to encapsulate the editing and saving of a row of data, we can add in a row component as well.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="../actions/#discard"><span class="std std-doc">discard</span></a> action modifier is used on the cancel button to provide an easy way to prevent any edits from being saved.</p>
+</div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- row.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>

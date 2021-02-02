@@ -1,4 +1,4 @@
-# Unicorn
+# Intro
 
 ```{toctree}
 :caption: Intro

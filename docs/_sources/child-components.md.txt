@@ -46,7 +46,7 @@ class TableView(UnicornView):
         self.books = Book.objects.all()[0:10]
 ```
 
-```{info}
+```{note}
 `view` will always be the current component's view, so passing `view` into `parent` (i.e. `parent=view`) will always create the relationship correctly.
 ```
 
@@ -80,8 +80,8 @@ class FilterView(UnicornView):
 
 If we want to encapsulate the editing and saving of a row of data, we can add in a row component as well.
 
-```{info}
-The [discard]() action modifier is used on the cancel button to provide an easy way to prevent any edits from being saved.
+```{note}
+The [discard](actions.md#discard) action modifier is used on the cancel button to provide an easy way to prevent any edits from being saved.
 ```
 
 :::{code} html
