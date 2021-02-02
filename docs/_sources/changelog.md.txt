@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.18.1
+
+- Fix regression where component kwargs were getting lost (<a href="https://github.com/adamghill/django-unicorn/issues/140">#140</a>, <a href="https://github.com/adamghill/django-unicorn/issues/141">#141</a>)
+- Fix <code>startunicorn</code> management command (<a href="https://github.com/adamghill/django-unicorn/issues/142">#142</a>)
+
+[All changes since 0.18.0](https://github.com/adamghill/django-unicorn/compare/0.18.0...0.18.1).
+
 ## v0.18.0
 
 - Only send updated data back in the response to reduce network latency.
