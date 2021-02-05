@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.19.0
+
+- Re-implemented how action method parsing is done to remove all edge cases when passing arguments to component view methods. ([@frbor](https://github.com/frbor)).
+- Add support for passing kwargs to component view methods.
+
+[All changes since 0.18.1](https://github.com/adamghill/django-unicorn/compare/0.18.1...0.19.0).
+
 ## v0.18.1
 
 - Fix regression where component kwargs were getting lost (<a href="https://github.com/adamghill/django-unicorn/issues/140">#140</a>, <a href="https://github.com/adamghill/django-unicorn/issues/141">#141</a>)
