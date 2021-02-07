@@ -151,40 +151,32 @@ Classes that derive from `UnicornView` can include a `Meta` class that provides 
 
 ### exclude
 
-By default, all properties of the component are included in the payload when hydrating the Django template. One way to prevent internal-only data from getting POSTed needlessly is to prefix the property name with `_` to indicate it should stay private.
+By default, all public attributes of the component are included in the context of the Django template and available to JavaScript. One way to protect internal-only data is to prefix the atteibute name with `_` to indicate it should stay private.
 
 ```python
 # hello_state.py
 from django_unicorn.components import UnicornView
 
 class HelloStateView(UnicornView):
-    state = ""
-
     _all_states = (
         "Alabama",
         "Alaska",
-        "Arizona",
-        "Arkansas",
         ...
         "Wisconsin",
         "Wyoming",
     )
 ```
 
-Another way to prevent that data from going across the wire on every interaction is to add it to the `Meta` class's `exclude` tuple.
+Another way to prevent that data from being available to the component template is to add it to the `Meta` class's `exclude` tuple.
 
 ```python
 # hello_state.py
 from django_unicorn.components import UnicornView
 
 class HelloStateView(UnicornView):
-    state = ""
-
     all_states = (
         "Alabama",
         "Alaska",
-        "Arizona",
-        "Arkansas",
         ...
         "Wisconsin",
         "Wyoming",
@@ -192,4 +184,34 @@ class HelloStateView(UnicornView):
 
     class Meta:
         exclude = ("all_states", )
+```
+
+### javascript_exclude
+
+To allow an attribute to be included in the the context to be used by a Django template, but not exposed to JavaScript, add it to the `Meta` class's `javascript_exclude` tuple.
+
+```html
+<!-- hello-state.html -->
+<div>
+  {% for state in all_states %}
+  <div>{{ state }}</div>
+  {% endfor %}
+</div>
+```
+
+```python
+# hello_state.py
+from django_unicorn.components import UnicornView
+
+class HelloStateView(UnicornView):
+    all_states = (
+        "Alabama",
+        "Alaska",
+        ...
+        "Wisconsin",
+        "Wyoming",
+    )
+
+    class Meta:
+        javascript_exclude = ("all_states", )
 ```
