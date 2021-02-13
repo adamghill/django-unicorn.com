@@ -2,7 +2,9 @@
 
 ## v0.20.0
 
-- Add [`javascript_exclude`](advanced.md#javascript_exclude).
+- Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with [`javascript_exclude`](advanced.md#javascript_exclude).
+- Add [`complete`](advanced.md#complete), [`rendered`](advanced.md#rendered), [`parent_rendered`](advanced.md#parent_rendered) component hooks.
+- Call [JavaScript functions](advanced.md#javascript-integration) from a component view's method.
 
 [All changes since 0.19.0](https://github.com/adamghill/django-unicorn/compare/0.19.0...0.20.0).
 

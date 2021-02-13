@@ -1,4 +1,4 @@
-# Advanced
+# Advanced Views
 
 ## Class properties
 
@@ -60,7 +60,6 @@ class StateView(UnicornView):
 
 :::{tip}
 If the method is intensive and will be called multiple times, it can be cached with Django's <a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.functional.cached_property">`cached_property`</a> to prevent duplicate API requests or database queries. The method will only be executed once per component rendering.
-:::
 
 ```python
 # states.py
@@ -72,6 +71,8 @@ class StateView(UnicornView):
     def all_states(self):
         return ["Alabama", "Alaska", "Arizona", ...]
 ```
+
+:::
 
 ## Instance methods
 
@@ -145,6 +146,18 @@ Gets called before each method that gets called.
 
 Gets called after each method gets called.
 
+### complete()
+
+Gets called after all methods have been called.
+
+### rendered(html)
+
+Gets called after the component has been rendered.
+
+### parent_rendered(html)
+
+Gets called after the component's parent has been rendered (if applicable).
+
 ## Meta
 
 Classes that derive from `UnicornView` can include a `Meta` class that provides some advanced options for the component.
@@ -214,4 +227,36 @@ class HelloStateView(UnicornView):
 
     class Meta:
         javascript_exclude = ("all_states", )
+```
+
+## JavaScript Integration
+
+To integrate with other JavaScript functions, view methods can call an arbitrary JavaScript function after it gets rendered.
+
+```html
+<!-- call-javascript.html -->
+<div>
+  <script>
+    function hello(name) {
+      alert("Hello, " + name);
+    }
+  </script>
+
+  <input type="text" unicorn:model="name" />
+  <button type="submit" unicorn:click="hello">Hello!</button>
+</div>
+```
+
+```python
+# call_javascript.py
+from django_unicorn.components import UnicornView
+
+class CallJavascriptView(UnicornView):
+    name = ""
+
+    def mount(self):
+        self.call("hello", "world")
+
+    def hello(self):
+        self.call("hello", self.name)
 ```

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Queue Requests" href="../queue-requests/" /><link rel="prev" title="Messages" href="../messages/" />
 
     <meta name="generator" content="sphinx-3.4.3, furo 2020.12.30.beta24"/>
-        <title>Advanced - Unicorn</title>
+        <title>Advanced Views - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -185,7 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../partial-updates/">Partial Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Advanced</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
@@ -209,8 +209,8 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="advanced">
-<h1>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h1>
+        <div class="section" id="advanced-views">
+<h1>Advanced Views<a class="headerlink" href="#advanced-views" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="class-properties">
 <h2>Class properties<a class="headerlink" href="#class-properties" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="template-name">
@@ -269,7 +269,6 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If the method is intensive and will be called multiple times, it can be cached with Django’s <a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.functional.cached_property"><code class="docutils literal notranslate"><span class="pre">cached_property</span></code></a> to prevent duplicate API requests or database queries. The method will only be executed once per component rendering.</p>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># states.py</span>
 <span class="kn">from</span> <span class="nn">django.utils.functional</span> <span class="kn">import</span> <span class="n">cached_property</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
@@ -279,6 +278,7 @@
     <span class="k">def</span> <span class="nf">all_states</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[</span><span class="s2">"Alabama"</span><span class="p">,</span> <span class="s2">"Alaska"</span><span class="p">,</span> <span class="s2">"Arizona"</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="instance-methods">
@@ -350,42 +350,46 @@
 <h3>called(name, args)<a class="headerlink" href="#called-name-args" title="Permalink to this headline">¶</a></h3>
 <p>Gets called after each method gets called.</p>
 </div>
+<div class="section" id="complete">
+<h3>complete()<a class="headerlink" href="#complete" title="Permalink to this headline">¶</a></h3>
+<p>Gets called after all methods have been called.</p>
+</div>
+<div class="section" id="rendered-html">
+<h3>rendered(html)<a class="headerlink" href="#rendered-html" title="Permalink to this headline">¶</a></h3>
+<p>Gets called after the component has been rendered.</p>
+</div>
+<div class="section" id="parent-rendered-html">
+<h3>parent_rendered(html)<a class="headerlink" href="#parent-rendered-html" title="Permalink to this headline">¶</a></h3>
+<p>Gets called after the component’s parent has been rendered (if applicable).</p>
+</div>
 </div>
 <div class="section" id="meta">
 <h2>Meta<a class="headerlink" href="#meta" title="Permalink to this headline">¶</a></h2>
 <p>Classes that derive from <code class="docutils literal notranslate"><span class="pre">UnicornView</span></code> can include a <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class that provides some advanced options for the component.</p>
 <div class="section" id="exclude">
 <h3>exclude<a class="headerlink" href="#exclude" title="Permalink to this headline">¶</a></h3>
-<p>By default, all properties of the component are included in the payload when hydrating the Django template. One way to prevent internal-only data from getting POSTed needlessly is to prefix the property name with <code class="docutils literal notranslate"><span class="pre">_</span></code> to indicate it should stay private.</p>
+<p>By default, all public attributes of the component are included in the context of the Django template and available to JavaScript. One way to protect internal-only data is to prefix the atteibute name with <code class="docutils literal notranslate"><span class="pre">_</span></code> to indicate it should stay private.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_state.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
 <span class="k">class</span> <span class="nc">HelloStateView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">state</span> <span class="o">=</span> <span class="s2">""</span>
-
     <span class="n">_all_states</span> <span class="o">=</span> <span class="p">(</span>
         <span class="s2">"Alabama"</span><span class="p">,</span>
         <span class="s2">"Alaska"</span><span class="p">,</span>
-        <span class="s2">"Arizona"</span><span class="p">,</span>
-        <span class="s2">"Arkansas"</span><span class="p">,</span>
         <span class="o">...</span>
         <span class="s2">"Wisconsin"</span><span class="p">,</span>
         <span class="s2">"Wyoming"</span><span class="p">,</span>
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>Another way to prevent that data from going across the wire on every interaction is to add it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">exclude</span></code> tuple.</p>
+<p>Another way to prevent that data from being available to the component template is to add it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">exclude</span></code> tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_state.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
 <span class="k">class</span> <span class="nc">HelloStateView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">state</span> <span class="o">=</span> <span class="s2">""</span>
-
     <span class="n">all_states</span> <span class="o">=</span> <span class="p">(</span>
         <span class="s2">"Alabama"</span><span class="p">,</span>
         <span class="s2">"Alaska"</span><span class="p">,</span>
-        <span class="s2">"Arizona"</span><span class="p">,</span>
-        <span class="s2">"Arkansas"</span><span class="p">,</span>
         <span class="o">...</span>
         <span class="s2">"Wisconsin"</span><span class="p">,</span>
         <span class="s2">"Wyoming"</span><span class="p">,</span>
@@ -395,6 +399,64 @@
         <span class="n">exclude</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"all_states"</span><span class="p">,</span> <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="javascript-exclude">
+<h3>javascript_exclude<a class="headerlink" href="#javascript-exclude" title="Permalink to this headline">¶</a></h3>
+<p>To allow an attribute to be included in the the context to be used by a Django template, but not exposed to JavaScript, add it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code> tuple.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-state.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  {% for state in all_states %}
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ state }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  {% endfor %}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_state.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">HelloStateView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">all_states</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"Alabama"</span><span class="p">,</span>
+        <span class="s2">"Alaska"</span><span class="p">,</span>
+        <span class="o">...</span>
+        <span class="s2">"Wisconsin"</span><span class="p">,</span>
+        <span class="s2">"Wyoming"</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">javascript_exclude</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"all_states"</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="javascript-integration">
+<h2>JavaScript Integration<a class="headerlink" href="#javascript-integration" title="Permalink to this headline">¶</a></h2>
+<p>To integrate with other JavaScript functions, view methods can call an arbitrary JavaScript function after it gets rendered.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- call-javascript.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s2">"Hello, "</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"hello"</span><span class="p">&gt;</span>Hello!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call_javascript.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">CallJavascriptView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -453,7 +515,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Advanced</a><ul>
+<li><a class="reference internal" href="#">Advanced Views</a><ul>
 <li><a class="reference internal" href="#class-properties">Class properties</a><ul>
 <li><a class="reference internal" href="#template-name">template_name</a></li>
 </ul>
@@ -473,12 +535,17 @@
 <li><a class="reference internal" href="#updated-property-name-value">updated_{property_name}(value)</a></li>
 <li><a class="reference internal" href="#calling-name-args">calling(name, args)</a></li>
 <li><a class="reference internal" href="#called-name-args">called(name, args)</a></li>
+<li><a class="reference internal" href="#complete">complete()</a></li>
+<li><a class="reference internal" href="#rendered-html">rendered(html)</a></li>
+<li><a class="reference internal" href="#parent-rendered-html">parent_rendered(html)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#meta">Meta</a><ul>
 <li><a class="reference internal" href="#exclude">exclude</a></li>
+<li><a class="reference internal" href="#javascript-exclude">javascript_exclude</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#javascript-integration">JavaScript Integration</a></li>
 </ul>
 </li>
 </ul>
