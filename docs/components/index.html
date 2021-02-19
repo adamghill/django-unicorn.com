@@ -299,7 +299,25 @@
 </div>
 <div class="section" id="supported-property-types">
 <h2>Supported property types<a class="headerlink" href="#supported-property-types" title="Permalink to this headline">¶</a></h2>
-<p>Properties of the component can be of many different types, including <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Model</span></code>, <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">QuerySet</span></code>, or <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">classes</span></code>.</p>
+<p>Properties of the component can be of many different types, including <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">Decimal</span></code>,<code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Model</span></code>, <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">QuerySet</span></code>, <code class="docutils literal notranslate"><span class="pre">dataclass</span></code>, or <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">classes</span></code>.</p>
+<div class="section" id="property-typehints">
+<h3>Property typehints<a class="headerlink" href="#property-typehints" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will attempt to cast any properties with a <code class="docutils literal notranslate"><span class="pre">typehint</span></code> when the component is hydrated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># rating.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">RatingView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">rating</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">calculate_percentage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rating</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Without <code class="docutils literal notranslate"><span class="pre">rating:</span> <span class="pre">float</span></code>, when <code class="docutils literal notranslate"><span class="pre">calculate_percentage</span></code> is called Python will complain with an error message like the following.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>TypeError: unsupported operand type<span class="o">(</span>s<span class="o">)</span> <span class="k">for</span> /: <span class="s1">'str'</span> and <span class="s1">'int'</span><span class="sb">`</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="accessing-nested-fields">
 <h3>Accessing nested fields<a class="headerlink" href="#accessing-nested-fields" title="Permalink to this headline">¶</a></h3>
 <p>Fields in a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> or Django model can be accessed similarly to the Django template language with “dot-notation”.</p>
@@ -377,7 +395,7 @@
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>Never put sensitive data into a public property because that information will publicly available in the HTML source code.</p>
+<p>Never put sensitive data into a public property because that information will publicly available in the HTML source code, unless explicitly prevented with <a class="reference internal" href="../advanced/#javascript-exclude"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></span></a>.</p>
 </div>
 </div>
 </div>
@@ -444,6 +462,7 @@
 <li><a class="reference internal" href="#example-component">Example component</a></li>
 <li><a class="reference internal" href="#unicorn-attributes">Unicorn attributes</a></li>
 <li><a class="reference internal" href="#supported-property-types">Supported property types</a><ul>
+<li><a class="reference internal" href="#property-typehints">Property typehints</a></li>
 <li><a class="reference internal" href="#accessing-nested-fields">Accessing nested fields</a></li>
 <li><a class="reference internal" href="#django-queryset">Django QuerySet</a></li>
 <li><a class="reference internal" href="#custom-class">Custom class</a></li>

@@ -1,9 +1,18 @@
 # Changelog
 
+## v0.21.0
+
+- Bug fix: Prevent disabled polls from firing at all.
+- Support [`Decimal` field type](components.md#supported-property-types).
+- Support [`dataclass` field type](components.md#supported-property-types).
+- Use [type hints](components.md#property-typehints) to cast fields to primitive Python types if possible.
+
+[All changes since 0.20.0](https://github.com/adamghill/django-unicorn/compare/0.20.0...0.21.0).
+
 ## v0.20.0
 
 - Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with [`javascript_exclude`](advanced.md#javascript_exclude).
-- Add [`complete`](advanced.md#complete), [`rendered`](advanced.md#rendered), [`parent_rendered`](advanced.md#parent_rendered) component hooks.
+- Add [`complete`](advanced.md#complete), [`rendered`](advanced.md#rendered-html), [`parent_rendered`](advanced.md#parent_rendered-html) component hooks.
 - Call [JavaScript functions](advanced.md#javascript-integration) from a component view's method.
 
 [All changes since 0.19.0](https://github.com/adamghill/django-unicorn/compare/0.19.0...0.20.0).

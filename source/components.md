@@ -101,7 +101,28 @@ Attributes used in component templates usually start with `unicorn:`, however th
 
 ## Supported property types
 
-Properties of the component can be of many different types, including `str`, `int`, `list`, `dictionary`, `Django Model`, `Django QuerySet`, or `custom classes`.
+Properties of the component can be of many different types, including `str`, `int`, `list`, `dictionary`, `Decimal`,`Django Model`, `Django QuerySet`, `dataclass`, or `custom classes`.
+
+### Property typehints
+
+`Unicorn` will attempt to cast any properties with a `typehint` when the component is hydrated.
+
+```python
+# rating.py
+from django_unicorn.components import UnicornView
+
+class RatingView(UnicornView):
+    rating: float = 0
+
+    def calculate_percentage(self):
+        print(self.rating / 100.0)
+```
+
+Without `rating: float`, when `calculate_percentage` is called Python will complain with an error message like the following.
+
+```shell
+TypeError: unsupported operand type(s) for /: 'str' and 'int'`
+```
 
 ### Accessing nested fields
 
@@ -187,5 +208,5 @@ class Author(UnicornField):
 ```
 
 ```{danger}
-Never put sensitive data into a public property because that information will publicly available in the HTML source code.
+Never put sensitive data into a public property because that information will publicly available in the HTML source code, unless explicitly prevented with [`javascript_exclude`](advanced.md#javascript_exclude).
 ```
