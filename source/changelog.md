@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.21.2
+
+- Add backported `dataclasses` for Python 3.6. ([@frbor](https://github.com/frbor))
+
+[All changes since 0.21.0](https://github.com/adamghill/django-unicorn/compare/0.21.0...0.21.2).
+
 ## v0.21.0
 
 - Bug fix: Prevent disabled polls from firing at all.
