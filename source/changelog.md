@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.22.0
+
+- Use Django cache for storing component state when available
+- Add support for Django 2.2.x
+
+[All changes since 0.21.2](https://github.com/adamghill/django-unicorn/compare/0.21.2...0.22.0).
+
 ## v0.21.2
 
 - Add backported `dataclasses` for Python 3.6. ([@frbor](https://github.com/frbor))
