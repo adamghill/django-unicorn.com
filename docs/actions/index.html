@@ -467,6 +467,15 @@
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<p>Passing arguments is also supported.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-world' %}
+
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Unicorn.call('hello-world', 'set_name', 'World');"</span><span class="p">&gt;</span>
+  Set the name to "World" from outside the component
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="return-values">
 <h2>Return values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>

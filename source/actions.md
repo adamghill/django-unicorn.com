@@ -283,6 +283,17 @@ Sometimes you need to trigger a method on a component from regular JavaScript. T
 </button>
 ```
 
+Passing arguments is also supported.
+
+```html
+<!-- index.html -->
+{% unicorn 'hello-world' %}
+
+<button onclick="Unicorn.call('hello-world', 'set_name', 'World');">
+  Set the name to "World" from outside the component
+</button>
+```
+
 ## Return values
 
 To retrieve the last action method's return value, use `Unicorn.getReturnValue()`.

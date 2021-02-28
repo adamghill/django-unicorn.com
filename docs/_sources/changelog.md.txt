@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.23.0
+
+- Performance enhancement that returns a 304 HTTP status code when an action happens, but the content doesn't change.
+- Add [`unicorn:ignore`](templates.md#ignore-elements) attribute to prevent an element from being morphed (useful when using `Unicorn` with libraries like `Select2` that change the DOM).
+- Add support for passing arguments to [`Unicorn.call`](actions.md#calling-methods).
+- Bug fix when attempting to cache component views that utilize the `db_model` decorator.
+
+[All changes since 0.22.0](https://github.com/adamghill/django-unicorn/compare/0.22.0...0.23.0).
+
 ## v0.22.0
 
 - Use Django cache for storing component state when available

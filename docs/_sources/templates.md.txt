@@ -102,3 +102,56 @@ However, setting the same `id` on two elements with the same `unicorn:model` won
 ### DOM merging
 
 The JavaScript library used to merge changes in the DOM, `morphdom`, uses an element's `id` to intelligently update DOM elements. If it isn't possible to have an `id` attribute on the element, `unicorn:key` will be used if it is available.
+
+## Ignore elements
+
+Some JavaScript libraries will change the DOM (such as `Select2`) after the page renders. That can cause issues for `Unicorn` when trying to merge that DOM with what `Unicorn` _thinks_ the DOM should be. `unicorn:ignore` can be used to prevent `Unicorn` from morphing that element or its children.
+
+```{note}
+When the component is initially rendered, normal Django template functionality can be used.
+```
+
+```html
+<!-- ignored-element.html -->
+<div>
+  <script src="jquery.min.js"></script>
+  <link href="select2.min.css" rel="stylesheet" />
+  <script src="select2.min.js"></script>
+
+  <div unicorn:ignore>
+    <select
+      id="select2-example"
+      onchange="Unicorn.call('ignored-element', 'select_state', this.value, this.selectedIndex);"
+    >
+      {% for state in states %}
+      <option value="{{ state }}">{{ state }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#select2-example").select2();
+    });
+  </script>
+</div>
+```
+
+```python
+# ignored_element.py
+from django_unicorn.components import UnicornView
+
+class JsView(UnicornView):
+    states = (
+        "Alabama",
+        "Alaska",
+        "Wisconsin",
+        "Wyoming",
+    )
+    selected_state = ""
+
+    def select_state(self, state_name, selected_idx):
+        print("select_state state_name", state_name)
+        print("select_state selected_idx", selected_idx)
+        self.selected_state = state_name
+```

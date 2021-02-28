@@ -298,6 +298,57 @@
 <p>The JavaScript library used to merge changes in the DOM, <code class="docutils literal notranslate"><span class="pre">morphdom</span></code>, uses an element’s <code class="docutils literal notranslate"><span class="pre">id</span></code> to intelligently update DOM elements. If it isn’t possible to have an <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute on the element, <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> will be used if it is available.</p>
 </div>
 </div>
+<div class="section" id="ignore-elements">
+<h2>Ignore elements<a class="headerlink" href="#ignore-elements" title="Permalink to this headline">¶</a></h2>
+<p>Some JavaScript libraries will change the DOM (such as <code class="docutils literal notranslate"><span class="pre">Select2</span></code>) after the page renders. That can cause issues for <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> when trying to merge that DOM with what <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> <em>thinks</em> the DOM should be. <code class="docutils literal notranslate"><span class="pre">unicorn:ignore</span></code> can be used to prevent <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> from morphing that element or its children.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the component is initially rendered, normal Django template functionality can be used.</p>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- ignored-element.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"jquery.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"select2.min.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"select2.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:ignore</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">select</span>
+      <span class="na">id</span><span class="o">=</span><span class="s">"select2-example"</span>
+      <span class="na">onchange</span><span class="o">=</span><span class="s">"Unicorn.call('ignored-element', 'select_state', this.value, this.selectedIndex);"</span>
+    <span class="p">&gt;</span>
+      {% for state in states %}
+      <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ state }}"</span><span class="p">&gt;</span>{{ state }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+      {% endfor %}
+    <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s2">"#select2-example"</span><span class="p">).</span><span class="nx">select2</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ignored_element.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">JsView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"Alabama"</span><span class="p">,</span>
+        <span class="s2">"Alaska"</span><span class="p">,</span>
+        <span class="s2">"Wisconsin"</span><span class="p">,</span>
+        <span class="s2">"Wyoming"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">selected_state</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="k">def</span> <span class="nf">select_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_name</span><span class="p">,</span> <span class="n">selected_idx</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"select_state state_name"</span><span class="p">,</span> <span class="n">state_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"select_state selected_idx"</span><span class="p">,</span> <span class="n">selected_idx</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected_state</span> <span class="o">=</span> <span class="n">state_name</span>
+</pre></div>
+</div>
+</div>
 </div>
 
       </article>
@@ -367,6 +418,7 @@
 <li><a class="reference internal" href="#dom-merging">DOM merging</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#ignore-elements">Ignore elements</a></li>
 </ul>
 </li>
 </ul>
