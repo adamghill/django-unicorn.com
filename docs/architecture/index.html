@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="CLI" href="../cli/" /><link rel="prev" title="Queue Requests" href="../queue-requests/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="prev" title="CLI" href="../cli/" />
 
     <meta name="generator" content="sphinx-3.4.3, furo 2020.12.30.beta24"/>
-        <title>Settings - Unicorn</title>
+        <title>Architecture - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -190,9 +190,9 @@
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../architecture/">Architecture</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Architecture</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
@@ -210,44 +210,31 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="settings">
-<h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> stores all settings in a dictionary under the <code class="docutils literal notranslate"><span class="pre">UNICORN</span></code> attribute in the Django settings file. All settings are optional.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
-<span class="n">UNICORN</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"MINIMIZE"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s2">"APPS"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"unicorn"</span><span class="p">],</span>
-    <span class="s2">"SERIAL"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"ENABLED"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s2">"TIMEOUT"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s2">"CACHE_ALIAS"</span><span class="p">:</span> <span class="s2">"default"</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
+        <div class="section" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is made up of multiple pieces which are all integrated tightly together. The following is a summary of how some of it all fits together, although it skips over a lot of the complexity and advanced functionality. However, for all of the details the code is available at <a class="reference external" href="https://github.com/adamghill/django-unicorn/">https://github.com/adamghill/django-unicorn/</a>.</p>
+<div class="section" id="template-tags">
+<h2>Template tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h2>
+<p>Starting with the integration with a normal Django template, there are the <code class="docutils literal notranslate"><span class="pre">unicorn_scripts</span></code> and <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> template tags. <code class="docutils literal notranslate"><span class="pre">unicorn_scripts</span></code> renders out the entire JavaScript library and initializes the global <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> object. The <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> template tag provides the ability to add the component wherever it is needed on the page. Based on the name passed into the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> template tag, conventions are used to find the correct component view and component template (e.g. if “hello-world” is passed into the template tag, a class of <code class="docutils literal notranslate"><span class="pre">hello_world.HelloWorldView</span></code> and a template named <code class="docutils literal notranslate"><span class="pre">hello-world.html</span></code> will be searched for).</p>
+<p>Once the component view and template are found, a serialized version of all of the public attributes of the component view is generated into a JSON object for the page, and the template is rendered with a context of those same public attributes.</p>
 </div>
-<div class="section" id="apps">
-<h2>APPS<a class="headerlink" href="#apps" title="Permalink to this headline">¶</a></h2>
-<p>Specify the modules to look for components. Defaults to <code class="docutils literal notranslate"><span class="pre">["unicorn",]</span></code>.</p>
+<div class="section" id="javascript-initialization">
+<h2>JavaScript initialization<a class="headerlink" href="#javascript-initialization" title="Permalink to this headline">¶</a></h2>
+<p>After the template is rendered, the JavaScript library parses the HTML for DOM elements that start with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code> or <code class="docutils literal notranslate"><span class="pre">u:</span></code> and creates a list of attributes that end with <code class="docutils literal notranslate"><span class="pre">:model</span></code>, <code class="docutils literal notranslate"><span class="pre">:poll</span></code>, or other specific <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> functionality. For attributes that are let, the assumption is that they are an event type (e.g. <code class="docutils literal notranslate"><span class="pre">unicorn:click</span></code>).</p>
+<p>For anything that is a model, the JavaScript sets the value for the element based on the serialized data of the publicly available attributes from the component view. Event listeners are attached for all event types. Then, other custom functionality is setup (e.g. polling).</p>
 </div>
-<div class="section" id="cache-alias">
-<h2>CACHE_ALIAS<a class="headerlink" href="#cache-alias" title="Permalink to this headline">¶</a></h2>
-<p>The alias to use for caching. Only used by the experimental serialization of requests for now. Defaults to <code class="docutils literal notranslate"><span class="pre">"default"</span></code>.</p>
+<div class="section" id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<p>For all inputs which have a <code class="docutils literal notranslate"><span class="pre">model</span></code> attribute, an event listener is attached (either <code class="docutils literal notranslate"><span class="pre">change</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> depending on if the <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier is used). The <code class="docutils literal notranslate"><span class="pre">defer</span></code> modifier will store the action to be bundled with an action event that might happen later.</p>
+<p>Once a model event is fired it is sent over the wire to the defined AJAX endpoint with a specific JSON structure which tells <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> what the updated data from the input should be. The component class is re-instantiated and the data is updated from the front-end, then re-rendered and the HTML is returned in the response.</p>
 </div>
-<div class="section" id="minimize">
-<h2>MINIMIZE<a class="headerlink" href="#minimize" title="Permalink to this headline">¶</a></h2>
-<p>Provides a way to control if the minimized version of <code class="docutils literal notranslate"><span class="pre">unicorn.min.js</span></code> is used. Defaults to <code class="docutils literal notranslate"><span class="pre">!DEBUG</span></code>.</p>
+<div class="section" id="actions">
+<h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
+<p>Actions follow a similar path as the models above, however there is a different JSON stucture. Also, the method, arguments, and kwargs that are passed from the front-end get parsed with a mix of <code class="docutils literal notranslate"><span class="pre">ast.parse</span></code> and <code class="docutils literal notranslate"><span class="pre">ast.literal_eval</span></code> to convert the strings into the appropriate Python types (i.e. change the string “1” to the integer <code class="docutils literal notranslate"><span class="pre">1</span></code>). After the component is re-initialized, the method is called with the passed-in arguments and kwargs. Once all of the actions have been called, the component view is re-rendered and the HTML is returned in the response.</p>
 </div>
-<div class="section" id="serial">
-<h2>SERIAL<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h2>
-<p>Settings for the experimental serialization of requests. Defaults to <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
-<div class="section" id="enabled">
-<h3>ENABLED<a class="headerlink" href="#enabled" title="Permalink to this headline">¶</a></h3>
-<p>Whether slow requests to the same component should be queued or not. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</div>
-<div class="section" id="timeout">
-<h3>TIMEOUT<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
-<p>The number of seconds to wait for a request to finish for additional requests to queue behind it. Defaults to <code class="docutils literal notranslate"><span class="pre">60</span></code>.</p>
-</div>
+<div class="section" id="html-diff">
+<h2>HTML Diff<a class="headerlink" href="#html-diff" title="Permalink to this headline">¶</a></h2>
+<p>After the AJAX endpoint returns its response, the newly rendered DOM is merged into the old DOM with <code class="docutils literal notranslate"><span class="pre">morphdom</span></code> and input values are set again based on the new data in the AJAX response.</p>
 </div>
 </div>
 
@@ -255,23 +242,15 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../cli/">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">CLI</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../queue-requests/">
+          
+          <a class="prev-page" href="../cli/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Queue Requests</div>
+                <div class="title">CLI</div>
                 
               </div>
             </a>
@@ -285,7 +264,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../_sources/settings.md.txt"
+            <a class="muted-link" href="../_sources/architecture.md.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -305,15 +284,12 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Settings</a><ul>
-<li><a class="reference internal" href="#apps">APPS</a></li>
-<li><a class="reference internal" href="#cache-alias">CACHE_ALIAS</a></li>
-<li><a class="reference internal" href="#minimize">MINIMIZE</a></li>
-<li><a class="reference internal" href="#serial">SERIAL</a><ul>
-<li><a class="reference internal" href="#enabled">ENABLED</a></li>
-<li><a class="reference internal" href="#timeout">TIMEOUT</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Architecture</a><ul>
+<li><a class="reference internal" href="#template-tags">Template tags</a></li>
+<li><a class="reference internal" href="#javascript-initialization">JavaScript initialization</a></li>
+<li><a class="reference internal" href="#models">Models</a></li>
+<li><a class="reference internal" href="#actions">Actions</a></li>
+<li><a class="reference internal" href="#html-diff">HTML Diff</a></li>
 </ul>
 </li>
 </ul>
