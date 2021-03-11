@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.24.0
+
+- Support custom CSRF headers set with [CSRF_HEADER_NAME](https://docs.djangoproject.com/en/stable/ref/settings/#csrf-header-name) setting.
+
+[All changes since 0.23.0](https://github.com/adamghill/django-unicorn/compare/0.23.0...0.24.0).
+
 ## v0.23.0
 
 - Performance enhancement that returns a 304 HTTP status code when an action happens, but the content doesn't change.
