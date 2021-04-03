@@ -6,6 +6,12 @@
 
 A Django `Model` can be used as a field on a component just like basic Python primitive types. Use `unicorn:model` to bind to a field of a Django `Model` like you would in a normal Django template.
 
+:::{warning}
+Using this functionality will serialize your entire model by default and expose all of the values in the HTML source code. Do not use this particular functionality if there are properties that need to be kept private.
+
+One option is to customize the serialization of the model into a dictionary to only expose the data that should be publicly available.
+:::
+
 :::{code} html
 :force: true
 
@@ -89,3 +95,14 @@ class QuerysetView(UnicornView):
     def save(self, book_idx: int):
         self.books[book_idx].save()
 ```
+
+:::{warning}
+
+This will expose all of the model values for the `QuerySet` in the HTML source. One way to avoid leaking all model information is to call `values()` on your `QuerySet`.
+
+```python
+def mount(self):
+  self.books = Book.objects.all().order_by("-id").values("pk", "title")[:5]
+```
+
+:::

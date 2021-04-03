@@ -216,6 +216,11 @@
 <div class="section" id="model">
 <h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <p>A Django <code class="docutils literal notranslate"><span class="pre">Model</span></code> can be used as a field on a component just like basic Python primitive types. Use <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> to bind to a field of a Django <code class="docutils literal notranslate"><span class="pre">Model</span></code> like you would in a normal Django template.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using this functionality will serialize your entire model by default and expose all of the values in the HTML source code. Do not use this particular functionality if there are properties that need to be kept private.</p>
+<p>One option is to customize the serialization of the model into a dictionary to only expose the data that should be publicly available.</p>
+</div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- model.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"book"</span> <span class="p">/&gt;</span>
@@ -286,6 +291,14 @@
     <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">books</span><span class="p">[</span><span class="n">book_idx</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will expose all of the model values for the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> in the HTML source. One way to avoid leaking all model information is to call <code class="docutils literal notranslate"><span class="pre">values()</span></code> on your <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-id"</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">"pk"</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
