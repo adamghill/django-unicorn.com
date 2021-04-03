@@ -212,181 +212,64 @@
         </label>
         <div class="section" id="django-models">
 <h1>Django Models<a class="headerlink" href="#django-models" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides tight integration with Django <code class="docutils literal notranslate"><span class="pre">Models</span></code> and <code class="docutils literal notranslate"><span class="pre">Querysets</span></code> to handle typical Django workflows. There are multiple ways to integrate a Django model with a component. They all work a little differently and which option you choose to use depends on the situation.</p>
-<div class="section" id="dbmodel">
-<h2>DbModel<a class="headerlink" href="#dbmodel" title="Permalink to this headline">¶</a></h2>
-<p>One way to use Django models is by utilizing the <code class="docutils literal notranslate"><span class="pre">DbModel</span></code> class that provides a way from the front-end to refer to a Django model. The value of the <code class="docutils literal notranslate"><span class="pre">unicorn:db</span></code> attribute refers to the first argument when constructing a <code class="docutils literal notranslate"><span class="pre">DbModel</span></code> and <code class="docutils literal notranslate"><span class="pre">unicorn:field</span></code> is used for the model’s field that should be bound to the input.</p>
-<p>Another benefit of <code class="docutils literal notranslate"><span class="pre">DbModel</span></code> is that it enables the use of the <a class="reference internal" href="../actions/#model"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$model</span></code></span></a> special action variable.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- db-model.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:db</span><span class="o">=</span><span class="s">"book"</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
-    {{ book.title }}
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:db</span><span class="o">=</span><span class="s">"book"</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
-    {{ book.description }}
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># db_model.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.db</span> <span class="kn">import</span> <span class="n">DbModel</span>
-<span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
-
-<span class="k">class</span> <span class="nc">DbModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">db_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">DbModel</span><span class="p">(</span><span class="s2">"book"</span><span class="p">,</span> <span class="n">Book</span><span class="p">)]</span>
-
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"A new book will be created automatically"</span><span class="p">)</span>
-        <span class="k">pass</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">unicorn:db</span></code> can also live in a parent element and surround a group of <code class="docutils literal notranslate"><span class="pre">unicorn:field</span></code> inputs.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- db-model.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:db</span><span class="o">=</span><span class="s">"book"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
-      {{ book.title }}
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
-      {{ book.description }}
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">unicorn:pk</span></code> can be used so that an existing model is updated instead of a new model is created. More information about <code class="docutils literal notranslate"><span class="pre">unicorn:pk</span></code> is in <a class="reference internal" href="#queryset"><span class="std std-doc">queryset</span></a>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- db-model.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:db</span><span class="o">=</span><span class="s">"book"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:pk</span><span class="o">=</span><span class="s">"1"</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
-        {{ book.title }}
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
-        {{ book.description }}
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="class-model">
-<h2>Class Model<a class="headerlink" href="#class-model" title="Permalink to this headline">¶</a></h2>
-<p>Django models can be initialized similar to how basic Python objects (i.e. strings, integers, dictionaries) can be set on a component.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- class-model.html --&gt;</span>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides tight integration with Django <code class="docutils literal notranslate"><span class="pre">Models</span></code> and <code class="docutils literal notranslate"><span class="pre">QuerySets</span></code> to handle typical workflows.</p>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<p>A Django <code class="docutils literal notranslate"><span class="pre">Model</span></code> can be used as a field on a component just like basic Python primitive types. Use <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> to bind to a field of a Django <code class="docutils literal notranslate"><span class="pre">Model</span></code> like you would in a normal Django template.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- model.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"book"</span> <span class="p">/&gt;</span>
   {{ book.title }}
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save({{ book.pk }})"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># class_model.py</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 <span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
 
-<span class="k">class</span> <span class="nc">ClassModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">ModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">book</span><span class="p">:</span> <span class="n">Book</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book_to_save</span><span class="p">:</span> <span class="n">Book</span><span class="p">):</span>
+        <span class="n">book_to_save</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Type hints can also be used to instantiate the model as expected.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># class_model.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-<span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
-
-<span class="k">class</span> <span class="nc">ClassModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">book</span><span class="p">:</span> <span class="n">Book</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<p>The model’s <code class="docutils literal notranslate"><span class="pre">pk</span></code> will be used to look up the correct model if there is only one argument and it has a type annotation for a Django <code class="docutils literal notranslate"><span class="pre">Model</span></code>. To lookup by a different model field, pass a dictionary into the front-end.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"delete({ 'uuid': '{{ book.uuid }}'})"</span><span class="p">&gt;</span>Delete by uuid<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="instance-model">
-<h2>Instance Model<a class="headerlink" href="#instance-model" title="Permalink to this headline">¶</a></h2>
-<p>Django models can be initialized in the component’s <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method similar to how a “normal” class would initialize an instance variable.</p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p><code class="docutils literal notranslate"><span class="pre">super().__init__(**kwargs)</span></code> <strong>has</strong> to be called at the end of the overriden <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method.</p>
-</div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- instance-model.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"book"</span> <span class="p">/&gt;</span>
-  {{ book.title }}
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book_to_delete</span><span class="p">:</span> <span class="n">Book</span><span class="p">):</span>
+    <span class="n">book_to_delete</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># instance_model.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-<span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
-
-<span class="k">class</span> <span class="nc">InstanceModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">()</span>
-
-        <span class="c1"># super() has to be called at the end</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-</pre></div>
 </div>
 </div>
 <div class="section" id="queryset">
-<h2>Queryset<a class="headerlink" href="#queryset" title="Permalink to this headline">¶</a></h2>
-<p>Binding models to a Django <code class="docutils literal notranslate"><span class="pre">Queryset</span></code> is done by setting an <code class="docutils literal notranslate"><span class="pre">unicorn:pk</span></code> attribute with the <code class="docutils literal notranslate"><span class="pre">model</span></code>’s <code class="docutils literal notranslate"><span class="pre">pk</span></code> (normally an integer in an <code class="docutils literal notranslate"><span class="pre">id</span></code> field, but could be a custom <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.Field.primary_key"><code class="docutils literal notranslate"><span class="pre">primary_key</span></code></a>).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>A blank value for an <code class="docutils literal notranslate"><span class="pre">unicorn:pk</span></code> attribute signals to <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> to create a new instance of the underlying Django <code class="docutils literal notranslate"><span class="pre">model</span></code> of the queryset.</p>
-</div>
+<h2>QuerySet<a class="headerlink" href="#queryset" title="Permalink to this headline">¶</a></h2>
+<p>A Django <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> can be set to a property on a component just like a regular <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- queryset.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"books"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:pk</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;</span>
-      <span class="c">&lt;!-- A blank pk will create a new model when it is saved --&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-
     {% for book in books %}
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:pk</span><span class="o">=</span><span class="s">"{{ book.pk }}"</span><span class="p">&gt;</span>
-      <span class="c">&lt;!-- Using the model's pk will save the model --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"books.{{ forloop.counter0 }}.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
         {{ book.title }}
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:field</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"books.{{ forloop.counter0 }}.description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
         {{ book.description }}
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     {% endfor %}
 
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save({{ forloop.counter0 }})"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -397,13 +280,11 @@
 <span class="k">class</span> <span class="nc">QuerysetView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
     <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">hydrate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Using `hydrate` is the best way to make sure that QuerySets</span>
-        <span class="c1"># are re-queried every time the component is loaded</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-id"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">books</span><span class="p">[</span><span class="n">book_idx</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -464,10 +345,8 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Django Models</a><ul>
-<li><a class="reference internal" href="#dbmodel">DbModel</a></li>
-<li><a class="reference internal" href="#class-model">Class Model</a></li>
-<li><a class="reference internal" href="#instance-model">Instance Model</a></li>
-<li><a class="reference internal" href="#queryset">Queryset</a></li>
+<li><a class="reference internal" href="#model">Model</a></li>
+<li><a class="reference internal" href="#queryset">QuerySet</a></li>
 </ul>
 </li>
 </ul>

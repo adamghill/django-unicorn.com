@@ -362,43 +362,6 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="model">
-<h3>$model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
-<p>Sends the current <code class="docutils literal notranslate"><span class="pre">db_model</span></code> to an action.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">$model</span></code> requires <a class="reference internal" href="../django-models/#dbmodel"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">db_models</span></code></span></a> to be defined in the component’s <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class. The component method must also be decorated with <code class="docutils literal notranslate"><span class="pre">django_unicorn.decorators.db_model</span></code> and must have at least one argument (which will be converted into the specified Django model from the frontend).</p>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.db</span> <span class="kn">import</span> <span class="n">DbModel</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.decorators</span> <span class="kn">import</span> <span class="n">db_model</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Book</span>
-
-<span class="k">class</span> <span class="nc">ModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-
-    <span class="nd">@db_model</span>
-    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book</span><span class="p">):</span>
-        <span class="n">book</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
-
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">db_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">DbModel</span><span class="p">(</span><span class="s2">"book"</span><span class="p">,</span> <span class="n">Book</span><span class="p">)]</span>
-</pre></div>
-</div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- model.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:db</span><span class="o">=</span><span class="s">"book"</span><span class="p">&gt;</span>
-        {% for book in books %}
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:pk</span><span class="o">=</span><span class="s">"{{ book.pk }}"</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:change</span><span class="o">=</span><span class="s">"delete($model)"</span><span class="p">&gt;</span>Delete the current book<span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        {% endfor %}
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="returnvalue">
 <h3>$returnValue<a class="headerlink" href="#returnvalue" title="Permalink to this headline">¶</a></h3>
 <p>A reference to the last return value from an action method.</p>
@@ -561,7 +524,6 @@
 </li>
 <li><a class="reference internal" href="#special-arguments">Special arguments</a><ul>
 <li><a class="reference internal" href="#event">$event</a></li>
-<li><a class="reference internal" href="#model">$model</a></li>
 <li><a class="reference internal" href="#returnvalue">$returnValue</a></li>
 </ul>
 </li>

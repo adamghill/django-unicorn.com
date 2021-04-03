@@ -170,45 +170,6 @@ A reference to the event that triggered the action.
 </div>
 ```
 
-### $model
-
-Sends the current `db_model` to an action.
-
-```{note}
-`$model` requires [`db_models`](django-models.md#dbmodel) to be defined in the component's `Meta` class. The component method must also be decorated with `django_unicorn.decorators.db_model` and must have at least one argument (which will be converted into the specified Django model from the frontend).
-```
-
-```python
-# model.py
-from django_unicorn.components import UnicornView
-from django_unicorn.db import DbModel
-from django_unicorn.decorators import db_model
-from .models import Book
-
-class ModelView(UnicornView):
-    books = Book.models.all()
-
-    @db_model
-    def delete(self, book):
-        book.delete()
-
-    class Meta:
-        db_models = [DbModel("book", Book)]
-```
-
-```html
-<!-- model.html -->
-<div>
-    <div unicorn:db="book">
-        {% for book in books %}
-        <div unicorn:pk="{{ book.pk }}">
-            <input type="text" unicorn:change="delete($model)">Delete the current book</input>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-```
-
 ### $returnValue
 
 A reference to the last return value from an action method.
