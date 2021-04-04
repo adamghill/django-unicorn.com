@@ -40,7 +40,7 @@ class ModelView(UnicornView):
 
 ```{note}
 
-The model's `pk` will be used to look up the correct model if there is only one argument and it has a type annotation for a Django `Model`. To lookup by a different model field, pass a dictionary into the front-end.
+The model's `pk` will be used to look up the correct model if there is only one argument for an action method and it has a type annotation for a Django `Model`. To lookup by a different model field, pass a dictionary into the front-end.
 
 :::{code} html
 :force: true
@@ -98,7 +98,7 @@ class QuerysetView(UnicornView):
 
 :::{warning}
 
-This will expose all of the model values for the `QuerySet` in the HTML source. One way to avoid leaking all model information is to call `values()` on your `QuerySet`.
+This will expose all of the model values for the `QuerySet` in the HTML source. One way to avoid leaking all model information is to pass the fields that are publicly viewable into `values()` on your `QuerySet`.
 
 ```python
 def mount(self):
@@ -106,3 +106,20 @@ def mount(self):
 ```
 
 :::
+
+A `QuerySetType` type hint can also be used for `QuerySet` to ensure the correct type is used for the component field.
+
+```python
+# queryset.py
+from django_unicorn.components import QuerySetType, UnicornView
+from books.models import Book
+
+class QuerysetView(UnicornView):
+    books: QuerySetType[Book] = None
+
+    def mount(self):
+        self.books = Book.objects.all().order_by("-id")[:5]
+
+    def save(self, book_idx: int):
+        self.books[book_idx].save()
+```

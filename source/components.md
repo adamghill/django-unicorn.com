@@ -103,9 +103,9 @@ Attributes used in component templates usually start with `unicorn:`, however th
 
 Properties of the component can be of many different types, including `str`, `int`, `list`, `dictionary`, `Decimal`,[`Django Model`](django-models.md#model), [`Django QuerySet`](django-models.md#queryset), [`dataclass`](https://docs.python.org/3.7/library/dataclasses.html), or `custom classes`.
 
-### Property typehints
+### Property type hints
 
-`Unicorn` will attempt to cast any properties with a `typehint` when the component is hydrated.
+`Unicorn` will attempt to cast any properties with a `type hint` when the component is hydrated.
 
 ```python
 # rating.py

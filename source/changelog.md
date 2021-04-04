@@ -40,7 +40,7 @@
 - Bug fix: Prevent disabled polls from firing at all.
 - Support [`Decimal` field type](components.md#supported-property-types).
 - Support [`dataclass` field type](components.md#supported-property-types).
-- Use [type hints](components.md#property-typehints) to cast fields to primitive Python types if possible.
+- Use [type hints](components.md#property-type-hints) to cast fields to primitive Python types if possible.
 
 [All changes since 0.20.0](https://github.com/adamghill/django-unicorn/compare/0.20.0...0.21.0).
 
