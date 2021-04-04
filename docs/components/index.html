@@ -161,9 +161,8 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Intro</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../">Intro</a></li>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
@@ -221,7 +220,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If this is the first component you create, you will also need to add <code class="docutils literal notranslate"><span class="pre">"unicorn",</span></code> to <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>) to make sure that Django can find the created component templates.</p>
+<p>If this is the first component you create, you will also need to make sure that <code class="docutils literal notranslate"><span class="pre">"unicorn",</span></code> is in the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> list in your Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>) to make sure that Django can find the created component templates.</p>
 <p>Also, make sure that there is a <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></code> in your HTML somewhere to prevent cross-site scripting attacks while using <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
 </div>
 <div class="admonition note">
@@ -300,7 +299,7 @@
 </div>
 <div class="section" id="supported-property-types">
 <h2>Supported property types<a class="headerlink" href="#supported-property-types" title="Permalink to this headline">¶</a></h2>
-<p>Properties of the component can be of many different types, including <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">Decimal</span></code>,<code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Model</span></code>, <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">QuerySet</span></code>, <code class="docutils literal notranslate"><span class="pre">dataclass</span></code>, or <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">classes</span></code>.</p>
+<p>Properties of the component can be of many different types, including <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">Decimal</span></code>,<a class="reference internal" href="../django-models/#model"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Model</span></code></span></a>, <a class="reference internal" href="../django-models/#queryset"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">QuerySet</span></code></span></a>, <a class="reference external" href="https://docs.python.org/3.7/library/dataclasses.html"><code class="docutils literal notranslate"><span class="pre">dataclass</span></code></a>, or <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">classes</span></code>.</p>
 <div class="section" id="property-typehints">
 <h3>Property typehints<a class="headerlink" href="#property-typehints" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will attempt to cast any properties with a <code class="docutils literal notranslate"><span class="pre">typehint</span></code> when the component is hydrated.</p>

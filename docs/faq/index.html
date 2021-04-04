@@ -161,9 +161,8 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Intro</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../">Intro</a></li>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">FAQ</a></li>
 </ul>
@@ -242,11 +241,11 @@
 </div>
 <div class="section" id="what-browsers-does-unicorn-support">
 <h2>What browsers does <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> support?<a class="headerlink" href="#what-browsers-does-unicorn-support" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> mostly targets modern browsers, but the project would appreciate any PRs to help support legacy browsers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> mostly targets modern browsers, but any PRs to help support legacy browsers would be appreciated.</p>
 </div>
 <div class="section" id="how-to-make-sure-that-the-new-javascript-is-served-when-a-new-version-of-unicorn-is-released">
 <h2>How to make sure that the new JavaScript is served when a new version of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is released?<a class="headerlink" href="#how-to-make-sure-that-the-new-javascript-is-served-when-a-new-version-of-unicorn-is-released" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> works great with the <a class="reference external" href="https://whitenoise.evans.io/en/stable/">whitenoise</a> ability to serve static assets with a filename based on a hash of the file. <a class="reference external" href="http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support">CompressedManifestStaticFilesStorage</a> works great for this purpose and is used by <a class="reference external" href="https://www.django-unicorn.com/">django-unicorn.com</a> for this very purpose. Example code can be found at <a class="reference external" href="https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72">https://github.com/adamghill/django-unicorn.com/</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> works great using <a class="reference external" href="https://whitenoise.evans.io/en/stable/">whitenoise</a> to serve static assets with a filename based on a hash of the file. <a class="reference external" href="http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support">CompressedManifestStaticFilesStorage</a> works great for this purpose and is used by <a class="reference external" href="https://www.django-unicorn.com/">django-unicorn.com</a> for this very purpose. Example code can be found at <a class="reference external" href="https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72">https://github.com/adamghill/django-unicorn.com/</a>.</p>
 </div>
 <div class="section" id="what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js">
 <h2>What is the difference between <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> and lighter front-end frameworks like <code class="docutils literal notranslate"><span class="pre">htmx</span></code> or <code class="docutils literal notranslate"><span class="pre">alpine.js</span></code>?<a class="headerlink" href="#what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js" title="Permalink to this headline">¶</a></h2>
@@ -255,8 +254,8 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="../redirecting/"><span class="doc std std-doc">redirecting</span></a> from an action uses the Django <code class="docutils literal notranslate"><span class="pre">redirect</span></code> shortcut</p></li>
 <li><p><a class="reference internal" href="../validation/"><span class="doc std std-doc">validation</span></a> uses Django forms</p></li>
-<li><p><a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django Models</span></a> are tightly integrated into <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code></p></li>
-<li><p>Django <a class="reference internal" href="../messages/"><span class="doc std std-doc">messages</span></a> “just work” the way you would expect them to</p></li>
+<li><p><a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django Models</span></a> are tightly integrated</p></li>
+<li><p><a class="reference internal" href="../messages/"><span class="doc std std-doc">Django messages</span></a> “just work” the way you would expect them to</p></li>
 <li><p>you won’t have to create extra URLs/views for AJAX calls to send back HTML because <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> handles all of that for you</p></li>
 </ul>
 </div>

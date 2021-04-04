@@ -1,7 +1,6 @@
-# Intro
+# Introduction
 
 ```{toctree}
-:caption: Intro
 :maxdepth: 2
 :hidden:
 

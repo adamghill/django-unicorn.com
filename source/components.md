@@ -11,7 +11,7 @@ python manage.py startunicorn hello-world
 ```
 
 ```{warning}
-If this is the first component you create, you will also need to add `"unicorn",` to `INSTALLED_APPS` in your Django settings file (normally `settings.py`) to make sure that Django can find the created component templates.
+If this is the first component you create, you will also need to make sure that `"unicorn",` is in the `INSTALLED_APPS` list in your Django settings file (normally `settings.py`) to make sure that Django can find the created component templates.
 
 Also, make sure that there is a `{% csrf_token %}` in your HTML somewhere to prevent cross-site scripting attacks while using `Unicorn`.
 ```
@@ -101,7 +101,7 @@ Attributes used in component templates usually start with `unicorn:`, however th
 
 ## Supported property types
 
-Properties of the component can be of many different types, including `str`, `int`, `list`, `dictionary`, `Decimal`,`Django Model`, `Django QuerySet`, `dataclass`, or `custom classes`.
+Properties of the component can be of many different types, including `str`, `int`, `list`, `dictionary`, `Decimal`,[`Django Model`](django-models.md#model), [`Django QuerySet`](django-models.md#queryset), [`dataclass`](https://docs.python.org/3.7/library/dataclasses.html), or `custom classes`.
 
 ### Property typehints
 

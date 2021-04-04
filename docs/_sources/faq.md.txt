@@ -30,11 +30,11 @@ Not really! `Unicorn` is ideal for when an AJAX call would already be required (
 
 ## What browsers does `Unicorn` support?
 
-`Unicorn` mostly targets modern browsers, but the project would appreciate any PRs to help support legacy browsers.
+`Unicorn` mostly targets modern browsers, but any PRs to help support legacy browsers would be appreciated.
 
 ## How to make sure that the new JavaScript is served when a new version of `Unicorn` is released?
 
-`Unicorn` works great with the [whitenoise](https://whitenoise.evans.io/en/stable/) ability to serve static assets with a filename based on a hash of the file. [CompressedManifestStaticFilesStorage](http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support) works great for this purpose and is used by [django-unicorn.com](https://www.django-unicorn.com/) for this very purpose. Example code can be found at [https://github.com/adamghill/django-unicorn.com/](https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72).
+`Unicorn` works great using [whitenoise](https://whitenoise.evans.io/en/stable/) to serve static assets with a filename based on a hash of the file. [CompressedManifestStaticFilesStorage](http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support) works great for this purpose and is used by [django-unicorn.com](https://www.django-unicorn.com/) for this very purpose. Example code can be found at [https://github.com/adamghill/django-unicorn.com/](https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72).
 
 ## What is the difference between `Unicorn` and lighter front-end frameworks like `htmx` or `alpine.js`?
 
@@ -44,6 +44,6 @@ Not really! `Unicorn` is ideal for when an AJAX call would already be required (
 
 - [redirecting](redirecting.md) from an action uses the Django `redirect` shortcut
 - [validation](validation.md) uses Django forms
-- [Django Models](django-models.md) are tightly integrated into `Unicorn`
-- Django [messages](messages.md) "just work" the way you would expect them to
+- [Django Models](django-models.md) are tightly integrated
+- [Django messages](messages.md) "just work" the way you would expect them to
 - you won't have to create extra URLs/views for AJAX calls to send back HTML because `Unicorn` handles all of that for you
