@@ -5,7 +5,7 @@
 - Completely redesigned and much improved support for [Django models and QuerySets](django-models.md).
 - Fix the `startunicorn` command and add some ascii art.
 
-[All changes since 0.24.0](https://github.com/adamghill/django-unicorn/compare/0.25.0...0.26.0).
+[All changes since 0.25.0](https://github.com/adamghill/django-unicorn/compare/0.25.0...0.26.0).
 
 ## v0.25.0
 
