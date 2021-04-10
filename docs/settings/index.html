@@ -214,7 +214,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> stores all settings in a dictionary under the <code class="docutils literal notranslate"><span class="pre">UNICORN</span></code> attribute in the Django settings file. All settings are optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
 <span class="n">UNICORN</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"MINIMIZE"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"MINIFIED"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s2">"APPS"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"unicorn"</span><span class="p">],</span>
     <span class="s2">"SERIAL"</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">"ENABLED"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
@@ -232,9 +232,9 @@
 <h2>CACHE_ALIAS<a class="headerlink" href="#cache-alias" title="Permalink to this headline">¶</a></h2>
 <p>The alias to use for caching. Only used by the experimental serialization of requests for now. Defaults to <code class="docutils literal notranslate"><span class="pre">"default"</span></code>.</p>
 </div>
-<div class="section" id="minimize">
-<h2>MINIMIZE<a class="headerlink" href="#minimize" title="Permalink to this headline">¶</a></h2>
-<p>Provides a way to control if the minimized version of <code class="docutils literal notranslate"><span class="pre">unicorn.min.js</span></code> is used. Defaults to <code class="docutils literal notranslate"><span class="pre">!DEBUG</span></code>.</p>
+<div class="section" id="minified">
+<h2>MINIFIED<a class="headerlink" href="#minified" title="Permalink to this headline">¶</a></h2>
+<p>Provides a way to control if the minified version of <code class="docutils literal notranslate"><span class="pre">unicorn.min.js</span></code> is used. Defaults to <code class="docutils literal notranslate"><span class="pre">!DEBUG</span></code>.</p>
 </div>
 <div class="section" id="serial">
 <h2>SERIAL<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h2>
@@ -307,7 +307,7 @@
 <li><a class="reference internal" href="#">Settings</a><ul>
 <li><a class="reference internal" href="#apps">APPS</a></li>
 <li><a class="reference internal" href="#cache-alias">CACHE_ALIAS</a></li>
-<li><a class="reference internal" href="#minimize">MINIMIZE</a></li>
+<li><a class="reference internal" href="#minified">MINIFIED</a></li>
 <li><a class="reference internal" href="#serial">SERIAL</a><ul>
 <li><a class="reference internal" href="#enabled">ENABLED</a></li>
 <li><a class="reference internal" href="#timeout">TIMEOUT</a></li>

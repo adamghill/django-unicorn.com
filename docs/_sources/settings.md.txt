@@ -5,7 +5,7 @@
 ```python
 # settings.py
 UNICORN = {
-    "MINIMIZE": True,
+    "MINIFIED": True,
     "APPS": ["unicorn"],
     "SERIAL": {
         "ENABLED": False,
@@ -23,9 +23,9 @@ Specify the modules to look for components. Defaults to `["unicorn",]`.
 
 The alias to use for caching. Only used by the experimental serialization of requests for now. Defaults to `"default"`.
 
-## MINIMIZE
+## MINIFIED
 
-Provides a way to control if the minimized version of `unicorn.min.js` is used. Defaults to `!DEBUG`.
+Provides a way to control if the minified version of `unicorn.min.js` is used. Defaults to `!DEBUG`.
 
 ## SERIAL
 

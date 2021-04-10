@@ -211,6 +211,14 @@
         </label>
         <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v0-26-0">
+<h2>v0.26.0<a class="headerlink" href="#v0-26-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Completely redesigned and much improved support for <a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django models and QuerySets</span></a>.</p></li>
+<li><p>Fix the <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> command and add some ascii art.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.25.0...0.26.0">All changes since 0.24.0</a>.</p>
+</div>
 <div class="section" id="v0-25-0">
 <h2>v0.25.0<a class="headerlink" href="#v0-25-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -257,7 +265,7 @@
 <li><p>Bug fix: Prevent disabled polls from firing at all.</p></li>
 <li><p>Support <a class="reference internal" href="../components/#supported-property-types"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Decimal</span></code> field type</span></a>.</p></li>
 <li><p>Support <a class="reference internal" href="../components/#supported-property-types"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">dataclass</span></code> field type</span></a>.</p></li>
-<li><p>Use <a class="reference internal" href="../components/#property-typehints"><span class="std std-doc">type hints</span></a> to cast fields to primitive Python types if possible.</p></li>
+<li><p>Use <a class="reference internal" href="../components/#property-type-hints"><span class="std std-doc">type hints</span></a> to cast fields to primitive Python types if possible.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.20.0...0.21.0">All changes since 0.20.0</a>.</p>
 </div>
@@ -489,7 +497,7 @@
 <li><p><a class="reference internal" href="../actions/#modifiers"><span class="std std-doc">Stop and prevent modifiers</span></a> on actions</p></li>
 <li><p><a class="reference internal" href="../templates/#defer"><span class="std std-doc">Defer modifier</span></a> on model</p></li>
 <li><p>Support for multiple actions on the same element</p></li>
-<li><p>Django setting to <a class="reference internal" href="../settings/#minimize"><span class="std std-doc">minimize</span></a> the JavaScript</p></li>
+<li><p>Django setting for whether the JavaScript is <a class="reference internal" href="../settings/#minified"><span class="std std-doc">minified</span></a></p></li>
 </ul>
 <p><strong>Breaking changes</strong></p>
 <ul class="simple">
@@ -676,6 +684,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-26-0">v0.26.0</a></li>
 <li><a class="reference internal" href="#v0-25-0">v0.25.0</a></li>
 <li><a class="reference internal" href="#v0-24-0">v0.24.0</a></li>
 <li><a class="reference internal" href="#v0-23-0">v0.23.0</a></li>
