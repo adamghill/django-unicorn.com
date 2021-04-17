@@ -211,7 +211,7 @@
         </label>
         <div class="section" id="partial-updates">
 <h1>Partial Updates<a class="headerlink" href="#partial-updates" title="Permalink to this headline">¶</a></h1>
-<p>Normally <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will send the entire component’s rendered HTML on every action to make sure that any changes to the context is reflected on the page. However, to reduce latency and minimize the amount of data that has to be sent over the network, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> allows actions to only update a portion of the page through the <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code> attribute.</p>
+<p>Normally <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will send the entire component’s rendered HTML on every action to make sure that any changes to the context is reflected on the page. However, to reduce latency and minimize the amount of data that has to be sent over the network, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> can only update a portion of the page by utilizing the <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code> attribute.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code> will look in the current component’s template for an <code class="docutils literal notranslate"><span class="pre">id</span></code> or <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>. If an element can’t be found with the specified target, the entire component will be morphed like usual.</p>
@@ -256,6 +256,13 @@
   <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Multiple partials can be targetted by adding multiple attributes to the element.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('checked')"</span> <span class="na">unicorn:partial</span><span class="err">.</span><span class="na">key</span><span class="o">=</span><span class="s">"checked-key"</span> <span class="na">unicorn:partial</span><span class="err">.</span><span class="na">id</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

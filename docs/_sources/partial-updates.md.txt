@@ -1,6 +1,6 @@
 # Partial Updates
 
-Normally `Unicorn` will send the entire component's rendered HTML on every action to make sure that any changes to the context is reflected on the page. However, to reduce latency and minimize the amount of data that has to be sent over the network, `Unicorn` allows actions to only update a portion of the page through the `unicorn:partial` attribute.
+Normally `Unicorn` will send the entire component's rendered HTML on every action to make sure that any changes to the context is reflected on the page. However, to reduce latency and minimize the amount of data that has to be sent over the network, `Unicorn` can only update a portion of the page by utilizing the `unicorn:partial` attribute.
 
 ```{note}
 By default, `unicorn:partial` will look in the current component's template for an `id` or `unicorn:key`. If an element can't be found with the specified target, the entire component will be morphed like usual.
@@ -55,3 +55,14 @@ To only target an element `unicorn:key` add the `key` modifier to `unicorn:parti
   </button>
 </div>
 :::
+
+```{note}
+Multiple partials can be targetted by adding multiple attributes to the element.
+
+:::{code} html
+:force: true
+
+<button unicorn:click="$toggle('checked')" unicorn:partial.key="checked-key" unicorn:partial.id="checked-id">
+:::
+
+```

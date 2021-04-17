@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.27.0
+
+- Many-to-many fields on a Django model are now supported
+- Multiple partial targets
+
+[All changes since 0.26.0](https://github.com/adamghill/django-unicorn/compare/0.26.0...0.27.0).
+
 ## v0.26.0
 
 - Completely redesigned and much improved support for [Django models and QuerySets](django-models.md).
