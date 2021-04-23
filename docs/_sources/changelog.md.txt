@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.27.1
+
+- Fix some issues with many-to-many fields on a Django model
+
+[All changes since 0.27.0](https://github.com/adamghill/django-unicorn/compare/0.27.0...0.27.1).
+
 ## v0.27.0
 
 - Many-to-many fields on a Django model are now supported
