@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.27.2
+
+- Fix bug with relationship fields on a Django model
+
+[All changes since 0.27.1](https://github.com/adamghill/django-unicorn/compare/0.27.1...0.27.2).
+
 ## v0.27.1
 
 - Fix some issues with many-to-many fields on a Django model
