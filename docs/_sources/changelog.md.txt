@@ -73,7 +73,7 @@
 ## v0.20.0
 
 - Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with [`javascript_exclude`](advanced.md#javascript_exclude).
-- Add [`complete`](advanced.md#complete), [`rendered`](advanced.md#rendered-html), [`parent_rendered`](advanced.md#parent_rendered-html) component hooks.
+- Add [`complete`](advanced.md#complete), [`rendered`](advanced.md#renderedhtml), [`parent_rendered`](advanced.md#parent_renderedhtml) component hooks.
 - Call [JavaScript functions](advanced.md#javascript-integration) from a component view's method.
 
 [All changes since 0.19.0](https://github.com/adamghill/django-unicorn/compare/0.19.0...0.20.0).
@@ -96,7 +96,6 @@
 
 - Only send updated data back in the response to reduce network latency.
 - Experimental support for [queuing up requests](queue-requests.md) to alleviate race conditions when functions take a long time to process.
-- Use type hints on [component view attributes](django-models.md#class-model) if needed.
 - Bug fix: prevent race condition where an instantiated component class would be inadvertently re-used for component views that are slow to render
 - Bug fix: use the correct component name to call a [component method from "outside" the component](actions.md#calling-methods).
 - Deprecated: `DJANGO_UNICORN` setting has been renamed to `UNICORN`.
@@ -195,7 +194,6 @@
 
 ## v0.11.0
 
-- [`$model`](actions.md#model) special argument and decorator.
 - [`$toggle`](actions.md#toggle) special method.
 - Support nested properties when using the [set shortcut](actions.md#set-shortcut).
 - Fix action string arguments that would get spaces removed inadvertently.

@@ -46,6 +46,7 @@ queue-requests
 settings
 cli
 architecture
+code-of-conduct
 PDF <https://www.django-unicorn.com/docs/unicorn-latest.pdf>
 GitHub <https://github.com/adamghill/django-unicorn>
 Sponsor <https://github.com/sponsors/adamghill>

@@ -192,6 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture/">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code-of-conduct/">Contributor Covenant Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
@@ -295,7 +296,7 @@
 <h2>v0.20.0<a class="headerlink" href="#v0-20-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with <a class="reference internal" href="../advanced/#javascript-exclude"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></span></a>.</p></li>
-<li><p>Add <a class="reference internal" href="../advanced/#complete"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">complete</span></code></span></a>, <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">rendered</span></code></span>, <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">parent_rendered</span></code></span> component hooks.</p></li>
+<li><p>Add <a class="reference internal" href="../advanced/#complete"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">complete</span></code></span></a>, <a class="reference internal" href="../advanced/#rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">rendered</span></code></span></a>, <a class="reference internal" href="../advanced/#parent-rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">parent_rendered</span></code></span></a> component hooks.</p></li>
 <li><p>Call <a class="reference internal" href="../advanced/#javascript-integration"><span class="std std-doc">JavaScript functions</span></a> from a component view’s method.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.19.0...0.20.0">All changes since 0.19.0</a>.</p>
@@ -321,7 +322,6 @@
 <ul class="simple">
 <li><p>Only send updated data back in the response to reduce network latency.</p></li>
 <li><p>Experimental support for <a class="reference internal" href="../queue-requests/"><span class="doc std std-doc">queuing up requests</span></a> to alleviate race conditions when functions take a long time to process.</p></li>
-<li><p>Use type hints on <span class="xref myst">component view attributes</span> if needed.</p></li>
 <li><p>Bug fix: prevent race condition where an instantiated component class would be inadvertently re-used for component views that are slow to render</p></li>
 <li><p>Bug fix: use the correct component name to call a <a class="reference internal" href="../actions/#calling-methods"><span class="std std-doc">component method from “outside” the component</span></a>.</p></li>
 <li><p>Deprecated: <code class="docutils literal notranslate"><span class="pre">DJANGO_UNICORN</span></code> setting has been renamed to <code class="docutils literal notranslate"><span class="pre">UNICORN</span></code>.</p></li>
@@ -433,7 +433,6 @@
 <div class="section" id="v0-11-0">
 <h2>v0.11.0<a class="headerlink" href="#v0-11-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">$model</span></code></span> special argument and decorator.</p></li>
 <li><p><a class="reference internal" href="../actions/#toggle"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$toggle</span></code></span></a> special method.</p></li>
 <li><p>Support nested properties when using the <a class="reference internal" href="../actions/#set-shortcut"><span class="std std-doc">set shortcut</span></a>.</p></li>
 <li><p>Fix action string arguments that would get spaces removed inadvertently.</p></li>
