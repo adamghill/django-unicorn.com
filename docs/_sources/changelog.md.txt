@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.28.0
+
+- Re-fire poll method when tab/window comes back into focus after losing visibility (https://github.com/adamghill/django-unicorn/pull/202 by [frbor](https://github.com/frbor))
+
+[All changes since 0.27.2](https://github.com/adamghill/django-unicorn/compare/0.27.2...0.28.0).
+
 ## v0.27.2
 
 - Fix bug with relationship fields on a Django model
