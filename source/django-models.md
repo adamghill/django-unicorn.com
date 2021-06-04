@@ -35,7 +35,7 @@ class ModelView(UnicornView):
       self.book = Book.objects.all().first()
 
     def save(self, book_to_save: Book):
-        book_to_save.delete()
+        book_to_save.save()
 ```
 
 ```{note}
