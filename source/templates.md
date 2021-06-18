@@ -6,6 +6,10 @@ Templates are just normal Django HTML templates, so anything you could normally 
 `Unicorn` requires there to be one root element surrounding the component template.
 ```
 
+```{note}
+To reduce the verbosity of templates, `u:` can be used as a shorthand for any attribute that starts with `unicorn:`. All of the examples in the documentation use `unicorn:` to be explicit, but both are supported.
+```
+
 ## Model modifiers
 
 ### Lazy
