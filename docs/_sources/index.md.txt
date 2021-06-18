@@ -43,6 +43,7 @@ queue-requests
 :maxdepth: 2
 :hidden:
 
+troubleshooting
 settings
 cli
 architecture

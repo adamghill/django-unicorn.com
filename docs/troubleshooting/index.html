@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Contributor Covenant Code of Conduct" href="../code-of-conduct/" /><link rel="prev" title="CLI" href="../cli/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Settings" href="../settings/" /><link rel="prev" title="Queue Requests" href="../queue-requests/" />
 
     <meta name="generator" content="sphinx-3.4.3, furo 2020.12.30.beta24"/>
-        <title>Architecture - Unicorn</title>
+        <title>Troubleshooting - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -189,10 +189,10 @@
 </ul>
 <p class="caption"><span class="caption-text">Misc</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../code-of-conduct/">Contributor Covenant Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
@@ -211,31 +211,20 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="architecture">
-<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is made up of multiple pieces which are all integrated tightly together. The following is a summary of how some of it all fits together, although it skips over a lot of the complexity and advanced functionality. However, for all of the details the code is available at <a class="reference external" href="https://github.com/adamghill/django-unicorn/">https://github.com/adamghill/django-unicorn/</a>.</p>
-<div class="section" id="template-tags">
-<h2>Template tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h2>
-<p>Starting with the integration with a normal Django template, there are the <code class="docutils literal notranslate"><span class="pre">unicorn_scripts</span></code> and <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> template tags. <code class="docutils literal notranslate"><span class="pre">unicorn_scripts</span></code> renders out the entire JavaScript library and initializes the global <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> object. The <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> template tag provides the ability to add the component wherever it is needed on the page. Based on the name passed into the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> template tag, conventions are used to find the correct component view and component template (e.g. if “hello-world” is passed into the template tag, a class of <code class="docutils literal notranslate"><span class="pre">hello_world.HelloWorldView</span></code> and a template named <code class="docutils literal notranslate"><span class="pre">hello-world.html</span></code> will be searched for).</p>
-<p>Once the component view and template are found, a serialized version of all of the public attributes of the component view is generated into a JSON object for the page, and the template is rendered with a context of those same public attributes.</p>
+        <div class="section" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="disallowed-mime-type-error-on-windows">
+<h2>Disallowed MIME type error on Windows<a class="headerlink" href="#disallowed-mime-type-error-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>Apparently Windows system-wide MIME type configuration sometimes won’t load up JavaScript modules in certain browsers. The errors would be something like <code class="docutils literal notranslate"><span class="pre">Loading</span> <span class="pre">module</span> <span class="pre">from</span> <span class="pre">“http://127.0.0.1:8000/static/js/unicorn.js”</span> <span class="pre">was</span> <span class="pre">blocked</span> <span class="pre">because</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">disallowed</span> <span class="pre">MIME</span> <span class="pre">type</span> <span class="pre">(“text/plain”)</span></code> or <code class="docutils literal notranslate"><span class="pre">Failed</span> <span class="pre">to</span> <span class="pre">load</span> <span class="pre">module</span> <span class="pre">script:</span> <span class="pre">The</span> <span class="pre">server</span> <span class="pre">responded</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">non-JavaScript</span> <span class="pre">MIME</span> <span class="pre">type</span> <span class="pre">of</span> <span class="pre">"text/plain".</span></code></p>
+<p>One suggested solution is to add the following to the bottom of the settings file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
+
+<span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">mimetypes</span>
+    <span class="n">mimetypes</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="s2">"application/javascript"</span><span class="p">,</span> <span class="s2">".js"</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="javascript-initialization">
-<h2>JavaScript initialization<a class="headerlink" href="#javascript-initialization" title="Permalink to this headline">¶</a></h2>
-<p>After the template is rendered, the JavaScript library parses the HTML for DOM elements that start with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code> or <code class="docutils literal notranslate"><span class="pre">u:</span></code> and creates a list of attributes that end with <code class="docutils literal notranslate"><span class="pre">:model</span></code>, <code class="docutils literal notranslate"><span class="pre">:poll</span></code>, or other specific <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> functionality. For attributes that are let, the assumption is that they are an event type (e.g. <code class="docutils literal notranslate"><span class="pre">unicorn:click</span></code>).</p>
-<p>For anything that is a model, the JavaScript sets the value for the element based on the serialized data of the publicly available attributes from the component view. Event listeners are attached for all event types. Then, other custom functionality is setup (e.g. polling).</p>
-</div>
-<div class="section" id="models">
-<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
-<p>For all inputs which have a <code class="docutils literal notranslate"><span class="pre">model</span></code> attribute, an event listener is attached (either <code class="docutils literal notranslate"><span class="pre">change</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> depending on if the <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier is used). The <code class="docutils literal notranslate"><span class="pre">defer</span></code> modifier will store the action to be bundled with an action event that might happen later.</p>
-<p>Once a model event is fired it is sent over the wire to the defined AJAX endpoint with a specific JSON structure which tells <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> what the updated data from the input should be. The component class is re-instantiated and the data is updated from the front-end, then re-rendered and the HTML is returned in the response.</p>
-</div>
-<div class="section" id="actions">
-<h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<p>Actions follow a similar path as the models above, however there is a different JSON stucture. Also, the method, arguments, and kwargs that are passed from the front-end get parsed with a mix of <code class="docutils literal notranslate"><span class="pre">ast.parse</span></code> and <code class="docutils literal notranslate"><span class="pre">ast.literal_eval</span></code> to convert the strings into the appropriate Python types (i.e. change the string “1” to the integer <code class="docutils literal notranslate"><span class="pre">1</span></code>). After the component is re-initialized, the method is called with the passed-in arguments and kwargs. Once all of the actions have been called, the component view is re-rendered and the HTML is returned in the response.</p>
-</div>
-<div class="section" id="html-diff">
-<h2>HTML Diff<a class="headerlink" href="#html-diff" title="Permalink to this headline">¶</a></h2>
-<p>After the AJAX endpoint returns its response, the newly rendered DOM is merged into the old DOM with <code class="docutils literal notranslate"><span class="pre">morphdom</span></code> and input values are set again based on the new data in the AJAX response.</p>
+<p>See this <a class="reference external" href="https://www.taricorp.net/2020/windows-mime-pitfalls/">Windows MIME type detection pitfalls</a> article, this <a class="reference external" href="https://stackoverflow.com/a/16355034">StackOverflow answer</a>, or <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/201">issue #201</a> for more details.</p>
 </div>
 </div>
 
@@ -243,23 +232,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../code-of-conduct/">
+          <a class="next-page" href="../settings/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Contributor Covenant Code of Conduct</div>
+                <div class="title">Settings</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../cli/">
+          <a class="prev-page" href="../queue-requests/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">CLI</div>
+                <div class="title">Queue Requests</div>
                 
               </div>
             </a>
@@ -273,7 +262,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../_sources/architecture.md.txt"
+            <a class="muted-link" href="../_sources/troubleshooting.md.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -293,12 +282,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Architecture</a><ul>
-<li><a class="reference internal" href="#template-tags">Template tags</a></li>
-<li><a class="reference internal" href="#javascript-initialization">JavaScript initialization</a></li>
-<li><a class="reference internal" href="#models">Models</a></li>
-<li><a class="reference internal" href="#actions">Actions</a></li>
-<li><a class="reference internal" href="#html-diff">HTML Diff</a></li>
+<li><a class="reference internal" href="#">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#disallowed-mime-type-error-on-windows">Disallowed MIME type error on Windows</a></li>
 </ul>
 </li>
 </ul>
