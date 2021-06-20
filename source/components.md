@@ -4,27 +4,30 @@
 
 ## Create a component
 
-The easiest way to create your first component is to run the following Django management command after `Unicorn` is installed.
+The easiest way to create your first component is to run the `startunicorn` Django management command after `Unicorn` is installed. The first argument to `startunicorn` is the Django app to add your component to. Every argument after is a new component to create a template and view for.
 
 ```shell
-python manage.py startunicorn hello-world
+# Create `hello-world` and `hello-magic` components in a `unicorn` app
+python manage.py startunicorn unicorn hello-world hello-magic
 ```
 
 ```{warning}
-If this is the first component you create, you will also need to make sure that `"unicorn",` is in the `INSTALLED_APPS` list in your Django settings file (normally `settings.py`) to make sure that Django can find the created component templates.
-
-Also, make sure that there is a `{% csrf_token %}` in your HTML somewhere to prevent cross-site scripting attacks while using `Unicorn`.
+If the app does not already exist, make sure that you add it to `INSTALLED_APPS` in your Django settings file (normally `settings.py`). Otherwise Django will not be able to find the newly created component templates.
 ```
 
 ```{note}
-Change which apps `Unicorn` looks in for components with the [APPS setting](settings.md#apps).
+Explicitly set which apps `Unicorn` looks in for components with the [APPS setting](settings.md#apps). Otherwise, all `INSTALLED_APPS` will be searched for components.
 ```
 
-Add `{% unicorn 'hello-world' %}` into the template where you want to load the new component.
+Add a `{% unicorn 'hello-world' %}` templatetag into the template where you want to load the new component.
+
+```{warning}
+Make sure that there is a `{% csrf_token %}` rendered by the HTML template that includes the component to prevent cross-site scripting attacks while using `Unicorn`.
+```
 
 ## Component key
 
-If there are multiple of the same components on the page, a `key` kwarg can be passed into the template. For example, `{% unicorn 'hello-world' key='helloWorldKey' %}`.
+If there are multiple of the same components on the page, a `key` kwarg can be passed into the template. For example, `{% unicorn 'hello-world' key='helloWorldKey' %}`. This is useful when a unique reference to a component is required, but it is optional.
 
 ## Component arguments
 

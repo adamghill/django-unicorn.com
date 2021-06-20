@@ -230,13 +230,12 @@
 </div>
 <div class="section" id="integrate-unicorn-with-django">
 <h2>Integrate <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with Django<a class="headerlink" href="#integrate-unicorn-with-django" title="Permalink to this headline">¶</a></h2>
-<p>1. Add the required apps to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> list in the Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>).</p>
+<p>1. Add <code class="docutils literal notranslate"><span class="pre">django_unicorn</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> list in the Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
 <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="c1"># other apps</span>
     <span class="s2">"django_unicorn"</span><span class="p">,</span>  <span class="c1"># required for Django to register urls and templatetags</span>
-    <span class="c1"># un-comment the next line once you have added your first Unicorn component</span>
-    <span class="c1"># "unicorn",  # where components and templates are stored;</span>
+    <span class="c1"># other apps</span>
 <span class="p">)</span>
 </pre></div>
 </div>

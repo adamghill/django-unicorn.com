@@ -41,15 +41,15 @@ profile = "black"
 multi_line_output = 3
 
 [tool.poe.tasks]
-r = "./manage.py runserver 0:8000"
-mm = "./manage.py makemigrations"
-m = "./manage.py migrate"
+r = { cmd = "./manage.py runserver 0:8000", help = "Run the dev server" }
+mm = { cmd = "./manage.py makemigrations", help = "Make migrations" }
+m = { cmd = "./manage.py migrate", help = "Migrate" }
 md = ["mm", "m"]
-ma = "./manage.py"
-t = "pytest"
-sp = "sphinx-build -E -a -b pdf source docs"
-sa = "sphinx-autobuild -b dirhtml source docs"
-sb = "sphinx-build -E -a -b dirhtml source docs"
+ma = { cmd = "./manage.py", help = "manage.py" }
+t = { cmd = "pytest", help = "Run tests" }
+sp = { cmd = "sphinx-build -E -a -b pdf source docs", help = "Build PDF documentation" }
+sa = { cmd = "sphinx-autobuild -b dirhtml source docs", help = "Build documentation and host at localhost:8000" }
+sb = { cmd = "sphinx-build -E -a -b dirhtml source docs", help = "Build documentation" }
 
 [build-system]
 requires = ["poetry>=0.12"]

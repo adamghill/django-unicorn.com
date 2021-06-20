@@ -20,15 +20,14 @@ If attempting to install `django-unicorn` and `orjson` is preventing the install
 
 ## Integrate `Unicorn` with Django
 
-1\. Add the required apps to the `INSTALLED_APPS` list in the Django settings file (normally `settings.py`).
+1\. Add `django_unicorn` to the `INSTALLED_APPS` list in the Django settings file (normally `settings.py`).
 
 ```python
 # settings.py
 INSTALLED_APPS = (
     # other apps
     "django_unicorn",  # required for Django to register urls and templatetags
-    # un-comment the next line once you have added your first Unicorn component
-    # "unicorn",  # where components and templates are stored;
+    # other apps
 )
 ```
 
