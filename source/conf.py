@@ -23,7 +23,7 @@ copyright = "2020, Adam Hill"
 author = "Adam Hill"
 
 # The full version, including alpha/beta/rc tags
-release = "0.14.0"
+release = "0.30.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -95,8 +95,11 @@ html_theme_options = {
                 <img src="/static/img/video.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Screencasts
             </a>
             <a class="navbar-item" href="/examples">
-                    <img src="/static/img/tool.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Examples
-                </a>
+                <img src="/static/img/tool.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Examples
+            </a>
+            <a class="navbar-item" href="/sponsors">
+                <img src="/static/img/heart.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Sponsors
+            </a>
             <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
                 <img src="/static/img/twitter.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
             </a>
