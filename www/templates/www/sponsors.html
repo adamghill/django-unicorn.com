@@ -10,6 +10,47 @@
 <link res="stylesheet" href="{% static 'css/main.css' %}">
 {% endcompress %}
 
+<style>
+    .sponsorama-user {
+        display: none;
+    }
+
+    .sponsorama-total {
+        display: none;
+    }
+
+    .sponsorama-avatar img {
+        width: 52px;
+        border-radius: 50%;
+        padding: 8px;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .sponsorama-entity {
+        height: 50px;
+    }
+
+    .sponsorama-entity .sponsorama-login {
+        display: block;
+        position: relative;
+        top: -45px;
+        left: 55px;
+    }
+
+    .sponsorama-entity .sponsorama-name {
+        display: none;
+    }
+
+    .sponsorama-logo {
+        padding-top: 40px;
+    }
+
+    #sponsorama-active-sponsors {
+        width: 600px;
+    }
+</style>
+
 {% endblock styles %}
 
 {% block content %}
@@ -18,25 +59,24 @@
     <div class="columns features">
         <div class="column">
             <p class="mt-2">
-                <code>Unicorn</code> appreciates all GitHub sponsors who help to encourage continued development.  
+                <code>Unicorn</code> appreciates all GitHub sponsors who help to encourage continued development.
             </p>
 
             <p class="has-text-centered mt-4">
                 <a href="https://github.com/sponsors/adamghill" class="button is-link">Sponsor @adamghill</a>
             </p>
 
-            <h3 class="title is-5 mt-6">Solo developer / Freelancer</h3>
-            <ul>
-                <li><a href="https://github.com/carlosnasillo">carlosnasillo</a></li>
-             </ul>
+            <p class="mt-6">
+                Here is a list of all <code>Individual Advocates</code> and higher tier sponsors (provided by <a
+                    href="https://www.sponsorama.dev/" target="_blank">Sponsorama</a>).
+            </p>
 
-            <h3 class="title is-5 mt-6">Individual Advocates</h3>
-            <ul>
-               <li><a href="https://github.com/mbacicc">mbacicc</a></li>
-               <li><a href="https://github.com/zurtri">zurtri</a></li>
-            </ul>
+            <div id="sponsorama-active-sponsors" class="my-6"></div>
         </div>
     </div>
 </section>
 
+<script
+    src="https://www.sponsorama.dev/api/widget/active-sponsors.js?apikey=sr:as-bf9e1eb7-9256-4a58-8f4f-6dd6bb133c4f&exclude_tier=MDEyOlNwb25zb3JzVGllcjQ2MjMz">
+</script>
 {% endblock content %}
