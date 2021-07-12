@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.31.0
+
+- Move JavaScript static assets into `unicorn` sub-folder
+- Determine correct path for installed app passed to `startunicorn` management command
+- Call `startapp` management command if app is not already installed
+
+[All changes since 0.30.0](https://github.com/adamghill/django-unicorn/compare/0.30.0...0.31.0).
+
 ## v0.30.0
 
 - Look in all `INSTALLED_APPS` for components instead of only in a `unicorn` app [210](https://github.com/adamghill/django-unicorn/issues/210)

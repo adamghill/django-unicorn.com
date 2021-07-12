@@ -16,20 +16,40 @@
 <script src="{% static 'roughnotation/rough-notation.iife.js' %}"></script>
 
 <script>
-window.onload = function(event) {
-    RoughNotation.annotate(document.querySelector('#magical'), { type: 'underline', color: '#f8f4ff', iterations: 2, animationDuration: 500}).show();
-    RoughNotation.annotate(document.querySelector('#magic'), { type: 'underline', color: 'blue', iterations: 2, animationDuration: 500}).show();
-    RoughNotation.annotate(document.querySelector('#other'), { type: 'crossed-off', color: '#FF3333', iterations: 2, animationDuration: 500}).show();
+    window.onload = function (event) {
+        RoughNotation.annotate(document.querySelector('#magical'), {
+            type: 'underline',
+            color: '#f8f4ff',
+            iterations: 2,
+            animationDuration: 500
+        }).show();
+        RoughNotation.annotate(document.querySelector('#magic'), {
+            type: 'underline',
+            color: 'blue',
+            iterations: 2,
+            animationDuration: 500
+        }).show();
+        RoughNotation.annotate(document.querySelector('#other'), {
+            type: 'crossed-off',
+            color: '#FF3333',
+            iterations: 2,
+            animationDuration: 500
+        }).show();
 
-    var highlightOptions = { type: 'highlight', color: 'yellow', iterations: 1, animationDuration: 500};
-    RoughNotation.annotate(document.querySelector('#size'), highlightOptions).show();
+        var highlightOptions = {
+            type: 'highlight',
+            color: 'yellow',
+            iterations: 1,
+            animationDuration: 500
+        };
+        RoughNotation.annotate(document.querySelector('#size'), highlightOptions).show();
 
-    RoughNotation.annotationGroup([
-        RoughNotation.annotate(document.querySelector('#add'), highlightOptions),
-        RoughNotation.annotate(document.querySelector('#skip'), highlightOptions),
-        RoughNotation.annotate(document.querySelector('#no'), highlightOptions),
-    ]).show();
-};
+        RoughNotation.annotationGroup([
+            RoughNotation.annotate(document.querySelector('#add'), highlightOptions),
+            RoughNotation.annotate(document.querySelector('#skip'), highlightOptions),
+            RoughNotation.annotate(document.querySelector('#no'), highlightOptions),
+        ]).show();
+    };
 </script>
 
 {% unicorn_scripts %}
@@ -39,11 +59,11 @@ window.onload = function(event) {
 
 {% csrf_token %}
 
-
 <section class="hero is-info is-medium is-bold">
     <div class="hero-body">
         <div class="container">
-            <img src="{% static 'img/unicorn.svg' %}" height="80" width="80" style="float: left; height: 80px; top: -10px; position: relative; margin-right: 20px;" />
+            <img src="{% static 'img/unicorn.svg' %}" height="80" width="80"
+                style="float: left; height: 80px; top: -10px; position: relative; margin-right: 20px;" />
             <div>
                 <h1 class="title">
                     Unicorn
@@ -58,9 +78,9 @@ window.onload = function(event) {
 
 <div class="box cta">
     <p class="has-text-centered">
-        <span class="tag is-primary">New</span> 
-        0.30.0 now defaults to search for components in <code>INSTALLED_APPS</code>.
-        <br />See the <a href="/docs/changelog/#v0-30-0">changelog</a> for more details. 🎉 
+        <span class="tag is-primary">New</span>
+        0.31.0 fixes some bugs in the <code>startunicorn</code> management command and namespaces static assets.
+        <br />See the <a href="/docs/changelog/#v0-31-0">changelog</a> for more details. 🎉
     </p>
 </div>
 
@@ -75,7 +95,8 @@ window.onload = function(event) {
                     <div class="content">
                         <h4><span id="add">Add modern site functionality</span></h4>
                         <p>
-                            Quickly add in simple interactions to regular Django templates without learning a new templating language.
+                            Quickly add in simple interactions to regular Django templates without learning a new
+                            templating language.
                         </p>
                     </div>
                 </div>
@@ -90,7 +111,8 @@ window.onload = function(event) {
                     <div class="content">
                         <h4><span id="skip">Skip the JavaScript build tools</span></h4>
                         <p>
-                            Stop fighting with a new JavaScript build tool and separate process to use yet another frontend framework.
+                            Stop fighting with a new JavaScript build tool and separate process to use yet another
+                            frontend framework.
                         </p>
                     </div>
                 </div>
@@ -105,7 +127,8 @@ window.onload = function(event) {
                     <div class="content">
                         <h4><span id="no">No API required</span></h4>
                         <p>
-                            Building a feature-rich API is complicated. Skip creating a bunch of serializers and just use Django.
+                            Building a feature-rich API is complicated. Skip creating a bunch of serializers and just
+                            use Django.
                         </p>
                     </div>
                 </div>
@@ -120,7 +143,9 @@ window.onload = function(event) {
             <ol class="mx-4">
                 <li><a href="/docs/installation/">Install</a> <code>Unicorn</code></li>
                 <li><a href="/docs/components/">Create</a> a component</li>
-                <li>Load the <code>Unicorn</code> templatetag with {% verbatim %}<code>{% load unicorn %}</code>{% endverbatim %} and add the component to your template with {% verbatim %}<code>{% unicorn 'component-name' %}</code>{% endverbatim %}</li>
+                <li>Load the <code>Unicorn</code> templatetag with
+                    {% verbatim %}<code>{% load unicorn %}</code>{% endverbatim %} and add the component to your
+                    template with {% verbatim %}<code>{% unicorn 'component-name' %}</code>{% endverbatim %}</li>
                 <li>🎉</li>
             </ol>
         </div>
@@ -134,7 +159,8 @@ window.onload = function(event) {
                 {% unicorn 'todo-bulma' %}
             </div>
 
-            {% verbatim %}<pre data-lang="html"><code class="language-html">&lt;!-- unicorn/templates/unicorn/todo.html --&gt;
+            {% verbatim %}
+            <pre data-lang="html"><code class="language-html">&lt;!-- unicorn/templates/unicorn/todo.html --&gt;
 &lt;div&gt;
   &lt;form unicorn:submit.prevent="add">
     &lt;input type=&quot;text&quot;
@@ -159,7 +185,7 @@ window.onload = function(event) {
 &lt;/div&gt;</code></pre>{% endverbatim %}
 
             <br />
-            
+
             <pre data-lang="python"><code class="language-python"># unicorn/components/todo.py
 from django_unicorn.components import UnicornView
 from django import forms
@@ -179,7 +205,8 @@ class TodoView(UnicornView):
 
         <div class="mt-4">
             <p>
-                Other <a href="{% url 'www:examples' 'todo' %}">example components</a>. Or read all of the <a href="/docs/">documentation</a> about how to use <code>Unicorn</code>.
+                Other <a href="{% url 'www:examples' 'todo' %}">example components</a>. Or read all of the <a
+                    href="/docs/">documentation</a> about how to use <code>Unicorn</code>.
             </p>
         </div>
 
@@ -192,13 +219,17 @@ class TodoView(UnicornView):
 
             <div class="content">
                 <ul>
-                    <li><code>Unicorn</code> progressively enhances a normal Django view, so the initial render of components is <strong>fast</strong> and great for <strong>SEO</strong>.
-                    <li>Next, <code>Unicorn</code> binds to the elements you specify and automatically makes AJAX calls when needed.</li>
+                    <li><code>Unicorn</code> progressively enhances a normal Django view, so the initial render of
+                        components is <strong>fast</strong> and great for <strong>SEO</strong>.
+                    <li>Next, <code>Unicorn</code> binds to the elements you specify and automatically makes AJAX calls
+                        when needed.</li>
                     <li>Then, <code>Unicorn</code> dynamically updates the DOM.</li>
                 </ul>
 
                 <p>
-                    The end result is that you can focus on writing regular Django templates and Python classes without needing to switch to another language or build unnecessary plumbing. Best of all, the JavaScript portion is a paltry <span id="size"><strong>~8 KB</strong></span> gzipped.
+                    The end result is that you can focus on writing regular Django templates and Python classes without
+                    needing to switch to another language or build unnecessary plumbing. Best of all, the JavaScript
+                    portion is a paltry <span id="size"><strong>~8 KB</strong></span> gzipped.
                 </p>
             </div>
         </div>
@@ -207,15 +238,20 @@ class TodoView(UnicornView):
             <h2 class="title">Sponsoring</h2>
 
             <p>
-                Help encourage development for more features and bug fixes on <code>Unicorn</code> by <a href="https://github.com/sponsors/adamghill">sponsoring me on GitHub</a>. Sponsorship benefits (some are dependant on the sponsorship level):
+                Help encourage development for more features and bug fixes on <code>Unicorn</code> by <a
+                    href="https://github.com/sponsors/adamghill">sponsoring me on GitHub</a>. Sponsorship benefits (some
+                are dependant on the sponsorship level):
             </p>
 
             <div class="content">
                 <ul>
-                    <li>My undying appreciation and a warm glow from helping support open-source projects for Django.</li>
+                    <li>My undying appreciation and a warm glow from helping support open-source projects for Django.
+                    </li>
                     <li>Listed on <a href="{% url 'www:sponsors' %}">django-unicorn.com/sponsors.</a></li>
-                    <li>Prioritized handling of <a href="https://github.com/adamghill/django-unicorn/issues">bugs and issues in GitHub.</a></li>
-                    <li>Access to additional <a href="{% url 'www:screencasts' name='installation' %}">screencasts</a> detailing advanced use-cases for <code>Unicorn</code> (coming soon).</li>
+                    <li>Prioritized handling of <a href="https://github.com/adamghill/django-unicorn/issues">bugs and
+                            issues in GitHub.</a></li>
+                    <li>Access to additional <a href="{% url 'www:screencasts' name='installation' %}">screencasts</a>
+                        detailing advanced use-cases for <code>Unicorn</code> (coming soon).</li>
                 </ul>
             </div>
         </div>
@@ -224,7 +260,8 @@ class TodoView(UnicornView):
             <h2 class="title">Using <span id="other">other</span> frontend frameworks with Django</h2>
 
             <p>
-                Not convinced using <code>Unicorn</code> is for you? Check out some <a href="{% url 'www:articles' %}">other approaches to integrate Django with a frontend framework</a>.
+                Not convinced using <code>Unicorn</code> is for you? Check out some <a
+                    href="{% url 'www:articles' %}">other approaches to integrate Django with a frontend framework</a>.
             </p>
         </div>
 

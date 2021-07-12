@@ -4,7 +4,9 @@
 
 ## Create a component
 
-The easiest way to create your first component is to run the `startunicorn` Django management command after `Unicorn` is installed. The first argument to `startunicorn` is the Django app to add your component to. Every argument after is a new component to create a template and view for.
+The easiest way to create your first component is to run the `startunicorn` Django management command after `Unicorn` is installed.
+
+The first argument to `startunicorn` is the Django app to add your component to. Every argument after is a new component to create a template and view for.
 
 ```shell
 # Create `hello-world` and `hello-magic` components in a `unicorn` app
@@ -12,7 +14,7 @@ python manage.py startunicorn unicorn hello-world hello-magic
 ```
 
 ```{warning}
-If the app does not already exist, make sure that you add it to `INSTALLED_APPS` in your Django settings file (normally `settings.py`). Otherwise Django will not be able to find the newly created component templates.
+If the app does not already exist, `startunicorn` will ask if it should call `startapp` to create a new application. However, make sure to add the app name to `INSTALLED_APPS` in your Django settings file (normally `settings.py`). Otherwise Django will not be able to find the newly created component templates.
 ```
 
 ```{note}

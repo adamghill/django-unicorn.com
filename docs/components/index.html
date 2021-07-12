@@ -224,14 +224,15 @@
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses the term “component” to refer to a set of interactive functionality that can be put into templates. A component consists of a Django HTML <code class="docutils literal notranslate"><span class="pre">template</span></code> with specific tags and a Python <code class="docutils literal notranslate"><span class="pre">view</span></code> class which provides the backend code for the template.</p>
 <div class="section" id="create-a-component">
 <h2>Create a component<a class="headerlink" href="#create-a-component" title="Permalink to this headline">¶</a></h2>
-<p>The easiest way to create your first component is to run the <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> Django management command after <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is installed. The first argument to <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> is the Django app to add your component to. Every argument after is a new component to create a template and view for.</p>
+<p>The easiest way to create your first component is to run the <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> Django management command after <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is installed.</p>
+<p>The first argument to <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> is the Django app to add your component to. Every argument after is a new component to create a template and view for.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create `hello-world` and `hello-magic` components in a `unicorn` app</span>
 python manage.py startunicorn unicorn hello-world hello-magic
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If the app does not already exist, make sure that you add it to <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>). Otherwise Django will not be able to find the newly created component templates.</p>
+<p>If the app does not already exist, <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> will ask if it should call <code class="docutils literal notranslate"><span class="pre">startapp</span></code> to create a new application. However, make sure to add the app name to <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>). Otherwise Django will not be able to find the newly created component templates.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
