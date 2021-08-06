@@ -84,12 +84,16 @@ class HelloWorldView(UnicornView):
     name = "World"
 ```
 
+In file hello-world.html
 ```html
-<!-- hello-world.html -->
 <div>
   <input unicorn:model="name" type="text" id="text" /><br />
   Hello {{ name|title }}
 </div>
+```
+
+```{warning}
+Do not add anything before the <div> . No HTML comment, no tags, no text. 
 ```
 
 `unicorn:model` is the magic that ties the input to the backend component. The Django template variable can use any property or method on the component as if they were context variables passed in from a view. The attribute passed into `unicorn:model` refers to the property in the component class and binds them together.
@@ -143,8 +147,8 @@ class HelloWorldView(UnicornView):
     book_ratings = {'excellent': {'title: 'American Gods'}}
 ```
 
+In file hello-world.html
 ```html
-<!-- hello-world.html -->
 <div>
   <input unicorn:model="book.title" type="text" id="model" />
   <input
@@ -172,8 +176,8 @@ class HelloWorldView(UnicornView):
     books = Book.objects.all()
 ```
 
+In file hello-world.html
 ```html
-<!-- hello-world.html -->
 <div>
   <input unicorn:model="books.0.title" type="text" id="text" />
 </div>
@@ -205,8 +209,8 @@ class Author(UnicornField):
         author = Author()
 ```
 
+In file hello-world.html 
 ```html
-<!-- hello-world.html -->
 <div>
   <input unicorn:model="author.name" type="text" id="author_name" />
 </div>
