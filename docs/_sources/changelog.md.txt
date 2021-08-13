@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.33.0
+
+- Fix: Allow comments, blank lines, or text at the top of component templates before the root element.
+
+[All changes since 0.32.0](https://github.com/adamghill/django-unicorn/compare/0.32.0...0.33.0).
+
+## v0.32.0
+
+- Add debounce support to actions.
+
+[All changes since 0.31.0](https://github.com/adamghill/django-unicorn/compare/0.31.0...0.32.0).
+
 ## v0.31.0
 
 - Move JavaScript static assets into `unicorn` sub-folder
