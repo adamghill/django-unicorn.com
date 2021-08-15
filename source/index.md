@@ -73,6 +73,7 @@ Sponsor <https://github.com/sponsors/adamghill>
 - [Sockpuppet](https://sockpuppet.argpar.se/), a port of Ruby on Rail's `StimulusReflex`. Requires Django channels and websockets.
 - [Django inertia.js adapter](https://github.com/zodman/inertia-django) allows Django to use <a href="https://inertiajs.com">inertia.js</a> to build an SPA without building an API.
 - [Hotwire for Django](https://github.com/hotwire-django) contains a few different repositiories to integrate [Hotwire](https://hotwire.dev) with Django.
+- [Lona](https://lona-web.org/) is a web application framework, designed to write responsive web apps in full Python.
 
 #### Comparison
 
