@@ -93,3 +93,4 @@ Sponsor <https://github.com/sponsors/adamghill>
 - [django-components](https://github.com/EmilStenstrom/django-components/), which lets you create "template components", that contains both the template, the Javascript and the CSS needed to generate the front end code you need for a modern app.
 - [django-component](https://gitlab.com/Mojeer/django_components), which provides declarative and composable components for Django, inspired by JavaScript frameworks.
 - [django-page-components](https://github.com/andreyfedoseev/django-page-components), a minimalistic framework for creating page components and using them in your Django views and templates.
+- [slippers](https://mitchel.me/slippers/), helps build reusable components in Django without writing a single line of Python.
