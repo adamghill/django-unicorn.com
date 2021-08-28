@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.34.0
+
+- Initial prototype for component template [lifecycle events](templates.md#lifecycle-events).
+- Fix: elements after a child component would not get initialized [262](https://github.com/adamghill/django-unicorn/pull/262) by [joshiggins](https://github.com/joshiggins).
+- Fix: cache would fail in some instances [258](https://github.com/adamghill/django-unicorn/issues/258).
+
+[All changes since 0.33.0](https://github.com/adamghill/django-unicorn/compare/0.33.0...0.34.0).
+
 ## v0.33.0
 
 - Fix: Allow comments, blank lines, or text at the top of component templates before the root element.

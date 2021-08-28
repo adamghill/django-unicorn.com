@@ -312,6 +312,25 @@
 <p>The JavaScript library used to merge changes in the DOM, <code class="docutils literal notranslate"><span class="pre">morphdom</span></code>, uses an element’s <code class="docutils literal notranslate"><span class="pre">id</span></code> to intelligently update DOM elements. If it isn’t possible to have an <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute on the element, <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> will be used if it is available.</p>
 </div>
 </div>
+<div class="section" id="lifecycle-events">
+<h2>Lifecycle events<a class="headerlink" href="#lifecycle-events" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides events that fire when different parts of the lifecycle occur.</p>
+<div class="section" id="updated">
+<h3>updated<a class="headerlink" href="#updated" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">updated</span></code> event is fired after the AJAX call finishes and the component is merged with the newly rendered component template. The callback gets called with one argument, <code class="docutils literal notranslate"><span class="pre">component</span></code>, which can be inspected if necessary.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- updated-event.html --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"application/javascript"</span><span class="p">&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">Unicorn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"updated"</span><span class="p">,</span> <span class="p">(</span><span class="nx">component</span><span class="p">)</span> <span class="p">=&gt;</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"got updated"</span><span class="p">,</span> <span class="nx">component</span><span class="p">)</span>
+    <span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="ignore-elements">
 <h2>Ignore elements<a class="headerlink" href="#ignore-elements" title="Permalink to this headline">¶</a></h2>
 <p>Some JavaScript libraries will change the DOM (such as <code class="docutils literal notranslate"><span class="pre">Select2</span></code>) after the page renders. That can cause issues for <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> when trying to merge that DOM with what <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> <em>thinks</em> the DOM should be. <code class="docutils literal notranslate"><span class="pre">unicorn:ignore</span></code> can be used to prevent <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> from morphing that element or its children.</p>
@@ -430,6 +449,10 @@
 <li><a class="reference internal" href="#key">Key</a><ul>
 <li><a class="reference internal" href="#smooth-updates">Smooth updates</a></li>
 <li><a class="reference internal" href="#dom-merging">DOM merging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lifecycle-events">Lifecycle events</a><ul>
+<li><a class="reference internal" href="#updated">updated</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ignore-elements">Ignore elements</a></li>

@@ -107,6 +107,26 @@ However, setting the same `id` on two elements with the same `unicorn:model` won
 
 The JavaScript library used to merge changes in the DOM, `morphdom`, uses an element's `id` to intelligently update DOM elements. If it isn't possible to have an `id` attribute on the element, `unicorn:key` will be used if it is available.
 
+## Lifecycle events
+
+`Unicorn` provides events that fire when different parts of the lifecycle occur.
+
+### updated
+
+The `updated` event is fired after the AJAX call finishes and the component is merged with the newly rendered component template. The callback gets called with one argument, `component`, which can be inspected if necessary.
+
+```html
+<!-- updated-event.html -->
+
+<script type="application/javascript">
+  window.addEventListener("DOMContentLoaded", (event) => {
+    Unicorn.addEventListener("updated", (component) =>
+      console.log("got updated", component)
+    );
+  });
+</script>
+```
+
 ## Ignore elements
 
 Some JavaScript libraries will change the DOM (such as `Select2`) after the page renders. That can cause issues for `Unicorn` when trying to merge that DOM with what `Unicorn` _thinks_ the DOM should be. `unicorn:ignore` can be used to prevent `Unicorn` from morphing that element or its children.
