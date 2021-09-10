@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../partial-updates/">Partial Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
@@ -221,6 +222,18 @@
         </label>
         <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v0-35-0">
+<h2>v0.35.0<a class="headerlink" href="#v0-35-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../advanced/#trigger-model-update"><span class="std std-doc">Trigger</span></a> an <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> event for a model element from JavaScript</p></li>
+<li><p><a class="reference internal" href="../visibility/"><span class="doc std std-doc">Visibility</span></a> event with <code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> attribute</p></li>
+</ul>
+<p><strong>Breaking changes</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">db_model</span></code> Python decorator, <code class="docutils literal notranslate"><span class="pre">unicorn:db</span></code>, <code class="docutils literal notranslate"><span class="pre">unicorn:field</span></code>, <code class="docutils literal notranslate"><span class="pre">unicorn:pk</span></code> template attributes are removed.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.34.0...0.35.0">All changes since 0.34.0</a>.</p>
+</div>
 <div class="section" id="v0-34-0">
 <h2>v0.34.0<a class="headerlink" href="#v0-34-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -772,6 +785,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-35-0">v0.35.0</a></li>
 <li><a class="reference internal" href="#v0-34-0">v0.34.0</a></li>
 <li><a class="reference internal" href="#v0-33-0">v0.33.0</a></li>
 <li><a class="reference internal" href="#v0-32-0">v0.32.0</a></li>

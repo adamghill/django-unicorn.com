@@ -157,6 +157,20 @@ class DiscardModifierView(UnicornView):
         pass
 ```
 
+### debounce
+
+Waits the specified time in milliseconds before calling the specified method.
+
+:::{code} html
+:force: true
+
+<!-- debounce-modifier.html -->
+<div>
+    <input type="text" unicorn:model="name">
+    <button unicorn:click.debounce-1000="add_count">Add Count</button>
+</div>
+:::
+
 ## Special arguments
 
 ### $event

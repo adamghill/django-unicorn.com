@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../partial-updates/">Partial Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
@@ -441,6 +442,8 @@
 </div>
 <div class="section" id="javascript-integration">
 <h2>JavaScript Integration<a class="headerlink" href="#javascript-integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="call-javascript-from-view">
+<h3>Call JavaScript from View<a class="headerlink" href="#call-javascript-from-view" title="Permalink to this headline">¶</a></h3>
 <p>To integrate with other JavaScript functions, view methods can call an arbitrary JavaScript function after it gets rendered.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- call-javascript.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -467,6 +470,26 @@
     <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="trigger-model-update">
+<h3>Trigger Model Update<a class="headerlink" href="#trigger-model-update" title="Permalink to this headline">¶</a></h3>
+<p>Normally when a model element gets changed by a user it will trigger an event which <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> listens for (either <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> depending on if it has a <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier). However, when setting an element with JavaScript those events do not fire. <code class="docutils literal notranslate"><span class="pre">Unicorn.trigger()</span></code> provides a way to trigger that event from JavaScript manually.</p>
+<p>The first argument to <code class="docutils literal notranslate"><span class="pre">trigger</span></code> is the component name. The second argument is the value for the element’s <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- trigger-model.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span>
+  <span class="na">id</span><span class="o">=</span><span class="s">"nameId"</span>
+  <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"nameKey"</span>
+  <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span>
+  <span class="na">value</span><span class="o">=</span><span class="s">"initial value"</span>
+<span class="p">/&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"nameId"</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">"new value"</span><span class="p">;</span>
+  <span class="nx">Unicorn</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"hello_world"</span><span class="p">,</span> <span class="s2">"nameKey"</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -555,7 +578,11 @@
 <li><a class="reference internal" href="#javascript-exclude">javascript_exclude</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#javascript-integration">JavaScript Integration</a></li>
+<li><a class="reference internal" href="#javascript-integration">JavaScript Integration</a><ul>
+<li><a class="reference internal" href="#call-javascript-from-view">Call JavaScript from View</a></li>
+<li><a class="reference internal" href="#trigger-model-update">Trigger Model Update</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

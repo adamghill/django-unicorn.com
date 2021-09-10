@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../partial-updates/">Partial Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
@@ -355,6 +356,17 @@
 
     <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="debounce">
+<h3>debounce<a class="headerlink" href="#debounce" title="Permalink to this headline">¶</a></h3>
+<p>Waits the specified time in milliseconds before calling the specified method.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- debounce-modifier.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">debounce-1000</span><span class="o">=</span><span class="s">"add_count"</span><span class="p">&gt;</span>Add Count<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -529,6 +541,7 @@
 <li><a class="reference internal" href="#prevent">prevent</a></li>
 <li><a class="reference internal" href="#stop">stop</a></li>
 <li><a class="reference internal" href="#discard">discard</a></li>
+<li><a class="reference internal" href="#debounce">debounce</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#special-arguments">Special arguments</a><ul>

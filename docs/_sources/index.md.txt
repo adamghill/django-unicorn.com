@@ -33,6 +33,7 @@ loading-states
 dirty-states
 partial-updates
 polling
+visibility
 messages
 advanced
 queue-requests

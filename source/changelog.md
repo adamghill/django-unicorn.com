@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.35.0
+
+- [Trigger](advanced.md#trigger-model-update) an `input` or `blur` event for a model element from JavaScript
+- [Visibility](visibility.md) event with `unicorn:visible` attribute
+
+**Breaking changes**
+
+- `db_model` Python decorator, `unicorn:db`, `unicorn:field`, `unicorn:pk` template attributes are removed.
+
+[All changes since 0.34.0](https://github.com/adamghill/django-unicorn/compare/0.34.0...0.35.0).
+
 ## v0.34.0
 
 - Initial prototype for component template [lifecycle events](templates.md#lifecycle-events).

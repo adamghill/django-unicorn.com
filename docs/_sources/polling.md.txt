@@ -21,7 +21,7 @@ A method can also be specified if there is a specific method on the component th
 To define a different refresh time in milliseconds, a modifier can be added as well. `unicorn:poll-1000` would fire the `refresh` method every 1 second, instead of the default 2 seconds.
 
 ```html
-<!-- polling_every_five_seconds.html -->
+<!-- polling-every-five-seconds.html -->
 <div unicorn:poll-5000="get_updates">
   <input unicorn:model="update" type="text" id="text" />
   {{ update }}

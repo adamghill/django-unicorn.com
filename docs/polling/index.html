@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Messages" href="../messages/" /><link rel="prev" title="Partial Updates" href="../partial-updates/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Visibility" href="../visibility/" /><link rel="prev" title="Partial Updates" href="../partial-updates/" />
 
     <meta name="generator" content="sphinx-3.4.3, furo 2020.12.30.beta24"/>
         <title>Polling - Unicorn</title>
@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../partial-updates/">Partial Updates</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Polling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
@@ -236,7 +237,7 @@
 </div>
 <p>A method can also be specified if there is a specific method on the component that should called every time the polling fires. For example, <code class="docutils literal notranslate"><span class="pre">unicorn:poll="get_updates"</span></code> would call the <code class="docutils literal notranslate"><span class="pre">get_updates</span></code> method instead of the built-in <code class="docutils literal notranslate"><span class="pre">refresh</span></code> method.</p>
 <p>To define a different refresh time in milliseconds, a modifier can be added as well. <code class="docutils literal notranslate"><span class="pre">unicorn:poll-1000</span></code> would fire the <code class="docutils literal notranslate"><span class="pre">refresh</span></code> method every 1 second, instead of the default 2 seconds.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- polling_every_five_seconds.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- polling-every-five-seconds.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-5000</span><span class="o">=</span><span class="s">"get_updates"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"update"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
   {{ update }}
@@ -318,12 +319,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../messages/">
+          <a class="next-page" href="../visibility/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Messages</div>
+                <div class="title">Visibility</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
