@@ -22,6 +22,13 @@ class VisibilityView(UnicornView):
 </div>
 ```
 
+```{note}
+In some cases, the element with the `unicorn:visible` attribute will always be in the viewport, so the event will continue to fire and the method will continue to execute. However, this will not happen in the following instances:
+
+- the fields of component do not change, so the AJAX request will return a 304 status code
+- the method explicitly returns `False`
+```
+
 ## Modifiers
 
 There are a few modifiers for `unicorn:visible` and they are able to be chained if necessary.

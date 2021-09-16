@@ -222,11 +222,11 @@
         </label>
         <div class="section" id="cli">
 <h1>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides a Django management command to create new components.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python manage.py startunicorn hello-world
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides a Django management command to create new components. The first argument is the name of the Django app to create components in. Every argument after is the name of components that should be created.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python manage.py startunicorn unicorn hello-world
 </pre></div>
 </div>
-<p>The command will create a <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> directory, and <code class="docutils literal notranslate"><span class="pre">templates</span></code> and <code class="docutils literal notranslate"><span class="pre">components</span></code> sub-directories if necessary. Underneath the <code class="docutils literal notranslate"><span class="pre">components</span></code> directory there will be a new module and subclass of <code class="docutils literal notranslate"><span class="pre">django_unicorn.components.UnicornView</span></code>. Underneath the <code class="docutils literal notranslate"><span class="pre">templates/unicorn</span></code> directory will be a example template.</p>
+<p>This example would create a <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> directory, and <code class="docutils literal notranslate"><span class="pre">templates</span></code> and <code class="docutils literal notranslate"><span class="pre">components</span></code> sub-directories if necessary. Underneath the <code class="docutils literal notranslate"><span class="pre">components</span></code> directory there will be a new module and subclass of <code class="docutils literal notranslate"><span class="pre">django_unicorn.components.UnicornView</span></code>. Underneath the <code class="docutils literal notranslate"><span class="pre">templates/unicorn</span></code> directory will be a example template.</p>
 <p>The following is an example folder structure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unicorn</span><span class="o">/</span>
     <span class="n">components</span><span class="o">/</span>
@@ -235,6 +235,10 @@
         <span class="n">unicorn</span><span class="o">/</span>
             <span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have an existing Django app, you can use that instead of <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> like the example above. The management command will create the the directories and files as needed.</p>
 </div>
 </div>
 

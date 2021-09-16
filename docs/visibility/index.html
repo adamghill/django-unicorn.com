@@ -241,6 +241,14 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases, the element with the <code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> attribute will always be in the viewport, so the event will continue to fire and the method will continue to execute. However, this will not happen in the following instances:</p>
+<ul class="simple">
+<li><p>the fields of component do not change, so the AJAX request will return a 304 status code</p></li>
+<li><p>the method explicitly returns <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</div>
 <div class="section" id="modifiers">
 <h2>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h2>
 <p>There are a few modifiers for <code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> and they are able to be chained if necessary.</p>

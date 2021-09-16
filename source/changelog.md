@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.35.2
+
+- Fix: Make sure `visible:elements` trigger as expected in more cases.
+- Prevent the visibile element from continuing to trigger if the visbility element method returns `False`.
+
+[All changes since 0.35.0](https://github.com/adamghill/django-unicorn/compare/0.35.0...0.35.2).
+
 ## v0.35.0
 
 - [Trigger](advanced.md#trigger-model-update) an `input` or `blur` event for a model element from JavaScript
