@@ -439,6 +439,26 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="safe">
+<h3>safe<a class="headerlink" href="#safe" title="Permalink to this headline">¶</a></h3>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> HTML encodes updated field values to prevent XSS attacks. You need to explicitly opt-in to allow a field to be returned without being encoded by adding it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">safe</span></code> tuple.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- safe-example.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"something_safe"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># safe_example.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">SafeExampleView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">something_safe</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">safe</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"something_safe"</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="javascript-integration">
 <h2>JavaScript Integration<a class="headerlink" href="#javascript-integration" title="Permalink to this headline">¶</a></h2>
@@ -576,6 +596,7 @@
 <li><a class="reference internal" href="#meta">Meta</a><ul>
 <li><a class="reference internal" href="#exclude">exclude</a></li>
 <li><a class="reference internal" href="#javascript-exclude">javascript_exclude</a></li>
+<li><a class="reference internal" href="#safe">safe</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#javascript-integration">JavaScript Integration</a><ul>

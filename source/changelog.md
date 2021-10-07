@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.36.0
+
+- Security fix: for CVE-2021-42053 to prevent XSS attacks.
+
+** Breaking changes **
+
+- responses will be HTML encoded going forward (to explicitly opt-in to previous behavior use [safe](advanced.md#safe))
+
+[All changes since 0.35.3](https://github.com/adamghill/django-unicorn/compare/0.35.3...0.36.0).
+
 ## v0.35.3
 
 - Fix: Handle when there are multiple apps sub-directories [273](https://github.com/adamghill/django-unicorn/pull/273) by [apoorvaeternity](https://github.com/apoorvaeternity).

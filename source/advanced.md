@@ -229,6 +229,28 @@ class HelloStateView(UnicornView):
         javascript_exclude = ("all_states", )
 ```
 
+### safe
+
+By default, `unicorn` HTML encodes updated field values to prevent XSS attacks. You need to explicitly opt-in to allow a field to be returned without being encoded by adding it to the `Meta` class's `safe` tuple.
+
+```html
+<!-- safe-example.html -->
+<div>
+  <input unicorn:model="something_safe" />
+</div>
+```
+
+```python
+# safe_example.py
+from django_unicorn.components import UnicornView
+
+class SafeExampleView(UnicornView):
+    something_safe = ""
+
+    class Meta:
+        safe = ("something_safe", )
+```
+
 ## JavaScript Integration
 
 ### Call JavaScript from View
