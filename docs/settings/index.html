@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="CLI" href="../cli/" /><link rel="prev" title="Troubleshooting" href="../troubleshooting/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="CLI" href="../cli/" /><link rel="prev" title="Troubleshooting" href="../troubleshooting/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Settings - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="settings">
+        <section id="settings">
 <h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> stores all settings in a dictionary under the <code class="docutils literal notranslate"><span class="pre">UNICORN</span></code> attribute in the Django settings file. All settings are optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
@@ -235,31 +236,31 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="apps">
+<section id="apps">
 <h2>APPS<a class="headerlink" href="#apps" title="Permalink to this headline">¶</a></h2>
 <p>Specify the modules to look for components. Defaults to <code class="docutils literal notranslate"><span class="pre">["unicorn",]</span></code>.</p>
-</div>
-<div class="section" id="cache-alias">
+</section>
+<section id="cache-alias">
 <h2>CACHE_ALIAS<a class="headerlink" href="#cache-alias" title="Permalink to this headline">¶</a></h2>
 <p>The alias to use for caching. Only used by the experimental serialization of requests for now. Defaults to <code class="docutils literal notranslate"><span class="pre">"default"</span></code>.</p>
-</div>
-<div class="section" id="minified">
+</section>
+<section id="minified">
 <h2>MINIFIED<a class="headerlink" href="#minified" title="Permalink to this headline">¶</a></h2>
 <p>Provides a way to control if the minified version of <code class="docutils literal notranslate"><span class="pre">unicorn.min.js</span></code> is used. Defaults to <code class="docutils literal notranslate"><span class="pre">!DEBUG</span></code>.</p>
-</div>
-<div class="section" id="serial">
+</section>
+<section id="serial">
 <h2>SERIAL<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h2>
 <p>Settings for the experimental serialization of requests. Defaults to <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
-<div class="section" id="enabled">
+<section id="enabled">
 <h3>ENABLED<a class="headerlink" href="#enabled" title="Permalink to this headline">¶</a></h3>
 <p>Whether slow requests to the same component should be queued or not. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</div>
-<div class="section" id="timeout">
+</section>
+<section id="timeout">
 <h3>TIMEOUT<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
 <p>The number of seconds to wait for a request to finish for additional requests to queue behind it. Defaults to <code class="docutils literal notranslate"><span class="pre">60</span></code>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
       </article>
       <footer>

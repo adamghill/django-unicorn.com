@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Dirty States" href="../dirty-states/" /><link rel="prev" title="Redirecting" href="../redirecting/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Dirty States" href="../dirty-states/" /><link rel="prev" title="Redirecting" href="../redirecting/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Loading States - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,10 +221,10 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="loading-states">
+        <section id="loading-states">
 <h1>Loading States<a class="headerlink" href="#loading-states" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> requires an AJAX request for any component updates, so it is helpful to provide some context to the user that an action is happening.</p>
-<div class="section" id="toggling-elements">
+<section id="toggling-elements">
 <h2>Toggling Elements<a class="headerlink" href="#toggling-elements" title="Permalink to this headline">¶</a></h2>
 <p>Elements with the <code class="docutils literal notranslate"><span class="pre">unicorn:loading</span></code> attribute are only visible when an action is in process.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading.html --&gt;</span>
@@ -270,11 +271,11 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="toggling-attributes">
+</section>
+<section id="toggling-attributes">
 <h2>Toggling Attributes<a class="headerlink" href="#toggling-attributes" title="Permalink to this headline">¶</a></h2>
 <p>Elements with an action event can also include an <code class="docutils literal notranslate"><span class="pre">unicorn:loading</span></code> attribute with either an <code class="docutils literal notranslate"><span class="pre">attr</span></code> or <code class="docutils literal notranslate"><span class="pre">class</span></code> modifier.</p>
-<div class="section" id="attr">
+<section id="attr">
 <h3>attr<a class="headerlink" href="#attr" title="Permalink to this headline">¶</a></h3>
 <p>Set the specified attribute on the element that is triggering the action.</p>
 <p>This example will disable the <em>Update</em> button when it is clicked and remove the attribute once the action is completed.</p>
@@ -284,8 +285,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="class">
+</section>
+<section id="class">
 <h3>class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h3>
 <p>Add the specified class(es) to the element that is triggering the action.</p>
 <p>This example will add <code class="docutils literal notranslate"><span class="pre">loading</span></code> and <code class="docutils literal notranslate"><span class="pre">spinner</span></code> classes to the <em>Update</em> button when it is clicked and remove the classes once the action is completed.</p>
@@ -295,8 +296,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="class-remove">
+</section>
+<section id="class-remove">
 <h3>class.remove<a class="headerlink" href="#class-remove" title="Permalink to this headline">¶</a></h3>
 <p>Remove the specified class from the element that is triggering the action.</p>
 <p>This example will remove a <code class="docutils literal notranslate"><span class="pre">active</span></code> class from the <em>Update</em> button when it is clicked and add the class back once the action is completed.</p>
@@ -308,9 +309,9 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
       </article>
       <footer>

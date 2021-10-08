@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Visibility" href="../visibility/" /><link rel="prev" title="Partial Updates" href="../partial-updates/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Visibility" href="../visibility/" /><link rel="prev" title="Partial Updates" href="../partial-updates/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Polling - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="polling">
+        <section id="polling">
 <h1>Polling<a class="headerlink" href="#polling" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">unicorn:poll</span></code> can be added to the root <code class="docutils literal notranslate"><span class="pre">div</span></code> element of a component to have it refresh the component automatically every 2 seconds. The polling is smart enough that it won’t poll when the page is inactive.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># polling.py</span>
@@ -244,7 +245,7 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="section" id="disable-poll">
+<section id="disable-poll">
 <h2>Disable poll<a class="headerlink" href="#disable-poll" title="Permalink to this headline">¶</a></h2>
 <p>Polling can dynamically be disabled by checking a boolean field from the component.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># poll_disable.py</span>
@@ -289,8 +290,8 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="pollupdate">
+</section>
+<section id="pollupdate">
 <h2>PollUpdate<a class="headerlink" href="#pollupdate" title="Permalink to this headline">¶</a></h2>
 <p>A poll can be dynamically updated by returning a <code class="docutils literal notranslate"><span class="pre">PollUpdate</span></code> object from an action method. The timing and method can be updated, or it can be disabled.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># poll_update.py</span>
@@ -312,8 +313,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

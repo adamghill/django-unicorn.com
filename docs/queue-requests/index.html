@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Troubleshooting" href="../troubleshooting/" /><link rel="prev" title="Advanced Views" href="../advanced/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Troubleshooting" href="../troubleshooting/" /><link rel="prev" title="Advanced Views" href="../advanced/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Queue Requests - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="queue-requests">
+        <section id="queue-requests">
 <h1>Queue Requests<a class="headerlink" href="#queue-requests" title="Permalink to this headline">¶</a></h1>
 <p>This is an experimental feature of that queues up slow-processing component views to prevent race conditions. For simple components this should not be necessary.</p>
 <p>Serialization is turned off by default, but can be enabled in the <a class="reference internal" href="../settings/#serial"><span class="std std-doc">settings</span></a>.</p>
@@ -229,7 +230,7 @@
 <p>This feature will be disabled automatically if the cache backend is set to <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/cache/#dummy-caching-for-development">“django.core.cache.backends.dummy.DummyCache”</a>.</p>
 <p><a class="reference external" href="https://docs.djangoproject.com/en/3.1/topics/cache/#local-memory-caching">Local memory caching</a> (the default if no <code class="docutils literal notranslate"><span class="pre">CACHES</span></code> setting is provided) will work fine if the web server only has one process. For more production use cases, consider using <a class="reference external" href="https://github.com/jazzband/django-redis"><code class="docutils literal notranslate"><span class="pre">redis</span></code></a>, <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/cache/#memcached"><code class="docutils literal notranslate"><span class="pre">Memcache</span></code></a>, or <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/cache/#database-caching">database caching</a>.</p>
 </div>
-</div>
+</section>
 
       </article>
       <footer>

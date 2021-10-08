@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Messages" href="../messages/" /><link rel="prev" title="Polling" href="../polling/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Messages" href="../messages/" /><link rel="prev" title="Polling" href="../polling/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Visibility - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="visibility">
+        <section id="visibility">
 <h1>Visibility<a class="headerlink" href="#visibility" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> can be added to any element to have it call the specified view method when it scrolls into view.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># visibility.py</span>
@@ -249,10 +250,10 @@
 <li><p>the method explicitly returns <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 </ul>
 </div>
-<div class="section" id="modifiers">
+<section id="modifiers">
 <h2>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h2>
 <p>There are a few modifiers for <code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> and they are able to be chained if necessary.</p>
-<div class="section" id="debounce">
+<section id="debounce">
 <h3>Debounce<a class="headerlink" href="#debounce" title="Permalink to this headline">¶</a></h3>
 <p>Similar to the debounce modifier on a <a class="reference internal" href="../templates/#debounce"><span class="std std-doc">model</span></a> or <a class="reference internal" href="../actions/#debounce"><span class="std std-doc">actions</span></a>, wait the specified number of milliseconds before calling the specified method.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- debounce-modifier.html --&gt;</span>
@@ -263,8 +264,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="threshold">
+</section>
+<section id="threshold">
 <h3>Threshold<a class="headerlink" href="#threshold" title="Permalink to this headline">¶</a></h3>
 <p>The percentage (as an integer) that should be visible before being triggered. For example, <code class="docutils literal notranslate"><span class="pre">0</span></code> means that as soon as 1 pixel of the element is visible it would be fired, <code class="docutils literal notranslate"><span class="pre">25</span></code> would be 25% of the target element is visible, <code class="docutils literal notranslate"><span class="pre">100</span></code> would require 100% of the element to be completely visible.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- threshold-modifier.html --&gt;</span>
@@ -275,9 +276,9 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
       </article>
       <footer>

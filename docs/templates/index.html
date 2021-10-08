@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Actions" href="../actions/" /><link rel="prev" title="Components" href="../components/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Actions" href="../actions/" /><link rel="prev" title="Components" href="../components/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Templates - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="templates">
+        <section id="templates">
 <h1>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h1>
 <p>Templates are just normal Django HTML templates, so anything you could normally do in a Django template will still work, including template tags, filters, loops, if statements, etc.</p>
 <div class="admonition warning">
@@ -231,9 +232,9 @@
 <p class="admonition-title">Note</p>
 <p>To reduce the verbosity of templates, <code class="docutils literal notranslate"><span class="pre">u:</span></code> can be used as a shorthand for any attribute that starts with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code>. All of the examples in the documentation use <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code> to be explicit, but both are supported.</p>
 </div>
-<div class="section" id="model-modifiers">
+<section id="model-modifiers">
 <h2>Model modifiers<a class="headerlink" href="#model-modifiers" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="lazy">
+<section id="lazy">
 <h3>Lazy<a class="headerlink" href="#lazy" title="Permalink to this headline">¶</a></h3>
 <p>To prevent updates from happening on <em>every</em> input, you can append a <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier to the end of <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>. That will only update the component when a <code class="docutils literal notranslate"><span class="pre">blur</span></code> event happens.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- waits-for-blur.html --&gt;</span>
@@ -243,8 +244,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="debounce">
+</section>
+<section id="debounce">
 <h3>Debounce<a class="headerlink" href="#debounce" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">debounce</span></code> modifier configures how long to wait to fire an event. The time is always specified in milliseconds, for example: <code class="docutils literal notranslate"><span class="pre">unicorn:model.debounce-1000</span></code> would wait for 1000 milliseconds (1 second) before firing the message.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- waits-1-second.html --&gt;</span>
@@ -254,8 +255,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="defer">
+</section>
+<section id="defer">
 <h3>Defer<a class="headerlink" href="#defer" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">defer</span></code> modifier will store and save model changes until the next action gets triggered. This is useful to prevent additional network requests until an action is triggered.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- defer.html --&gt;</span>
@@ -270,8 +271,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="chaining-modifiers">
+</section>
+<section id="chaining-modifiers">
 <h3>Chaining modifiers<a class="headerlink" href="#chaining-modifiers" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Lazy</span></code> and <code class="docutils literal notranslate"><span class="pre">debounce</span></code> modifiers can even be chained together.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- waits-for-blur-and-then-5-seconds.html --&gt;</span>
@@ -281,11 +282,11 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="key">
+</section>
+</section>
+<section id="key">
 <h2>Key<a class="headerlink" href="#key" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="smooth-updates">
+<section id="smooth-updates">
 <h3>Smooth updates<a class="headerlink" href="#smooth-updates" title="Permalink to this headline">¶</a></h3>
 <p>Setting a unique <code class="docutils literal notranslate"><span class="pre">id</span></code> on elements with <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> will prevent changes to an input from being choppy when there are lots of updates in quick succession.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- choppy-updates.html --&gt;</span>
@@ -307,16 +308,16 @@
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"someFancyKey"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="dom-merging">
+</section>
+<section id="dom-merging">
 <h3>DOM merging<a class="headerlink" href="#dom-merging" title="Permalink to this headline">¶</a></h3>
 <p>The JavaScript library used to merge changes in the DOM, <code class="docutils literal notranslate"><span class="pre">morphdom</span></code>, uses an element’s <code class="docutils literal notranslate"><span class="pre">id</span></code> to intelligently update DOM elements. If it isn’t possible to have an <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute on the element, <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> will be used if it is available.</p>
-</div>
-</div>
-<div class="section" id="lifecycle-events">
+</section>
+</section>
+<section id="lifecycle-events">
 <h2>Lifecycle events<a class="headerlink" href="#lifecycle-events" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides events that fire when different parts of the lifecycle occur.</p>
-<div class="section" id="updated">
+<section id="updated">
 <h3>updated<a class="headerlink" href="#updated" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">updated</span></code> event is fired after the AJAX call finishes and the component is merged with the newly rendered component template. The callback gets called with one argument, <code class="docutils literal notranslate"><span class="pre">component</span></code>, which can be inspected if necessary.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- updated-event.html --&gt;</span>
@@ -330,9 +331,9 @@
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ignore-elements">
+</section>
+</section>
+<section id="ignore-elements">
 <h2>Ignore elements<a class="headerlink" href="#ignore-elements" title="Permalink to this headline">¶</a></h2>
 <p>Some JavaScript libraries will change the DOM (such as <code class="docutils literal notranslate"><span class="pre">Select2</span></code>) after the page renders. That can cause issues for <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> when trying to merge that DOM with what <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> <em>thinks</em> the DOM should be. <code class="docutils literal notranslate"><span class="pre">unicorn:ignore</span></code> can be used to prevent <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> from morphing that element or its children.</p>
 <div class="admonition note">
@@ -382,8 +383,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">selected_state</span> <span class="o">=</span> <span class="n">state_name</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

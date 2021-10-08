@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Validation" href="../validation/" /><link rel="prev" title="Child components" href="../child-components/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Validation" href="../validation/" /><link rel="prev" title="Child components" href="../child-components/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Django Models - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,10 +221,10 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="django-models">
+        <section id="django-models">
 <h1>Django Models<a class="headerlink" href="#django-models" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides tight integration with Django <code class="docutils literal notranslate"><span class="pre">Models</span></code> and <code class="docutils literal notranslate"><span class="pre">QuerySets</span></code> to handle typical workflows.</p>
-<div class="section" id="model">
+<section id="model">
 <h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <p>A Django <code class="docutils literal notranslate"><span class="pre">Model</span></code> can be used as a field on a component just like basic Python primitive types. Use <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> to bind to a field of a Django <code class="docutils literal notranslate"><span class="pre">Model</span></code> like you would in a normal Django template.</p>
 <div class="admonition warning">
@@ -264,8 +265,8 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="queryset">
+</section>
+<section id="queryset">
 <h2>QuerySet<a class="headerlink" href="#queryset" title="Permalink to this headline">¶</a></h2>
 <p>A Django <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> can be set to a property on a component just like a regular <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- queryset.html --&gt;</span>
@@ -325,8 +326,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">books</span><span class="p">[</span><span class="n">book_idx</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

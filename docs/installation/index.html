@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Components" href="../components/" /><link rel="prev" title="FAQ" href="../faq/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Components" href="../components/" /><link rel="prev" title="FAQ" href="../faq/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Installation - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,9 +221,9 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="installation">
+        <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="install-unicorn">
+<section id="install-unicorn">
 <h2>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code><a class="headerlink" href="#install-unicorn" title="Permalink to this headline">¶</a></h2>
 <p>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> the same as any other Python package (preferably into a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install django-unicorn
@@ -236,8 +237,8 @@
 <p class="admonition-title">Note</p>
 <p>If attempting to install <code class="docutils literal notranslate"><span class="pre">django-unicorn</span></code> and <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is preventing the installation from succeeding, check whether it is using 32-bit Python. Unfortunately, <code class="docutils literal notranslate"><span class="pre">orjson</span></code> is only supported on 64-bit Python. More details in <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/105">issue #105</a>.</p>
 </div>
-</div>
-<div class="section" id="integrate-unicorn-with-django">
+</section>
+<section id="integrate-unicorn-with-django">
 <h2>Integrate <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with Django<a class="headerlink" href="#integrate-unicorn-with-django" title="Permalink to this headline">¶</a></h2>
 <p>1. Add <code class="docutils literal notranslate"><span class="pre">django_unicorn</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> list in the Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
@@ -271,8 +272,8 @@
 </pre></div>
 </div>
 <p>Then, <a class="reference internal" href="../components/"><span class="doc std std-doc">create a component</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

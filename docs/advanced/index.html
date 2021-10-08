@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Queue Requests" href="../queue-requests/" /><link rel="prev" title="Messages" href="../messages/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Queue Requests" href="../queue-requests/" /><link rel="prev" title="Messages" href="../messages/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Advanced Views - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,11 +221,11 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="advanced-views">
+        <section id="advanced-views">
 <h1>Advanced Views<a class="headerlink" href="#advanced-views" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="class-properties">
+<section id="class-properties">
 <h2>Class properties<a class="headerlink" href="#class-properties" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="template-name">
+<section id="template-name">
 <h3>template_name<a class="headerlink" href="#template-name" title="Permalink to this headline">¶</a></h3>
 <p>By default, the component name is used to determine what template should be used. For example, <code class="docutils literal notranslate"><span class="pre">hello_world.HelloWorldView</span></code> would by default use <code class="docutils literal notranslate"><span class="pre">unicorn/hello-world.html</span></code>. However, you can specify a particular template by setting <code class="docutils literal notranslate"><span class="pre">template_name</span></code> in the component.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
@@ -234,11 +235,11 @@
     <span class="n">template_name</span> <span class="o">=</span> <span class="s2">"unicorn/hello-world.html"</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="instance-properties">
+</section>
+</section>
+<section id="instance-properties">
 <h2>Instance properties<a class="headerlink" href="#instance-properties" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="request">
+<section id="request">
 <h3>request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h3>
 <p>The current <code class="docutils literal notranslate"><span class="pre">request</span></code> is available on <code class="docutils literal notranslate"><span class="pre">self</span></code> in the component’s methods.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
@@ -253,9 +254,9 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">"callMethod request to re-render the component"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="custom-methods">
+</section>
+</section>
+<section id="custom-methods">
 <h2>Custom methods<a class="headerlink" href="#custom-methods" title="Permalink to this headline">¶</a></h2>
 <p>Defined component instance methods with no arguments are made available to the Django template context and can be called like a property.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># states.py</span>
@@ -291,10 +292,10 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="instance-methods">
+</section>
+<section id="instance-methods">
 <h2>Instance methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="init">
+<section id="init">
 <h3>__init__()<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
 <p>Gets called when the component gets constructed for the very first time. Note that constructed components get cached to reduce the amount of time discovering and instantiating them, so <code class="docutils literal notranslate"><span class="pre">__init__</span></code> only gets called the very first time the component gets rendered.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
@@ -308,8 +309,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"initialized"</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mount">
+</section>
+<section id="mount">
 <h3>mount()<a class="headerlink" href="#mount" title="Permalink to this headline">¶</a></h3>
 <p>Gets called when the component gets initialized or <a class="reference internal" href="../actions/#reset"><span class="std std-doc">reset</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
@@ -322,8 +323,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"mounted"</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="hydrate">
+</section>
+<section id="hydrate">
 <h3>hydrate()<a class="headerlink" href="#hydrate" title="Permalink to this headline">¶</a></h3>
 <p>Gets called when the component data gets set.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
@@ -336,48 +337,48 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"hydrated"</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="updating-name-value">
+</section>
+<section id="updating-name-value">
 <h3>updating(name, value)<a class="headerlink" href="#updating-name-value" title="Permalink to this headline">¶</a></h3>
 <p>Gets called before each property that will get set.</p>
-</div>
-<div class="section" id="updated-name-value">
+</section>
+<section id="updated-name-value">
 <h3>updated(name, value)<a class="headerlink" href="#updated-name-value" title="Permalink to this headline">¶</a></h3>
 <p>Gets called after each property gets set.</p>
-</div>
-<div class="section" id="updating-property-name-value">
+</section>
+<section id="updating-property-name-value">
 <h3>updating_{property_name}(value)<a class="headerlink" href="#updating-property-name-value" title="Permalink to this headline">¶</a></h3>
 <p>Gets called before the specified property gets set.</p>
-</div>
-<div class="section" id="updated-property-name-value">
+</section>
+<section id="updated-property-name-value">
 <h3>updated_{property_name}(value)<a class="headerlink" href="#updated-property-name-value" title="Permalink to this headline">¶</a></h3>
 <p>Gets called after the specified property gets set.</p>
-</div>
-<div class="section" id="calling-name-args">
+</section>
+<section id="calling-name-args">
 <h3>calling(name, args)<a class="headerlink" href="#calling-name-args" title="Permalink to this headline">¶</a></h3>
 <p>Gets called before each method that gets called.</p>
-</div>
-<div class="section" id="called-name-args">
+</section>
+<section id="called-name-args">
 <h3>called(name, args)<a class="headerlink" href="#called-name-args" title="Permalink to this headline">¶</a></h3>
 <p>Gets called after each method gets called.</p>
-</div>
-<div class="section" id="complete">
+</section>
+<section id="complete">
 <h3>complete()<a class="headerlink" href="#complete" title="Permalink to this headline">¶</a></h3>
 <p>Gets called after all methods have been called.</p>
-</div>
-<div class="section" id="rendered-html">
+</section>
+<section id="rendered-html">
 <h3>rendered(html)<a class="headerlink" href="#rendered-html" title="Permalink to this headline">¶</a></h3>
 <p>Gets called after the component has been rendered.</p>
-</div>
-<div class="section" id="parent-rendered-html">
+</section>
+<section id="parent-rendered-html">
 <h3>parent_rendered(html)<a class="headerlink" href="#parent-rendered-html" title="Permalink to this headline">¶</a></h3>
 <p>Gets called after the component’s parent has been rendered (if applicable).</p>
-</div>
-</div>
-<div class="section" id="meta">
+</section>
+</section>
+<section id="meta">
 <h2>Meta<a class="headerlink" href="#meta" title="Permalink to this headline">¶</a></h2>
 <p>Classes that derive from <code class="docutils literal notranslate"><span class="pre">UnicornView</span></code> can include a <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class that provides some advanced options for the component.</p>
-<div class="section" id="exclude">
+<section id="exclude">
 <h3>exclude<a class="headerlink" href="#exclude" title="Permalink to this headline">¶</a></h3>
 <p>By default, all public attributes of the component are included in the context of the Django template and available to JavaScript. One way to protect internal-only data is to prefix the atteibute name with <code class="docutils literal notranslate"><span class="pre">_</span></code> to indicate it should stay private.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_state.py</span>
@@ -410,8 +411,8 @@
         <span class="n">exclude</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"all_states"</span><span class="p">,</span> <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="javascript-exclude">
+</section>
+<section id="javascript-exclude">
 <h3>javascript_exclude<a class="headerlink" href="#javascript-exclude" title="Permalink to this headline">¶</a></h3>
 <p>To allow an attribute to be included in the the context to be used by a Django template, but not exposed to JavaScript, add it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code> tuple.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-state.html --&gt;</span>
@@ -438,8 +439,8 @@
         <span class="n">javascript_exclude</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"all_states"</span><span class="p">,</span> <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="safe">
+</section>
+<section id="safe">
 <h3>safe<a class="headerlink" href="#safe" title="Permalink to this headline">¶</a></h3>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> HTML encodes updated field values to prevent XSS attacks. You need to explicitly opt-in to allow a field to be returned without being encoded by adding it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">safe</span></code> tuple.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- safe-example.html --&gt;</span>
@@ -458,11 +459,11 @@
         <span class="n">safe</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"something_safe"</span><span class="p">,</span> <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="javascript-integration">
+</section>
+</section>
+<section id="javascript-integration">
 <h2>JavaScript Integration<a class="headerlink" href="#javascript-integration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="call-javascript-from-view">
+<section id="call-javascript-from-view">
 <h3>Call JavaScript from View<a class="headerlink" href="#call-javascript-from-view" title="Permalink to this headline">¶</a></h3>
 <p>To integrate with other JavaScript functions, view methods can call an arbitrary JavaScript function after it gets rendered.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- call-javascript.html --&gt;</span>
@@ -491,8 +492,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="trigger-model-update">
+</section>
+<section id="trigger-model-update">
 <h3>Trigger Model Update<a class="headerlink" href="#trigger-model-update" title="Permalink to this headline">¶</a></h3>
 <p>Normally when a model element gets changed by a user it will trigger an event which <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> listens for (either <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> depending on if it has a <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier). However, when setting an element with JavaScript those events do not fire. <code class="docutils literal notranslate"><span class="pre">Unicorn.trigger()</span></code> provides a way to trigger that event from JavaScript manually.</p>
 <p>The first argument to <code class="docutils literal notranslate"><span class="pre">trigger</span></code> is the component name. The second argument is the value for the element’s <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>.</p>
@@ -510,9 +511,9 @@
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
       </article>
       <footer>

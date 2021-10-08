@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Loading States" href="../loading-states/" /><link rel="prev" title="Validation" href="../validation/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Loading States" href="../loading-states/" /><link rel="prev" title="Validation" href="../validation/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Redirecting - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,10 +221,10 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="redirecting">
+        <section id="redirecting">
 <h1>Redirecting<a class="headerlink" href="#redirecting" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> has a few different ways to redirect from an action method.</p>
-<div class="section" id="redirect">
+<section id="redirect">
 <h2>Redirect<a class="headerlink" href="#redirect" title="Permalink to this headline">¶</a></h2>
 <p>To redirect the user, return a <code class="docutils literal notranslate"><span class="pre">HttpResponseRedirect</span></code> from an action method. Using the Django shortcut <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/http/shortcuts/#redirect"><code class="docutils literal notranslate"><span class="pre">redirect</span></code></a> method is one way to do that in a typical Django manner.</p>
 <div class="admonition note">
@@ -257,8 +258,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="hashupdate">
+</section>
+<section id="hashupdate">
 <h2>HashUpdate<a class="headerlink" href="#hashupdate" title="Permalink to this headline">¶</a></h2>
 <p>To avoid a server-side page refresh and just update the hash at the end of the url, return <code class="docutils literal notranslate"><span class="pre">HashUpdate</span></code> from the action method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hash_update.py</span>
@@ -283,8 +284,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="locationupdate">
+</section>
+<section id="locationupdate">
 <h2>LocationUpdate<a class="headerlink" href="#locationupdate" title="Permalink to this headline">¶</a></h2>
 <p>To avoid a server-side page refresh and update the whole url, return a <code class="docutils literal notranslate"><span class="pre">LocationUpdate</span></code> from the action method.</p>
 <p><code class="docutils literal notranslate"><span class="pre">LocationUpdate</span></code> is instantiated with a <code class="docutils literal notranslate"><span class="pre">HttpResponseRedirect</span></code> arg and an optional <code class="docutils literal notranslate"><span class="pre">title</span></code> kwarg.</p>
@@ -315,8 +316,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

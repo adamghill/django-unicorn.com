@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Redirecting" href="../redirecting/" /><link rel="prev" title="Django Models" href="../django-models/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Redirecting" href="../redirecting/" /><link rel="prev" title="Django Models" href="../django-models/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Validation - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="validation">
+        <section id="validation">
 <h1>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses Django <code class="docutils literal notranslate"><span class="pre">forms</span></code> infrastructure for all validation. This means that a form could be re-used between any other Django views and a <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
 <p>Using the Django <code class="docutils literal notranslate"><span class="pre">forms</span></code> system provides a way to serialize/deserialize certain classes (for example, <code class="docutils literal notranslate"><span class="pre">datetime</span></code> and <code class="docutils literal notranslate"><span class="pre">uuid</span></code>) and a way to validate properties of a class.</p>
@@ -252,10 +253,10 @@
 </pre></div>
 </div>
 <p>Because of the <code class="docutils literal notranslate"><span class="pre">form_class</span> <span class="pre">=</span> <span class="pre">BookForm</span></code> defined on the <code class="docutils literal notranslate"><span class="pre">UnicornView</span></code> above, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will automatically validate that the title has a value and is less than 100 characters. The <code class="docutils literal notranslate"><span class="pre">publish_date</span></code> will also be converted into a <code class="docutils literal notranslate"><span class="pre">datetime</span></code> from the string representation in the text input.</p>
-<div class="section" id="showing-validation-errors">
+<section id="showing-validation-errors">
 <h2>Showing validation errors<a class="headerlink" href="#showing-validation-errors" title="Permalink to this headline">¶</a></h2>
 <p>As the form is filled out the appropriate inputs will be validated. There are a few ways to show the validation messages.</p>
-<div class="section" id="highlighting-the-invalid-form">
+<section id="highlighting-the-invalid-form">
 <h3>Highlighting the invalid form<a class="headerlink" href="#highlighting-the-invalid-form" title="Permalink to this headline">¶</a></h3>
 <p>When a model form is invalid, a special <code class="docutils literal notranslate"><span class="pre">unicorn:error</span></code> attribute is added to the element. Depending on whether it is an <code class="docutils literal notranslate"><span class="pre">invalid</span></code> or <code class="docutils literal notranslate"><span class="pre">required</span></code> error code, the attribute will be <code class="docutils literal notranslate"><span class="pre">unicorn:error:invalid</span></code> or <code class="docutils literal notranslate"><span class="pre">unicorn:error:required</span></code>. The value of the attribute will be the validation message.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- highlight-input-errors.html --&gt;</span>
@@ -279,8 +280,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="showing-a-specific-error-message">
+</section>
+<section id="showing-a-specific-error-message">
 <h3>Showing a specific error message<a class="headerlink" href="#showing-a-specific-error-message" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- show-error-message.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -289,8 +290,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="showing-all-the-error-messages">
+</section>
+<section id="showing-all-the-error-messages">
 <h3>Showing all the error messages<a class="headerlink" href="#showing-all-the-error-messages" title="Permalink to this headline">¶</a></h3>
 <p>There is a <code class="docutils literal notranslate"><span class="pre">unicorn_errors</span></code> template tag that shows all errors for the component. It should provide an example of how to display component errors in a more specific way if needed.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- show-all-error-messages.html --&gt;</span>
@@ -303,9 +304,9 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="validate-the-entire-component">
+</section>
+</section>
+<section id="validate-the-entire-component">
 <h2>Validate the entire component<a class="headerlink" href="#validate-the-entire-component" title="Permalink to this headline">¶</a></h2>
 <p>The magic action method <code class="docutils literal notranslate"><span class="pre">$validate</span></code> can be used to validate the whole component by the front-end.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- validate.html --&gt;</span>
@@ -351,8 +352,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">"hello world"</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Django Models" href="../django-models/" /><link rel="prev" title="Actions" href="../actions/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Django Models" href="../django-models/" /><link rel="prev" title="Actions" href="../actions/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Child components - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,11 +221,11 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="child-components">
+        <section id="child-components">
 <h1>Child components<a class="headerlink" href="#child-components" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> supports nesting components so that one component is a child of another. Since HTML is a tree structure, a component can have multiple children, but each child only has one parent.</p>
 <p>We will slowly build a nested component example with three components: table, filter and row. The table is the parent and contains the other two components. The filter will update the parent table component, and the row will contain functionality to edit a row.</p>
-<div class="section" id="parent-component">
+<section id="parent-component">
 <h2>Parent component<a class="headerlink" href="#parent-component" title="Permalink to this headline">¶</a></h2>
 <p>So that <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> knows about the parent-child relationship, the child component must pass in a <code class="docutils literal notranslate"><span class="pre">parent</span></code> keyword argument with the parent’s component view.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- table.html --&gt;</span>
@@ -267,8 +268,8 @@
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">view</span></code> will always be the current component’s view, so passing <code class="docutils literal notranslate"><span class="pre">view</span></code> into <code class="docutils literal notranslate"><span class="pre">parent</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">parent=view</span></code>) will always create the relationship correctly.</p>
 </div>
-</div>
-<div class="section" id="child-component">
+</section>
+<section id="child-component">
 <h2>Child component<a class="headerlink" href="#child-component" title="Permalink to this headline">¶</a></h2>
 <p>The child filter component, <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'filter'</span> <span class="pre">parent=view</span> <span class="pre">%}</span></code>, will have access to its parent through the view’s <code class="docutils literal notranslate"><span class="pre">self.parent</span></code>. The <code class="docutils literal notranslate"><span class="pre">FilterView</span></code> is using the <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#updated-property-name-value">updated</a> method to filter the <code class="docutils literal notranslate"><span class="pre">books</span></code> queryset on the table component when the filter’s <code class="docutils literal notranslate"><span class="pre">search</span></code> model is changed.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- filter.html --&gt;</span>
@@ -291,8 +292,8 @@
             <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="multiple-children">
+</section>
+<section id="multiple-children">
 <h2>Multiple children<a class="headerlink" href="#multiple-children" title="Permalink to this headline">¶</a></h2>
 <p>If we want to encapsulate the editing and saving of a row of data, we can add in a row component as well.</p>
 <div class="admonition note">
@@ -404,8 +405,8 @@
 </pre></div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

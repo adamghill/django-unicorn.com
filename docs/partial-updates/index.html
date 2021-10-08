@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Polling" href="../polling/" /><link rel="prev" title="Dirty States" href="../dirty-states/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Polling" href="../polling/" /><link rel="prev" title="Dirty States" href="../dirty-states/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Partial Updates - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="partial-updates">
+        <section id="partial-updates">
 <h1>Partial Updates<a class="headerlink" href="#partial-updates" title="Permalink to this headline">¶</a></h1>
 <p>Normally <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will send the entire component’s rendered HTML on every action to make sure that any changes to the context is reflected on the page. However, to reduce latency and minimize the amount of data that has to be sent over the network, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> can only update a portion of the page by utilizing the <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code> attribute.</p>
 <div class="admonition note">
@@ -243,7 +244,7 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="section" id="target-by-id">
+<section id="target-by-id">
 <h2>Target by id<a class="headerlink" href="#target-by-id" title="Permalink to this headline">¶</a></h2>
 <p>To only target an element <code class="docutils literal notranslate"><span class="pre">id</span></code> add the <code class="docutils literal notranslate"><span class="pre">id</span></code> modifier to <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update-id.html --&gt;</span>
@@ -255,8 +256,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="target-by-key">
+</section>
+<section id="target-by-key">
 <h2>Target by key<a class="headerlink" href="#target-by-key" title="Permalink to this headline">¶</a></h2>
 <p>To only target an element <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> add the <code class="docutils literal notranslate"><span class="pre">key</span></code> modifier to <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update-key.html --&gt;</span>
@@ -275,8 +276,8 @@
 </pre></div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

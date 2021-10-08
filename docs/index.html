@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="genindex/" /><link rel="search" title="Search" href="search/" /><link rel="next" title="Changelog" href="changelog/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex/" /><link rel="search" title="Search" href="search/" /><link rel="next" title="Changelog" href="changelog/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Home - Unicorn</title>
       <link rel="stylesheet" href="_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="settings/">Settings</a></li>
@@ -220,7 +221,7 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="introduction">
+        <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
@@ -231,10 +232,10 @@
 <div class="toctree-wrapper compound">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is a reactive component framework that progressively enhances a normal Django view, makes AJAX calls in the background, and dynamically updates the DOM. It seamlessly extends Django past its server-side framework roots without giving up all of its niceties or re-building your website.</p>
-<div class="section" id="related-projects">
+<section id="related-projects">
 <h2>Related projects<a class="headerlink" href="#related-projects" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> stands on the shoulders of giants, in particular <a class="reference external" href="https://github.com/patrick-steele-idem/morphdom">morphdom</a> which is integral for merging DOM changes.</p>
-<div class="section" id="inspirational-projects-in-other-languages">
+<section id="inspirational-projects-in-other-languages">
 <h3>Inspirational projects in other languages<a class="headerlink" href="#inspirational-projects-in-other-languages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://laravel-livewire.com/">Livewire</a>, a full-stack framework for the PHP web framework, Laravel.</p></li>
@@ -242,8 +243,8 @@
 <li><p><a class="reference external" href="https://docs.stimulusreflex.com">StimulusReflex</a>, a library for the Ruby web framework, Ruby on Rails, that uses websockets.</p></li>
 <li><p><a class="reference external" href="https://hotwire.dev">Hotwire</a>, “is an alternative approach to building modern web applications without using much JavaScript by sending HTML instead of JSON over the wire”. Uses AJAX, but can also use websockets.</p></li>
 </ul>
-</div>
-<div class="section" id="full-stack-framework-python-packages">
+</section>
+<section id="full-stack-framework-python-packages">
 <h3>Full-stack framework Python packages<a class="headerlink" href="#full-stack-framework-python-packages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/edelvalle/reactor/">Reactor</a>, a port of Elixir’s <code class="docutils literal notranslate"><span class="pre">LiveView</span></code> to Django. Especially interesting for more complicated use-cases like chat rooms, keeping multiple browsers in sync, etc. Uses Django channels and websockets to work its magic.</p></li>
@@ -253,7 +254,7 @@
 <li><p><a class="reference external" href="https://github.com/hotwire-django">Hotwire for Django</a> contains a few different repositiories to integrate <a class="reference external" href="https://hotwire.dev">Hotwire</a> with Django.</p></li>
 <li><p><a class="reference external" href="https://lona-web.org/">Lona</a> is a web application framework, designed to write responsive web apps in full Python.</p></li>
 </ul>
-<div class="section" id="comparison">
+<section id="comparison">
 <h4>Comparison<a class="headerlink" href="#comparison" title="Permalink to this headline">¶</a></h4>
 <div class="table-wrapper"><table class="colwidths-auto docutils align-default">
 <thead>
@@ -296,15 +297,15 @@
 </tr>
 </tbody>
 </table></div>
-</div>
-</div>
-<div class="section" id="django-packages-to-integrate-lightweight-frontend-frameworks">
+</section>
+</section>
+<section id="django-packages-to-integrate-lightweight-frontend-frameworks">
 <h3>Django packages to integrate lightweight frontend frameworks<a class="headerlink" href="#django-packages-to-integrate-lightweight-frontend-frameworks" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/adamchainz/django-htmx">django-htmx</a> which has extensions for using Django with <a class="reference external" href="https://htmx.org/">htmx</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="django-component-packages">
+</section>
+<section id="django-component-packages">
 <h3>Django component packages<a class="headerlink" href="#django-component-packages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/EmilStenstrom/django-components/">django-components</a>, which lets you create “template components”, that contains both the template, the Javascript and the CSS needed to generate the front end code you need for a modern app.</p></li>
@@ -312,9 +313,9 @@
 <li><p><a class="reference external" href="https://github.com/andreyfedoseev/django-page-components">django-page-components</a>, a minimalistic framework for creating page components and using them in your Django views and templates.</p></li>
 <li><p><a class="reference external" href="https://mitchel.me/slippers/">slippers</a>, helps build reusable components in Django without writing a single line of Python.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
       </article>
       <footer>

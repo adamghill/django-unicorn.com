@@ -2,7 +2,7 @@
 
 ## v0.36.0
 
-- Security fix: for CVE-2021-42053 to prevent XSS attacks.
+- Security fix: for CVE-2021-42053 to prevent XSS attacks (reported by [Jeffallan](https://github.com/Jeffallan)).
 
 ** Breaking changes **
 

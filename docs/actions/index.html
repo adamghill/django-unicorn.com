@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Child components" href="../child-components/" /><link rel="prev" title="Templates" href="../templates/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Child components" href="../child-components/" /><link rel="prev" title="Templates" href="../templates/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Actions - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,10 +221,10 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="actions">
+        <section id="actions">
 <h1>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h1>
 <p>Components can also trigger methods from the templates by listening to any valid event type. The most common events would be <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">keydown</span></code>, <code class="docutils literal notranslate"><span class="pre">keyup</span></code>, and <code class="docutils literal notranslate"><span class="pre">mouseenter</span></code>, but <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN has a list of all of the browser event types available</a>.</p>
-<div class="section" id="events">
+<section id="events">
 <h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
 <p>An example action to call the <code class="docutils literal notranslate"><span class="pre">clear_name</span></code> method on the component.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- clear-name.html --&gt;</span>
@@ -249,8 +250,8 @@
 <p class="admonition-title">Tip</p>
 <p>Instance methods without arguments can be called from the template with or without parenthesis.</p>
 </div>
-</div>
-<div class="section" id="passing-arguments">
+</section>
+<section id="passing-arguments">
 <h2>Passing arguments<a class="headerlink" href="#passing-arguments" title="Permalink to this headline">¶</a></h2>
 <p>Actions can also pass basic Python types to the backend component.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- passing-args.html --&gt;</span>
@@ -272,7 +273,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 </pre></div>
 </div>
-<div class="section" id="argument-types">
+<section id="argument-types">
 <h3>Argument types<a class="headerlink" href="#argument-types" title="Permalink to this headline">¶</a></h3>
 <p>Arguments can be most basic Python types, including <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, and <code class="docutils literal notranslate"><span class="pre">UUID4</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- argument-types.html --&gt;</span>
@@ -294,9 +295,9 @@
 <p class="admonition-title">Note</p>
 <p>Strings will be converted to <code class="docutils literal notranslate"><span class="pre">datetime</span></code> if they are successfully parsed by Django’s <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime"><code class="docutils literal notranslate"><span class="pre">parse_datetime</span></code></a> method.</p>
 </div>
-</div>
-</div>
-<div class="section" id="set-shortcut">
+</section>
+</section>
+<section id="set-shortcut">
 <h2>Set shortcut<a class="headerlink" href="#set-shortcut" title="Permalink to this headline">¶</a></h2>
 <p>Actions can also set properties without requiring an explicit method.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- set-shortcut.html --&gt;</span>
@@ -314,11 +315,11 @@
     <span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="modifiers">
+</section>
+<section id="modifiers">
 <h2>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h2>
 <p>Similar to models, actions also have modifiers which change how the method gets called.</p>
-<div class="section" id="prevent">
+<section id="prevent">
 <h3>prevent<a class="headerlink" href="#prevent" title="Permalink to this headline">¶</a></h3>
 <p>Prevents the default action the browser would use for that element. The same as calling <code class="docutils literal notranslate"><span class="pre">preventDefault</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- prevent-modifier.html --&gt;</span>
@@ -327,8 +328,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="stop">
+</section>
+<section id="stop">
 <h3>stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
 <p>Stops the event from bubbling up the event chain. The same as calling <code class="docutils literal notranslate"><span class="pre">stopPropagation</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- stop-modifier.html --&gt;</span>
@@ -337,8 +338,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="discard">
+</section>
+<section id="discard">
 <h3>discard<a class="headerlink" href="#discard" title="Permalink to this headline">¶</a></h3>
 <p>Discards any model updates from being saved before calling the specified method on the view. Useful for a cancel button.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- discard-modifier.html --&gt;</span>
@@ -358,8 +359,8 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="debounce">
+</section>
+<section id="debounce">
 <h3>debounce<a class="headerlink" href="#debounce" title="Permalink to this headline">¶</a></h3>
 <p>Waits the specified time in milliseconds before calling the specified method.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- debounce-modifier.html --&gt;</span>
@@ -369,11 +370,11 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="special-arguments">
+</section>
+</section>
+<section id="special-arguments">
 <h2>Special arguments<a class="headerlink" href="#special-arguments" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="event">
+<section id="event">
 <h3>$event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h3>
 <p>A reference to the event that triggered the action.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- event.html --&gt;</span>
@@ -382,8 +383,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="returnvalue">
+</section>
+<section id="returnvalue">
 <h3>$returnValue<a class="headerlink" href="#returnvalue" title="Permalink to this headline">¶</a></h3>
 <p>A reference to the last return value from an action method.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- returnValue.html --&gt;</span>
@@ -392,11 +393,11 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="special-methods">
+</section>
+</section>
+<section id="special-methods">
 <h2>Special methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="refresh">
+<section id="refresh">
 <h3>$refresh<a class="headerlink" href="#refresh" title="Permalink to this headline">¶</a></h3>
 <p>Refresh and re-render the component from its current state.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- refresh-method.html --&gt;</span>
@@ -405,8 +406,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reset">
+</section>
+<section id="reset">
 <h3>$reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
 <p>Revert the component to its original state.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- reset-method.html --&gt;</span>
@@ -415,8 +416,8 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="toggle">
+</section>
+<section id="toggle">
 <h3>$toggle<a class="headerlink" href="#toggle" title="Permalink to this headline">¶</a></h3>
 <p>Toggle a field on the component. Can only be used for fields that are booleans.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- toggle-method.html --&gt;</span>
@@ -429,8 +430,8 @@
 <p class="admonition-title">Tip</p>
 <p>Multiple fields can be toggled at the same time by passing in multiple fields at a time: <code class="docutils literal notranslate"><span class="pre">unicorn:click="$toggle('check',</span> <span class="pre">'another_check',</span> <span class="pre">'a_third_check')"</span></code>. Nested properties are also supported: <code class="docutils literal notranslate"><span class="pre">unicorn:click="$toggle('nested.check')"</span></code>.</p>
 </div>
-</div>
-<div class="section" id="validate">
+</section>
+<section id="validate">
 <h3>$validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h3>
 <p>Validates the component.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- validate-method.html --&gt;</span>
@@ -439,9 +440,9 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="calling-methods">
+</section>
+</section>
+<section id="calling-methods">
 <h2>Calling methods<a class="headerlink" href="#calling-methods" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes you need to trigger a method on a component from regular JavaScript. That is possible with <code class="docutils literal notranslate"><span class="pre">Unicorn.call()</span></code>. It can be called from anywhere on the page.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
@@ -461,8 +462,8 @@
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="return-values">
+</section>
+<section id="return-values">
 <h2>Return values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <p>To retrieve the last action method’s return value, use <code class="docutils literal notranslate"><span class="pre">Unicorn.getReturnValue()</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
@@ -473,8 +474,8 @@
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>

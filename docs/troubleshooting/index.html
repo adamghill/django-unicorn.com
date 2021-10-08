@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Settings" href="../settings/" /><link rel="prev" title="Queue Requests" href="../queue-requests/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Settings" href="../settings/" /><link rel="prev" title="Queue Requests" href="../queue-requests/" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2020.12.30.beta24"/>
+    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Troubleshooting - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
@@ -174,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Basics</span></p>
+<p><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
@@ -183,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Features</span></p>
+<p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
@@ -196,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Misc</span></p>
+<p><span class="caption-text">Misc</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
@@ -220,9 +221,9 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="troubleshooting">
+        <section id="troubleshooting">
 <h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="disallowed-mime-type-error-on-windows">
+<section id="disallowed-mime-type-error-on-windows">
 <h2>Disallowed MIME type error on Windows<a class="headerlink" href="#disallowed-mime-type-error-on-windows" title="Permalink to this headline">¶</a></h2>
 <p>Apparently Windows system-wide MIME type configuration sometimes won’t load up JavaScript modules in certain browsers. The errors would be something like <code class="docutils literal notranslate"><span class="pre">Loading</span> <span class="pre">module</span> <span class="pre">from</span> <span class="pre">“http://127.0.0.1:8000/static/js/unicorn.js”</span> <span class="pre">was</span> <span class="pre">blocked</span> <span class="pre">because</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">disallowed</span> <span class="pre">MIME</span> <span class="pre">type</span> <span class="pre">(“text/plain”)</span></code> or <code class="docutils literal notranslate"><span class="pre">Failed</span> <span class="pre">to</span> <span class="pre">load</span> <span class="pre">module</span> <span class="pre">script:</span> <span class="pre">The</span> <span class="pre">server</span> <span class="pre">responded</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">non-JavaScript</span> <span class="pre">MIME</span> <span class="pre">type</span> <span class="pre">of</span> <span class="pre">"text/plain".</span></code></p>
 <p>One suggested solution is to add the following to the bottom of the settings file:</p>
@@ -234,8 +235,8 @@
 </pre></div>
 </div>
 <p>See this <a class="reference external" href="https://www.taricorp.net/2020/windows-mime-pitfalls/">Windows MIME type detection pitfalls</a> article, this <a class="reference external" href="https://stackoverflow.com/a/16355034">StackOverflow answer</a>, or <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/201">issue #201</a> for more details.</p>
-</div>
-</div>
+</section>
+</section>
 
       </article>
       <footer>
