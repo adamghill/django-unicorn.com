@@ -237,6 +237,7 @@ By default, `unicorn` HTML encodes updated field values to prevent XSS attacks. 
 <!-- safe-example.html -->
 <div>
   <input unicorn:model="something_safe" />
+  {{ something_safe }}
 </div>
 ```
 
@@ -250,6 +251,18 @@ class SafeExampleView(UnicornView):
     class Meta:
         safe = ("something_safe", )
 ```
+
+````{note}
+A context variable can be marked as `safe` in the template with the normal Django template filter, as well.
+
+```html
+<!-- safe-example.html -->
+<div>
+  <input unicorn:model="something_safe" />
+  {{ something_safe|safe }}
+</div>
+```
+````
 
 ## JavaScript Integration
 

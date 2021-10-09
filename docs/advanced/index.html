@@ -446,6 +446,7 @@
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- safe-example.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"something_safe"</span> <span class="p">/&gt;</span>
+  {{ something_safe }}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -458,6 +459,17 @@
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">safe</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"something_safe"</span><span class="p">,</span> <span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A context variable can be marked as <code class="docutils literal notranslate"><span class="pre">safe</span></code> in the template with the normal Django template filter, as well.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- safe-example.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"something_safe"</span> <span class="p">/&gt;</span>
+  {{ something_safe|safe }}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 </div>
 </section>
 </section>
