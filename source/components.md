@@ -46,9 +46,9 @@ from django_unicorn.components import UnicornView
 class HelloWorldView(UnicornView):
     name = "World"
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, name, **kwargs):
         super().__init__(**kwargs)  # calling super is required
-        self.name = kwargs.get("name")
+        self.name = name
 ```
 
 ```html
@@ -87,7 +87,7 @@ class HelloWorldView(UnicornView):
 ```html
 <!-- hello-world.html -->
 <div>
-  <input unicorn:model="name" type="text" id="text" /><br />
+  <input unicorn:model="name" type="text" id="text"><br>
   Hello {{ name|title }}
 </div>
 ```
@@ -106,7 +106,7 @@ Attributes used in component templates usually start with `unicorn:`, however th
 
 ## Supported property types
 
-Properties of the component can be of many different types, including `str`, `int`, `list`, `dictionary`, `Decimal`,[`Django Model`](django-models.md#model), [`Django QuerySet`](django-models.md#queryset), [`dataclass`](https://docs.python.org/3.7/library/dataclasses.html), or `custom classes`.
+Properties of the component can be of many different types, including `str`, `int`, `list`, `dictionary`, `Decimal`, [`Django Model`](django-models.md#model), [`Django QuerySet`](django-models.md#queryset), [`dataclass`](https://docs.python.org/3.7/library/dataclasses.html), or `custom classes`.
 
 ### Property type hints
 
@@ -146,12 +146,12 @@ class HelloWorldView(UnicornView):
 ```html
 <!-- hello-world.html -->
 <div>
-  <input unicorn:model="book.title" type="text" id="model" />
+  <input unicorn:model="book.title" type="text" id="model">
   <input
     unicorn:model="book_ratings.excellent.title"
     type="text"
     id="dictionary"
-  />
+  >
 </div>
 ```
 
@@ -175,7 +175,7 @@ class HelloWorldView(UnicornView):
 ```html
 <!-- hello-world.html -->
 <div>
-  <input unicorn:model="books.0.title" type="text" id="text" />
+  <input unicorn:model="books.0.title" type="text" id="text">
 </div>
 ```
 
@@ -208,10 +208,10 @@ class Author(UnicornField):
 ```html
 <!-- hello-world.html -->
 <div>
-  <input unicorn:model="author.name" type="text" id="author_name" />
+  <input unicorn:model="author.name" type="text" id="author_name">
 </div>
 ```
 
 ```{danger}
-Never put sensitive data into a public property because that information will publicly available in the HTML source code, unless explicitly prevented with [`javascript_exclude`](advanced.md#javascript_exclude).
+Never put sensitive data into a public property because that information will become publicly available in the HTML source code, unless explicitly prevented with [`javascript_exclude`](advanced.md#javascript_exclude).
 ```
