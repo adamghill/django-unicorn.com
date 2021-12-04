@@ -223,6 +223,50 @@
         </label>
         <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<section id="v0-39-1">
+<h2>v0.39.1<a class="headerlink" href="#v0-39-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Prefer <code class="docutils literal notranslate"><span class="pre">prefetch_related</span></code> to reduce database calls for many-to-many fields.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.39.0...0.39.1">All changes since 0.39.0</a>.</p>
+</section>
+<section id="v0-39-0">
+<h2>v0.39.0<a class="headerlink" href="#v0-39-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Explicit error messages when an invalid component field is excluded</p></li>
+<li><p>Better support for serializing many-to-many fields which have been prefetched to reduce the number of database calls</p></li>
+<li><p>Support excluding many-to-many fields with <code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.38.1...0.39.0">All changes since 0.38.1</a>.</p>
+</section>
+<section id="v0-38-1">
+<h2>v0.38.1<a class="headerlink" href="#v0-38-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix: Allow components to be <code class="docutils literal notranslate"><span class="pre">pickled</span></code> so they can be cached.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.38.0...0.38.1">All changes since 0.38.0</a>.</p>
+</section>
+<section id="v0-38-0">
+<h2>v0.38.0<a class="headerlink" href="#v0-38-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Include request context in component templates.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.37.2...0.38.0">All changes since 0.37.2</a>.</p>
+</section>
+<section id="v0-37-2">
+<h2>v0.37.2<a class="headerlink" href="#v0-37-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix: nested field attributes for <code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code>.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.37.1...0.37.2">All changes since 0.37.1</a>.</p>
+</section>
+<section id="v0-37-1">
+<h2>v0.37.1<a class="headerlink" href="#v0-37-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Support nested field attributes for <code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code>.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.37.0...0.37.1">All changes since 0.37.0</a>.</p>
+</section>
 <section id="v0-37-0">
 <h2>v0.37.0<a class="headerlink" href="#v0-37-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -827,6 +871,12 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-39-1">v0.39.1</a></li>
+<li><a class="reference internal" href="#v0-39-0">v0.39.0</a></li>
+<li><a class="reference internal" href="#v0-38-1">v0.38.1</a></li>
+<li><a class="reference internal" href="#v0-38-0">v0.38.0</a></li>
+<li><a class="reference internal" href="#v0-37-2">v0.37.2</a></li>
+<li><a class="reference internal" href="#v0-37-1">v0.37.1</a></li>
 <li><a class="reference internal" href="#v0-37-0">v0.37.0</a></li>
 <li><a class="reference internal" href="#v0-36-1">v0.36.1</a></li>
 <li><a class="reference internal" href="#v0-36-0">v0.36.0</a></li>

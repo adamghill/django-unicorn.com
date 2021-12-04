@@ -1,5 +1,43 @@
 # Changelog
 
+## v0.39.1
+
+- Prefer `prefetch_related` to reduce database calls for many-to-many fields.
+
+[All changes since 0.39.0](https://github.com/adamghill/django-unicorn/compare/0.39.0...0.39.1).
+
+## v0.39.0
+
+- Explicit error messages when an invalid component field is excluded
+- Better support for serializing many-to-many fields which have been prefetched to reduce the number of database calls
+- Support excluding many-to-many fields with `javascript_exclude`
+
+[All changes since 0.38.1](https://github.com/adamghill/django-unicorn/compare/0.38.1...0.39.0).
+
+## v0.38.1
+
+- Fix: Allow components to be `pickled` so they can be cached.
+
+[All changes since 0.38.0](https://github.com/adamghill/django-unicorn/compare/0.38.0...0.38.1).
+
+## v0.38.0
+
+- Include request context in component templates.
+
+[All changes since 0.37.2](https://github.com/adamghill/django-unicorn/compare/0.37.2...0.38.0).
+
+## v0.37.2
+
+- Fix: nested field attributes for `javascript_exclude`.
+
+[All changes since 0.37.1](https://github.com/adamghill/django-unicorn/compare/0.37.1...0.37.2).
+
+## v0.37.1
+
+- Support nested field attributes for `javascript_exclude`.
+
+[All changes since 0.37.0](https://github.com/adamghill/django-unicorn/compare/0.37.0...0.37.1).
+
 ## v0.37.0
 
 - Revert loading and dirty elements when the server returns a 304 (not modified) or a 500 error.
