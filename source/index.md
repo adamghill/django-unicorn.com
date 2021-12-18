@@ -27,6 +27,7 @@ django-models
 :maxdepth: 2
 :hidden:
 
+direct-view
 validation
 redirecting
 loading-states

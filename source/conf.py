@@ -19,11 +19,11 @@ sys.path.insert(0, os.path.abspath("....django-unicorn"))
 # -- Project information -----------------------------------------------------
 
 project = "Unicorn"
-copyright = "2020, Adam Hill"
+copyright = "2021, Adam Hill"
 author = "Adam Hill"
 
 # The full version, including alpha/beta/rc tags
-release = "0.30.0"
+release = "0.40.0"
 
 
 # -- General configuration ---------------------------------------------------

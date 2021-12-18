@@ -186,6 +186,7 @@
 </ul>
 <p><span class="caption-text">Features</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
@@ -240,7 +241,7 @@ python manage.py startunicorn unicorn hello-world hello-magic
 <p class="admonition-title">Note</p>
 <p>Explicitly set which apps <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> looks in for components with the <a class="reference internal" href="../settings/#apps"><span class="std std-doc">APPS setting</span></a>. Otherwise, all <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> will be searched for components.</p>
 </div>
-<p>Add a <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'hello-world'</span> <span class="pre">%}</span></code> templatetag into the template where you want to load the new component.</p>
+<p>Then, add a <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'hello-world'</span> <span class="pre">%}</span></code> templatetag into the template where you want to load the new component.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure that there is a <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></code> rendered by the HTML template that includes the component to prevent cross-site scripting attacks while using <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
@@ -309,6 +310,27 @@ python manage.py startunicorn unicorn hello-world hello-magic
 <p>By default <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> updates are triggered by listening to <code class="docutils literal notranslate"><span class="pre">input</span></code> events on the element. To listen for the <code class="docutils literal notranslate"><span class="pre">blur</span></code> event instead, use the <a class="reference internal" href="../templates/#lazy"><span class="std std-doc">lazy</span></a> modifier.</p>
 </div>
 <p>When a user types into the text input, the information is passed to the backend and populates the component class, which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the <code class="docutils literal notranslate"><span class="pre">title</span></code> filter above).</p>
+</section>
+<section id="component-sub-folders">
+<h2>Component sub-folders<a class="headerlink" href="#component-sub-folders" title="Permalink to this headline">¶</a></h2>
+<p>Components can also be nested in sub-folders.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unicorn</span><span class="o">/</span>
+    <span class="n">components</span><span class="o">/</span>
+        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">hello</span><span class="o">/</span>
+            <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+            <span class="n">world</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">templates</span><span class="o">/</span>
+        <span class="n">unicorn</span><span class="o">/</span>
+            <span class="n">hello</span><span class="o">/</span>
+                <span class="n">world</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>An example of how the above component would be included in a template.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello.world' %}
+</pre></div>
+</div>
 </section>
 <section id="unicorn-attributes">
 <h2>Unicorn attributes<a class="headerlink" href="#unicorn-attributes" title="Permalink to this headline">¶</a></h2>
@@ -445,7 +467,7 @@ python manage.py startunicorn unicorn hello-world hello-magic
         </div>
 
         <div class="related-information">
-              Copyright &#169; 2020, Adam Hill
+              Copyright &#169; 2021, Adam Hill
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -477,6 +499,7 @@ python manage.py startunicorn unicorn hello-world hello-magic
 <li><a class="reference internal" href="#component-key">Component key</a></li>
 <li><a class="reference internal" href="#component-arguments">Component arguments</a></li>
 <li><a class="reference internal" href="#example-component">Example component</a></li>
+<li><a class="reference internal" href="#component-sub-folders">Component sub-folders</a></li>
 <li><a class="reference internal" href="#unicorn-attributes">Unicorn attributes</a></li>
 <li><a class="reference internal" href="#supported-property-types">Supported property types</a><ul>
 <li><a class="reference internal" href="#property-type-hints">Property type hints</a></li>

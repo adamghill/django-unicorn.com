@@ -153,7 +153,7 @@
       <a href="../"><div class="brand">Unicorn</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -186,6 +186,7 @@
 </ul>
 <p><span class="caption-text">Features</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
@@ -218,7 +219,7 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <section id="cli">
@@ -231,6 +232,7 @@
 <p>The following is an example folder structure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unicorn</span><span class="o">/</span>
     <span class="n">components</span><span class="o">/</span>
+        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
         <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
     <span class="n">templates</span><span class="o">/</span>
         <span class="n">unicorn</span><span class="o">/</span>
@@ -241,6 +243,29 @@
 <p class="admonition-title">Note</p>
 <p>If you have an existing Django app, you can use that instead of <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> like the example above. The management command will create the the directories and files as needed.</p>
 </div>
+<section id="sub-folders">
+<h2>Sub-folders<a class="headerlink" href="#sub-folders" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> supports creating components in sub-folders. Separate each folder by a dot (similar to Python modules) to create a nested structure.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python manage.py startunicorn unicorn hello.world
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unicorn</span><span class="o">/</span>
+    <span class="n">components</span><span class="o">/</span>
+        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">hello</span><span class="o">/</span>
+            <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+            <span class="n">world</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">templates</span><span class="o">/</span>
+        <span class="n">unicorn</span><span class="o">/</span>
+            <span class="n">hello</span><span class="o">/</span>
+                <span class="n">world</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The nested component would be included in a template like:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'hello.world' %}
+</pre></div>
+</div>
+</section>
 </section>
 
       </article>
@@ -270,7 +295,7 @@
         </div>
 
         <div class="related-information">
-              Copyright &#169; 2020, Adam Hill
+              Copyright &#169; 2021, Adam Hill
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -285,8 +310,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">CLI</a><ul>
+<li><a class="reference internal" href="#sub-folders">Sub-folders</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

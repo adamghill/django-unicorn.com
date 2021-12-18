@@ -21,7 +21,7 @@ If the app does not already exist, `startunicorn` will ask if it should call `st
 Explicitly set which apps `Unicorn` looks in for components with the [APPS setting](settings.md#apps). Otherwise, all `INSTALLED_APPS` will be searched for components.
 ```
 
-Add a `{% unicorn 'hello-world' %}` templatetag into the template where you want to load the new component.
+Then, add a `{% unicorn 'hello-world' %}` templatetag into the template where you want to load the new component.
 
 ```{warning}
 Make sure that there is a `{% csrf_token %}` rendered by the HTML template that includes the component to prevent cross-site scripting attacks while using `Unicorn`.
@@ -99,6 +99,30 @@ By default `unicorn:model` updates are triggered by listening to `input` events 
 ```
 
 When a user types into the text input, the information is passed to the backend and populates the component class, which is then used to generate the output of the template HTML. The template can use any normal Django templatetags or filters (e.g. the `title` filter above).
+
+## Component sub-folders
+
+Components can also be nested in sub-folders.
+
+```
+unicorn/
+    components/
+        __init__.py
+        hello/
+            __init__.py
+            world.py
+    templates/
+        unicorn/
+            hello/
+                world.html
+```
+
+An example of how the above component would be included in a template.
+
+```html
+<!-- index.html -->
+{% unicorn 'hello.world' %}
+```
 
 ## Unicorn attributes
 

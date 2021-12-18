@@ -2,10 +2,10 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="CLI" href="../cli/" /><link rel="prev" title="Troubleshooting" href="../troubleshooting/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Validation" href="../validation/" /><link rel="prev" title="Django Models" href="../django-models/" />
 
     <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
-        <title>Settings - Unicorn</title>
+        <title>Direct View - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -185,8 +185,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
 <p><span class="caption-text">Features</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Direct View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
@@ -199,9 +199,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 </ul>
 <p><span class="caption-text">Misc</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture/">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../code-of-conduct/">Contributor Covenant Code of Conduct</a></li>
@@ -222,44 +222,55 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <section id="settings">
-<h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> stores all settings in a dictionary under the <code class="docutils literal notranslate"><span class="pre">UNICORN</span></code> attribute in the Django settings file. All settings are optional.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
-<span class="n">UNICORN</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"MINIFIED"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s2">"APPS"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"unicorn"</span><span class="p">],</span>
-    <span class="s2">"SERIAL"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"ENABLED"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s2">"TIMEOUT"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s2">"CACHE_ALIAS"</span><span class="p">:</span> <span class="s2">"default"</span><span class="p">,</span>
-<span class="p">}</span>
+        <section id="direct-view">
+<h1>Direct View<a class="headerlink" href="#direct-view" title="Permalink to this headline">¶</a></h1>
+<p>Usually components will be included in a regular Django template, however a component can also be specified in a <code class="docutils literal notranslate"><span class="pre">urls.py</span></code> file in instances where the having an additional template is not necessary.</p>
+<section id="template-requirements">
+<h2>Template Requirements<a class="headerlink" href="#template-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>there must be one (and only one) element that wraps around the portion of the template that should be handled by <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code></p></li>
+<li><p>the wrapping element must include <code class="docutils literal notranslate"><span class="pre">unicorn:view</span></code> as an attribute</p></li>
+<li><p>the template must included the <code class="docutils literal notranslate"><span class="pre">unicorn_scripts</span></code> and <code class="docutils literal notranslate"><span class="pre">csrf_token</span></code> template tags</p></li>
+</ul>
+<p>Similar to a class-based view, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> components have a <code class="docutils literal notranslate"><span class="pre">as_view</span></code> function which is used in <code class="docutils literal notranslate"><span class="pre">urls.py</span></code>.</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># book.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">BookView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">""</span>
 </pre></div>
 </div>
-<section id="apps">
-<h2>APPS<a class="headerlink" href="#apps" title="Permalink to this headline">¶</a></h2>
-<p>Specify the modules to look for components. Defaults to <code class="docutils literal notranslate"><span class="pre">["unicorn",]</span></code>.</p>
-</section>
-<section id="cache-alias">
-<h2>CACHE_ALIAS<a class="headerlink" href="#cache-alias" title="Permalink to this headline">¶</a></h2>
-<p>The alias to use for caching. Only used by the experimental serialization of requests for now. Defaults to <code class="docutils literal notranslate"><span class="pre">"default"</span></code>.</p>
-</section>
-<section id="minified">
-<h2>MINIFIED<a class="headerlink" href="#minified" title="Permalink to this headline">¶</a></h2>
-<p>Provides a way to control if the minified version of <code class="docutils literal notranslate"><span class="pre">unicorn.min.js</span></code> is used. Defaults to <code class="docutils literal notranslate"><span class="pre">!DEBUG</span></code>.</p>
-</section>
-<section id="serial">
-<h2>SERIAL<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h2>
-<p>Settings for the experimental serialization of requests. Defaults to <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
-<section id="enabled">
-<h3>ENABLED<a class="headerlink" href="#enabled" title="Permalink to this headline">¶</a></h3>
-<p>Whether slow requests to the same component should be queued or not. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</section>
-<section id="timeout">
-<h3>TIMEOUT<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
-<p>The number of seconds to wait for a request to finish for additional requests to queue behind it. Defaults to <code class="docutils literal notranslate"><span class="pre">60</span></code>.</p>
-</section>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- book.html --&gt;</span>
+{% load unicorn %}
+
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    {% unicorn_scripts %}
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    {% csrf_token %}
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Book<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:view</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+      {{ title }}
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># urls.py</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">unicorn.components.book</span> <span class="kn">import</span> <span class="n">BookView</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">"book"</span><span class="p">,</span> <span class="n">BookView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"book"</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -267,23 +278,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../cli/">
+          <a class="next-page" href="../validation/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">CLI</div>
+                <div class="title">Validation</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../troubleshooting/">
+          <a class="prev-page" href="../django-models/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Troubleshooting</div>
+                <div class="title">Django Models</div>
                 
               </div>
             </a>
@@ -297,7 +308,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../_sources/settings.md.txt"
+            <a class="muted-link" href="../_sources/direct-view.md.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -317,15 +328,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Settings</a><ul>
-<li><a class="reference internal" href="#apps">APPS</a></li>
-<li><a class="reference internal" href="#cache-alias">CACHE_ALIAS</a></li>
-<li><a class="reference internal" href="#minified">MINIFIED</a></li>
-<li><a class="reference internal" href="#serial">SERIAL</a><ul>
-<li><a class="reference internal" href="#enabled">ENABLED</a></li>
-<li><a class="reference internal" href="#timeout">TIMEOUT</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Direct View</a><ul>
+<li><a class="reference internal" href="#template-requirements">Template Requirements</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 </ul>
