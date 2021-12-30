@@ -1,14 +1,15 @@
 # Direct View
 
-Usually components will be included in a regular Django template, however a component can also be specified in a `urls.py` file in instances where the having an additional template is not necessary.
+Usually components get included in a regular Django template. However, a component (as complete view) can also be directly targeted in a `urls.py` file in situations where an additional template is not necessary.
 
 ## Template Requirements
 
 - there must be one (and only one) element that wraps around the portion of the template that should be handled by `Unicorn`
 - the wrapping element must include `unicorn:view` as an attribute
-- the template must included the `unicorn_scripts` and `csrf_token` template tags
+- the template must include the `unicorn_scripts` and `csrf_token` template tags (can be in a base template too)
+- the template must be in the `unicorn/` folder
 
-Similar to a class-based view, `Unicorn` components have a `as_view` function which is used in `urls.py`.
+Similar to a class-based view, `Unicorn` components have a `as_view` function which is used in `urls.py`. Bayically, UnicornView is a TemplateView and shares its attributes and methods.
 
 ## Example
 
