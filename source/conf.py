@@ -23,7 +23,7 @@ copyright = "2021, Adam Hill"
 author = "Adam Hill"
 
 # The full version, including alpha/beta/rc tags
-release = "0.40.0"
+release = "0.41.2"
 
 
 # -- General configuration ---------------------------------------------------

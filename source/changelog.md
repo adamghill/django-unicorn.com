@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.41.2
+
+- Fix: Handle excluding a field's attribute when the field is `None`.
+
+[All changes since 0.41.1](https://github.com/adamghill/django-unicorn/compare/0.41.1...0.41.2).
+
+## v0.41.1
+
+- Fix: Handle component classes with a `bool` class attribute and a `form_class` with a `BooleanField`. Reported by [zurtri](https://github.com/zurtri)
+
+[All changes since 0.41.0](https://github.com/adamghill/django-unicorn/compare/0.41.0...0.41.1).
+
 ## v0.41.0
 
 - Support using a context variable for a component name. [#314](https://github.com/adamghill/django-unicorn/pull/314) by [robwa](https://github.com/robwa)
