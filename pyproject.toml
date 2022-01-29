@@ -47,7 +47,7 @@ m = { cmd = "./manage.py migrate", help = "Migrate" }
 md = ["mm", "m"]
 ma = { cmd = "./manage.py", help = "manage.py" }
 t = { cmd = "pytest", help = "Run tests" }
-cd = { shell = "rm -f 'source/*.md' && cp ../django-unicorn/docs/source/*.md source/ && cp ../django-unicorn/django_unicorn/CHANGELOG.md source/changelog.md", help = "Copy docs" }
+cd = { shell = "rm -f 'source/*.md' && cp ../django-unicorn/docs/source/*.md source/", help = "Copy docs" }
 sp = { cmd = "sphinx-build -E -a -b pdf source docs", help = "Build PDF documentation" }
 sa = { cmd = "sphinx-autobuild -b dirhtml source docs", help = "Build documentation and host at localhost:8000" }
 sb = { cmd = "sphinx-build -E -a -b dirhtml source docs", help = "Build documentation" }
