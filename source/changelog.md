@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.42.0
+
+- Remove all blank spaces from JSON responses.
+- Optional support for [minifying response HTML](settings.md#minify_html) with [`htmlmin`](https://pypi.org/project/htmlmin/).
+- Log warning message if the component HTML does not appear to be well-formed (i.e. an element does not have an ending tag). [#342](https://github.com/adamghill/django-unicorn/issues/342) by [liamlawless35](https://github.com/liamlawless35)
+
+**Breaking changes**
+
+- Bump supported Python to >=3.7.
+
+[All changes since 0.42.0](https://github.com/adamghill/django-unicorn/compare/0.41.2...0.42.0).
+
 ## v0.41.2
 
 - Fix: Handle excluding a field's attribute when the field is `None`.
@@ -20,8 +32,8 @@
 
 ## v0.40.0
 
-- Add [direct view](direct-view) so that components can be added directly to urls without being required to be included in a regular Django template.
-- Add capability for [`startunicorn`](cli.md#sub-folders) to created components in sub-folders [#299](https://github.com/adamghill/django-unicorn/issues/299)
+- Add direct view so that components can be added directly to urls without being required to be included in a regular Django template.
+- Add capability for `startunicorn` to created components in sub-folders. (#299)[https://github.com/adamghill/django-unicorn/issues/299]
 
 [All changes since 0.39.1](https://github.com/adamghill/django-unicorn/compare/0.39.1...0.40.0).
 
@@ -182,7 +194,7 @@
 
 ## v0.26.0
 
-- Completely redesigned and much improved support for [Django models and QuerySets](django-models.md).
+- Completely redesigned and much improved support for [Django models and QuerySets](https://www.django-unicorn.com/docs/django-models/).
 - Fix the `startunicorn` command and add some ascii art.
 
 [All changes since 0.25.0](https://github.com/adamghill/django-unicorn/compare/0.25.0...0.26.0).
@@ -203,8 +215,8 @@
 ## v0.23.0
 
 - Performance enhancement that returns a 304 HTTP status code when an action happens, but the content doesn't change.
-- Add [`unicorn:ignore`](templates.md#ignore-elements) attribute to prevent an element from being morphed (useful when using `Unicorn` with libraries like `Select2` that change the DOM).
-- Add support for passing arguments to [`Unicorn.call`](actions.md#calling-methods).
+- Add [`unicorn:ignore`](https://www.django-unicorn/docs/templates/#ignore-elements) attribute to prevent an element from being morphed (useful when using `Unicorn` with libraries like `Select2` that change the DOM).
+- Add support for passing arguments to [`Unicorn.call`](https://www.django-unicorn.com/docs/actions/#calling-methods).
 - Bug fix when attempting to cache component views that utilize the `db_model` decorator.
 
 [All changes since 0.22.0](https://github.com/adamghill/django-unicorn/compare/0.22.0...0.23.0).
@@ -225,17 +237,17 @@
 ## v0.21.0
 
 - Bug fix: Prevent disabled polls from firing at all.
-- Support [`Decimal` field type](components.md#supported-property-types).
-- Support [`dataclass` field type](components.md#supported-property-types).
-- Use [type hints](components.md#property-type-hints) to cast fields to primitive Python types if possible.
+- Support [`Decimal` field type](https://www.django-unicorn.com/docs/components/#supported-property-types).
+- Support [`dataclass` field type](https://www.django-unicorn.com/docs/components/#supported-property-types).
+- Use [type hints](https://www.django-unicorn.com/docs/components/#property-type-hints) to cast fields to primitive Python types if possible.
 
 [All changes since 0.20.0](https://github.com/adamghill/django-unicorn/compare/0.20.0...0.21.0).
 
 ## v0.20.0
 
-- Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with [`javascript_exclude`](advanced.md#javascript_exclude).
-- Add [`complete`](advanced.md#complete), [`rendered`](advanced.md#renderedhtml), [`parent_rendered`](advanced.md#parent_renderedhtml) component hooks.
-- Call [JavaScript functions](advanced.md#javascript-integration) from a component view's method.
+- Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with [`javascript_exclude`](https://www.django-unicorn.com/docs/advanced/#javascript_exclude).
+- Add [`complete`](https://www.django-unicorn.com/docs/advanced/#complete), [`rendered`](https://www.django-unicorn.com/docs/advanced/#renderedhtml), [`parent_rendered`](https://www.django-unicorn.com/docs/advanced/#parent_renderedhtml) component hooks.
+- Call [JavaScript functions](https://www.django-unicorn.com/docs/advanced/#javascript-integration) from a component view's method.
 
 [All changes since 0.19.0](https://github.com/adamghill/django-unicorn/compare/0.19.0...0.20.0).
 
@@ -256,9 +268,9 @@
 ## v0.18.0
 
 - Only send updated data back in the response to reduce network latency.
-- Experimental support for [queuing up requests](queue-requests.md) to alleviate race conditions when functions take a long time to process.
+- Experimental support for [queuing up requests](https://www.django-unicorn.com/docs/queue-requests/) to alleviate race conditions when functions take a long time to process.
 - Bug fix: prevent race condition where an instantiated component class would be inadvertently re-used for component views that are slow to render
-- Bug fix: use the correct component name to call a [component method from "outside" the component](actions.md#calling-methods).
+- Bug fix: use the correct component name to call a [component method from "outside" the component](https://www.django-unicorn.com/docs/actions/#calling-methods).
 - Deprecated: `DJANGO_UNICORN` setting has been renamed to `UNICORN`.
 
 [All changes since 0.17.2](https://github.com/adamghill/django-unicorn/compare/0.17.2...0.18.0).
@@ -283,7 +295,7 @@
 
 ## v0.17.0
 
-- Target DOM changes from an action to only a portion of the DOM with [partial updates](partial-updates.md).
+- Target DOM changes from an action to only a portion of the DOM with [partial updates](https://www.django-unicorn.com/docs/partial-updates/).
 
 [All changes since 0.16.1](https://github.com/adamghill/django-unicorn/compare/0.16.1...0.17.0).
 
@@ -295,8 +307,8 @@
 
 ## v0.16.0
 
-- [Dirty states](dirty-states.md) for when there is a change that hasn't been synced yet.
-- Add support for setting [multiple classes for loading states](loading-states.md#class).
+- [Dirty states](https://www.django-unicorn.com/docs/dirty-states/) for when there is a change that hasn't been synced yet.
+- Add support for setting [multiple classes for loading states](https://www.django-unicorn.com/docs/loading-states/#class).
 - Attempt to handle when the component gets out of sync with an invalid checksum error.
 - Performance tweaks when there isn't a change to a model or dbModel with lazy or defer modifiers.
 
@@ -310,8 +322,8 @@
 
 ## v0.15.0
 
-- Add support for [child components](child-components.md)
-- Add [discard](actions.md#discard) action modifier
+- Add support for [child components](https://www.django-unicorn.com/docs/child-components/)
+- Add [discard](https://www.django-unicorn.com/docs/actions/#discard) action modifier
 - Add support for referring to components in a folder structure
 - Remove restriction that component templates must start with a div
 - Remove restriction that component root can't also have `unicorn:model` or `unicorn:action`
@@ -326,23 +338,23 @@
 
 ## v0.14.0
 
-- [Disable poll](polling.md#disable-poll) with a component field
-- Dynamically change polling options with [PollUpdate](polling.md#pollupdate)
+- [Disable poll](https://www.django-unicorn.com/docs/polling/#disable-poll) with a component field
+- Dynamically change polling options with [PollUpdate](https://www.django-unicorn.com/docs/polling/#pollupdate)
 - Basic support for [`pydantic`](https://pydantic-docs.helpmanual.io) models
 
 [All changes since 0.13.0](https://github.com/adamghill/django-unicorn/compare/0.13.0...0.14.0).
 
 ## v0.13.0
 
-- [Component key](components.md#component-key) to allow disambiguation of components of the same name
-- [`$returnValue`](actions.md#returnvalue) special argument
-- Get the last action method's [return value](actions.md#return-values)
+- [Component key](https://www.django-unicorn.com/docs/components/#component-key) to allow disambiguation of components of the same name
+- [`$returnValue`](https://www.django-unicorn.com/docs/actions/#returnvalue) special argument
+- Get the last action method's [return value](https://www.django-unicorn.com/docs/actions/#return-values)
 
 [All changes since 0.12.0](https://github.com/adamghill/django-unicorn/compare/0.12.0...0.13.0).
 
 ## v0.12.0
 
-- [Redirect](redirecting.md) from action method in component
+- [Redirect](https://www.django-unicorn.com/docs/redirecting/) from action method in component
 
 [All changes since 0.11.2](https://github.com/adamghill/django-unicorn/compare/0.11.2...0.12.0).
 
@@ -355,13 +367,13 @@
 
 ## v0.11.0
 
-- [`$toggle`](actions.md#toggle) special method.
-- Support nested properties when using the [set shortcut](actions.md#set-shortcut).
+- [`$toggle`](https://www.django-unicorn.com/docs/actions/#toggle) special method.
+- Support nested properties when using the [set shortcut](https://www.django-unicorn.com/docs/actions/#set-shortcut).
 - Fix action string arguments that would get spaces removed inadvertently.
 
 **Breaking changes**
 
-- All existing special methods now start with a `$` to signify they are magical. Therefore, `refresh` is now [`$refresh`](actions.md#refresh), `reset` is now [`$reset`](actions.md#reset), and `validate` is now [`$validate`](actions.md#validate).
+- All existing special methods now start with a `$` to signify they are magical. Therefore, `refresh` is now [`$refresh`](https://www.django-unicorn.com/docs/actions/#refresh), `reset` is now [`$reset`](https://www.django-unicorn.com/docs/actions/#reset), and `validate` is now [`$validate`](https://www.django-unicorn.com/docs/actions/#validate).
 
 [All changes since 0.10.1](https://github.com/adamghill/django-unicorn/compare/0.10.1...0.11.0).
 
@@ -376,8 +388,8 @@
 
 ## v0.10.0
 
-- Add support for [passing kwargs](components.md#component-arguments) into the component on the template
-- Provide access to the [current request](advanced.md#request) in the component's methods
+- Add support for [passing kwargs](https://www.django-unicorn.com/docs/components/#component-arguments) into the component on the template
+- Provide access to the [current request](https://www.django-unicorn.com/docs/advanced/#request) in the component's methods
 
 [All changes since 0.9.4](https://github.com/adamghill/django-unicorn/compare/0.9.4...0.10.0).
 
@@ -403,10 +415,10 @@
 
 ## v0.9.0
 
-- [Loading states](loading-states.md) for improved UX.
-- `$event` [special argument](actions.md#events) for `actions`.
-- `u` [unicorn attribute](components.md#unicorn-attributes).
-- `APPS` [setting](settings.md#apps) for determing where to look for components.
+- [Loading states](https://www.django-unicorn.com/docs/loading-states/) for improved UX.
+- `$event` [special argument](https://www.django-unicorn.com/docs/actions/#events) for `actions`.
+- `u` [unicorn attribute](https://www.django-unicorn.com/docs/components/#unicorn-attributes).
+- `APPS` [setting](https://www.django-unicorn.com/docs/settings/#apps) for determing where to look for components.
 - Add support for parent elements for non-db models.
 - Fix: Handle if `Meta` doesn't exist for db models.
 
@@ -414,7 +426,7 @@
 
 ## v0.8.0
 
-- Add much more elaborate support for dealing with [Django models](django-models.md).
+- Add much more elaborate support for dealing with [Django models](https://www.django-unicorn.com/docs/django-models/).
 
 [All changes since 0.7.1](https://github.com/adamghill/django-unicorn/compare/0.7.1...0.8.0).
 
@@ -427,11 +439,11 @@
 
 ## v0.7.0
 
-- Parse [action method arguments](actions.md#passing-arguments) as basic Python objects
-- [Stop and prevent modifiers](actions.md#modifiers) on actions
-- [Defer modifier](templates.md#defer) on model
+- Parse [action method arguments](https://www.django-unicorn.com/docs/actions/#passing-arguments) as basic Python objects
+- [Stop and prevent modifiers](https://www.django-unicorn.com/docs/actions/#modifiers) on actions
+- [Defer modifier](https://www.django-unicorn.com/docs/templates/#defer) on model
 - Support for multiple actions on the same element
-- Django setting for whether the JavaScript is [minified](settings.md#minified)
+- Django setting for whether the JavaScript is [minified](https://www.django-unicorn.com/docs/settings/#minified)
 
 **Breaking changes**
 
@@ -477,25 +489,25 @@
 
 ## v0.6.0
 
-- [Realtime validation](validation.md) of a Unicorn model.
-- [Polling](polling.md) for component updates.
-- [More component hooks](advanced.md)
+- [Realtime validation](https://www.django-unicorn.com/docs/validation/) of a Unicorn model.
+- [Polling](https://www.django-unicorn.com/docs/polling/) for component updates.
+- [More component hooks](https://www.django-unicorn.com/docs/advanced/)
 
 [All changes since 0.5.0](https://github.com/adamghill/django-unicorn/compare/0.5.0...0.6.0).
 
 ## v0.5.0
 
-- [Call](actions.md#calling-methods) component method from JavaScript.
+- [Call](https://www.django-unicorn.com/docs/actions/#calling-methods) component method from JavaScript.
 - Support classes, dictionaries, Django Models, (read-only) Django QuerySets properties on a component.
-- [Debounce](templates.md#debounce) modifier to change how fast changes are sent to the backend from `unicorn:model`.
-- [Lazy](templates.md#lazy) modifier to listen for `blur` instead of `input` on `unicorn:model`.
+- [Debounce](https://www.django-unicorn.com/docs/templates/#debounce) modifier to change how fast changes are sent to the backend from `unicorn:model`.
+- [Lazy](https://www.django-unicorn.com/docs/templates/#lazy) modifier to listen for `blur` instead of `input` on `unicorn:model`.
 - Better support for `textarea` HTML element.
 
 [All changes since 0.4.0](https://github.com/adamghill/django-unicorn/compare/0.4.0...0.5.0).
 
 ## v0.4.0
 
-- [Set shortcut](actions.md#set-shortcut) for setting properties.
+- [Set shortcut](https://www.django-unicorn.com/docs/actions/#set-shortcut) for setting properties.
 - Listen for any valid event, not just `click`.
 - Better handling for model updates when element ids aren't unique.
 
@@ -503,8 +515,8 @@
 
 ## v0.3.0
 
-- Add [mount hook](advanced.md#mount).
-- Add [reset](actions.md#reset) action.
+- Add [mount hook](https://www.django-unicorn.com/docs/advanced/#mount).
+- Add [reset](https://www.django-unicorn.com/docs/actions/#reset) action.
 - Remove lag when typing fast in a text input and overall improved performance.
 - Better error handling for exceptional cases.
 

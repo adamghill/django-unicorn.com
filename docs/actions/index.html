@@ -228,7 +228,7 @@
 <section id="events">
 <h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
 <p>An example action to call the <code class="docutils literal notranslate"><span class="pre">clear_name</span></code> method on the component.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- clear-name.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- clear-name.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
   Hello {{ name|title }}
@@ -255,7 +255,7 @@
 <section id="passing-arguments">
 <h2>Passing arguments<a class="headerlink" href="#passing-arguments" title="Permalink to this headline">¶</a></h2>
 <p>Actions can also pass basic Python types to the backend component.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- passing-args.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- passing-args.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
   Hello {{ name|title }} 👋
@@ -277,7 +277,7 @@
 <section id="argument-types">
 <h3>Argument types<a class="headerlink" href="#argument-types" title="Permalink to this headline">¶</a></h3>
 <p>Arguments can be most basic Python types, including <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, and <code class="docutils literal notranslate"><span class="pre">UUID4</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- argument-types.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- argument-types.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(99)"</span><span class="p">&gt;</span>Pass int<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(1.234)"</span><span class="p">&gt;</span>Pass float<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -296,12 +296,40 @@
 <p class="admonition-title">Note</p>
 <p>Strings will be converted to <code class="docutils literal notranslate"><span class="pre">datetime</span></code> if they are successfully parsed by Django’s <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime"><code class="docutils literal notranslate"><span class="pre">parse_datetime</span></code></a> method.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Enums themselves cannot be passed as an argument, but the enum <em>value</em> can be since that is a Python primitive. In the component’s view, use the enum’s constructor to convert the primitive back into the enum if needed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># enum.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+  <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="n">BLUE</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">class</span> <span class="nc">EnumView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">RED</span>
+
+    <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color_int</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color_int</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- enum.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color({{ color.value }})"</span><span class="p">&gt;</span>Sets `self.color` based on the existing value of the `self.color` enum<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color(2)"</span><span class="p">&gt;</span>Sets `self.color` to `Color.GREEN`<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color({{ color.BLUE.value }})"</span><span class="p">&gt;</span>Sets `self.color` to `Color.BLUE`<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="set-shortcut">
 <h2>Set shortcut<a class="headerlink" href="#set-shortcut" title="Permalink to this headline">¶</a></h2>
 <p>Actions can also set properties without requiring an explicit method.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- set-shortcut.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- set-shortcut.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
   Hello {{ name|title }} 👋
@@ -323,7 +351,7 @@
 <section id="prevent">
 <h3>prevent<a class="headerlink" href="#prevent" title="Permalink to this headline">¶</a></h3>
 <p>Prevents the default action the browser would use for that element. The same as calling <code class="docutils literal notranslate"><span class="pre">preventDefault</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- prevent-modifier.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- prevent-modifier.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">"name='Bob'"</span><span class="p">&gt;</span>Set name as Bob<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -333,7 +361,7 @@
 <section id="stop">
 <h3>stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
 <p>Stops the event from bubbling up the event chain. The same as calling <code class="docutils literal notranslate"><span class="pre">stopPropagation</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- stop-modifier.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- stop-modifier.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">"name='Bob'"</span><span class="p">&gt;</span>Set name as Bob<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -343,7 +371,7 @@
 <section id="discard">
 <h3>discard<a class="headerlink" href="#discard" title="Permalink to this headline">¶</a></h3>
 <p>Discards any model updates from being saved before calling the specified method on the view. Useful for a cancel button.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- discard-modifier.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- discard-modifier.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">discard</span><span class="o">=</span><span class="s">"cancel"</span><span class="p">&gt;</span>Cancel<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -364,7 +392,7 @@
 <section id="debounce">
 <h3>debounce<a class="headerlink" href="#debounce" title="Permalink to this headline">¶</a></h3>
 <p>Waits the specified time in milliseconds before calling the specified method.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- debounce-modifier.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- debounce-modifier.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="err">.</span><span class="na">debounce-1000</span><span class="o">=</span><span class="s">"add_count"</span><span class="p">&gt;</span>Add Count<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -378,7 +406,7 @@
 <section id="event">
 <h3>$event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h3>
 <p>A reference to the event that triggered the action.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- event.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- event.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:change</span><span class="o">=</span><span class="s">"update($event.target.value.trim())"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -388,7 +416,7 @@
 <section id="returnvalue">
 <h3>$returnValue<a class="headerlink" href="#returnvalue" title="Permalink to this headline">¶</a></h3>
 <p>A reference to the last return value from an action method.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- returnValue.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- returnValue.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:change</span><span class="o">=</span><span class="s">"update($returnValue.trim())"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -401,7 +429,7 @@
 <section id="refresh">
 <h3>$refresh<a class="headerlink" href="#refresh" title="Permalink to this headline">¶</a></h3>
 <p>Refresh and re-render the component from its current state.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- refresh-method.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- refresh-method.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$refresh"</span><span class="p">&gt;</span>Refresh the component<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -411,7 +439,7 @@
 <section id="reset">
 <h3>$reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
 <p>Revert the component to its original state.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- reset-method.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- reset-method.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$reset"</span><span class="p">&gt;</span>Reset the component<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -421,7 +449,7 @@
 <section id="toggle">
 <h3>$toggle<a class="headerlink" href="#toggle" title="Permalink to this headline">¶</a></h3>
 <p>Toggle a field on the component. Can only be used for fields that are booleans.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- toggle-method.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- toggle-method.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('check')"</span><span class="p">&gt;</span>Toggle the check field<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -435,7 +463,7 @@
 <section id="validate">
 <h3>$validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h3>
 <p>Validates the component.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- validate-method.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- validate-method.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$validate"</span><span class="p">&gt;</span>Validate the component<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -446,7 +474,7 @@
 <section id="calling-methods">
 <h2>Calling methods<a class="headerlink" href="#calling-methods" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes you need to trigger a method on a component from regular JavaScript. That is possible with <code class="docutils literal notranslate"><span class="pre">Unicorn.call()</span></code>. It can be called from anywhere on the page.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
 {% unicorn 'hello-world' %}
 
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Unicorn.call('hello-world', 'set_name');"</span><span class="p">&gt;</span>
@@ -455,7 +483,7 @@
 </pre></div>
 </div>
 <p>Passing arguments is also supported.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
 {% unicorn 'hello-world' %}
 
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Unicorn.call('hello-world', 'set_name', 'World');"</span><span class="p">&gt;</span>
@@ -467,7 +495,7 @@
 <section id="return-values">
 <h2>Return values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <p>To retrieve the last action method’s return value, use <code class="docutils literal notranslate"><span class="pre">Unicorn.getReturnValue()</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- index.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
 {% unicorn 'hello-world' %}
 
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"alert(Unicorn.getReturnValue('hello-world'));"</span><span class="p">&gt;</span>

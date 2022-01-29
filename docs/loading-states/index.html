@@ -228,7 +228,7 @@
 <section id="toggling-elements">
 <h2>Toggling Elements<a class="headerlink" href="#toggling-elements" title="Permalink to this headline">¶</a></h2>
 <p>Elements with the <code class="docutils literal notranslate"><span class="pre">unicorn:loading</span></code> attribute are only visible when an action is in process.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- loading.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
@@ -242,7 +242,7 @@
 <p>Loading elements get shown or removed with the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden"><code class="docutils literal notranslate"><span class="pre">hidden</span></code></a> attribute. One drawback to this approach is that setting the style <code class="docutils literal notranslate"><span class="pre">display</span></code> property overrides this functionality.</p>
 </div>
 <p>You can also hide an element while an action is processed by adding a <code class="docutils literal notranslate"><span class="pre">remove</span></code> modifier.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading-remove.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- loading-remove.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
@@ -251,7 +251,7 @@
 </pre></div>
 </div>
 <p>If there are multiple actions that happen in the component, you can show or hide a loading element for a specifc action by targetting another element’s <code class="docutils literal notranslate"><span class="pre">id</span></code> with <code class="docutils literal notranslate"><span class="pre">unicorn:target</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading-target-id.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- loading-target-id.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span> <span class="na">id</span><span class="o">=</span><span class="s">"updateId"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"delete"</span> <span class="na">id</span><span class="o">=</span><span class="s">"deleteId"</span><span class="p">&gt;</span>Delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -262,7 +262,7 @@
 </pre></div>
 </div>
 <p>An element’s <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> can also be targeted.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading-target-key.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- loading-target-key.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span> <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"updateKey"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"delete"</span> <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"deleteKey"</span><span class="p">&gt;</span>Delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -280,7 +280,7 @@
 <h3>attr<a class="headerlink" href="#attr" title="Permalink to this headline">¶</a></h3>
 <p>Set the specified attribute on the element that is triggering the action.</p>
 <p>This example will disable the <em>Update</em> button when it is clicked and remove the attribute once the action is completed.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading-attr.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- loading-attr.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span> <span class="na">unicorn:loading</span><span class="err">.</span><span class="na">attr</span><span class="o">=</span><span class="s">"disabled"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -291,7 +291,7 @@
 <h3>class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h3>
 <p>Add the specified class(es) to the element that is triggering the action.</p>
 <p>This example will add <code class="docutils literal notranslate"><span class="pre">loading</span></code> and <code class="docutils literal notranslate"><span class="pre">spinner</span></code> classes to the <em>Update</em> button when it is clicked and remove the classes once the action is completed.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading-class.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- loading-class.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span> <span class="na">unicorn:loading</span><span class="err">.</span><span class="na">class</span><span class="o">=</span><span class="s">"loading spinner"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -302,7 +302,7 @@
 <h3>class.remove<a class="headerlink" href="#class-remove" title="Permalink to this headline">¶</a></h3>
 <p>Remove the specified class from the element that is triggering the action.</p>
 <p>This example will remove a <code class="docutils literal notranslate"><span class="pre">active</span></code> class from the <em>Update</em> button when it is clicked and add the class back once the action is completed.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- loading-class-remove.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- loading-class-remove.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span> <span class="na">unicorn:loading</span><span class="err">.</span><span class="na">class</span><span class="err">.</span><span class="na">remove</span><span class="o">=</span><span class="s">"active"</span><span class="p">&gt;</span>
     Update

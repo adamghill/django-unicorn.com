@@ -13,12 +13,12 @@ python-dotenv = "^0.14.0"
 gunicorn = "^20.0.4"
 whitenoise = "^5.1.0"
 django-compressor = "^2.4"
-django-unicorn = "^0.36.0"
+django-unicorn = "0.42.0"
 django-cache-memoize = "^0.1.7"
 django-redis = "^4.12.1"
 httpx = "^0.14.2"
 sentry-sdk = "^0.17.4"
-django-docs = {git = "https://github.com/adamghill/django-docs", rev = "a68af62786589bc381d81a165cd8344519931526"}
+django-docs = {git = "https://github.com/littlepea/django-docs", rev = "08912dac5d589ef57812a6cfdccb8398a57f0da7"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
@@ -47,9 +47,11 @@ m = { cmd = "./manage.py migrate", help = "Migrate" }
 md = ["mm", "m"]
 ma = { cmd = "./manage.py", help = "manage.py" }
 t = { cmd = "pytest", help = "Run tests" }
+cd = { shell = "rm -f 'source/*.md' && cp ../django-unicorn/docs/source/*.md source/ && cp ../django-unicorn/django_unicorn/CHANGELOG.md source/changelog.md", help = "Copy docs" }
 sp = { cmd = "sphinx-build -E -a -b pdf source docs", help = "Build PDF documentation" }
 sa = { cmd = "sphinx-autobuild -b dirhtml source docs", help = "Build documentation and host at localhost:8000" }
 sb = { cmd = "sphinx-build -E -a -b dirhtml source docs", help = "Build documentation" }
+l = ["cd", "sb", "r"]
 
 [build-system]
 requires = ["poetry>=0.12"]

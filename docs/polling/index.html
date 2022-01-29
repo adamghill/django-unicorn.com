@@ -233,13 +233,13 @@
     <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- polling.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- polling.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll</span><span class="p">&gt;</span>{{ current_time }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>A method can also be specified if there is a specific method on the component that should called every time the polling fires. For example, <code class="docutils literal notranslate"><span class="pre">unicorn:poll="get_updates"</span></code> would call the <code class="docutils literal notranslate"><span class="pre">get_updates</span></code> method instead of the built-in <code class="docutils literal notranslate"><span class="pre">refresh</span></code> method.</p>
 <p>To define a different refresh time in milliseconds, a modifier can be added as well. <code class="docutils literal notranslate"><span class="pre">unicorn:poll-1000</span></code> would fire the <code class="docutils literal notranslate"><span class="pre">refresh</span></code> method every 1 second, instead of the default 2 seconds.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- polling-every-five-seconds.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- polling-every-five-seconds.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-5000</span><span class="o">=</span><span class="s">"get_updates"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"update"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
   {{ update }}
@@ -261,7 +261,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- poll-disable.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- poll-disable.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-1000</span><span class="o">=</span><span class="s">"get_date"</span> <span class="na">unicorn:poll</span><span class="err">.</span><span class="na">disable</span><span class="o">=</span><span class="s">"polling_disabled"</span><span class="p">&gt;</span>
     current_time: {{ current_time|date:"s" }}<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">u:click</span><span class="o">=</span><span class="s">"$toggle('polling_disabled')"</span><span class="p">&gt;</span>Toggle Polling<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -283,7 +283,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- poll-disable-negation.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- poll-disable-negation.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-1000</span><span class="o">=</span><span class="s">"get_date"</span> <span class="na">unicorn:poll</span><span class="err">.</span><span class="na">disable</span><span class="o">=</span><span class="s">"!polling_enabled"</span><span class="p">&gt;</span>
     current_time: {{ current_time|date:"s" }}<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">u:click</span><span class="o">=</span><span class="s">"$toggle('polling_enabled')"</span><span class="p">&gt;</span>Toggle Polling<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -308,7 +308,7 @@
         <span class="k">return</span> <span class="n">PollUpdate</span><span class="p">(</span><span class="n">timing</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">disable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"get_date"</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- poll-update.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- poll-update.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">unicorn:poll-1000</span><span class="o">=</span><span class="s">"get_date"</span><span class="p">&gt;</span>
     current_time: {{ current_time|date:"s" }}<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>

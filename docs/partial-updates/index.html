@@ -236,7 +236,7 @@
     <span class="n">checked</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- partial-update.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>{{ checked }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('checked')"</span> <span class="na">unicorn:partial</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>
@@ -248,7 +248,7 @@
 <section id="target-by-id">
 <h2>Target by id<a class="headerlink" href="#target-by-id" title="Permalink to this headline">¶</a></h2>
 <p>To only target an element <code class="docutils literal notranslate"><span class="pre">id</span></code> add the <code class="docutils literal notranslate"><span class="pre">id</span></code> modifier to <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update-id.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- partial-update-id.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>{{ checked }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('checked')"</span> <span class="na">unicorn:partial</span><span class="err">.</span><span class="na">id</span><span class="o">=</span><span class="s">"checked-id"</span><span class="p">&gt;</span>
@@ -261,7 +261,7 @@
 <section id="target-by-key">
 <h2>Target by key<a class="headerlink" href="#target-by-key" title="Permalink to this headline">¶</a></h2>
 <p>To only target an element <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> add the <code class="docutils literal notranslate"><span class="pre">key</span></code> modifier to <code class="docutils literal notranslate"><span class="pre">unicorn:partial</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- partial-update-key.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- partial-update-key.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span> <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"checked-key"</span><span class="p">&gt;</span>{{ checked }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$toggle('checked')"</span> <span class="na">unicorn:partial</span><span class="err">.</span><span class="na">key</span><span class="o">=</span><span class="s">"checked-key"</span><span class="p">&gt;</span>

@@ -10,6 +10,8 @@ A Django `Model` can be used as a field on a component just like basic Python pr
 Using this functionality will serialize your entire model by default and expose all of the values in the HTML source code. Do not use this particular functionality if there are properties that need to be kept private.
 
 One option is to customize the serialization of the model into a dictionary to only expose the data that should be publicly available.
+
+Another option is to use [Meta.exclude](advanced.md#exclude) or [Meta.javascript_exclude](advanced.md#javascript_exclude) so those fields are not exposed.
 :::
 
 :::{code} html

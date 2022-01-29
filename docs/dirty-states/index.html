@@ -232,7 +232,7 @@
 <h3>attr<a class="headerlink" href="#attr" title="Permalink to this headline">¶</a></h3>
 <p>Set the specified attribute on the element that is changed.</p>
 <p>This example will set the input to be readonly when the model is changed. The attribute will be removed once the name is synced or if the input value is changed back to the original value.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- dirty-attr.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- dirty-attr.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">unicorn:dirty</span><span class="err">.</span><span class="na">attr</span><span class="o">=</span><span class="s">"readonly"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -243,7 +243,7 @@
 <h3>class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h3>
 <p>Add the specified class(es) to the model that is changed.</p>
 <p>This example will add <em>dirty</em> and <em>changing</em> classes to the input when the model is changed. The classes will be removed once the model is synced or if the input value is changed back to the original value.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- dirty-class.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- dirty-class.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">unicorn:dirty</span><span class="err">.</span><span class="na">class</span><span class="o">=</span><span class="s">"dirty changing"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -254,7 +254,7 @@
 <h3>class.remove<a class="headerlink" href="#class-remove" title="Permalink to this headline">¶</a></h3>
 <p>Remove the specified class(es) from the model that is changed.</p>
 <p>This example will remove the <em>clean</em> class from the input when the model is changed. The class will be added back once the model is synced or if the input value is changed back to the original value.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- dirty-class-remove.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- dirty-class-remove.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">unicorn:dirty</span><span class="err">.</span><span class="na">class</span><span class="err">.</span><span class="na">remove</span><span class="o">=</span><span class="s">"clean"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>

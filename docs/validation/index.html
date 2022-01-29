@@ -245,7 +245,7 @@
     <span class="n">publish_date</span> <span class="o">=</span> <span class="s2">""</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- book.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- book.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"publish_date"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"publish-date"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
@@ -260,16 +260,16 @@
 <section id="highlighting-the-invalid-form">
 <h3>Highlighting the invalid form<a class="headerlink" href="#highlighting-the-invalid-form" title="Permalink to this headline">¶</a></h3>
 <p>When a model form is invalid, a special <code class="docutils literal notranslate"><span class="pre">unicorn:error</span></code> attribute is added to the element. Depending on whether it is an <code class="docutils literal notranslate"><span class="pre">invalid</span></code> or <code class="docutils literal notranslate"><span class="pre">required</span></code> error code, the attribute will be <code class="docutils literal notranslate"><span class="pre">unicorn:error:invalid</span></code> or <code class="docutils literal notranslate"><span class="pre">unicorn:error:required</span></code>. The value of the attribute will be the validation message.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- highlight-input-errors.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- highlight-input-errors.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-    <span class="o">[</span><span class="nt">unicorn</span><span class="err">\</span><span class="p">:</span><span class="nd">error</span><span class="err">\</span><span class="p">:</span><span class="nd">invalid</span><span class="o">]</span> <span class="p">{</span>
-      <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">red</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="o">[</span><span class="nt">unicorn</span><span class="err">\</span><span class="p">:</span><span class="nd">error</span><span class="err">\</span><span class="p">:</span><span class="nd">required</span><span class="o">]</span> <span class="p">{</span>
-      <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">red</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">[</span><span class="nt">unicorn</span><span class="err">\</span><span class="p">:</span><span class="nd">error</span><span class="err">\</span><span class="p">:</span><span class="nd">invalid</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">red</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">[</span><span class="nt">unicorn</span><span class="err">\</span><span class="p">:</span><span class="nd">error</span><span class="err">\</span><span class="p">:</span><span class="nd">required</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">red</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">input</span>
   <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"publish_date"</span>
@@ -284,7 +284,7 @@
 </section>
 <section id="showing-a-specific-error-message">
 <h3>Showing a specific error message<a class="headerlink" href="#showing-a-specific-error-message" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- show-error-message.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- show-error-message.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"publish_date"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"publish-date"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"error"</span><span class="p">&gt;</span>{{ unicorn.errors.publish_date.0.message }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
@@ -295,7 +295,7 @@
 <section id="showing-all-the-error-messages">
 <h3>Showing all the error messages<a class="headerlink" href="#showing-all-the-error-messages" title="Permalink to this headline">¶</a></h3>
 <p>There is a <code class="docutils literal notranslate"><span class="pre">unicorn_errors</span></code> template tag that shows all errors for the component. It should provide an example of how to display component errors in a more specific way if needed.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- show-all-error-messages.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- show-all-error-messages.html --&gt;</span>
 {% load unicorn %}
 
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -310,7 +310,7 @@
 <section id="validate-the-entire-component">
 <h2>Validate the entire component<a class="headerlink" href="#validate-the-entire-component" title="Permalink to this headline">¶</a></h2>
 <p>The magic action method <code class="docutils literal notranslate"><span class="pre">$validate</span></code> can be used to validate the whole component by the front-end.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- validate.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- validate.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"publish_date"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"publish-date"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"$validate"</span><span class="p">&gt;</span>Validate<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>

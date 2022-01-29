@@ -229,7 +229,7 @@
 <section id="parent-component">
 <h2>Parent component<a class="headerlink" href="#parent-component" title="Permalink to this headline">¶</a></h2>
 <p>So that <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> knows about the parent-child relationship, the child component must pass in a <code class="docutils literal notranslate"><span class="pre">parent</span></code> keyword argument with the parent’s component view.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- table.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- table.html --&gt;</span>
 {% load unicorn %}
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   {% unicorn 'filter' parent=view %}
@@ -273,7 +273,7 @@
 <section id="child-component">
 <h2>Child component<a class="headerlink" href="#child-component" title="Permalink to this headline">¶</a></h2>
 <p>The child filter component, <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'filter'</span> <span class="pre">parent=view</span> <span class="pre">%}</span></code>, will have access to its parent through the view’s <code class="docutils literal notranslate"><span class="pre">self.parent</span></code>. The <code class="docutils literal notranslate"><span class="pre">FilterView</span></code> is using the <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#updated-property-name-value">updated</a> method to filter the <code class="docutils literal notranslate"><span class="pre">books</span></code> queryset on the table component when the filter’s <code class="docutils literal notranslate"><span class="pre">search</span></code> model is changed.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- filter.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- filter.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"search"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -301,7 +301,7 @@
 <p class="admonition-title">Note</p>
 <p>The <a class="reference internal" href="../actions/#discard"><span class="std std-doc">discard</span></a> action modifier is used on the cancel button to provide an easy way to prevent any edits from being saved.</p>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- row.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- row.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
     {% if is_editing %}
@@ -347,7 +347,7 @@
 </pre></div>
 </div>
 <p>The changes for the table component where the row child component is added in. Views will always have a <code class="docutils literal notranslate"><span class="pre">children</span></code> attribute – here it is used to set <code class="docutils literal notranslate"><span class="pre">is_editing</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> on all rows when the table gets reloaded.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- table.html ---&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- table.html ---&gt;</span>
 {% load unicorn %}
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   {% unicorn 'filter' parent=view %}

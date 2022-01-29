@@ -224,6 +224,19 @@
         </label>
         <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<section id="v0-42-0">
+<h2>v0.42.0<a class="headerlink" href="#v0-42-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Remove all blank spaces from JSON responses.</p></li>
+<li><p>Optional support for <a class="reference internal" href="../settings/#minify-html"><span class="std std-doc">minifying response HTML</span></a> with <a class="reference external" href="https://pypi.org/project/htmlmin/"><code class="docutils literal notranslate"><span class="pre">htmlmin</span></code></a>.</p></li>
+<li><p>Log warning message if the component HTML doesn’t appear to be well-formed (i.e. an element does not have an ending tag). <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/342">#342</a> by <a class="reference external" href="https://github.com/liamlawless35">liamlawless35</a></p></li>
+</ul>
+<p><strong>Breaking changes</strong></p>
+<ul class="simple">
+<li><p>Bump supported Python to &gt;=3.7.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.41.2...0.42.0">All changes since 0.42.0</a>.</p>
+</section>
 <section id="v0-41-2">
 <h2>v0.41.2<a class="headerlink" href="#v0-41-2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -248,8 +261,8 @@
 <section id="v0-40-0">
 <h2>v0.40.0<a class="headerlink" href="#v0-40-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add <a class="reference internal" href="../direct-view/"><span class="doc std std-doc">direct view</span></a> so that components can be added directly to urls without being required to be included in a regular Django template.</p></li>
-<li><p>Add capability for <a class="reference internal" href="../cli/#sub-folders"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">startunicorn</span></code></span></a> to created components in sub-folders <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/299">#299</a></p></li>
+<li><p>Add direct view so that components can be added directly to urls without being required to be included in a regular Django template.</p></li>
+<li><p>Add capability for <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> to created components in sub-folders. (#299)[<a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/299">https://github.com/adamghill/django-unicorn/issues/299</a>]</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.39.1...0.40.0">All changes since 0.39.1</a>.</p>
 </section>
@@ -433,7 +446,7 @@
 <section id="v0-26-0">
 <h2>v0.26.0<a class="headerlink" href="#v0-26-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Completely redesigned and much improved support for <a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django models and QuerySets</span></a>.</p></li>
+<li><p>Completely redesigned and much improved support for <a class="reference external" href="https://www.django-unicorn.com/docs/django-models/">Django models and QuerySets</a>.</p></li>
 <li><p>Fix the <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> command and add some ascii art.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.25.0...0.26.0">All changes since 0.25.0</a>.</p>
@@ -457,8 +470,8 @@
 <h2>v0.23.0<a class="headerlink" href="#v0-23-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Performance enhancement that returns a 304 HTTP status code when an action happens, but the content doesn’t change.</p></li>
-<li><p>Add <a class="reference internal" href="../templates/#ignore-elements"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">unicorn:ignore</span></code></span></a> attribute to prevent an element from being morphed (useful when using <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with libraries like <code class="docutils literal notranslate"><span class="pre">Select2</span></code> that change the DOM).</p></li>
-<li><p>Add support for passing arguments to <a class="reference internal" href="../actions/#calling-methods"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Unicorn.call</span></code></span></a>.</p></li>
+<li><p>Add <a class="reference external" href="https://www.django-unicorn/docs/templates/#ignore-elements"><code class="docutils literal notranslate"><span class="pre">unicorn:ignore</span></code></a> attribute to prevent an element from being morphed (useful when using <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> with libraries like <code class="docutils literal notranslate"><span class="pre">Select2</span></code> that change the DOM).</p></li>
+<li><p>Add support for passing arguments to <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#calling-methods"><code class="docutils literal notranslate"><span class="pre">Unicorn.call</span></code></a>.</p></li>
 <li><p>Bug fix when attempting to cache component views that utilize the <code class="docutils literal notranslate"><span class="pre">db_model</span></code> decorator.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.22.0...0.23.0">All changes since 0.22.0</a>.</p>
@@ -482,18 +495,18 @@
 <h2>v0.21.0<a class="headerlink" href="#v0-21-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Bug fix: Prevent disabled polls from firing at all.</p></li>
-<li><p>Support <a class="reference internal" href="../components/#supported-property-types"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Decimal</span></code> field type</span></a>.</p></li>
-<li><p>Support <a class="reference internal" href="../components/#supported-property-types"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">dataclass</span></code> field type</span></a>.</p></li>
-<li><p>Use <a class="reference internal" href="../components/#property-type-hints"><span class="std std-doc">type hints</span></a> to cast fields to primitive Python types if possible.</p></li>
+<li><p>Support <a class="reference external" href="https://www.django-unicorn.com/docs/components/#supported-property-types"><code class="docutils literal notranslate"><span class="pre">Decimal</span></code> field type</a>.</p></li>
+<li><p>Support <a class="reference external" href="https://www.django-unicorn.com/docs/components/#supported-property-types"><code class="docutils literal notranslate"><span class="pre">dataclass</span></code> field type</a>.</p></li>
+<li><p>Use <a class="reference external" href="https://www.django-unicorn.com/docs/components/#property-type-hints">type hints</a> to cast fields to primitive Python types if possible.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.20.0...0.21.0">All changes since 0.20.0</a>.</p>
 </section>
 <section id="v0-20-0">
 <h2>v0.20.0<a class="headerlink" href="#v0-20-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with <a class="reference internal" href="../advanced/#javascript-exclude"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></span></a>.</p></li>
-<li><p>Add <a class="reference internal" href="../advanced/#complete"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">complete</span></code></span></a>, <a class="reference internal" href="../advanced/#rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">rendered</span></code></span></a>, <a class="reference internal" href="../advanced/#parent-rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">parent_rendered</span></code></span></a> component hooks.</p></li>
-<li><p>Call <a class="reference internal" href="../advanced/#javascript-integration"><span class="std std-doc">JavaScript functions</span></a> from a component view’s method.</p></li>
+<li><p>Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#javascript_exclude"><code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></a>.</p></li>
+<li><p>Add <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#complete"><code class="docutils literal notranslate"><span class="pre">complete</span></code></a>, <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#renderedhtml"><code class="docutils literal notranslate"><span class="pre">rendered</span></code></a>, <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#parent_renderedhtml"><code class="docutils literal notranslate"><span class="pre">parent_rendered</span></code></a> component hooks.</p></li>
+<li><p>Call <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#javascript-integration">JavaScript functions</a> from a component view’s method.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.19.0...0.20.0">All changes since 0.19.0</a>.</p>
 </section>
@@ -517,9 +530,9 @@
 <h2>v0.18.0<a class="headerlink" href="#v0-18-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Only send updated data back in the response to reduce network latency.</p></li>
-<li><p>Experimental support for <a class="reference internal" href="../queue-requests/"><span class="doc std std-doc">queuing up requests</span></a> to alleviate race conditions when functions take a long time to process.</p></li>
+<li><p>Experimental support for <a class="reference external" href="https://www.django-unicorn.com/docs/queue-requests/">queuing up requests</a> to alleviate race conditions when functions take a long time to process.</p></li>
 <li><p>Bug fix: prevent race condition where an instantiated component class would be inadvertently re-used for component views that are slow to render</p></li>
-<li><p>Bug fix: use the correct component name to call a <a class="reference internal" href="../actions/#calling-methods"><span class="std std-doc">component method from “outside” the component</span></a>.</p></li>
+<li><p>Bug fix: use the correct component name to call a <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#calling-methods">component method from “outside” the component</a>.</p></li>
 <li><p>Deprecated: <code class="docutils literal notranslate"><span class="pre">DJANGO_UNICORN</span></code> setting has been renamed to <code class="docutils literal notranslate"><span class="pre">UNICORN</span></code>.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.17.2...0.18.0">All changes since 0.17.2</a>.</p>
@@ -547,7 +560,7 @@
 <section id="v0-17-0">
 <h2>v0.17.0<a class="headerlink" href="#v0-17-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Target DOM changes from an action to only a portion of the DOM with <a class="reference internal" href="../partial-updates/"><span class="doc std std-doc">partial updates</span></a>.</p></li>
+<li><p>Target DOM changes from an action to only a portion of the DOM with <a class="reference external" href="https://www.django-unicorn.com/docs/partial-updates/">partial updates</a>.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.16.1...0.17.0">All changes since 0.16.1</a>.</p>
 </section>
@@ -561,8 +574,8 @@
 <section id="v0-16-0">
 <h2>v0.16.0<a class="headerlink" href="#v0-16-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../dirty-states/"><span class="doc std std-doc">Dirty states</span></a> for when there is a change that hasn’t been synced yet.</p></li>
-<li><p>Add support for setting <a class="reference internal" href="../loading-states/#class"><span class="std std-doc">multiple classes for loading states</span></a>.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/dirty-states/">Dirty states</a> for when there is a change that hasn’t been synced yet.</p></li>
+<li><p>Add support for setting <a class="reference external" href="https://www.django-unicorn.com/docs/loading-states/#class">multiple classes for loading states</a>.</p></li>
 <li><p>Attempt to handle when the component gets out of sync with an invalid checksum error.</p></li>
 <li><p>Performance tweaks when there isn’t a change to a model or dbModel with lazy or defer modifiers.</p></li>
 </ul>
@@ -578,8 +591,8 @@
 <section id="v0-15-0">
 <h2>v0.15.0<a class="headerlink" href="#v0-15-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add support for <a class="reference internal" href="../child-components/"><span class="doc std std-doc">child components</span></a></p></li>
-<li><p>Add <a class="reference internal" href="../actions/#discard"><span class="std std-doc">discard</span></a> action modifier</p></li>
+<li><p>Add support for <a class="reference external" href="https://www.django-unicorn.com/docs/child-components/">child components</a></p></li>
+<li><p>Add <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#discard">discard</a> action modifier</p></li>
 <li><p>Add support for referring to components in a folder structure</p></li>
 <li><p>Remove restriction that component templates must start with a div</p></li>
 <li><p>Remove restriction that component root can’t also have <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> or <code class="docutils literal notranslate"><span class="pre">unicorn:action</span></code></p></li>
@@ -596,8 +609,8 @@
 <section id="v0-14-0">
 <h2>v0.14.0<a class="headerlink" href="#v0-14-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../polling/#disable-poll"><span class="std std-doc">Disable poll</span></a> with a component field</p></li>
-<li><p>Dynamically change polling options with <a class="reference internal" href="../polling/#pollupdate"><span class="std std-doc">PollUpdate</span></a></p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/polling/#disable-poll">Disable poll</a> with a component field</p></li>
+<li><p>Dynamically change polling options with <a class="reference external" href="https://www.django-unicorn.com/docs/polling/#pollupdate">PollUpdate</a></p></li>
 <li><p>Basic support for <a class="reference external" href="https://pydantic-docs.helpmanual.io"><code class="docutils literal notranslate"><span class="pre">pydantic</span></code></a> models</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.13.0...0.14.0">All changes since 0.13.0</a>.</p>
@@ -605,16 +618,16 @@
 <section id="v0-13-0">
 <h2>v0.13.0<a class="headerlink" href="#v0-13-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../components/#component-key"><span class="std std-doc">Component key</span></a> to allow disambiguation of components of the same name</p></li>
-<li><p><a class="reference internal" href="../actions/#returnvalue"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$returnValue</span></code></span></a> special argument</p></li>
-<li><p>Get the last action method’s <a class="reference internal" href="../actions/#return-values"><span class="std std-doc">return value</span></a></p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/components/#component-key">Component key</a> to allow disambiguation of components of the same name</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/actions/#returnvalue"><code class="docutils literal notranslate"><span class="pre">$returnValue</span></code></a> special argument</p></li>
+<li><p>Get the last action method’s <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#return-values">return value</a></p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.12.0...0.13.0">All changes since 0.12.0</a>.</p>
 </section>
 <section id="v0-12-0">
 <h2>v0.12.0<a class="headerlink" href="#v0-12-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../redirecting/"><span class="doc std std-doc">Redirect</span></a> from action method in component</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/redirecting/">Redirect</a> from action method in component</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.11.2...0.12.0">All changes since 0.11.2</a>.</p>
 </section>
@@ -629,13 +642,13 @@
 <section id="v0-11-0">
 <h2>v0.11.0<a class="headerlink" href="#v0-11-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../actions/#toggle"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$toggle</span></code></span></a> special method.</p></li>
-<li><p>Support nested properties when using the <a class="reference internal" href="../actions/#set-shortcut"><span class="std std-doc">set shortcut</span></a>.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/actions/#toggle"><code class="docutils literal notranslate"><span class="pre">$toggle</span></code></a> special method.</p></li>
+<li><p>Support nested properties when using the <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#set-shortcut">set shortcut</a>.</p></li>
 <li><p>Fix action string arguments that would get spaces removed inadvertently.</p></li>
 </ul>
 <p><strong>Breaking changes</strong></p>
 <ul class="simple">
-<li><p>All existing special methods now start with a <code class="docutils literal notranslate"><span class="pre">$</span></code> to signify they are magical. Therefore, <code class="docutils literal notranslate"><span class="pre">refresh</span></code> is now <a class="reference internal" href="../actions/#refresh"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$refresh</span></code></span></a>, <code class="docutils literal notranslate"><span class="pre">reset</span></code> is now <a class="reference internal" href="../actions/#reset"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$reset</span></code></span></a>, and <code class="docutils literal notranslate"><span class="pre">validate</span></code> is now <a class="reference internal" href="../actions/#validate"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">$validate</span></code></span></a>.</p></li>
+<li><p>All existing special methods now start with a <code class="docutils literal notranslate"><span class="pre">$</span></code> to signify they are magical. Therefore, <code class="docutils literal notranslate"><span class="pre">refresh</span></code> is now <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#refresh"><code class="docutils literal notranslate"><span class="pre">$refresh</span></code></a>, <code class="docutils literal notranslate"><span class="pre">reset</span></code> is now <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#reset"><code class="docutils literal notranslate"><span class="pre">$reset</span></code></a>, and <code class="docutils literal notranslate"><span class="pre">validate</span></code> is now <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#validate"><code class="docutils literal notranslate"><span class="pre">$validate</span></code></a>.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.10.1...0.11.0">All changes since 0.10.1</a>.</p>
 </section>
@@ -652,8 +665,8 @@
 <section id="v0-10-0">
 <h2>v0.10.0<a class="headerlink" href="#v0-10-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add support for <a class="reference internal" href="../components/#component-arguments"><span class="std std-doc">passing kwargs</span></a> into the component on the template</p></li>
-<li><p>Provide access to the <a class="reference internal" href="../advanced/#request"><span class="std std-doc">current request</span></a> in the component’s methods</p></li>
+<li><p>Add support for <a class="reference external" href="https://www.django-unicorn.com/docs/components/#component-arguments">passing kwargs</a> into the component on the template</p></li>
+<li><p>Provide access to the <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#request">current request</a> in the component’s methods</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.9.4...0.10.0">All changes since 0.9.4</a>.</p>
 </section>
@@ -683,10 +696,10 @@
 <section id="v0-9-0">
 <h2>v0.9.0<a class="headerlink" href="#v0-9-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../loading-states/"><span class="doc std std-doc">Loading states</span></a> for improved UX.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$event</span></code> <a class="reference internal" href="../actions/#events"><span class="std std-doc">special argument</span></a> for <code class="docutils literal notranslate"><span class="pre">actions</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> <a class="reference internal" href="../components/#unicorn-attributes"><span class="std std-doc">unicorn attribute</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">APPS</span></code> <a class="reference internal" href="../settings/#apps"><span class="std std-doc">setting</span></a> for determing where to look for components.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/loading-states/">Loading states</a> for improved UX.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$event</span></code> <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#events">special argument</a> for <code class="docutils literal notranslate"><span class="pre">actions</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> <a class="reference external" href="https://www.django-unicorn.com/docs/components/#unicorn-attributes">unicorn attribute</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">APPS</span></code> <a class="reference external" href="https://www.django-unicorn.com/docs/settings/#apps">setting</a> for determing where to look for components.</p></li>
 <li><p>Add support for parent elements for non-db models.</p></li>
 <li><p>Fix: Handle if <code class="docutils literal notranslate"><span class="pre">Meta</span></code> doesn’t exist for db models.</p></li>
 </ul>
@@ -695,7 +708,7 @@
 <section id="v0-8-0">
 <h2>v0.8.0<a class="headerlink" href="#v0-8-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add much more elaborate support for dealing with <a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django models</span></a>.</p></li>
+<li><p>Add much more elaborate support for dealing with <a class="reference external" href="https://www.django-unicorn.com/docs/django-models/">Django models</a>.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.7.1...0.8.0">All changes since 0.7.1</a>.</p>
 </section>
@@ -710,11 +723,11 @@
 <section id="v0-7-0">
 <h2>v0.7.0<a class="headerlink" href="#v0-7-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Parse <a class="reference internal" href="../actions/#passing-arguments"><span class="std std-doc">action method arguments</span></a> as basic Python objects</p></li>
-<li><p><a class="reference internal" href="../actions/#modifiers"><span class="std std-doc">Stop and prevent modifiers</span></a> on actions</p></li>
-<li><p><a class="reference internal" href="../templates/#defer"><span class="std std-doc">Defer modifier</span></a> on model</p></li>
+<li><p>Parse <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#passing-arguments">action method arguments</a> as basic Python objects</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/actions/#modifiers">Stop and prevent modifiers</a> on actions</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/templates/#defer">Defer modifier</a> on model</p></li>
 <li><p>Support for multiple actions on the same element</p></li>
-<li><p>Django setting for whether the JavaScript is <a class="reference internal" href="../settings/#minified"><span class="std std-doc">minified</span></a></p></li>
+<li><p>Django setting for whether the JavaScript is <a class="reference external" href="https://www.django-unicorn.com/docs/settings/#minified">minified</a></p></li>
 </ul>
 <p><strong>Breaking changes</strong></p>
 <ul class="simple">
@@ -766,19 +779,19 @@
 <section id="v0-6-0">
 <h2>v0.6.0<a class="headerlink" href="#v0-6-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../validation/"><span class="doc std std-doc">Realtime validation</span></a> of a Unicorn model.</p></li>
-<li><p><a class="reference internal" href="../polling/"><span class="doc std std-doc">Polling</span></a> for component updates.</p></li>
-<li><p><a class="reference internal" href="../advanced/"><span class="doc std std-doc">More component hooks</span></a></p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/validation/">Realtime validation</a> of a Unicorn model.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/polling/">Polling</a> for component updates.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/advanced/">More component hooks</a></p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.5.0...0.6.0">All changes since 0.5.0</a>.</p>
 </section>
 <section id="v0-5-0">
 <h2>v0.5.0<a class="headerlink" href="#v0-5-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../actions/#calling-methods"><span class="std std-doc">Call</span></a> component method from JavaScript.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/actions/#calling-methods">Call</a> component method from JavaScript.</p></li>
 <li><p>Support classes, dictionaries, Django Models, (read-only) Django QuerySets properties on a component.</p></li>
-<li><p><a class="reference internal" href="../templates/#debounce"><span class="std std-doc">Debounce</span></a> modifier to change how fast changes are sent to the backend from <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>.</p></li>
-<li><p><a class="reference internal" href="../templates/#lazy"><span class="std std-doc">Lazy</span></a> modifier to listen for <code class="docutils literal notranslate"><span class="pre">blur</span></code> instead of <code class="docutils literal notranslate"><span class="pre">input</span></code> on <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/templates/#debounce">Debounce</a> modifier to change how fast changes are sent to the backend from <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/templates/#lazy">Lazy</a> modifier to listen for <code class="docutils literal notranslate"><span class="pre">blur</span></code> instead of <code class="docutils literal notranslate"><span class="pre">input</span></code> on <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>.</p></li>
 <li><p>Better support for <code class="docutils literal notranslate"><span class="pre">textarea</span></code> HTML element.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.4.0...0.5.0">All changes since 0.4.0</a>.</p>
@@ -786,7 +799,7 @@
 <section id="v0-4-0">
 <h2>v0.4.0<a class="headerlink" href="#v0-4-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../actions/#set-shortcut"><span class="std std-doc">Set shortcut</span></a> for setting properties.</p></li>
+<li><p><a class="reference external" href="https://www.django-unicorn.com/docs/actions/#set-shortcut">Set shortcut</a> for setting properties.</p></li>
 <li><p>Listen for any valid event, not just <code class="docutils literal notranslate"><span class="pre">click</span></code>.</p></li>
 <li><p>Better handling for model updates when element ids aren’t unique.</p></li>
 </ul>
@@ -795,8 +808,8 @@
 <section id="v0-3-0">
 <h2>v0.3.0<a class="headerlink" href="#v0-3-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add <a class="reference internal" href="../advanced/#mount"><span class="std std-doc">mount hook</span></a>.</p></li>
-<li><p>Add <a class="reference internal" href="../actions/#reset"><span class="std std-doc">reset</span></a> action.</p></li>
+<li><p>Add <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#mount">mount hook</a>.</p></li>
+<li><p>Add <a class="reference external" href="https://www.django-unicorn.com/docs/actions/#reset">reset</a> action.</p></li>
 <li><p>Remove lag when typing fast in a text input and overall improved performance.</p></li>
 <li><p>Better error handling for exceptional cases.</p></li>
 </ul>
@@ -901,6 +914,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-42-0">v0.42.0</a></li>
 <li><a class="reference internal" href="#v0-41-2">v0.41.2</a></li>
 <li><a class="reference internal" href="#v0-41-1">v0.41.1</a></li>
 <li><a class="reference internal" href="#v0-41-0">v0.41.0</a></li>

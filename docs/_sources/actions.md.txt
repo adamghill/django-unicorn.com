@@ -81,6 +81,37 @@ Arguments can be most basic Python types, including `string`, `int`, `float`, `l
 Strings will be converted to `datetime` if they are successfully parsed by Django's [`parse_datetime`](https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime) method.
 ```
 
+````{note}
+Enums themselves cannot be passed as an argument, but the enum _value_ can be since that is a Python primitive. In the component's view, use the enum's constructor to convert the primitive back into the enum if needed.
+
+```python
+# enum.py
+from django_unicorn.components import UnicornView
+from enum import Enum
+
+class Color(Enum):
+  RED = 1
+  GREEN = 2
+  BLUE = 3
+
+class EnumView(UnicornView):
+    color = Color.RED
+
+    def set_color(self, color_int: int):
+      self.color = Color(color_int)
+```
+
+```html
+<!-- enum.html -->
+<div>
+  <button unicorn:click="set_color({{ color.value }})">Sets `self.color` based on the existing value of the `self.color` enum</button>
+  <button unicorn:click="set_color(2)">Sets `self.color` to `Color.GREEN`</button>
+  <button unicorn:click="set_color({{ color.BLUE.value }})">Sets `self.color` to `Color.BLUE`</button>
+</div>
+```
+
+````
+
 ## Set shortcut
 
 Actions can also set properties without requiring an explicit method.

@@ -232,8 +232,9 @@
 <p class="admonition-title">Warning</p>
 <p>Using this functionality will serialize your entire model by default and expose all of the values in the HTML source code. Do not use this particular functionality if there are properties that need to be kept private.</p>
 <p>One option is to customize the serialization of the model into a dictionary to only expose the data that should be publicly available.</p>
+<p>Another option is to use <a class="reference internal" href="../advanced/#exclude"><span class="std std-doc">Meta.exclude</span></a> or <a class="reference internal" href="../advanced/#javascript-exclude"><span class="std std-doc">Meta.javascript_exclude</span></a> so those fields are not exposed.</p>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- model.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- model.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"book"</span> <span class="p">/&gt;</span>
   {{ book.title }}
@@ -270,7 +271,7 @@
 <section id="queryset">
 <h2>QuerySet<a class="headerlink" href="#queryset" title="Permalink to this headline">¶</a></h2>
 <p>A Django <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> can be set to a property on a component just like a regular <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- queryset.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- queryset.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     {% for book in books %}
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>

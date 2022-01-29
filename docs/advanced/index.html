@@ -268,7 +268,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="s2">"Alabama"</span><span class="p">,</span> <span class="s2">"Alaska"</span><span class="p">,</span> <span class="s2">"Arizona"</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- states.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- states.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
     {% for state in all_states %}
@@ -416,7 +416,7 @@
 <section id="javascript-exclude">
 <h3>javascript_exclude<a class="headerlink" href="#javascript-exclude" title="Permalink to this headline">¶</a></h3>
 <p>To allow an attribute to be included in the the context to be used by a Django template, but not exposed to JavaScript, add it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code> tuple.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- hello-state.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- hello-state.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   {% for state in all_states %}
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ state }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -444,7 +444,7 @@
 <section id="safe">
 <h3>safe<a class="headerlink" href="#safe" title="Permalink to this headline">¶</a></h3>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> HTML encodes updated field values to prevent XSS attacks. You need to explicitly opt-in to allow a field to be returned without being encoded by adding it to the <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">safe</span></code> tuple.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- safe-example.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- safe-example.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"something_safe"</span> <span class="p">/&gt;</span>
   {{ something_safe }}
@@ -464,7 +464,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A context variable can be marked as <code class="docutils literal notranslate"><span class="pre">safe</span></code> in the template with the normal Django template filter, as well.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- safe-example.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- safe-example.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"something_safe"</span> <span class="p">/&gt;</span>
   {{ something_safe|safe }}
@@ -479,7 +479,7 @@
 <section id="call-javascript-from-view">
 <h3>Call JavaScript from View<a class="headerlink" href="#call-javascript-from-view" title="Permalink to this headline">¶</a></h3>
 <p>To integrate with other JavaScript functions, view methods can call an arbitrary JavaScript function after it gets rendered.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- call-javascript.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- call-javascript.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
@@ -510,7 +510,7 @@
 <h3>Trigger Model Update<a class="headerlink" href="#trigger-model-update" title="Permalink to this headline">¶</a></h3>
 <p>Normally when a model element gets changed by a user it will trigger an event which <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> listens for (either <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> depending on if it has a <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier). However, when setting an element with JavaScript those events do not fire. <code class="docutils literal notranslate"><span class="pre">Unicorn.trigger()</span></code> provides a way to trigger that event from JavaScript manually.</p>
 <p>The first argument to <code class="docutils literal notranslate"><span class="pre">trigger</span></code> is the component name. The second argument is the value for the element’s <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- trigger-model.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- trigger-model.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span>
   <span class="na">id</span><span class="o">=</span><span class="s">"nameId"</span>
   <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"nameKey"</span>

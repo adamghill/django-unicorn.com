@@ -238,7 +238,7 @@
 <section id="lazy">
 <h3>Lazy<a class="headerlink" href="#lazy" title="Permalink to this headline">¶</a></h3>
 <p>To prevent updates from happening on <em>every</em> input, you can append a <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier to the end of <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code>. That will only update the component when a <code class="docutils literal notranslate"><span class="pre">blur</span></code> event happens.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- waits-for-blur.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- waits-for-blur.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">lazy</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"name"</span> <span class="p">/&gt;</span>
   Hello {{ name|title }}
@@ -249,7 +249,7 @@
 <section id="debounce">
 <h3>Debounce<a class="headerlink" href="#debounce" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">debounce</span></code> modifier configures how long to wait to fire an event. The time is always specified in milliseconds, for example: <code class="docutils literal notranslate"><span class="pre">unicorn:model.debounce-1000</span></code> would wait for 1000 milliseconds (1 second) before firing the message.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- waits-1-second.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- waits-1-second.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">debounce-1000</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"name"</span> <span class="p">/&gt;</span>
   Hello {{ name|title }}
@@ -260,7 +260,7 @@
 <section id="defer">
 <h3>Defer<a class="headerlink" href="#defer" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">defer</span></code> modifier will store and save model changes until the next action gets triggered. This is useful to prevent additional network requests until an action is triggered.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- defer.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- defer.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"task"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"task"</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"add"</span><span class="p">&gt;</span>Add task<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -276,7 +276,7 @@
 <section id="chaining-modifiers">
 <h3>Chaining modifiers<a class="headerlink" href="#chaining-modifiers" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Lazy</span></code> and <code class="docutils literal notranslate"><span class="pre">debounce</span></code> modifiers can even be chained together.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- waits-for-blur-and-then-5-seconds.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- waits-for-blur-and-then-5-seconds.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">lazy</span><span class="err">.</span><span class="na">debounce-5000</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
   Hello {{ name|title }}
@@ -290,7 +290,7 @@
 <section id="smooth-updates">
 <h3>Smooth updates<a class="headerlink" href="#smooth-updates" title="Permalink to this headline">¶</a></h3>
 <p>Setting a unique <code class="docutils literal notranslate"><span class="pre">id</span></code> on elements with <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> will prevent changes to an input from being choppy when there are lots of updates in quick succession.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- choppy-updates.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- choppy-updates.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -299,12 +299,12 @@
 </pre></div>
 </div>
 <p>However, setting the same <code class="docutils literal notranslate"><span class="pre">id</span></code> on two elements with the same <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> won’t work. The <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> attribute can be used to make sure that the elements can be synced as expected.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- missing-updates.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- missing-updates.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- this-should-work.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- this-should-work.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"someFancyKey"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 </pre></div>
@@ -321,7 +321,7 @@
 <section id="updated">
 <h3>updated<a class="headerlink" href="#updated" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">updated</span></code> event is fired after the AJAX call finishes and the component is merged with the newly rendered component template. The callback gets called with one argument, <code class="docutils literal notranslate"><span class="pre">component</span></code>, which can be inspected if necessary.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- updated-event.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- updated-event.html --&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"application/javascript"</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -341,7 +341,7 @@
 <p class="admonition-title">Note</p>
 <p>When the component is initially rendered, normal Django template functionality can be used.</p>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- ignored-element.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- ignored-element.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"jquery.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"select2.min.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
