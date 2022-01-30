@@ -307,9 +307,11 @@
   <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span>
   <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">2</span>
   <span class="n">BLUE</span> <span class="o">=</span> <span class="mi">3</span>
+  <span class="n">PURPLE</span> <span class="o">=</span> <span class="mi">4</span>
 
 <span class="k">class</span> <span class="nc">EnumView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
     <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">RED</span>
+    <span class="n">purple_color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">PURPLE</span>
 
     <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color_int</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color_int</span><span class="p">)</span>
@@ -317,9 +319,17 @@
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- enum.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color({{ color.value }})"</span><span class="p">&gt;</span>Sets `self.color` based on the existing value of the `self.color` enum<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color(2)"</span><span class="p">&gt;</span>Sets `self.color` to `Color.GREEN`<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color({{ color.BLUE.value }})"</span><span class="p">&gt;</span>Sets `self.color` to `Color.BLUE`<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color({{ color.BLUE.value }})"</span><span class="p">&gt;</span>Show BLUE (and 3) below when clicked<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color(2)"</span><span class="p">&gt;</span>Show GREEN (and 2) below when clicked<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"set_color({{ purple_color.value }})"</span><span class="p">&gt;</span>Show PURPLE (and 4) below when clicked<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+  <span class="cm">&lt;!-- This will be RED when first rendered, and then will change based on the button clicked above --&gt;</span>
+  Color: {{ color }}
+
+  <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+  <span class="cm">&lt;!-- This will be 1 when first rendered, and then will change based on the button clicked above --&gt;</span>
+  Color int: {{ color.value }}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
