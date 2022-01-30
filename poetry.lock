@@ -183,18 +183,6 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-annoying"
-version = "0.10.6"
-description = "This is a django application that tries to eliminate annoying things in the Django framework."
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-Django = ">=1.11"
-six = "*"
-
-[[package]]
 name = "django-appconf"
 version = "1.0.5"
 description = "A helper class for handling configuration defaults of packaged apps gracefully."
@@ -247,6 +235,20 @@ type = "git"
 url = "https://github.com/littlepea/django-docs"
 reference = "08912dac5d589ef57812a6cfdccb8398a57f0da7"
 resolved_reference = "08912dac5d589ef57812a6cfdccb8398a57f0da7"
+
+[[package]]
+name = "django-fbv"
+version = "0.3.0"
+description = "Utilities to make function-based views cleaner, more efficient, and better tasting. "
+category = "main"
+optional = false
+python-versions = ">3.7,<4.0"
+
+[package.dependencies]
+django = ">2.2.0"
+
+[package.extras]
+docs = ["Sphinx (>=4.3.2,<5.0.0)", "linkify-it-py (>=1.0.3,<2.0.0)", "myst-parser (>=0.16.1,<0.17.0)", "furo (>=2021.11.23,<2022.0.0)", "sphinx-copybutton (>=0.4.0,<0.5.0)", "toml"]
 
 [[package]]
 name = "django-redis"
@@ -1073,8 +1075,8 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.7"
-content-hash = "e26dc1510e940b0459658c1c3b216b0b785692fa90dac69adb0014f307340b65"
+python-versions = ">3.7,<4"
+content-hash = "a913ead4c1988882aaf36c7c18c8a93a8650f8c0157bb14d0a3c90888a2c3efe"
 
 [metadata.files]
 alabaster = [
@@ -1141,10 +1143,6 @@ django = [
     {file = "Django-3.2.11-py3-none-any.whl", hash = "sha256:0a0a37f0b93aef30c4bf3a839c187e1175bcdeb7e177341da0cb7b8194416891"},
     {file = "Django-3.2.11.tar.gz", hash = "sha256:69c94abe5d6b1b088bf475e09b7b74403f943e34da107e798465d2045da27e75"},
 ]
-django-annoying = [
-    {file = "django-annoying-0.10.6.tar.gz", hash = "sha256:083b5e26f140f86178fcb47931f69b7ff75181ccd1e318d9c218ae9babc1805e"},
-    {file = "django_annoying-0.10.6-py2.py3-none-any.whl", hash = "sha256:e230f28fec0559b4fdb621ff202068a78170ada2ac1ec7a73ba822cc1f737791"},
-]
 django-appconf = [
     {file = "django-appconf-1.0.5.tar.gz", hash = "sha256:be3db0be6c81fa84742000b89a81c016d70ae66a7ccb620cdef592b1f1a6aaa4"},
     {file = "django_appconf-1.0.5-py3-none-any.whl", hash = "sha256:ae9f864ee1958c815a965ed63b3fba4874eec13de10236ba063a788f9a17389d"},
@@ -1158,6 +1156,10 @@ django-compressor = [
     {file = "django_compressor-2.4.1.tar.gz", hash = "sha256:3358077605c146fdcca5f9eaffb50aa5dbe15f238f8854679115ebf31c0415e0"},
 ]
 django-docs = []
+django-fbv = [
+    {file = "django-fbv-0.3.0.tar.gz", hash = "sha256:374303eda321807d91e1288e487cfdc27e419eb8b844448be5838ca550d1047e"},
+    {file = "django_fbv-0.3.0-py3-none-any.whl", hash = "sha256:f541aaf2811ec9870d7d0ba8196b0f248f2549f4fb29731638aad86637fb5c64"},
+]
 django-redis = [
     {file = "django-redis-4.12.1.tar.gz", hash = "sha256:306589c7021e6468b2656edc89f62b8ba67e8d5a1c8877e2688042263daa7a63"},
     {file = "django_redis-4.12.1-py3-none-any.whl", hash = "sha256:1133b26b75baa3664164c3f44b9d5d133d1b8de45d94d79f38d1adc5b1d502e5"},

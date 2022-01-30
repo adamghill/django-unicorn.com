@@ -6,9 +6,8 @@ authors = ["Adam Hill"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">3.7,<4"
 django = "^3.1.0"
-django-annoying = "^0.10.6"
 python-dotenv = "^0.14.0"
 gunicorn = "^20.0.4"
 whitenoise = "^5.1.0"
@@ -19,6 +18,7 @@ django-redis = "^4.12.1"
 httpx = "^0.14.2"
 sentry-sdk = "^0.17.4"
 django-docs = {git = "https://github.com/littlepea/django-docs", rev = "08912dac5d589ef57812a6cfdccb8398a57f0da7"}
+django-fbv = "<1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
