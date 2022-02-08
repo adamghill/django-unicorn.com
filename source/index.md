@@ -70,6 +70,7 @@ Sponsor <https://github.com/sponsors/adamghill>
 
 ### Full-stack framework Python packages
 
+- [IDOM](https://github.com/idom-team/idom), a port of ReactJS to Python. Fully compatible with all ReactJS components. Supports several web frameworks, and specifically has a [separate package for Django](https://github.com/idom-team/django-idom).
 - [Reactor](https://github.com/edelvalle/reactor/), a port of Elixir's `LiveView` to Django. Especially interesting for more complicated use-cases like chat rooms, keeping multiple browsers in sync, etc. Uses Django channels and websockets to work its magic.
 - [Flask-Meld](https://github.com/mikeabrahamsen/Flask-Meld), a port of `Unicorn` to Flask. Uses websockets.
 - [Sockpuppet](https://sockpuppet.argpar.se/), a port of Ruby on Rail's `StimulusReflex`. Requires Django channels and websockets.
@@ -81,7 +82,8 @@ Sponsor <https://github.com/sponsors/adamghill>
 
 | Repo                                                          | Django | Flask | AJAX | Websockets |                                                       Stars                                                        |
 | :------------------------------------------------------------ | :----: | :---: | :--: | :--------: | :----------------------------------------------------------------------------------------------------------------: |
-| [Unicorn](https://github.com/adamghill/django-unicorn)        |   ✔    |       |  ✔️  |            |   ![GitHub Repo stars](https://img.shields.io/github/stars/adamghill/django-unicorn?label=%20&style=flat-square)   |
+| [Unicorn](https://github.com/adamghill/django-unicorn)        |   ✔️   |       |  ✔️  |            |   ![GitHub Repo stars](https://img.shields.io/github/stars/adamghill/django-unicorn?label=%20&style=flat-square)   |
+| [IDOM](https://github.com/idom-team/idom)                     |   ✔️   |  ✔️  |       |    ✔️     |   ![GitHub Repo stars](https://img.shields.io/github/stars/idom-team/idom?label=%20&style=flat-square)   |
 | [Reactor](https://github.com/edelvalle/reactor/)              |   ✔️   |       |      |     ✔️     |      ![GitHub Repo stars](https://img.shields.io/github/stars/edelvalle/reactor?label=%20&style=flat-square)       |
 | [Sockpuppet](https://github.com/jonathan-s/django-sockpuppet) |   ✔️   |       |      |     ✔️     | ![GitHub Repo stars](https://img.shields.io/github/stars/jonathan-s/django-sockpuppet?label=%20&style=flat-square) |
 | [Flask-Meld](https://github.com/mikeabrahamsen/Flask-Meld)    |        |  ✔️   |      |     ✔️     |  ![GitHub Repo stars](https://img.shields.io/github/stars/mikeabrahamsen/Flask-Meld?label=%20&style=flat-square)   |
