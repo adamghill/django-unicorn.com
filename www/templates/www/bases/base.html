@@ -1,4 +1,5 @@
-{% load compress static %}<!DOCTYPE html>
+{% load compress static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +21,7 @@
             background: transparent !important;
             color: #000 !important;
         }
-    
+
         .mt-12 {
             margin-top: 6rem;
         }
@@ -28,14 +29,25 @@
     {% endcompress %}
 
     {% if not debug %}
-    <script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js">
+    </script>
+    <script>
+        window.plausible = window.plausible || function () {
+            (window.plausible.q = window.plausible.q || []).push(arguments)
+        }
+    </script>
 
     <script async src="https://cdn.panelbear.com/analytics.js?site=3zi5XeUZBN0"></script>
     <script>
-        window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
-        panelbear('config', { site: '3zi5XeUZBN0' });
+        window.panelbear = window.panelbear || function () {
+            (window.panelbear.q = window.panelbear.q || []).push(arguments);
+        };
+        panelbear('config', {
+            site: '3zi5XeUZBN0'
+        });
     </script>
+
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     {% endif %}
 
     {% compress js %}
@@ -44,7 +56,9 @@
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 
     {% block head_js %}
     {% endblock head_js %}
@@ -66,7 +80,8 @@
 
         <style>
             div.github-button {
-                margin-top: .8rem; margin-right: .8rem;
+                margin-top: .8rem;
+                margin-right: .8rem;
             }
         </style>
 
@@ -88,13 +103,17 @@
                     <img src="{% static 'img/twitter.svg' %}" style="max-height: 1.5em;" />&nbsp;&nbsp;
                 </a>
                 <div class="github-button">
-                    <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions" data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
+                    <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions"
+                        data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
                 </div>
                 <div class="github-button">
-                    <a class="navbar-item github-button" href="https://github.com/adamghill/django-unicorn" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star adamghill/django-unicorn on GitHub">Star</a>
+                    <a class="navbar-item github-button" href="https://github.com/adamghill/django-unicorn"
+                        data-icon="octicon-star" data-size="large" data-show-count="true"
+                        aria-label="Star adamghill/django-unicorn on GitHub">Star</a>
                 </div>
                 <div class="github-button">
-                    <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
+                    <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart"
+                        data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
                 </div>
             </div>
         </div>
@@ -187,28 +206,28 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    
+
             // Get all "navbar-burger" elements
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    
+
             // Check if there are any navbar burgers
             if ($navbarBurgers.length > 0) {
                 // Add a click event on each of them
-                $navbarBurgers.forEach( el => {
+                $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
-    
-                    // Get the target from the "data-target" attribute
-                    const target = el.dataset.target;
-                    const $target = document.getElementById(target);
-    
-                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                    el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-    
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
                     });
                 });
             }
-    
+
         });
     </script>
 </body>

@@ -61,6 +61,7 @@
 
 <section class="hero is-info is-medium is-bold">
     <div class="hero-body">
+
         <div class="container">
             <img src="{% static 'img/unicorn.svg' %}" height="80" width="80"
                 style="float: left; height: 80px; top: -10px; position: relative; margin-right: 20px;" />
@@ -136,7 +137,11 @@
         </div>
     </div>
 
-    <div class="column is-6 is-offset-3 mb-4">
+    <div data-ea-publisher="django-unicorncom" data-ea-type="image" data-ea-style="stickybox" id="django-unicorn"
+        style="float: right;">
+    </div>
+
+    {% comment %} <div class="column is-6 is-offset-3 mb-4">
         <div class="notification is-link" style="padding-right: 1.25rem; border: solid 1px #dfdfdf;">
             <div
                 style="float: right; color: #dfdfdf; text-transform: uppercase; font-size: small; margin-bottom: 1rem;">
@@ -147,7 +152,7 @@
                 <strong>Bookmarking for Developers</strong>. Try it out now for free.
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
 
     <div class="intro column is-8 is-offset-2 mt-6">
         <div>
