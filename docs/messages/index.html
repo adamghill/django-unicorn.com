@@ -153,7 +153,7 @@
       <a href="../"><div class="brand">Unicorn</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -219,7 +219,7 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <section id="messages">
@@ -236,6 +236,8 @@
     {% endif %}
 
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># messages.py</span>
@@ -247,6 +249,40 @@
         <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="s2">"update called"</span><span class="p">)</span>
 </pre></div>
 </div>
+<section id="redirecting">
+<h2>Redirecting<a class="headerlink" href="#redirecting" title="Permalink to this headline">¶</a></h2>
+<p>When the action returns a <code class="docutils literal notranslate"><span class="pre">redirect</span></code>, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will defer the messages so they do not get rendered in the component (since the user will never see the re-rendered component). Once the redirect has happened <code class="docutils literal notranslate"><span class="pre">messages</span></code> will be available for rendering by the template as expected.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- messages-when-redirecting.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update"</span><span class="p">&gt;</span>Update<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- new-url.html --&gt;</span>
+
+{% if messages %}
+
+<span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"messages"</span><span class="p">&gt;</span>
+    {% for message in messages %}
+    <span class="p">&lt;</span><span class="nt">li</span><span class="err">{%</span> <span class="na">if</span> <span class="na">message</span><span class="err">.</span><span class="na">tags</span> <span class="err">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">"{{ message.tags }}"</span><span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span><span class="p">&gt;</span>{{ message }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    {% endfor %}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+{% endif %}
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># messages_when_redirecting.py</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">MessagesWhenRedirectingView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="s2">"update called"</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">"new-url"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
       </article>
@@ -291,8 +327,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Messages</a><ul>
+<li><a class="reference internal" href="#redirecting">Redirecting</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
