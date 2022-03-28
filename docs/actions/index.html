@@ -483,8 +483,8 @@
 </section>
 <section id="calling-methods">
 <h2>Calling methods<a class="headerlink" href="#calling-methods" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes you need to trigger a method on a component from regular JavaScript. That is possible with <code class="docutils literal notranslate"><span class="pre">Unicorn.call()</span></code>. It can be called from anywhere on the page.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
+<p>Sometimes you need to trigger a method on a component from regular JavaScript. That is possible with <code class="docutils literal notranslate"><span class="pre">Unicorn.call()</span></code>. The first argument is the name (or key) of the component and the second argument is the name of the method to call.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- call-with-component-name.html --&gt;</span>
 {% unicorn 'hello-world' %}
 
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Unicorn.call('hello-world', 'set_name');"</span><span class="p">&gt;</span>
@@ -492,7 +492,15 @@
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Passing arguments is also supported.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- call-with-component-key.html --&gt;</span>
+{% unicorn 'hello-world' key='hello-universe' %}
+
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Unicorn.call('hello-universe', 'set_name');"</span><span class="p">&gt;</span>
+  Set the name from outside the component
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Passing arguments the method call is also supported.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
 {% unicorn 'hello-world' %}
 
