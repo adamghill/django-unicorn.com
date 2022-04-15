@@ -235,6 +235,7 @@
         <span class="s2">"ENABLED"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
         <span class="s2">"TIMEOUT"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
     <span class="p">},</span>
+    <span class="s2">"SCRIPT_LOCATION"</span><span class="p">:</span> <span class="s2">"after"</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -265,6 +266,12 @@
 <h3>TIMEOUT<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
 <p>The number of seconds to wait for a request to finish for additional requests to queue behind it. Defaults to <code class="docutils literal notranslate"><span class="pre">60</span></code>.</p>
 </section>
+</section>
+<section id="script-location">
+<h2>SCRIPT_LOCATION<a class="headerlink" href="#script-location" title="Permalink to this headline">¶</a></h2>
+<p>Where the initial JavaScript data is included on initial render. Two values are currently supported: <code class="docutils literal notranslate"><span class="pre">after</span></code> and <code class="docutils literal notranslate"><span class="pre">append</span></code>.</p>
+<p><strong>after</strong> is the default and will render the JavaScript <em>outside</em> of the HTML component, i.e. it will be output in the same hierarchy as the parent of the HTML component.</p>
+<p><strong>append</strong> will render the JavaScript <em>inside</em> of the HTML component.</p>
 </section>
 </section>
 
@@ -332,6 +339,7 @@
 <li><a class="reference internal" href="#timeout">TIMEOUT</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#script-location">SCRIPT_LOCATION</a></li>
 </ul>
 </li>
 </ul>
