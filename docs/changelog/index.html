@@ -224,6 +224,14 @@
         </label>
         <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<section id="v0-46-0">
+<h2>v0.46.0<a class="headerlink" href="#v0-46-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Support for loading nested components from a route that uses a class-based view.</p></li>
+<li><p>Better support for children components.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.45.1...0.46.0">All changes since 0.45.1</a>.</p>
+</section>
 <section id="v0-45-1">
 <h2>v0.45.1<a class="headerlink" href="#v0-45-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -241,30 +249,30 @@
 <section id="v0-44-1">
 <h2>v0.44.1<a class="headerlink" href="#v0-44-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Fix: Some types of type annotations on a component method would cause an error when it was called <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/392">#392</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a></p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">component_id</span></code>, <code class="docutils literal notranslate"><span class="pre">component_name</span></code>, <code class="docutils literal notranslate"><span class="pre">component_key</span></code> to the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> dictionary in the template context <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/389">#389</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a></p></li>
+<li><p>Fix: Some types of type annotations on a component method would cause an error when it was called <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/392">#392</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">component_id</span></code>, <code class="docutils literal notranslate"><span class="pre">component_name</span></code>, <code class="docutils literal notranslate"><span class="pre">component_key</span></code> to the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> dictionary in the template context <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/389">#389</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a>.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.44.0...0.44.1">All changes since 0.44.0</a>.</p>
 </section>
 <section id="v0-44-0">
 <h2>v0.44.0<a class="headerlink" href="#v0-44-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add support for raising a <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> from component methods</p></li>
+<li><p>Add support for raising a <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> from component methods.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.43.1...0.44.0">All changes since 0.43.1</a>.</p>
 </section>
 <section id="v0-43-1">
 <h2>v0.43.1<a class="headerlink" href="#v0-43-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Fix: direct views were not caching the component correctly</p></li>
+<li><p>Fix: direct views were not caching the component correctly.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.43.0...0.43.1">All changes since 0.43.0</a>.</p>
 </section>
 <section id="v0-43-0">
 <h2>v0.43.0<a class="headerlink" href="#v0-43-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Defer displaying <code class="docutils literal notranslate"><span class="pre">messages</span></code> when an action method returns a <a class="reference internal" href="../messages/#redirecting"><span class="std std-doc">redirect</span></a></p></li>
-<li><p>Prevent morphing or other changes when redirecting</p></li>
+<li><p>Defer displaying <code class="docutils literal notranslate"><span class="pre">messages</span></code> when an action method returns a <a class="reference internal" href="../messages/#redirecting"><span class="std std-doc">redirect</span></a>.</p></li>
+<li><p>Prevent morphing or other changes when redirecting.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.42.1...0.43.0">All changes since 0.42.1</a>.</p>
 </section>
@@ -272,8 +280,8 @@
 <h2>v0.42.1<a class="headerlink" href="#v0-42-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fix: dictionaries in a component would generate incorrect checksums and trigger a <code class="docutils literal notranslate"><span class="pre">Checksum</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">match</span></code> error</p></li>
-<li><p>Remove some serializations that was happening unnecessarily on every render</p></li>
-<li><p>Add Python 3.10 and Django 4.0 to test matrix</p></li>
+<li><p>Remove some serializations that was happening unnecessarily on every render.</p></li>
+<li><p>Add Python 3.10 and Django 4.0 to test matrix.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.42.0...0.42.1">All changes since 0.42.0</a>.</p>
 </section>
@@ -967,6 +975,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-46-0">v0.46.0</a></li>
 <li><a class="reference internal" href="#v0-45-1">v0.45.1</a></li>
 <li><a class="reference internal" href="#v0-45-0">v0.45.0</a></li>
 <li><a class="reference internal" href="#v0-44-1">v0.44.1</a></li>
