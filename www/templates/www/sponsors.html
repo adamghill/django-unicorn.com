@@ -11,14 +11,6 @@
 {% endcompress %}
 
 <style>
-    .sponsorama-user {
-        display: none;
-    }
-
-    .sponsorama-total {
-        display: none;
-    }
-
     .sponsorama-avatar img {
         width: 52px;
         border-radius: 50%;
@@ -28,7 +20,7 @@
     }
 
     .sponsorama-entity {
-        height: 50px;
+        height: 10px;
     }
 
     .sponsorama-entity .sponsorama-login {
@@ -64,19 +56,52 @@
 
             <p class="has-text-centered mt-4">
                 <a href="https://github.com/sponsors/adamghill" class="button is-link" target="_blank">Sponsor
-                    @adamghill</a>
+                    Unicorn</a>
             </p>
 
             <p class="mt-6">
                 All <code>Individual Advocates</code> and higher tier sponsors:
             </p>
 
-            <div id="sponsorama-active-sponsors" class="mt-2 mb-6"></div>
+            <div id="sponsorama-active-sponsors" class="mt-2 mb-6">
+                <ul>
+                    <li>
+                        <div class="sponsorama-avatar">
+                            <img src="https://avatars.githubusercontent.com/u/7029352?s=52&v=4"></img>
+                        </div>
+                        <div class="sponsorama-entity">
+                            <a href="https://github.com/rhymiz" class="sponsorama-login">rhymiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sponsorama-avatar">
+                            <img src="https://avatars.githubusercontent.com/u/12886088?s=52&v=4"></img>
+                        </div>
+                        <div class="sponsorama-entity">
+                            <a href="https://github.com/WVandergrift" class="sponsorama-login">WVandergrift</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sponsorama-avatar">
+                            <img src="https://avatars.githubusercontent.com/u/2604686?s=52&v=4"></img>
+                        </div>
+                        <div class="sponsorama-entity">
+                            <a href="https://github.com/zurtri" class="sponsorama-login">zurtri</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sponsorama-avatar">
+                            <img src="https://avatars.githubusercontent.com/u/1332181?s=52&v=4"></img>
+                        </div>
+                        <div class="sponsorama-entity">
+                            <a href="https://github.com/carlosnasillo" class="sponsorama-login">carlosnasillo
+
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
-
-<script
-    src="https://www.sponsorama.dev/api/widget/active-sponsors.js?apikey=sr:as-bf9e1eb7-9256-4a58-8f4f-6dd6bb133c4f">
-</script>
 {% endblock content %}
