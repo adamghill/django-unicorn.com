@@ -214,6 +214,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://devmarks.io">devmarks.io</a></li>
 </ul>
 
 </div>
@@ -279,21 +280,21 @@
 <p>A Django <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> can be set to a property on a component just like a regular <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- queryset.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    {% for book in books %}
+  {% for book in books %}
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"books.{{ forloop.counter0 }}.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
-        {{ book.title }}
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"books.{{ forloop.counter0 }}.description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
-        {{ book.description }}
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"books.{{ forloop.counter0 }}.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;</span>
+      {{ book.title }}
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    {% endfor %}
-
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="err">.</span><span class="na">defer</span><span class="o">=</span><span class="s">"books.{{ forloop.counter0 }}.description"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"description"</span> <span class="p">/&gt;</span>
+      {{ book.description }}
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save({{ forloop.counter0 }})"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"save({{ forloop.counter0 }})"</span><span class="p">&gt;</span>Save<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  {% endfor %}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>

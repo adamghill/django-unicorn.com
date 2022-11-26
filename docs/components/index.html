@@ -214,6 +214,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://devmarks.io">devmarks.io</a></li>
 </ul>
 
 </div>
@@ -310,6 +311,10 @@ python manage.py startunicorn unicorn hello-world hello-magic
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> requires there to be one root element surrounding the component template.</p>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> is the magic that ties the input to the backend component. The Django template variable can use any property or method on the component as if they were context variables passed in from a view. The attribute passed into <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> refers to the property in the component class and binds them together.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -372,7 +377,7 @@ python manage.py startunicorn unicorn hello-world hello-magic
 
 <span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
     <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'American Gods'</span><span class="p">)</span>
-    <span class="n">book_ratings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'excellent'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'title: '</span><span class="n">American</span> <span class="n">Gods</span><span class="s1">'}}</span>
+    <span class="n">book_ratings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'excellent'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'American Gods'</span><span class="p">}}</span>
 </pre></div>
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- hello-world.html --&gt;</span>

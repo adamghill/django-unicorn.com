@@ -214,6 +214,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://devmarks.io">devmarks.io</a></li>
 </ul>
 
 </div>
@@ -230,6 +231,29 @@
         </label>
         <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<section id="v0-49-2">
+<h2>v0.49.2<a class="headerlink" href="#v0-49-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix: Calling methods with a model typehint would fail after being called multiple times (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/476">#476</a> by <a class="reference external" href="https://github.com/stat1c-void">stat1c-void</a>).</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.49.1...0.49.2">All changes since 0.49.1</a>.</p>
+</section>
+<section id="v0-49-1">
+<h2>v0.49.1<a class="headerlink" href="#v0-49-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix: Missing <code class="docutils literal notranslate"><span class="pre">pp</span></code> import in Python 3.7.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.49.0...0.49.1">All changes since 0.49.0</a>.</p>
+</section>
+<section id="v0-49-0">
+<h2>v0.49.0<a class="headerlink" href="#v0-49-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix: Handle inherited (i.e. subclassed) models <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/459">#459</a>.</p></li>
+<li><p>Fix: Support abbreviated <code class="docutils literal notranslate"><span class="pre">u:view</span></code> (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/464">#464</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a>).</p></li>
+<li><p>Add version and build date to minified JavaScript for easier debugging.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.48.0...0.49.0">All changes since 0.48.0</a>.</p>
+</section>
 <section id="v0-48-0">
 <h2>v0.48.0<a class="headerlink" href="#v0-48-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -256,7 +280,7 @@
 <section id="v0-45-1">
 <h2>v0.45.1<a class="headerlink" href="#v0-45-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Fix JavaScript error that sometimes happens with nested components. <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/237">237</a> by <a class="reference external" href="https://github.com/clangley">clangley</a></p></li>
+<li><p>Fix: Handle JavaScript error that sometimes happens with nested components. <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/237">237</a> by <a class="reference external" href="https://github.com/clangley">clangley</a></p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.45.0...0.45.1">All changes since 0.45.0</a>.</p>
 </section>
@@ -429,15 +453,15 @@
 <h2>v0.35.2<a class="headerlink" href="#v0-35-2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fix: Make sure <code class="docutils literal notranslate"><span class="pre">visible:elements</span></code> trigger as expected in more cases.</p></li>
-<li><p>Prevent the visibile element from continuing to trigger if the visbility element method returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>Prevent the visible element from continuing to trigger if the visibility element method returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.35.0...0.35.2">All changes since 0.35.0</a>.</p>
 </section>
 <section id="v0-35-0">
 <h2>v0.35.0<a class="headerlink" href="#v0-35-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../advanced/#trigger-model-update"><span class="std std-doc">Trigger</span></a> an <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> event for a model element from JavaScript</p></li>
-<li><p><a class="reference internal" href="../visibility/"><span class="doc std std-doc">Visibility</span></a> event with <code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> attribute</p></li>
+<li><p><a class="reference internal" href="../advanced/#trigger-model-update"><span class="std std-doc">Trigger</span></a> an <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> event for a model element from JavaScript.</p></li>
+<li><p><a class="reference internal" href="../visibility/"><span class="doc std std-doc">Visibility</span></a> event with <code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> attribute.</p></li>
 </ul>
 <p><strong>Breaking changes</strong></p>
 <ul class="simple">
@@ -449,7 +473,7 @@
 <h2>v0.34.0<a class="headerlink" href="#v0-34-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Initial prototype for component template <a class="reference internal" href="../templates/#lifecycle-events"><span class="std std-doc">lifecycle events</span></a>.</p></li>
-<li><p>Fix: elements after a child component would not get initialized <a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/262">262</a> by <a class="reference external" href="https://github.com/joshiggins">joshiggins</a>.</p></li>
+<li><p>Fix: elements after a child component would not get initialized <a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/262">#262</a> by <a class="reference external" href="https://github.com/joshiggins">joshiggins</a>.</p></li>
 <li><p>Fix: cache would fail in some instances <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/258">258</a>.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.33.0...0.34.0">All changes since 0.33.0</a>.</p>
@@ -996,6 +1020,9 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-49-2">v0.49.2</a></li>
+<li><a class="reference internal" href="#v0-49-1">v0.49.1</a></li>
+<li><a class="reference internal" href="#v0-49-0">v0.49.0</a></li>
 <li><a class="reference internal" href="#v0-48-0">v0.48.0</a></li>
 <li><a class="reference internal" href="#v0-47-0">v0.47.0</a></li>
 <li><a class="reference internal" href="#v0-46-0">v0.46.0</a></li>

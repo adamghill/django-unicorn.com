@@ -214,6 +214,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://www.django-unicorn.com/docs/unicorn-latest.pdf">PDF</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://devmarks.io">devmarks.io</a></li>
 </ul>
 
 </div>
@@ -238,7 +239,7 @@
 </section>
 <section id="javascript-initialization">
 <h2>JavaScript initialization<a class="headerlink" href="#javascript-initialization" title="Permalink to this headline">¶</a></h2>
-<p>After the template is rendered, the JavaScript library parses the HTML for DOM elements that start with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code> or <code class="docutils literal notranslate"><span class="pre">u:</span></code> and creates a list of attributes that end with <code class="docutils literal notranslate"><span class="pre">:model</span></code>, <code class="docutils literal notranslate"><span class="pre">:poll</span></code>, or other specific <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> functionality. For attributes that are let, the assumption is that they are an event type (e.g. <code class="docutils literal notranslate"><span class="pre">unicorn:click</span></code>).</p>
+<p>After the template is rendered, the JavaScript library parses the HTML for DOM elements that start with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code> or <code class="docutils literal notranslate"><span class="pre">u:</span></code> and creates a list of attributes that end with <code class="docutils literal notranslate"><span class="pre">:model</span></code>, <code class="docutils literal notranslate"><span class="pre">:poll</span></code>, or other specific <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> functionality. For attributes that are left, the assumption is that they are an event type (e.g. <code class="docutils literal notranslate"><span class="pre">unicorn:click</span></code>).</p>
 <p>For anything that is a model, the JavaScript sets the value for the element based on the serialized data of the publicly available attributes from the component view. Event listeners are attached for all event types. Then, other custom functionality is setup (e.g. polling).</p>
 </section>
 <section id="models">

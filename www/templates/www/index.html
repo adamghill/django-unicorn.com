@@ -141,18 +141,21 @@
         style="float: right;">
     </div>
 
-    {% comment %} <div class="column is-6 is-offset-3 mb-4">
-        <div class="notification is-link" style="padding-right: 1.25rem; border: solid 1px #dfdfdf;">
-            <div
-                style="float: right; color: #dfdfdf; text-transform: uppercase; font-size: small; margin-bottom: 1rem;">
-                Advertisement
-            </div>
+    <div class="column is-8 is-offset-2 mt-12">
+        <div class="notification is-link is-light" style="padding-right: 1.25rem; border: solid 1px #dfdfdf;">
             <div style="clear: both;">
-                <a href="https://www.devmarks.io/" target="_blank">devmarks.io</a> is
-                <strong>Bookmarking for Developers</strong>. Try it out now for free.
+                <p style="color: #4a4a4a;">
+                    <a href="https://devmarks.io/" target="_blank">devmarks.io</a> is
+                    <strong>Bookmarking for Developers</strong> -- designed by the creator of Unicorn and free to try
+                    out.
+                </p>
+
+                <p class="has-text-centered mt-4">
+                    <a href="https://devmarks.io/" class="button is-primary" target="_blank">Sign up now</a>
+                </p>
             </div>
         </div>
-    </div> {% endcomment %}
+    </div>
 
     <div class="intro column is-8 is-offset-2 mt-6">
         <div>
@@ -284,14 +287,16 @@ class TodoView(UnicornView):
         </div>
 
         <div class="column is-8 is-offset-2 mt-12">
-            <div class="notification is-link" style="padding-right: 1.25rem; border: solid 1px #dfdfdf;">
-                <div
-                    style="float: right; color: #dfdfdf; text-transform: uppercase; font-size: small; margin-bottom: 1rem;">
-                    Advertisement
-                </div>
+            <div class="notification is-link is-light" style="padding-right: 1.25rem; border: solid 1px #dfdfdf;">
                 <div style="clear: both;">
-                    <a href="https://www.devmarks.io/" target="_blank">devmarks.io</a> is
-                    <strong>Bookmarking for Developers</strong>. Try it out now for free.
+                    <p style="color: #4a4a4a;" class="has-text-centered">
+                        <strong>Bookmarking for Developers</strong> at <a href="https://devmarks.io/"
+                            target="_blank">devmarks.io</a>
+                    </p>
+
+                    <p class="has-text-centered mt-4">
+                        <a href="https://devmarks.io/" class="button is-primary" target="_blank">Free signup</a>
+                    </p>
                 </div>
             </div>
         </div>
