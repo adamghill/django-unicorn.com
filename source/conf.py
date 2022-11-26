@@ -122,6 +122,10 @@ html_theme_options = {
         </div>
     </div>
 </nav>
+
+<div data-ea-publisher="django-unicorncom" data-ea-type="image" data-ea-style="stickybox" id="django-unicorn"
+    style="float: right; z-index: 100;">
+</div>
 """,
 }
 
