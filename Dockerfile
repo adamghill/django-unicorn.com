@@ -38,13 +38,8 @@ FROM python-base as production
 
 COPY --from=builder-base $VENV_PATH $VENV_PATH
 
-# COPY ./docker/docker-entrypoint.sh /docker-entrypoint.sh
-# RUN chmod +x /docker-entrypoint.sh
-
 COPY . /app
 WORKDIR /app
-
-# ENTRYPOINT /docker-entrypoint.sh $0 $@
 
 EXPOSE 80
 
