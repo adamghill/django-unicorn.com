@@ -17,12 +17,6 @@ ALLOWED_HOST = os.getenv("ALLOWED_HOST")
 if ALLOWED_HOST:
     ALLOWED_HOSTS.append(ALLOWED_HOST)
 
-RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
-
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -127,12 +121,12 @@ if ENVIRONMENT == "live":
     }
 
     # Prevent django-unicorn.com from using up all the Sentry transactions
-    # import sentry_sdk
-    # from sentry_sdk.integrations.django import DjangoIntegration
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
 
-    # sentry_sdk.init(
-    #     dsn=os.environ.get("SENTRY_DSN"),
-    #     integrations=[DjangoIntegration()],
-    #     traces_sample_rate=1.0,
-    #     send_default_pii=True,
-    # )
+    sentry_sdk.init(
+        dsn=os.environ.get("SENTRY_DSN"),
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=1.0,
+        send_default_pii=True,
+    )
