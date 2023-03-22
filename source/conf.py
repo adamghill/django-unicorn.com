@@ -77,6 +77,11 @@ html_theme_options = {
     window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
     panelbear('config', { site: '3zi5XeUZBN0' });
 </script>
+<script async src="https://rum.cronitor.io/script.js"></script>
+<script>
+    window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+    cronitor('config', { clientKey: '81916c2ac57ead170c20e9572ad13417' });
+</script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 
