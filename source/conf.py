@@ -72,11 +72,6 @@ html_theme_options = {
     "announcement": """
 <script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-<script async src="https://cdn.panelbear.com/analytics.js?site=3zi5XeUZBN0"></script>
-<script>
-    window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
-    panelbear('config', { site: '3zi5XeUZBN0' });
-</script>
 <script async src="https://rum.cronitor.io/script.js"></script>
 <script>
     window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
