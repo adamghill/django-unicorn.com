@@ -67,7 +67,7 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #fafafa;">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/">
+            <a class="navbar-item" href="/" style="font-size: 24px;">
                 <strong>🦄 ✨</strong>
             </a>
 
@@ -98,9 +98,6 @@
                 </a>
                 <a class="navbar-item" href="{% url 'www:sponsors' %}">
                     <img src="{% static 'img/heart.svg' %}" style="max-height: 1.5em;" />&nbsp;Sponsors
-                </a>
-                <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
-                    <img src="{% static 'img/twitter.svg' %}" style="max-height: 1.5em;" />&nbsp;&nbsp;
                 </a>
                 <div class="github-button">
                     <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions"
@@ -162,24 +159,20 @@
                                 <a href="https://github.com/sponsors/adamghill">Sponsor</a>
                             </li>
                             <li>
-                                <img src="{% static 'img/download.svg' %}" style="max-height: 1em;" />
-                                <a href="https://pypi.org/project/django-unicorn/">PyPI</a>
-                            </li>
-                            <li>
-                                <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
-                                <a href="https://github.com/adamghill/django-unicorn">GitHub</a>
-                            </li>
-                            <li>
-                                <img src="{% static 'img/twitter.svg' %}" style="max-height: 1em;" />
-                                <a href="https://twitter.com/DjangoUnicorn">Twitter</a>
+                                <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
+                                <a href="https://alldjango.com">alldjango.com</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
-                                <a href="https://www.devmarks.io">devmarks.io</a>
+                                <a href="https://devmarks.io">devmarks.io</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
-                                <a href="https://www.python-utils.com">python-utils.com</a>
+                                <a href="https://fediview.com">fediview.com</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
+                                <a href="https://python-utils.adamghill.com/">python-utils</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
@@ -189,6 +182,14 @@
                     </div>
                     <div class="column is-3 is-offset-1">
                         <ul>
+                            <li>
+                                <img src="{% static 'img/download.svg' %}" style="max-height: 1em;" />
+                                <a href="https://pypi.org/project/django-unicorn/">PyPI</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
+                                <a href="https://github.com/adamghill/django-unicorn">GitHub</a>
+                            </li>
                             <li>
                                 <img src="{% static 'img/zap.svg' %}" style="max-height: 1em;" />
                                 <a href="https://openmoji.org/library/#search=unicorn&emoji=1F984">Unicorn Logo</a>

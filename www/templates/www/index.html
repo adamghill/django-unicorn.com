@@ -30,7 +30,7 @@
             animationDuration: 500
         }).show();
         RoughNotation.annotate(document.querySelector('#other'), {
-            type: 'crossed-off',
+            type: 'box',
             color: '#FF3333',
             iterations: 2,
             animationDuration: 500
@@ -63,8 +63,15 @@
     <div class="hero-body">
 
         <div class="container">
-            <img src="{% static 'img/unicorn.svg' %}" height="80" width="80"
-                style="float: left; height: 80px; top: -10px; position: relative; margin-right: 20px;" />
+            <img src="{% static 'img/unicorn-logo.svg' %}" height="80" width="80" style="float: left;
+                height: 80px;
+                top: -10px;
+                position: relative;
+                margin-right: 20px;
+                background-color: white;
+                border-radius: 50%;
+                padding: 4px;
+                border: 1px solid #aaa;" />
             <div>
                 <h1 class="title">
                     Unicorn
@@ -140,22 +147,21 @@
 
     <div class="column is-8 is-offset-2 mt-12">
         <div class="notification is-link is-light" style="padding-right: 1.25rem; border: solid 1px #dfdfdf;">
-            <div style="clear: both;">
-                <p style="color: #4a4a4a;">
-                    <a href="https://devmarks.io/" target="_blank">devmarks.io</a> is
-                    <strong>Bookmarking for Developers</strong> -- designed by the creator of Unicorn and free to try
-                    out.
+            <div style="clear: both;" class="has-text-centered">
+                <p style="color: #4a4a4a;" class="has-text-centered">
+                    <strong>Support <code>Unicorn</code> on GitHub</strong>
                 </p>
 
                 <p class="has-text-centered mt-4">
-                    <a href="https://devmarks.io/" class="button is-primary" target="_blank">Sign up now</a>
+                    <a href="https://github.com/sponsors/adamghill" class="button is-primary" target="_blank">Sponsor
+                        Unicorn</a>
                 </p>
             </div>
         </div>
     </div>
 
     <div class="intro column is-8 is-offset-2 mt-6">
-        <div>
+        <div class="mt-4">
             <h2 class="title">Create your first component</h2>
 
             <ol class="mx-4">
@@ -169,11 +175,11 @@
         </div>
     </div>
 
-    <div class="intro column is-8 is-offset-2 mt-12">
+    <div class="intro column is-8 is-offset-2 mt-6">
         <div>
             <h2 class="title">Example "todo" component</h2>
 
-            <div class="content mb-6">
+            <div class="content mb-4">
                 {% unicorn 'todo-bulma' %}
             </div>
 
@@ -285,21 +291,22 @@ class TodoView(UnicornView):
 
         <div class="column is-8 is-offset-2 mt-12">
             <div class="notification is-link is-light" style="padding-right: 1.25rem; border: solid 1px #dfdfdf;">
-                <div style="clear: both;">
+                <div style="clear: both;" class="has-text-centered">
                     <p style="color: #4a4a4a;" class="has-text-centered">
-                        <strong>Bookmarking for Developers</strong> at <a href="https://devmarks.io/"
-                            target="_blank">devmarks.io</a>
+                        <strong>Support <code>Unicorn</code> on GitHub</strong>
                     </p>
 
                     <p class="has-text-centered mt-4">
-                        <a href="https://devmarks.io/" class="button is-primary" target="_blank">Free signup</a>
+                        <a href="https://github.com/sponsors/adamghill" class="button is-primary"
+                            target="_blank">Sponsor
+                            Unicorn</a>
                     </p>
                 </div>
             </div>
         </div>
 
         <div class="mt-4" style="text-align: center;">
-            <img src="{% static 'img/unicorn-mono.svg' %}" height="80" width="80" />
+            <img src="{% static 'img/unicorn.svg' %}" height="80" width="80" />
         </div>
     </div>
 </section>
