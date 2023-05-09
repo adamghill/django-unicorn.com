@@ -72,11 +72,6 @@ html_theme_options = {
     "announcement": """
 <script async defer data-domain="django-unicorn.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-<script async src="https://rum.cronitor.io/script.js"></script>
-<script>
-    window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
-    cronitor('config', { clientKey: '81916c2ac57ead170c20e9572ad13417' });
-</script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 

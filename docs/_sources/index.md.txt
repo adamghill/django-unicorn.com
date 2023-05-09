@@ -1,19 +1,11 @@
 # Introduction
 
 ```{toctree}
-:maxdepth: 2
+:caption: Basics
+:maxdepth: 3
 :hidden:
 
 self
-changelog
-faq
-```
-
-```{toctree}
-:caption: Basics
-:maxdepth: 2
-:hidden:
-
 installation
 components
 templates
@@ -45,22 +37,42 @@ queue-requests
 :maxdepth: 2
 :hidden:
 
-troubleshooting
-settings
 cli
+settings
+```
+
+```{toctree}
+:caption: Info
+:maxdepth: 2
+:hidden:
+
+faq
+changelog
+troubleshooting
 architecture
 code-of-conduct
-PDF <https://www.django-unicorn.com/docs/unicorn-latest.pdf>
-GitHub <https://github.com/adamghill/django-unicorn>
+PDF docs <https://www.django-unicorn.com/docs/unicorn-latest.pdf>
+Code repo <https://github.com/adamghill/django-unicorn>
 Sponsor <https://github.com/sponsors/adamghill>
-devmarks.io <https://devmarks.io>
 ```
 
-`Unicorn` is a reactive component framework that progressively enhances a normal Django view, makes AJAX calls in the background, and dynamically updates the DOM. It seamlessly extends Django past its server-side framework roots without giving up all of its niceties or re-building your website.
+Want to add some component-based magic to your front-end, but don't need the overhead of a complete JavaScript front-end framework? `Unicorn` revolutionizes the way your users interact with your Django app! With `Unicorn`, you can create stunningly spiffy pages without ever leaving Python or your beloved Django codebase.
 
-```{admonition} Bookmarking for Developers
-[devmarks.io](https://devmarks.io) is _Bookmarking for Developers_ -- designed by the creator of Unicorn and [free to try out](https://devmarks.io).
-```
+`Unicorn` is a reactive component framework that enhances your Django views by seamlessly making AJAX calls in the background and dynamically updating HTML DOM. It's like magic, but better! Say goodbye to your current limitations and hello to a new era of Django web development.
+
+Component-based design is here to stay, and `Unicorn` is leading the charge in bringing that developer experience to the Python ecosystem. Join the `Unicorn` community today and unlock the power of reactive components in your Django projects.
+
+Here are a few reasons to consider `Unicorn`.
+
+1. **Reactive Components**: With `Unicorn`, you can create reactive components that dynamically update the HTML DOM without the need for complex JavaScript. This makes it easier to build interactive web pages and enhances the user experience.
+
+2. **Seamless Integration**: `Unicorn` progressively enhances your Django views. This means you can seamlessly integrate Unicorn into your existing Django codebase without disrupting your current workflow.
+
+3. **Component-Based Design**: `Unicorn` brings the benefits of component-based design to the Python ecosystem, making it easier to build complex applications and enabling more efficient development.
+
+4. **Improved Performance**: By using AJAX calls to update the DOM, `Unicorn` reduces the need for full page reloads, which can result in improved performance and faster load times.
+
+5. **Familiarity**: With `Unicorn`, you don't need to learn a complicated front-end frameworks to create fancy interactive components. Instead, you can use the familiar Django syntax and templates to build your front-end components. This can save time and reduce complexity in your application.
 
 ## Related projects
 
@@ -81,7 +93,7 @@ devmarks.io <https://devmarks.io>
 - [Django inertia.js adapter](https://github.com/zodman/inertia-django) allows Django to use <a href="https://inertiajs.com">inertia.js</a> to build an SPA without building an API.
 - [Hotwire for Django](https://github.com/hotwire-django) contains a few different repositiories to integrate [Hotwire](https://hotwire.dev) with Django.
 - [Lona](https://lona-web.org/) is a web application framework, designed to write responsive web apps in full Python.
-- [IDOM](https://github.com/idom-team/idom), a port of ReactJS to Python. Fully compatible with all ReactJS components.
+- [ReactPy](https://reactpy.dev/) is a port of ReactJS to Python. Fully compatible with all ReactJS components.
 
 #### Comparison
 
@@ -91,7 +103,7 @@ devmarks.io <https://devmarks.io>
 | [Reactor](https://github.com/edelvalle/reactor/)               |   ✔️   |       |      |       ✔️       |  ![PyPI version](https://img.shields.io/pypi/v/django-reactor?label=%20&style=flat-square)   | ![GitHub Repo stars](https://img.shields.io/github/stars/edelvalle/reactor?label=%20&style=flat-square)            |
 | [Sockpuppet](https://github.com/jonathan-s/django-sockpuppet)  |   ✔️   |       |      |       ✔️       | ![PyPI version](https://img.shields.io/pypi/v/django-sockpuppet?label=%20&style=flat-square) | ![GitHub Repo stars](https://img.shields.io/github/stars/jonathan-s/django-sockpuppet?label=%20&style=flat-square) |
 | [Flask-Meld](https://github.com/mikeabrahamsen/Flask-Meld)     |        |  ✔️   |      |       ✔️       |    ![PyPI version](https://img.shields.io/pypi/v/flask-meld?label=%20&style=flat-square)     | ![GitHub Repo stars](https://img.shields.io/github/stars/mikeabrahamsen/Flask-Meld?label=%20&style=flat-square)    |
-| [Django IDOM](https://github.com/idom-team/django-idom)        |   ✔️   |       |      |       ✔️       |    ![PyPI version](https://img.shields.io/pypi/v/django-idom?label=%20&style=flat-square)    | ![GitHub Repo stars](https://img.shields.io/github/stars/idom-team/django-idom?label=%20&style=flat-square)        |
+| [ReactPy](https://github.com/reactive-python/reactpy)        |   ✔️   |   ✔️      |    |       ✔️       |    ![PyPI version](https://img.shields.io/pypi/v/reactpy?label=%20&style=flat-square)    | ![GitHub Repo stars](https://img.shields.io/github/stars/reactive-python/reactpy?label=%20&style=flat-square)        |
 | [Turbo Django](https://github.com/hotwire-django/turbo-django) |   ✔️   |       |      | ✔️ for streams |   ![PyPI version](https://img.shields.io/pypi/v/turbo-django?label=%20&style=flat-square)    | ![GitHub Repo stars](https://img.shields.io/github/stars/hotwire-django/turbo-django?label=%20&style=flat-square)  |
 
 ### Django component packages
