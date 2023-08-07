@@ -242,19 +242,50 @@
 </section>
 <section id="instance-properties">
 <h2>Instance properties<a class="headerlink" href="#instance-properties" title="Permalink to this headline">¶</a></h2>
+<section id="component-args">
+<h3>component_args<a class="headerlink" href="#component-args" title="Permalink to this headline">¶</a></h3>
+<p>The arguments passed into the component.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-arg' 'World' %}
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_arg.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">HelloArgView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"World"</span>
+</pre></div>
+</div>
+</section>
+<section id="component-kwargs">
+<h3>component_kwargs<a class="headerlink" href="#component-kwargs" title="Permalink to this headline">¶</a></h3>
+<p>The keyword arguments passed into the component.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-kwarg' hello='World' %}
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_kwarg.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">HelloKwargView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_kwargs</span><span class="p">[</span><span class="s2">"hello"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"World"</span>
+</pre></div>
+</div>
+</section>
 <section id="request">
 <h3>request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h3>
-<p>The current <code class="docutils literal notranslate"><span class="pre">request</span></code> is available on <code class="docutils literal notranslate"><span class="pre">self</span></code> in the component’s methods.</p>
+<p>The current <code class="docutils literal notranslate"><span class="pre">request</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
 <span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Initial request that rendered the component"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"callMethod request to re-render the component"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"AJAX request that re-renders the component"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -298,21 +329,6 @@
 </section>
 <section id="instance-methods">
 <h2>Instance methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
-<section id="init">
-<h3>__init__()<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
-<p>Gets called when the component gets constructed for the very first time. Note that constructed components get cached to reduce the amount of time discovering and instantiating them, so <code class="docutils literal notranslate"><span class="pre">__init__</span></code> only gets called the very first time the component gets rendered.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-
-<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">"original"</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"initialized"</span>
-</pre></div>
-</div>
-</section>
 <section id="mount">
 <h3>mount()<a class="headerlink" href="#mount" title="Permalink to this headline">¶</a></h3>
 <p>Gets called when the component gets initialized or <a class="reference internal" href="../actions/#reset"><span class="std std-doc">reset</span></a>.</p>
@@ -590,12 +606,13 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#instance-properties">Instance properties</a><ul>
+<li><a class="reference internal" href="#component-args">component_args</a></li>
+<li><a class="reference internal" href="#component-kwargs">component_kwargs</a></li>
 <li><a class="reference internal" href="#request">request</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#custom-methods">Custom methods</a></li>
 <li><a class="reference internal" href="#instance-methods">Instance methods</a><ul>
-<li><a class="reference internal" href="#init">__init__()</a></li>
 <li><a class="reference internal" href="#mount">mount()</a></li>
 <li><a class="reference internal" href="#hydrate">hydrate()</a></li>
 <li><a class="reference internal" href="#updating-name-value">updating(name, value)</a></li>

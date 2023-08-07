@@ -255,27 +255,27 @@ python manage.py startunicorn unicorn hello-world hello-magic
 </section>
 <section id="component-arguments">
 <h2>Component arguments<a class="headerlink" href="#component-arguments" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">kwargs</span></code> can be passed into the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> templatetag from the template. The <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> will be available in the component <a class="reference internal" href="../advanced/#init"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">__init__</span></code></span></a> method.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When overriding <code class="docutils literal notranslate"><span class="pre">__init__</span></code> calling <code class="docutils literal notranslate"><span class="pre">super().__init__(**kwargs)</span></code> is required for the component to initialize properly.</p>
+<p><code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> can be passed into the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> templatetag from the template. They will be available in the component <a class="reference internal" href="../advanced/#component-args"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">component_args</span></code></span></a> and <a class="reference internal" href="../advanced/#component-kwargs"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">component_kwargs</span></code></span></a> methods respectively.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-world' "Hello" name="World" %}
+</pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
 <span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">"World"</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">kwarg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_kwargs</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># calling super is required</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
-{% unicorn 'hello-world' name="Universe" %}
+        <span class="k">assert</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">kwarg</span><span class="si">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"Hello World"</span>
 </pre></div>
 </div>
 <p>Regular Django template variables can also be passed in as an argument as long as it is available in the template context.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
+{% unicorn 'hello-world' name=hello.world.name %}
+</pre></div>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># views.py</span>
 <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
 
@@ -284,8 +284,11 @@ python manage.py startunicorn unicorn hello-world hello-magic
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"index.html"</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
-{% unicorn 'hello-world' name=hello.world.name %}
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">kwarg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_kwargs</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="n">kwarg</span> <span class="o">==</span> <span class="s2">"Galaxy"</span>
 </pre></div>
 </div>
 </section>
@@ -421,7 +424,7 @@ python manage.py startunicorn unicorn hello-world hello-magic
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span><span class="p">,</span> <span class="n">UnicornField</span>
 
 <span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">UnicornField</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Neil Gaiman'</span>
 
     <span class="c1"># Not needed because inherited from `UnicornField`</span>
