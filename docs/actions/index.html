@@ -314,8 +314,8 @@
     <span class="k">def</span> <span class="nf">is_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">UUID</span><span class="p">):</span>
         <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">UUID</span>
 
-    <span class="k">def</span> <span class="nf">is_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_date</span><span class="p">:</span> <span class="n">date</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">_date</span>
+    <span class="k">def</span> <span class="nf">is_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">date</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">date</span>
 </pre></div>
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- argument-type-hints.html --&gt;</span>
@@ -323,7 +323,7 @@
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_datetime('2020-09-12T01:01:01')"</span><span class="p">&gt;</span>Check datetime with string<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_datetime(1691499534)"</span><span class="p">&gt;</span>Check datetime with epoch<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_uuid('90144cb9-fc47-476d-b124-d543b0cff091')"</span><span class="p">&gt;</span>Check UUID<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_date(date='2020-09-12')"</span><span class="p">&gt;</span>Check date<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_date(obj='2020-09-12')"</span><span class="p">&gt;</span>Check date<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
