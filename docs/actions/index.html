@@ -278,7 +278,7 @@
 </div>
 <section id="argument-types">
 <h3>Argument types<a class="headerlink" href="#argument-types" title="Permalink to this headline">¶</a></h3>
-<p>Arguments can be most basic Python types, including <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, and <code class="docutils literal notranslate"><span class="pre">UUID4</span></code>.</p>
+<p>Most basic Python types, including <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, and <code class="docutils literal notranslate"><span class="pre">set</span></code>, are supported by default.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- argument-types.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(99)"</span><span class="p">&gt;</span>Pass int<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -288,20 +288,94 @@
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update([1, 2, 3])"</span><span class="p">&gt;</span>Pass list<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update((1, 2, 3))"</span><span class="p">&gt;</span>Pass tuple<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update({1, 2, 3})"</span><span class="p">&gt;</span>Pass set<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(2020-09-12T01:01:01)"</span><span class="p">&gt;</span>Pass datetime<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"update(90144cb9-fc47-476d-b124-d543b0cff091)"</span><span class="p">&gt;</span>
-    Pass UUID
-  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<section id="coerced-types">
+<h4>Coerced types<a class="headerlink" href="#coerced-types" title="Permalink to this headline">¶</a></h4>
+<p>Arguments with the types of <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, and <code class="docutils literal notranslate"><span class="pre">UUID</span></code> can be coerced by using a type annotation in the action method.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Strings will be converted to <code class="docutils literal notranslate"><span class="pre">datetime</span></code> if they are successfully parsed by Django’s <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.dateparse.parse_datetime"><code class="docutils literal notranslate"><span class="pre">parse_datetime</span></code></a> method.</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/utils/#module-django.utils.dateparse">Django’s <code class="docutils literal notranslate"><span class="pre">dateparse</span></code> methods</a> are used to convert strings to the date-related type.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Enums themselves cannot be passed as an argument, but the enum <em>value</em> can be since that is a Python primitive. In the component’s view, use the enum’s constructor to convert the primitive back into the enum if needed.</p>
+<p>Both integer and float epochs can also be coerced into <code class="docutils literal notranslate"><span class="pre">datetime</span></code> or <code class="docutils literal notranslate"><span class="pre">date</span></code> objects.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># argument_type_hints.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+
+<span class="k">class</span> <span class="nc">ArgumentTypeHintsView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">datetime</span>
+    
+    <span class="k">def</span> <span class="nf">is_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">UUID</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">UUID</span>
+
+    <span class="k">def</span> <span class="nf">is_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_date</span><span class="p">:</span> <span class="n">date</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">_date</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- argument-type-hints.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_datetime('2020-09-12T01:01:01')"</span><span class="p">&gt;</span>Check datetime with string<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_datetime(1691499534)"</span><span class="p">&gt;</span>Check datetime with epoch<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_uuid('90144cb9-fc47-476d-b124-d543b0cff091')"</span><span class="p">&gt;</span>Check UUID<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_date(date='2020-09-12')"</span><span class="p">&gt;</span>Check date<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="django-models">
+<h4>Django models<a class="headerlink" href="#django-models" title="Permalink to this headline">¶</a></h4>
+<p>Django models can be instantiated as an argument or with a <code class="docutils literal notranslate"><span class="pre">pk</span></code> kwarg and a type annotation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># argument_model.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="k">class</span> <span class="nc">ArgumentModelView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_user_via_arg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">User</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">User</span>
+    
+    <span class="k">def</span> <span class="nf">is_user_via_kwarg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="p">:</span> <span class="n">User</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">User</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- argument-model.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_user_via_arg(1)"</span><span class="p">&gt;</span>Gets user with pk of 1<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_user_via_kwarg(pk=2)"</span><span class="p">&gt;</span>Gets user with pk of 2<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-types">
+<h4>Custom types<a class="headerlink" href="#custom-types" title="Permalink to this headline">¶</a></h4>
+<p>Custom objects can also be used as a type annotation and <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will attempt to instantiate the object with the value that is passed in as the argument.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># argument_custom_type.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">CustomType</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_type_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">custom_type_id</span> <span class="o">=</span> <span class="n">custom_type_id</span>
+
+<span class="k">class</span> <span class="nc">ArgumentCustomTypeView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_custom_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">CustomType</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="n">CustomType</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- argument-custom-type.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"is_custom_type(1)"</span><span class="p">&gt;</span>Gets custom type<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="enums">
+<h4>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">¶</a></h4>
+<p>Enums themselves cannot be passed as an argument, but the enum <em>value</em> can be since that is a Python primitive. Use the enum as a type annotation to coerce the value into the specified enum.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># enum.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
@@ -316,8 +390,8 @@
     <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">RED</span>
     <span class="n">purple_color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">PURPLE</span>
 
-    <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color_int</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color_int</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="n">Color</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
 </pre></div>
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- enum.html --&gt;</span>
@@ -336,7 +410,7 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 </section>
 <section id="set-shortcut">
@@ -503,7 +577,7 @@
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Passing arguments the method call is also supported.</p>
+<p>Passing arguments to the method call is also supported.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
 {% unicorn 'hello-world' %}
 
@@ -584,7 +658,13 @@
 <li><a class="reference internal" href="#">Actions</a><ul>
 <li><a class="reference internal" href="#events">Events</a></li>
 <li><a class="reference internal" href="#passing-arguments">Passing arguments</a><ul>
-<li><a class="reference internal" href="#argument-types">Argument types</a></li>
+<li><a class="reference internal" href="#argument-types">Argument types</a><ul>
+<li><a class="reference internal" href="#coerced-types">Coerced types</a></li>
+<li><a class="reference internal" href="#django-models">Django models</a></li>
+<li><a class="reference internal" href="#custom-types">Custom types</a></li>
+<li><a class="reference internal" href="#enums">Enums</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#set-shortcut">Set shortcut</a></li>
