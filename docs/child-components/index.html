@@ -230,11 +230,10 @@
 <p>We will slowly build a nested component example with three components: table, filter and row. The table is the parent and contains the other two components. The filter will update the parent table component, and the row will contain functionality to edit a row.</p>
 <section id="parent-component">
 <h2>Parent component<a class="headerlink" href="#parent-component" title="Permalink to this headline">¶</a></h2>
-<p>So that <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> knows about the parent-child relationship, the child component must pass in a <code class="docutils literal notranslate"><span class="pre">parent</span></code> keyword argument with the parent’s component view.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- table.html --&gt;</span>
 {% load unicorn %}
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  {% unicorn 'filter' parent=view %}
+  {% unicorn 'filter' %}
 
   <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
@@ -267,14 +266,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">view</span></code> will always be the current component’s view, so passing <code class="docutils literal notranslate"><span class="pre">view</span></code> into <code class="docutils literal notranslate"><span class="pre">parent</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">parent=view</span></code>) will always create the relationship correctly.</p>
-</div>
 </section>
 <section id="child-component">
 <h2>Child component<a class="headerlink" href="#child-component" title="Permalink to this headline">¶</a></h2>
-<p>The child filter component, <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'filter'</span> <span class="pre">parent=view</span> <span class="pre">%}</span></code>, will have access to its parent through the view’s <code class="docutils literal notranslate"><span class="pre">self.parent</span></code>. The <code class="docutils literal notranslate"><span class="pre">FilterView</span></code> is using the <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#updated-property-name-value">updated</a> method to filter the <code class="docutils literal notranslate"><span class="pre">books</span></code> queryset on the table component when the filter’s <code class="docutils literal notranslate"><span class="pre">search</span></code> model is changed.</p>
+<p>The child component, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, will have access to its parent through the view’s <code class="docutils literal notranslate"><span class="pre">self.parent</span></code>. The <code class="docutils literal notranslate"><span class="pre">FilterView</span></code> is using the <a class="reference external" href="https://www.django-unicorn.com/docs/advanced/#updated-property-name-value">updated</a> method to filter the <code class="docutils literal notranslate"><span class="pre">books</span></code> queryset on the table component when the filter’s <code class="docutils literal notranslate"><span class="pre">search</span></code> model is changed.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- filter.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"search"</span> <span class="p">/&gt;</span>
@@ -352,7 +347,7 @@
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- table.html ---&gt;</span>
 {% load unicorn %}
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  {% unicorn 'filter' parent=view %}
+  {% unicorn 'filter' %}
 
   <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
@@ -361,7 +356,7 @@
         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-    {% for book in books %} {% unicorn 'row' parent=view book=book key=book.id
+    {% for book in books %} {% unicorn 'row' book=book key=book.id
     %} {% endfor %}
   <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -392,19 +387,19 @@
 <ul class="simple">
 <li><p>pass in a <code class="docutils literal notranslate"><span class="pre">key</span></code> keyword argument to the child component</p></li>
 </ul>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'row' parent=view book=book key=book.id %}
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'row' book=book key=book.id %}
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>pass in an <code class="docutils literal notranslate"><span class="pre">id</span></code> keyword argument to the child component</p></li>
 </ul>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'row' parent=view book=book id=book.id %}
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'row' book=book id=book.id %}
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>the view has an attribute named <code class="docutils literal notranslate"><span class="pre">model</span></code> which has either a <code class="docutils literal notranslate"><span class="pre">pk</span></code> or <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute</p></li>
 </ul>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'row' parent=view model=book %}
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'row' model=book %}
 </pre></div>
 </div>
 </div>
