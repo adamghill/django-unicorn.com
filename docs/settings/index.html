@@ -194,6 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
 <p><span class="caption-text">Misc</span></p>
 <ul class="current">
@@ -233,12 +234,15 @@
     <span class="s2">"CACHE_ALIAS"</span><span class="p">:</span> <span class="s2">"default"</span><span class="p">,</span>
     <span class="s2">"MINIFY_HTML"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
     <span class="s2">"MINIFIED"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s2">"RELOAD_SCRIPT_ELEMENTS"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
     <span class="s2">"SERIAL"</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">"ENABLED"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
         <span class="s2">"TIMEOUT"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="s2">"SCRIPT_LOCATION"</span><span class="p">:</span> <span class="s2">"after"</span><span class="p">,</span>
+    <span class="s2">"MORPHER"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"NAME"</span><span class="p">:</span> <span class="s2">"morphdom"</span><span class="p">,</span>
+        <span class="s2">"RELOAD_SCRIPT_ELEMENTS"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -258,10 +262,6 @@
 <h2>MINIFIED<a class="headerlink" href="#minified" title="Permalink to this headline">¶</a></h2>
 <p>Provides a way to control if the minified version of the JavaScript bundle (i.e. <code class="docutils literal notranslate"><span class="pre">unicorn.min.js</span></code>) is used. Defaults to <code class="docutils literal notranslate"><span class="pre">!DEBUG</span></code>.</p>
 </section>
-<section id="reload-script-elements">
-<h2>RELOAD_SCRIPT_ELEMENTS<a class="headerlink" href="#reload-script-elements" title="Permalink to this headline">¶</a></h2>
-<p>Whether or not <code class="docutils literal notranslate"><span class="pre">script</span></code> elements in a template should be “re-run” after a template has been re-rendered.</p>
-</section>
 <section id="serial">
 <h2>SERIAL<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h2>
 <p>Settings for the experimental serialization of requests. Defaults to <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
@@ -279,6 +279,18 @@
 <p>Where the initial JavaScript data is included on initial render. Two values are currently supported: <code class="docutils literal notranslate"><span class="pre">after</span></code> and <code class="docutils literal notranslate"><span class="pre">append</span></code>.</p>
 <p><strong>after</strong> is the default and will render the JavaScript <em>outside</em> of the HTML component, i.e. it will be output in the same hierarchy as the parent of the HTML component.</p>
 <p><strong>append</strong> will render the JavaScript <em>inside</em> of the HTML component.</p>
+</section>
+<section id="morpher">
+<h2>MORPHER<a class="headerlink" href="#morpher" title="Permalink to this headline">¶</a></h2>
+<p>Configures the library to use for diffing and merging the DOM. Defaults to <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<section id="name">
+<h3>NAME<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>The name of the morpher to use. Defaults to <code class="docutils literal notranslate"><span class="pre">"morphdom"</span></code>. Specify <code class="docutils literal notranslate"><span class="pre">"alpine"</span></code> to use the <a class="reference external" href="https://alpinejs.dev/plugins/morph">Alpine.js Morph Plugin</a>. See <a class="reference internal" href="../custom-morphers/"><span class="doc std std-doc">Custom Morphers</span></a> for more information.</p>
+</section>
+<section id="reload-script-elements">
+<h3>RELOAD_SCRIPT_ELEMENTS<a class="headerlink" href="#reload-script-elements" title="Permalink to this headline">¶</a></h3>
+<p>Whether script elements should be reloaded when a component is re-rendered. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>. Only available with the <code class="docutils literal notranslate"><span class="pre">"morphdom"</span></code> morpher.</p>
+</section>
 </section>
 </section>
 
@@ -341,13 +353,17 @@
 <li><a class="reference internal" href="#cache-alias">CACHE_ALIAS</a></li>
 <li><a class="reference internal" href="#minify-html">MINIFY_HTML</a></li>
 <li><a class="reference internal" href="#minified">MINIFIED</a></li>
-<li><a class="reference internal" href="#reload-script-elements">RELOAD_SCRIPT_ELEMENTS</a></li>
 <li><a class="reference internal" href="#serial">SERIAL</a><ul>
 <li><a class="reference internal" href="#enabled">ENABLED</a></li>
 <li><a class="reference internal" href="#timeout">TIMEOUT</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#script-location">SCRIPT_LOCATION</a></li>
+<li><a class="reference internal" href="#morpher">MORPHER</a><ul>
+<li><a class="reference internal" href="#name">NAME</a></li>
+<li><a class="reference internal" href="#reload-script-elements">RELOAD_SCRIPT_ELEMENTS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

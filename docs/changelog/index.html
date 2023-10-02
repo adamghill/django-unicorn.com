@@ -194,6 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
 <p><span class="caption-text">Misc</span></p>
 <ul>
@@ -227,7 +228,22 @@
         <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <section id="id1">
-<h2>0.55.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.56.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Handle Alpine.js being loaded with defer.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.56.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add support for using both Alpine.js and <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> together in a component (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/597">#597</a> by <a class="reference external" href="https://github.com/imankulov">imankulov</a>).</p></li>
+<li><p>Do not send a 304 if the child has a parent (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/595">#595</a>).</p></li>
+<li><p>Prevent sending the child DOM if there is a parent to reduce network payload size.</p></li>
+<li><p>More verbose error message when a component can not be loaded (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/453">#453</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a>).</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>0.55.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Support <code class="docutils literal notranslate"><span class="pre">List</span></code>/<code class="docutils literal notranslate"><span class="pre">list</span></code> type annotations for component actions and fields (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/582">#582</a>).</p></li>
 <li><p>Fix: calling a method in a parent will have the request available ([#583]<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/583">https://github.com/adamghill/django-unicorn/pull/583</a>).</p></li>
@@ -238,15 +254,15 @@
 <li><p>Dropped official support for Django 2.2 because its <a class="reference external" href="https://endoflife.date/django">end of life was April 1, 2022</a>.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>0.54.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="id4">
+<h2>0.54.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Coerce type annotated arguments in an action method to the specified type (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/571">#571</a>).</p></li>
 <li><p>Fix: Dictionary fields would sometimes create checksum errors (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/572">#572</a>).</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>0.53.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<section id="id5">
+<h2>0.53.0<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Support passing arguments into a component (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/560">#560</a>).</p></li>
 <li><p>Fix the handling of <code class="docutils literal notranslate"><span class="pre">None</span></code> for select elements. (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/563">#563</a>).</p></li>
@@ -1066,9 +1082,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">0.55.0</a></li>
-<li><a class="reference internal" href="#id2">0.54.0</a></li>
-<li><a class="reference internal" href="#id3">0.53.0</a></li>
+<li><a class="reference internal" href="#id1">0.56.1</a></li>
+<li><a class="reference internal" href="#id2">0.56.0</a></li>
+<li><a class="reference internal" href="#id3">0.55.0</a></li>
+<li><a class="reference internal" href="#id4">0.54.0</a></li>
+<li><a class="reference internal" href="#id5">0.53.0</a></li>
 <li><a class="reference internal" href="#v0-52-0">v0.52.0</a></li>
 <li><a class="reference internal" href="#v0-51-0">v0.51.0</a></li>
 <li><a class="reference internal" href="#v0-50-0">v0.50.0</a></li>

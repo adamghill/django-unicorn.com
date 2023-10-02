@@ -194,6 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
 <p><span class="caption-text">Misc</span></p>
 <ul>
@@ -248,7 +249,7 @@
 </section>
 <section id="html-diff">
 <h2>HTML Diff<a class="headerlink" href="#html-diff" title="Permalink to this headline">¶</a></h2>
-<p>After the AJAX endpoint returns its response, the newly rendered DOM is merged into the old DOM with <code class="docutils literal notranslate"><span class="pre">morphdom</span></code> and input values are set again based on the new data in the AJAX response.</p>
+<p>After the AJAX endpoint returns its response, the newly rendered DOM is merged into the old DOM and input values are set again based on the new data in the AJAX response. By default, a library called <code class="docutils literal notranslate"><span class="pre">morphdom</span></code> is used to do the diffing and merging of the DOM. However, this can be overridden by setting the <code class="docutils literal notranslate"><span class="pre">MORPHER</span></code> setting to use a different library.</p>
 </section>
 </section>
 
