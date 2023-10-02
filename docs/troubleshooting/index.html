@@ -240,6 +240,13 @@
 </div>
 <p>See this <a class="reference external" href="https://www.taricorp.net/2020/windows-mime-pitfalls/">Windows MIME type detection pitfalls</a> article, this <a class="reference external" href="https://stackoverflow.com/a/16355034">StackOverflow answer</a>, or <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/201">issue #201</a> for more details.</p>
 </section>
+<section id="mount-being-called-more-than-expected">
+<h2><code class="docutils literal notranslate"><span class="pre">mount</span></code> being called more than expected<a class="headerlink" href="#mount-being-called-more-than-expected" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="child-and-parent-relationships-not-working-as-expected">
+<h2>Child and parent relationships not working as expected<a class="headerlink" href="#child-and-parent-relationships-not-working-as-expected" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses the Django cache to store information about components. The <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/cache/#local-memory-caching">local memory cache</a> can be used with the local development server, but any other type of deployment requires either <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/cache/#database-caching">database</a>, <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/cache/#redis">redis</a>, or <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/cache/#memcached">memcached</a> to be set up.</p>
+</section>
 </section>
 
       </article>
@@ -298,6 +305,8 @@
             <ul>
 <li><a class="reference internal" href="#">Troubleshooting</a><ul>
 <li><a class="reference internal" href="#disallowed-mime-type-error-on-windows">Disallowed MIME type error on Windows</a></li>
+<li><a class="reference internal" href="#mount-being-called-more-than-expected"><code class="docutils literal notranslate"><span class="pre">mount</span></code> being called more than expected</a></li>
+<li><a class="reference internal" href="#child-and-parent-relationships-not-working-as-expected">Child and parent relationships not working as expected</a></li>
 </ul>
 </li>
 </ul>

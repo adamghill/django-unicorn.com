@@ -58,4 +58,6 @@ urlpatterns = (
 </html>
 ```
 
-Then, [create a component](components.md).
+5\. Configure a cache. [Local memory cache](https://docs.djangoproject.com/en/stable/topics/cache/#local-memory-caching) can be used with the local development server, but any other type of deployment requires either [database](https://docs.djangoproject.com/en/stable/topics/cache/#database-caching), [redis](https://docs.djangoproject.com/en/stable/topics/cache/#redis), or [memcached](https://docs.djangoproject.com/en/stable/topics/cache/#memcached) to be set up.
+
+6\. [Create a component](components.md).

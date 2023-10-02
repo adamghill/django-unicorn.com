@@ -15,3 +15,8 @@ if DEBUG:
 ```
 
 See this [Windows MIME type detection pitfalls](https://www.taricorp.net/2020/windows-mime-pitfalls/) article, this [StackOverflow answer](https://stackoverflow.com/a/16355034), or [issue #201](https://github.com/adamghill/django-unicorn/issues/201) for more details.
+
+## `mount` being called more than expected
+## Child and parent relationships not working as expected
+
+`Unicorn` uses the Django cache to store information about components. The [local memory cache](https://docs.djangoproject.com/en/stable/topics/cache/#local-memory-caching) can be used with the local development server, but any other type of deployment requires either [database](https://docs.djangoproject.com/en/stable/topics/cache/#database-caching), [redis](https://docs.djangoproject.com/en/stable/topics/cache/#redis), or [memcached](https://docs.djangoproject.com/en/stable/topics/cache/#memcached) to be set up.
