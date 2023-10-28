@@ -176,6 +176,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
+</ul>
+<p><span class="caption-text">Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../views/">Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
@@ -184,7 +188,7 @@
 <p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/">Forms and Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
@@ -192,7 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
+</ul>
+<p><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
@@ -228,13 +235,20 @@
         <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <section id="id1">
-<h2>0.56.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.57.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Warn if there is a missing root element.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">unicorn:id</span></code> to merge elements with <code class="docutils literal notranslate"><span class="pre">morphdom</span></code>.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.56.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Handle Alpine.js being loaded with defer.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>0.56.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h2>0.56.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Add support for using both Alpine.js and <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> together in a component (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/597">#597</a> by <a class="reference external" href="https://github.com/imankulov">imankulov</a>).</p></li>
 <li><p>Do not send a 304 if the child has a parent (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/595">#595</a>).</p></li>
@@ -242,8 +256,8 @@
 <li><p>More verbose error message when a component can not be loaded (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/453">#453</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a>).</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>0.55.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<section id="id4">
+<h2>0.55.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Support <code class="docutils literal notranslate"><span class="pre">List</span></code>/<code class="docutils literal notranslate"><span class="pre">list</span></code> type annotations for component actions and fields (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/582">#582</a>).</p></li>
 <li><p>Fix: calling a method in a parent will have the request available ([#583]<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/583">https://github.com/adamghill/django-unicorn/pull/583</a>).</p></li>
@@ -254,15 +268,15 @@
 <li><p>Dropped official support for Django 2.2 because its <a class="reference external" href="https://endoflife.date/django">end of life was April 1, 2022</a>.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>0.54.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<section id="id5">
+<h2>0.54.0<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Coerce type annotated arguments in an action method to the specified type (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/571">#571</a>).</p></li>
 <li><p>Fix: Dictionary fields would sometimes create checksum errors (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/572">#572</a>).</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>0.53.0<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<section id="id6">
+<h2>0.53.0<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Support passing arguments into a component (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/560">#560</a>).</p></li>
 <li><p>Fix the handling of <code class="docutils literal notranslate"><span class="pre">None</span></code> for select elements. (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/563">#563</a>).</p></li>
@@ -500,7 +514,7 @@
 </ul>
 <p>** Breaking changes **</p>
 <ul class="simple">
-<li><p>responses will be HTML encoded going forward (to explicitly opt-in to previous behavior use <a class="reference internal" href="../advanced/#safe"><span class="std std-doc">safe</span></a>)</p></li>
+<li><p>responses will be HTML encoded going forward (to explicitly opt-in to previous behavior use <a class="reference internal" href="../views/#safe"><span class="std std-doc">safe</span></a>)</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.35.3...0.36.0">All changes since 0.35.3</a>.</p>
 </section>
@@ -522,7 +536,7 @@
 <section id="v0-35-0">
 <h2>v0.35.0<a class="headerlink" href="#v0-35-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../advanced/#trigger-model-update"><span class="std std-doc">Trigger</span></a> an <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> event for a model element from JavaScript.</p></li>
+<li><p><a class="reference internal" href="../javascript/#trigger-model-update"><span class="std std-doc">Trigger</span></a> an <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> event for a model element from JavaScript.</p></li>
 <li><p><a class="reference internal" href="../visibility/"><span class="doc std std-doc">Visibility</span></a> event with <code class="docutils literal notranslate"><span class="pre">unicorn:visible</span></code> attribute.</p></li>
 </ul>
 <p><strong>Breaking changes</strong></p>
@@ -663,18 +677,18 @@
 <h2>v0.21.0<a class="headerlink" href="#v0-21-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Bug fix: Prevent disabled polls from firing at all.</p></li>
-<li><p>Support <a class="reference internal" href="../components/#supported-property-types"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Decimal</span></code> field type</span></a>.</p></li>
-<li><p>Support <a class="reference internal" href="../components/#supported-property-types"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">dataclass</span></code> field type</span></a>.</p></li>
-<li><p>Use <a class="reference internal" href="../components/#property-type-hints"><span class="std std-doc">type hints</span></a> to cast fields to primitive Python types if possible.</p></li>
+<li><p>Support <a class="reference internal" href="../views/#class-variables"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Decimal</span></code> field type</span></a>.</p></li>
+<li><p>Support <a class="reference internal" href="../views/#class-variables"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">dataclass</span></code> field type</span></a>.</p></li>
+<li><p>Use <a class="reference internal" href="../views/#class-variable-type-hints"><span class="std std-doc">type hints</span></a> to cast fields to primitive Python types if possible.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.20.0...0.21.0">All changes since 0.20.0</a>.</p>
 </section>
 <section id="v0-20-0">
 <h2>v0.20.0<a class="headerlink" href="#v0-20-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with <a class="reference internal" href="../advanced/#javascript-exclude"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></span></a>.</p></li>
-<li><p>Add <a class="reference internal" href="../advanced/#complete"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">complete</span></code></span></a>, <a class="reference internal" href="../advanced/#rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">rendered</span></code></span></a>, <a class="reference internal" href="../advanced/#parent-rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">parent_rendered</span></code></span></a> component hooks.</p></li>
-<li><p>Call <a class="reference internal" href="../advanced/#javascript-integration"><span class="std std-doc">JavaScript functions</span></a> from a component view’s method.</p></li>
+<li><p>Add ability to exclude component view properties from JavaScript to reduce the amount of data initially rendered to the page with <a class="reference internal" href="../views/#javascript-exclude"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></span></a>.</p></li>
+<li><p>Add <a class="reference internal" href="../views/#complete"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">complete</span></code></span></a>, <a class="reference internal" href="../views/#rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">rendered</span></code></span></a>, <a class="reference internal" href="../views/#parent-rendered-html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">parent_rendered</span></code></span></a> component hooks.</p></li>
+<li><p>Call <a class="reference internal" href="../javascript/"><span class="doc std std-doc">JavaScript functions</span></a> from a component view’s method.</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.19.0...0.20.0">All changes since 0.19.0</a>.</p>
 </section>
@@ -833,8 +847,8 @@
 <section id="v0-10-0">
 <h2>v0.10.0<a class="headerlink" href="#v0-10-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add support for <a class="reference internal" href="../components/#component-arguments"><span class="std std-doc">passing kwargs</span></a> into the component on the template</p></li>
-<li><p>Provide access to the <a class="reference internal" href="../advanced/#request"><span class="std std-doc">current request</span></a> in the component’s methods</p></li>
+<li><p>Add support for <a class="reference internal" href="../components/#pass-data-to-a-component"><span class="std std-doc">passing kwargs</span></a> into the component on the template</p></li>
+<li><p>Provide access to the <a class="reference internal" href="../views/#request"><span class="std std-doc">current request</span></a> in the component’s methods</p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.9.4...0.10.0">All changes since 0.9.4</a>.</p>
 </section>
@@ -866,7 +880,7 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="../loading-states/"><span class="doc std std-doc">Loading states</span></a> for improved UX.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">$event</span></code> <a class="reference internal" href="../actions/#events"><span class="std std-doc">special argument</span></a> for <code class="docutils literal notranslate"><span class="pre">actions</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> <a class="reference internal" href="../components/#unicorn-attributes"><span class="std std-doc">unicorn attribute</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> <a class="reference internal" href="../templates/#unicorn-attributes"><span class="std std-doc">unicorn attribute</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">APPS</span></code> <a class="reference internal" href="../settings/#apps"><span class="std std-doc">setting</span></a> for determing where to look for components.</p></li>
 <li><p>Add support for parent elements for non-db models.</p></li>
 <li><p>Fix: Handle if <code class="docutils literal notranslate"><span class="pre">Meta</span></code> doesn’t exist for db models.</p></li>
@@ -949,7 +963,7 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="../validation/"><span class="doc std std-doc">Realtime validation</span></a> of a Unicorn model.</p></li>
 <li><p><a class="reference internal" href="../polling/"><span class="doc std std-doc">Polling</span></a> for component updates.</p></li>
-<li><p><a class="reference internal" href="../advanced/"><span class="doc std std-doc">More component hooks</span></a></p></li>
+<li><p><a class="reference internal" href="../views/"><span class="doc std std-doc">More component hooks</span></a></p></li>
 </ul>
 <p><a class="reference external" href="https://github.com/adamghill/django-unicorn/compare/0.5.0...0.6.0">All changes since 0.5.0</a>.</p>
 </section>
@@ -976,7 +990,7 @@
 <section id="v0-3-0">
 <h2>v0.3.0<a class="headerlink" href="#v0-3-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add <a class="reference internal" href="../advanced/#mount"><span class="std std-doc">mount hook</span></a>.</p></li>
+<li><p>Add <a class="reference internal" href="../views/#mount"><span class="std std-doc">mount hook</span></a>.</p></li>
 <li><p>Add <a class="reference internal" href="../actions/#reset"><span class="std std-doc">reset</span></a> action.</p></li>
 <li><p>Remove lag when typing fast in a text input and overall improved performance.</p></li>
 <li><p>Better error handling for exceptional cases.</p></li>
@@ -1082,11 +1096,12 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">0.56.1</a></li>
-<li><a class="reference internal" href="#id2">0.56.0</a></li>
-<li><a class="reference internal" href="#id3">0.55.0</a></li>
-<li><a class="reference internal" href="#id4">0.54.0</a></li>
-<li><a class="reference internal" href="#id5">0.53.0</a></li>
+<li><a class="reference internal" href="#id1">0.57.0</a></li>
+<li><a class="reference internal" href="#id2">0.56.1</a></li>
+<li><a class="reference internal" href="#id3">0.56.0</a></li>
+<li><a class="reference internal" href="#id4">0.55.0</a></li>
+<li><a class="reference internal" href="#id5">0.54.0</a></li>
+<li><a class="reference internal" href="#id6">0.53.0</a></li>
 <li><a class="reference internal" href="#v0-52-0">v0.52.0</a></li>
 <li><a class="reference internal" href="#v0-51-0">v0.51.0</a></li>
 <li><a class="reference internal" href="#v0-50-0">v0.50.0</a></li>

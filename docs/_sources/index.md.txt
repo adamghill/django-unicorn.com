@@ -8,6 +8,14 @@
 self
 installation
 components
+```
+
+```{toctree}
+:caption: Components
+:maxdepth: 3
+:hidden:
+
+views
 templates
 actions
 child-components
@@ -16,7 +24,7 @@ django-models
 
 ```{toctree}
 :caption: Features
-:maxdepth: 2
+:maxdepth: 3
 :hidden:
 
 direct-view
@@ -28,14 +36,21 @@ partial-updates
 polling
 visibility
 messages
-advanced
+```
+
+```{toctree}
+:caption: Advanced
+:maxdepth: 3
+:hidden:
+
+javascript
 queue-requests
 custom-morphers
 ```
 
 ```{toctree}
 :caption: Misc
-:maxdepth: 2
+:maxdepth: 3
 :hidden:
 
 cli
@@ -44,7 +59,7 @@ settings
 
 ```{toctree}
 :caption: Info
-:maxdepth: 2
+:maxdepth: 3
 :hidden:
 
 faq

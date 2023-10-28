@@ -2,10 +2,10 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Templates" href="../templates/" /><link rel="prev" title="Components" href="../components/" />
 
     <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
-        <title>Advanced Views - Unicorn</title>
+        <title>Views - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -178,8 +178,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 </ul>
 <p><span class="caption-text">Components</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../views/">Views</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
@@ -232,8 +232,118 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <section id="advanced-views">
-<h1>Advanced Views<a class="headerlink" href="#advanced-views" title="Permalink to this headline">¶</a></h1>
+        <section id="views">
+<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
+<p>Views contain a class that inherits from <code class="docutils literal notranslate"><span class="pre">UnicornView</span></code> for the component’s Python code.</p>
+<p>To follow typical naming conventions, the view will convert the component’s name to be more Pythonic. For example, if the component name is <code class="docutils literal notranslate"><span class="pre">hello-world</span></code>, the template file name will also be <code class="docutils literal notranslate"><span class="pre">hello-world.html</span></code>. However, the view file name will be <code class="docutils literal notranslate"><span class="pre">hello_world.py</span></code> and it will contain one class named <code class="docutils literal notranslate"><span class="pre">HelloWorldView</span></code>.</p>
+<p>This allows <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> to connect the template and view using convention instead of configuration. Using the <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> management command is the easiest way to make sure that components are created correctly.</p>
+<section id="example-view">
+<h2>Example view<a class="headerlink" href="#example-view" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="class-variables">
+<h2>Class variables<a class="headerlink" href="#class-variables" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will serialize/deserialize view class variables to JSON as needed for interactive parts of the component.</p>
+<p>Automatically handled field types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Decimal</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dictionary</span></code></p></li>
+<li><p><a class="reference internal" href="../django-models/#model"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Model</span></code></span></a></p></li>
+<li><p><a class="reference internal" href="../django-models/#queryset"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">QuerySet</span></code></span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dataclass</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pydantic</span></code> models</p></li>
+<li><p><a class="reference internal" href="#custom-class"><span class="std std-doc">Custom classes</span></a></p></li>
+</ul>
+<section id="a-word-of-caution-about-mutable-class-variables">
+<h3>A word of caution about mutable class variables<a class="headerlink" href="#a-word-of-caution-about-mutable-class-variables" title="Permalink to this headline">¶</a></h3>
+<p>Be careful when using a default mutable class variables, namely <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, and objects. As mentioned in <a class="reference external" href="https://docs.python.org/3.8/tutorial/classes.html#tut-object">A Word About Names and Objects</a> defining a mutable default for a class variable can have subtle and unexpected consequences – it <em>will</em> cause component instances to share state which is usually not the intention.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sentence.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="c1"># This will cause unexpected consequences</span>
+<span class="k">class</span> <span class="nc">SentenceView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">words</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># all SentenceView instances will share a reference to one list in memory</span>
+    <span class="n">word_counts</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># all SentenceView instances will share a reference to one dictionary in memory</span>
+
+    <span class="k">def</span> <span class="nf">add_word</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>The correct way to initialize a mutable object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sentence.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">SentenceView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">words</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>  <span class="c1"># not setting a default value is valid</span>
+    <span class="n">word_counts</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># using None for the default is valid</span>
+
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># initialize a new list every time a SentenceView is initialized and mounted</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">word_counts</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># initialize a new dictionary every time a SentenceView is initialized and mounted</span>
+
+    <span class="k">def</span> <span class="nf">add_word</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code>, and objects all run into this problem, so be sure to initialize mutable objects in the component’s <code class="docutils literal notranslate"><span class="pre">mount</span></code> function.</p>
+</section>
+<section id="class-variable-type-hints">
+<h3>Class variable type hints<a class="headerlink" href="#class-variable-type-hints" title="Permalink to this headline">¶</a></h3>
+<p>Type hints on fields help <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> ensure that the field will always have the appropriate type.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># rating.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">RatingView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">rating</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">calculate_percentage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rating</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rating</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Without the <code class="docutils literal notranslate"><span class="pre">float</span></code> type hint on <code class="docutils literal notranslate"><span class="pre">rating</span></code>, Python will complain that <code class="docutils literal notranslate"><span class="pre">rating</span></code> is a <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+</section>
+<section id="custom-class">
+<h3>Custom class<a class="headerlink" href="#custom-class" title="Permalink to this headline">¶</a></h3>
+<p>Custom classes need to define how they are serialized. If you have access to the object to serialize, you can define a <code class="docutils literal notranslate"><span class="pre">to_json</span></code> method on the object to return a dictionary that can be used to serialize. Inheriting from <code class="docutils literal notranslate"><span class="pre">unicorn.components.UnicornField</span></code> is a quick way to serialize a custom class, but it uses <code class="docutils literal notranslate"><span class="pre">self.__dict__</span></code> under the hood, so it is not doing anything particularly smart.</p>
+<p>Another option is to set the <code class="docutils literal notranslate"><span class="pre">form_class</span></code> on the component and utilize <a class="reference internal" href="../validation/"><span class="doc std std-doc">Django’s built-in forms and widgets</span></a> to handle how the class should be deserialized.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span><span class="p">,</span> <span class="n">UnicornField</span>
+
+<span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">UnicornField</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Neil Gaiman'</span>
+
+    <span class="c1"># Not needed because inherited from `UnicornField`</span>
+    <span class="c1"># def to_json(self):</span>
+    <span class="c1">#    return {'name': self.name}</span>
+
+    <span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="n">Author</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- hello-world.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"author.name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"author_name"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Never put sensitive data into a public property because that information will publicly available in the HTML source code, unless explicitly prevented with <a class="reference internal" href="#javascript-exclude"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">javascript_exclude</span></code></span></a>.</p>
+</div>
+</section>
+</section>
 <section id="class-properties">
 <h2>Class properties<a class="headerlink" href="#class-properties" title="Permalink to this headline">¶</a></h2>
 <section id="template-name">
@@ -300,7 +410,7 @@
 </section>
 <section id="custom-methods">
 <h2>Custom methods<a class="headerlink" href="#custom-methods" title="Permalink to this headline">¶</a></h2>
-<p>Defined component instance methods with no arguments are made available to the Django template context and can be called like a property.</p>
+<p>Defined component instance methods with no arguments (other than <code class="docutils literal notranslate"><span class="pre">self</span></code>) are available in the Django template context and can be called like a property.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># states.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
@@ -489,7 +599,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A context variable can be marked as <code class="docutils literal notranslate"><span class="pre">safe</span></code> in the template with the normal Django template filter, as well.</p>
+<p>A context variable can also be marked as <code class="docutils literal notranslate"><span class="pre">safe</span></code> in the template with the normal Django template filter.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- safe-example.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"something_safe"</span> <span class="p">/&gt;</span>
@@ -500,66 +610,32 @@
 </div>
 </section>
 </section>
-<section id="javascript-integration">
-<h2>JavaScript Integration<a class="headerlink" href="#javascript-integration" title="Permalink to this headline">¶</a></h2>
-<section id="call-javascript-from-view">
-<h3>Call JavaScript from View<a class="headerlink" href="#call-javascript-from-view" title="Permalink to this headline">¶</a></h3>
-<p>To integrate with other JavaScript functions, view methods can call an arbitrary JavaScript function after it gets rendered.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- call-javascript.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">alert</span><span class="p">(</span><span class="s2">"Hello, "</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"hello"</span><span class="p">&gt;</span>Hello!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call_javascript.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-
-<span class="k">class</span> <span class="nc">CallJavascriptView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">""</span>
-
-    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="trigger-model-update">
-<h3>Trigger Model Update<a class="headerlink" href="#trigger-model-update" title="Permalink to this headline">¶</a></h3>
-<p>Normally when a model element gets changed by a user it will trigger an event which <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> listens for (either <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> depending on if it has a <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier). However, when setting an element with JavaScript those events do not fire. <code class="docutils literal notranslate"><span class="pre">Unicorn.trigger()</span></code> provides a way to trigger that event from JavaScript manually.</p>
-<p>The first argument to <code class="docutils literal notranslate"><span class="pre">trigger</span></code> is the component name. The second argument is the value for the element’s <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- trigger-model.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">input</span>
-  <span class="na">id</span><span class="o">=</span><span class="s">"nameId"</span>
-  <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"nameKey"</span>
-  <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span>
-  <span class="na">value</span><span class="o">=</span><span class="s">"initial value"</span>
-<span class="p">/&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"nameId"</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">"new value"</span><span class="p">;</span>
-  <span class="nx">Unicorn</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"hello_world"</span><span class="p">,</span> <span class="s2">"nameKey"</span><span class="p">);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</section>
-</section>
 </section>
 
       </article>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="../templates/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Templates</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../components/">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Components</div>
+                
+              </div>
+            </a>
         </div>
 
         <div class="related-information">
@@ -570,7 +646,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../_sources/advanced.md.txt"
+            <a class="muted-link" href="../_sources/views.md.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -590,7 +666,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Advanced Views</a><ul>
+<li><a class="reference internal" href="#">Views</a><ul>
+<li><a class="reference internal" href="#example-view">Example view</a></li>
+<li><a class="reference internal" href="#class-variables">Class variables</a><ul>
+<li><a class="reference internal" href="#a-word-of-caution-about-mutable-class-variables">A word of caution about mutable class variables</a></li>
+<li><a class="reference internal" href="#class-variable-type-hints">Class variable type hints</a></li>
+<li><a class="reference internal" href="#custom-class">Custom class</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#class-properties">Class properties</a><ul>
 <li><a class="reference internal" href="#template-name">template_name</a></li>
 </ul>
@@ -620,11 +703,6 @@
 <li><a class="reference internal" href="#exclude">exclude</a></li>
 <li><a class="reference internal" href="#javascript-exclude">javascript_exclude</a></li>
 <li><a class="reference internal" href="#safe">safe</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#javascript-integration">JavaScript Integration</a><ul>
-<li><a class="reference internal" href="#call-javascript-from-view">Call JavaScript from View</a></li>
-<li><a class="reference internal" href="#trigger-model-update">Trigger Model Update</a></li>
 </ul>
 </li>
 </ul>

@@ -2,10 +2,10 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Settings" href="../settings/" /><link rel="prev" title="Custom Morphers" href="../custom-morphers/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Queue Requests" href="../queue-requests/" /><link rel="prev" title="Messages" href="../messages/" />
 
     <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
-        <title>CLI - Unicorn</title>
+        <title>JavaScript Integration - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -198,14 +198,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 </ul>
 <p><span class="caption-text">Advanced</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript Integration</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">JavaScript Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
 <p><span class="caption-text">Misc</span></p>
-<ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">CLI</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 </ul>
 <p><span class="caption-text">Info</span></p>
@@ -232,47 +232,54 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <section id="cli">
-<h1>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides a Django management command to create new components. The first argument is the name of the Django app to create components in. Every argument after is the name of components that should be created.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python manage.py startunicorn unicorn hello-world
+        <section id="javascript-integration">
+<h1>JavaScript Integration<a class="headerlink" href="#javascript-integration" title="Permalink to this headline">¶</a></h1>
+<section id="call-javascript-from-view">
+<h2>Call JavaScript from View<a class="headerlink" href="#call-javascript-from-view" title="Permalink to this headline">¶</a></h2>
+<p>To integrate with other JavaScript functions, view methods can call an arbitrary JavaScript function after it gets rendered.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- call-javascript.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s2">"Hello, "</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"hello"</span><span class="p">&gt;</span>Hello!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>This example would create a <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> directory, and <code class="docutils literal notranslate"><span class="pre">templates</span></code> and <code class="docutils literal notranslate"><span class="pre">components</span></code> sub-directories if necessary. Underneath the <code class="docutils literal notranslate"><span class="pre">components</span></code> directory there will be a new module and subclass of <code class="docutils literal notranslate"><span class="pre">django_unicorn.components.UnicornView</span></code>. Underneath the <code class="docutils literal notranslate"><span class="pre">templates/unicorn</span></code> directory will be a example template.</p>
-<p>The following is an example folder structure.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unicorn</span><span class="o">/</span>
-    <span class="n">components</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
-    <span class="n">templates</span><span class="o">/</span>
-        <span class="n">unicorn</span><span class="o">/</span>
-            <span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">.</span><span class="n">html</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call_javascript.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">CallJavascriptView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have an existing Django app, you can use that instead of <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> like the example above. The management command will create the the directories and files as needed.</p>
-</div>
-<section id="sub-folders">
-<h2>Sub-folders<a class="headerlink" href="#sub-folders" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> supports creating components in sub-folders. Separate each folder by a dot (similar to Python modules) to create a nested structure.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python manage.py startunicorn unicorn hello.world
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unicorn</span><span class="o">/</span>
-    <span class="n">components</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">hello</span><span class="o">/</span>
-            <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-            <span class="n">world</span><span class="o">.</span><span class="n">py</span>
-    <span class="n">templates</span><span class="o">/</span>
-        <span class="n">unicorn</span><span class="o">/</span>
-            <span class="n">hello</span><span class="o">/</span>
-                <span class="n">world</span><span class="o">.</span><span class="n">html</span>
-</pre></div>
-</div>
-<p>The nested component would be included in a template like:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% unicorn 'hello.world' %}
+</section>
+<section id="trigger-model-update">
+<h2>Trigger Model Update<a class="headerlink" href="#trigger-model-update" title="Permalink to this headline">¶</a></h2>
+<p>Normally when a model element gets changed by a user it will trigger an event which <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> listens for (either <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">blur</span></code> depending on if it has a <code class="docutils literal notranslate"><span class="pre">lazy</span></code> modifier). However, when setting an element with JavaScript those events do not fire. <code class="docutils literal notranslate"><span class="pre">Unicorn.trigger()</span></code> provides a way to trigger that event from JavaScript manually.</p>
+<p>The first argument to <code class="docutils literal notranslate"><span class="pre">trigger</span></code> is the component name. The second argument is the value for the element’s <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- trigger-model.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span>
+  <span class="na">id</span><span class="o">=</span><span class="s">"nameId"</span>
+  <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"nameKey"</span>
+  <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span>
+  <span class="na">value</span><span class="o">=</span><span class="s">"initial value"</span>
+<span class="p">/&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"nameId"</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">"new value"</span><span class="p">;</span>
+  <span class="nx">Unicorn</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"hello_world"</span><span class="p">,</span> <span class="s2">"nameKey"</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -282,23 +289,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../settings/">
+          <a class="next-page" href="../queue-requests/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Settings</div>
+                <div class="title">Queue Requests</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../custom-morphers/">
+          <a class="prev-page" href="../messages/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Custom Morphers</div>
+                <div class="title">Messages</div>
                 
               </div>
             </a>
@@ -312,7 +319,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../_sources/cli.md.txt"
+            <a class="muted-link" href="../_sources/javascript.md.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -332,8 +339,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">CLI</a><ul>
-<li><a class="reference internal" href="#sub-folders">Sub-folders</a></li>
+<li><a class="reference internal" href="#">JavaScript Integration</a><ul>
+<li><a class="reference internal" href="#call-javascript-from-view">Call JavaScript from View</a></li>
+<li><a class="reference internal" href="#trigger-model-update">Trigger Model Update</a></li>
 </ul>
 </li>
 </ul>

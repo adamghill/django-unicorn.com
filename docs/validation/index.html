@@ -5,7 +5,7 @@
 <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Redirecting" href="../redirecting/" /><link rel="prev" title="Direct View" href="../direct-view/" />
 
     <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
-        <title>Validation - Unicorn</title>
+        <title>Forms and Validation - Unicorn</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -176,6 +176,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
+</ul>
+<p><span class="caption-text">Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../views/">Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
@@ -184,7 +188,7 @@
 <p><span class="caption-text">Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Validation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Forms and Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
@@ -192,7 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
+</ul>
+<p><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
@@ -225,37 +232,11 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <section id="validation">
-<h1>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h1>
+        <section id="forms-and-validation">
+<h1>Forms and Validation<a class="headerlink" href="#forms-and-validation" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> has two options for validation. It can either use the standard Django <code class="docutils literal notranslate"><span class="pre">forms</span></code> infrastructure for re-usability or <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> can be raised for simpler use-cases.</p>
-<section id="validationerror">
-<h2>ValidationError<a class="headerlink" href="#validationerror" title="Permalink to this headline">¶</a></h2>
-<p>If you do not want to create a form class or you want to specifically target a nested field you can raise a <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> inside of an action method. The <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> must be instantiated with a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with the model name as the key and error message as the value. A <code class="docutils literal notranslate"><span class="pre">code</span></code> keyword argument must also be passed in. The typical error codes used are <code class="docutils literal notranslate"><span class="pre">required</span></code> or <code class="docutils literal notranslate"><span class="pre">invalid</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># book_validation_error.py</span>
-<span class="kn">from</span> <span class="nn">django.utils.timezone</span> <span class="kn">import</span> <span class="n">now</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-
-<span class="k">class</span> <span class="nc">BookView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">book</span><span class="p">:</span> <span class="n">Book</span>
-
-    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">({</span><span class="s2">"book.title"</span><span class="p">:</span> <span class="s2">"Books must have a title"</span><span class="p">},</span> <span class="n">code</span><span class="o">=</span><span class="s2">"required"</span><span class="p">)</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">publish_date</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- book-validation-error.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"publish"</span><span class="p">&gt;</span>Publish Book<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</section>
-<section id="django-form">
-<h2>Django Form<a class="headerlink" href="#django-form" title="Permalink to this headline">¶</a></h2>
+<section id="forms">
+<h2>Forms<a class="headerlink" href="#forms" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> can use the Django <code class="docutils literal notranslate"><span class="pre">forms</span></code> infrastructure for validation. This means that a form could be re-used between any other Django views and a <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> component.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -386,6 +367,33 @@
 </div>
 </section>
 </section>
+<section id="validationerror">
+<h2>ValidationError<a class="headerlink" href="#validationerror" title="Permalink to this headline">¶</a></h2>
+<p>If you do not want to create a form class or you want to specifically target a nested field you can raise a <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> inside of an action method. The <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> must be instantiated with a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with the model name as the key and error message as the value. A <code class="docutils literal notranslate"><span class="pre">code</span></code> keyword argument must also be passed in. The typical error codes used are <code class="docutils literal notranslate"><span class="pre">required</span></code> or <code class="docutils literal notranslate"><span class="pre">invalid</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># book_validation_error.py</span>
+<span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="kn">import</span> <span class="n">ValidationError</span>
+<span class="kn">from</span> <span class="nn">django.utils.timezone</span> <span class="kn">import</span> <span class="n">now</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">BookView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">book</span><span class="p">:</span> <span class="n">Book</span>
+
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">({</span><span class="s2">"book.title"</span><span class="p">:</span> <span class="s2">"Books must have a title"</span><span class="p">},</span> <span class="n">code</span><span class="o">=</span><span class="s2">"required"</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish_date</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- book-validation-error.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"title"</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">unicorn:click</span><span class="o">=</span><span class="s">"publish"</span><span class="p">&gt;</span>Publish Book<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
       </article>
@@ -442,9 +450,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Validation</a><ul>
-<li><a class="reference internal" href="#validationerror">ValidationError</a></li>
-<li><a class="reference internal" href="#django-form">Django Form</a><ul>
+<li><a class="reference internal" href="#">Forms and Validation</a><ul>
+<li><a class="reference internal" href="#forms">Forms</a><ul>
 <li><a class="reference internal" href="#validate-the-entire-component">Validate the entire component</a></li>
 </ul>
 </li>
@@ -454,6 +461,7 @@
 <li><a class="reference internal" href="#showing-all-the-error-messages">Showing all the error messages</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#validationerror">ValidationError</a></li>
 </ul>
 </li>
 </ul>

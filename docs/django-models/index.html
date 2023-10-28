@@ -172,10 +172,14 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <p><span class="caption-text">Basics</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
+</ul>
+<p><span class="caption-text">Components</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../views/">Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
@@ -184,7 +188,7 @@
 <p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/">Forms and Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
@@ -192,7 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
+</ul>
+<p><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
@@ -235,7 +242,7 @@
 <p class="admonition-title">Warning</p>
 <p>Using this functionality will serialize your entire model by default and expose all of the values in the HTML source code. Do not use this particular functionality if there are properties that need to be kept private.</p>
 <p>One option is to customize the serialization of the model into a dictionary to only expose the data that should be publicly available.</p>
-<p>Another option is to use <a class="reference internal" href="../advanced/#exclude"><span class="std std-doc">Meta.exclude</span></a> or <a class="reference internal" href="../advanced/#javascript-exclude"><span class="std std-doc">Meta.javascript_exclude</span></a> so those fields are not exposed.</p>
+<p>Another option is to use <a class="reference internal" href="../views/#exclude"><span class="std std-doc">Meta.exclude</span></a> or <a class="reference internal" href="../views/#javascript-exclude"><span class="std std-doc">Meta.javascript_exclude</span></a> so those fields are not exposed.</p>
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- model.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -273,7 +280,39 @@
 </section>
 <section id="queryset">
 <h2>QuerySet<a class="headerlink" href="#queryset" title="Permalink to this headline">¶</a></h2>
-<p>A Django <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> can be set to a property on a component just like a regular <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<p>Django models in a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> can be accessed in a <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> with “dot notation” similar to a <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">book.models</span> <span class="kn">import</span> <span class="n">Book</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- hello-world.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"books.0.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"text"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>An example of looping over all models in a queryset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># queryset.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
+
+<span class="k">class</span> <span class="nc">QuerysetView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-id"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">books</span><span class="p">[</span><span class="n">book_idx</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- queryset.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   {% for book in books %}
@@ -294,6 +333,9 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will expose all of the model values for the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> in the HTML source. One way to avoid leaking all model information is to pass the fields that are publicly viewable into <code class="docutils literal notranslate"><span class="pre">values()</span></code> on your <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># queryset.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 <span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>
@@ -302,21 +344,11 @@
     <span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-id"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">books</span><span class="p">[</span><span class="n">book_idx</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This will expose all of the model values for the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> in the HTML source. One way to avoid leaking all model information is to pass the fields that are publicly viewable into <code class="docutils literal notranslate"><span class="pre">values()</span></code> on your <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-  <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-id"</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">"pk"</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">books</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-id"</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">"pk"</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>A <code class="docutils literal notranslate"><span class="pre">QuerySetType</span></code> type hint can also be used for <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> to ensure the correct type is used for the component field.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">QuerySetType</span></code> type hint can be used to ensure the correct <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> is used for the component field.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># queryset.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">QuerySetType</span><span class="p">,</span> <span class="n">UnicornView</span>
 <span class="kn">from</span> <span class="nn">books.models</span> <span class="kn">import</span> <span class="n">Book</span>

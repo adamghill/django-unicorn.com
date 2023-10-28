@@ -2,7 +2,7 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Actions" href="../actions/" /><link rel="prev" title="Components" href="../components/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Actions" href="../actions/" /><link rel="prev" title="Views" href="../views/" />
 
     <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
         <title>Templates - Unicorn</title>
@@ -172,10 +172,14 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <p><span class="caption-text">Basics</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
+</ul>
+<p><span class="caption-text">Components</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../views/">Views</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions/">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
@@ -184,7 +188,7 @@
 <p><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/">Forms and Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../redirecting/">Redirecting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loading-states/">Loading States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dirty-states/">Dirty States</a></li>
@@ -192,7 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../polling/">Polling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced Views</a></li>
+</ul>
+<p><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
@@ -227,15 +234,59 @@
         </label>
         <section id="templates">
 <h1>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h1>
-<p>Templates are just normal Django HTML templates, so anything you could normally do in a Django template will still work, including template tags, filters, loops, if statements, etc.</p>
+<p>Templates are normal Django HTML templates, so anything you could normally do in a Django template will still work, including template tags, filters, loops, if statements, etc.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> requires there to be one root element surrounding the component template.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> requires there to be one root element that contains the component HTML. Valid HTML and a wrapper element is required for the DOM diffing algorithm to work correctly, so <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> will try to log a warning message if they seem invalid.</p>
+<p>For example, this is an <strong>invalid</strong> template:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+Name: {{ name }}
+</pre></div>
+</div>
+<p>This template is <strong>valid</strong>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+  Name: {{ name }}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<section id="unicorn-attributes">
+<h2>Unicorn attributes<a class="headerlink" href="#unicorn-attributes" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> element attributes usually start with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code>, however the shortcut <code class="docutils literal notranslate"><span class="pre">u:</span></code> is also supported. So, for example, <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> could also be written as <code class="docutils literal notranslate"><span class="pre">u:model</span></code>.</p>
+</section>
+<section id="accessing-nested-fields">
+<h2>Accessing nested fields<a class="headerlink" href="#accessing-nested-fields" title="Permalink to this headline">¶</a></h2>
+<p>Fields in a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> or Django model can be accessed similarly to the Django template language with “dot notation”.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+<span class="kn">from</span> <span class="nn">book.models</span> <span class="kn">import</span> <span class="n">Book</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">book</span><span class="p">:</span> <span class="n">Book</span>
+    <span class="n">book_ratings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span>
+
+    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'American Gods'</span><span class="p">)</span>
+        <span class="n">book_ratings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'excellent'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'American Gods'</span><span class="p">}}</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- hello-world.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"book.title"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"model"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span>
+    <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"book_ratings.excellent.title"</span>
+    <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+    <span class="na">id</span><span class="o">=</span><span class="s">"dictionary"</span>
+  <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To reduce the verbosity of templates, <code class="docutils literal notranslate"><span class="pre">u:</span></code> can be used as a shorthand for any attribute that starts with <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code>. All of the examples in the documentation use <code class="docutils literal notranslate"><span class="pre">unicorn:</span></code> to be explicit, but both are supported.</p>
+<p><a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django models</span></a> has many more details about using Django models in <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
 </div>
+</section>
 <section id="model-modifiers">
 <h2>Model modifiers<a class="headerlink" href="#model-modifiers" title="Permalink to this headline">¶</a></h2>
 <section id="lazy">
@@ -301,13 +352,13 @@
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>However, setting the same <code class="docutils literal notranslate"><span class="pre">id</span></code> on two elements with the same <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> won’t work. The <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> attribute can be used to make sure that the elements can be synced as expected.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> attribute can be used when multiple elements have the same <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- missing-updates.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- this-should-work.html --&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- this-works.html --&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"someFancyId"</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">unicorn:key</span><span class="o">=</span><span class="s">"someFancyKey"</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
 </pre></div>
@@ -315,7 +366,7 @@
 </section>
 <section id="dom-merging">
 <h3>DOM merging<a class="headerlink" href="#dom-merging" title="Permalink to this headline">¶</a></h3>
-<p>To merge changes in the DOM, we use an element’s <code class="docutils literal notranslate"><span class="pre">id</span></code> to intelligently update DOM elements. If it isn’t possible to have an <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute on the element, <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code> will be used if it is available.</p>
+<p>To merge changes in the DOM, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses, in order, <code class="docutils literal notranslate"><span class="pre">unicorn:id</span></code>, <code class="docutils literal notranslate"><span class="pre">unicorn:key</span></code>, or the element’s <code class="docutils literal notranslate"><span class="pre">id</span></code> to intelligently update DOM elements.</p>
 </section>
 </section>
 <section id="lifecycle-events">
@@ -323,7 +374,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> provides events that fire when different parts of the lifecycle occur.</p>
 <section id="updated">
 <h3>updated<a class="headerlink" href="#updated" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">updated</span></code> event is fired after the AJAX call finishes and the component is merged with the newly rendered component template. The callback gets called with one argument, <code class="docutils literal notranslate"><span class="pre">component</span></code>, which can be inspected if necessary.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">updated</span></code> event is fired after the AJAX call finishes and the component is merged with the newly rendered component template. The callback gets called with one argument, <code class="docutils literal notranslate"><span class="pre">component</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- updated-event.html --&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"application/javascript"</span><span class="p">&gt;</span>
@@ -403,14 +454,14 @@
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../components/">
+          <a class="prev-page" href="../views/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Components</div>
+                <div class="title">Views</div>
                 
               </div>
             </a>
@@ -445,6 +496,8 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Templates</a><ul>
+<li><a class="reference internal" href="#unicorn-attributes">Unicorn attributes</a></li>
+<li><a class="reference internal" href="#accessing-nested-fields">Accessing nested fields</a></li>
 <li><a class="reference internal" href="#model-modifiers">Model modifiers</a><ul>
 <li><a class="reference internal" href="#lazy">Lazy</a></li>
 <li><a class="reference internal" href="#debounce">Debounce</a></li>
