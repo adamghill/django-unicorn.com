@@ -364,8 +364,9 @@
         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-    {% for book in books %} {% unicorn 'row' book=book key=book.id
-    %} {% endfor %}
+    {% for book in books %}
+    {% unicorn 'row' book=book key=book.id %}
+    {% endfor %}
   <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>

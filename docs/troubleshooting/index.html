@@ -247,6 +247,35 @@
 </div>
 <p>See this <a class="reference external" href="https://www.taricorp.net/2020/windows-mime-pitfalls/">Windows MIME type detection pitfalls</a> article, this <a class="reference external" href="https://stackoverflow.com/a/16355034">StackOverflow answer</a>, or <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/201">issue #201</a> for more details.</p>
 </section>
+<section id="missing-csrf-token-or-403-forbidden-errors">
+<h2>Missing CSRF token or 403 Forbidden errors<a class="headerlink" href="#missing-csrf-token-or-403-forbidden-errors" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses CSRF to protect its endpoint from malicious actors. The two parts that are required for CSRF are <code class="docutils literal notranslate"><span class="pre">"django.middleware.csrf.CsrfViewMiddleware"</span></code> in <code class="docutils literal notranslate"><span class="pre">MIDDLEWARE</span></code> and <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></code> in the template that includes any <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> components.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
+
+<span class="o">...</span>
+<span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s2">"django.middleware.csrf.CsrfViewMiddleware"</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- template.html --&gt;</span>
+{% load unicorn %}
+
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    {% unicorn_scripts %}
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    {% csrf_token %}
+
+    {% unicorn 'hello-world' %}
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
       </article>
@@ -305,6 +334,7 @@
             <ul>
 <li><a class="reference internal" href="#">Troubleshooting</a><ul>
 <li><a class="reference internal" href="#disallowed-mime-type-error-on-windows">Disallowed MIME type error on Windows</a></li>
+<li><a class="reference internal" href="#missing-csrf-token-or-403-forbidden-errors">Missing CSRF token or 403 Forbidden errors</a></li>
 </ul>
 </li>
 </ul>
