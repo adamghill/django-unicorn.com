@@ -16,29 +16,21 @@ django-unicorn = "0.42.0"
 django-cache-memoize = "^0.1.7"
 django-redis = "^4.12.1"
 httpx = "^0.14.2"
-sentry-sdk = "^0.17.4"
+sentry-sdk = "^0"
 django-docs = {git = "https://github.com/littlepea/django-docs", rev = "08912dac5d589ef57812a6cfdccb8398a57f0da7"}
 django-fbv = "<1"
 
-[tool.poetry.dev-dependencies]
-flake8 = "^3.8.3"
-isort = "^5.1.1"
-black = "^19.10b0"
-mypy = "^0.782"
-furo = "^2020.12.30-beta.24"
-Sphinx = "^3.4.1"
-myst-parser = "^0.13.0"
-sphinx-copybutton = "^0.3.1"
-sphinx-autobuild = "^2020.9.1"
-linkify-it-py = "^1.0.1"
-rst2pdf = "^0.98"
-
-[tool.black]
-line-length = 88
-
-[tool.isort]
-profile = "black"
-multi_line_output = 3
+[tool.poetry.group.dev.dependencies]
+Sphinx = "*"
+linkify-it-py = "*"
+myst-parser = "*"
+furo = "*"
+sphinx-copybutton = "*"
+sphinx-autobuild = "*"
+rst2pdf = "*"
+sphinx-autoapi = "*"
+sphinxext-opengraph = "*"
+toml = "*"
 
 [tool.poe.tasks]
 r = { cmd = "./manage.py runserver 0:8000", help = "Run the dev server" }
@@ -47,7 +39,7 @@ m = { cmd = "./manage.py migrate", help = "Migrate" }
 md = ["mm", "m"]
 ma = { cmd = "./manage.py", help = "manage.py" }
 t = { cmd = "pytest", help = "Run tests" }
-cd = { shell = "rm -f 'source/*.md' && cp ../django-unicorn/docs/source/*.md source/", help = "Copy docs" }
+cd = { shell = "rm -f 'source/*.md' && cp ../django-unicorn/docs/source/*.md source/ && cp ../django-unicorn/docs/source/conf.py source/", help = "Copy docs" }
 sp = { cmd = "sphinx-build -E -a -b pdf source docs", help = "Build PDF documentation" }
 sa = { cmd = "sphinx-autobuild -b dirhtml source docs", help = "Build documentation and host at localhost:8000" }
 sb = { cmd = "sphinx-build -E -a -b dirhtml source docs", help = "Build documentation" }

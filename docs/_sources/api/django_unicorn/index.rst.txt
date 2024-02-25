@@ -1,0 +1,36 @@
+:py:mod:`django_unicorn`
+========================
+
+.. py:module:: django_unicorn
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   components/index.rst
+   templatetags/index.rst
+   views/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   cacher/index.rst
+   call_method_parser/index.rst
+   db/index.rst
+   decorators/index.rst
+   errors/index.rst
+   serializer/index.rst
+   settings/index.rst
+   typer/index.rst
+   typing/index.rst
+   urls/index.rst
+   utils/index.rst
+
+

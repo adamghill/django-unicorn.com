@@ -1,70 +1,72 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<meta property="og:title" content="FAQ" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.django-unicorn.com/faq/" />
+<meta property="og:site_name" content="Unicorn" />
+<meta property="og:description" content="Do I need to learn a new frontend framework for Unicorn?: Nope! Unicorn gives you some magical template tags and HTML attributes to sprinkle in normal Django HTML templates. The backend code is a s..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="https://www.django-unicorn.com/None" />
+<meta property="og:image:alt" content="Do I need to learn a new frontend framework for Unicorn?: Nope! Unicorn gives you some magical template tags and HTML attributes to sprinkle in normal Django..." />
+<meta name="description" content="Do I need to learn a new frontend framework for Unicorn?: Nope! Unicorn gives you some magical template tags and HTML attributes to sprinkle in normal Django HTML templates. The backend code is a s..." />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Changelog" href="../changelog/" /><link rel="prev" title="Settings" href="../settings/" />
 
-    <meta name="generator" content="sphinx-3.5.3, furo 2020.12.30.beta24"/>
+    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>FAQ - Unicorn</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
-    <link rel="stylesheet" href="../_static/pygments.css">
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
+    
     
 
 
 <style>
-  :root {
+  body {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
   
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
-  }
-
-  /* For allowing end-user-specific overrides */
-  .override-light {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
-  
-  }
-  .override-dark {
-    --color-code-background: #202020;
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
+      }
+    }
   }
-</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=26485485040e7aaf717c13fd0188a5ad2c2deb60">
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script defer="defer" src="../_static/jquery.js"></script>
-    <script defer="defer" src="../_static/underscore.js"></script>
-    <script defer="defer" src="../_static/doctools.js"></script>
-    <script defer="defer" src="../_static/clipboard.min.js"></script>
-    <script defer="defer" src="../_static/copybutton.js"></script>
-    <script defer src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></head>
-  <body dir="">
+</style></head>
+  <body>
     
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z"/>
-      <line x1="4" y1="6" x2="20" y2="6" />
-      <line x1="10" y1="12" x2="20" y2="12" />
-      <line x1="6" y1="18" x2="20" y2="18" />
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
     </svg>
   </symbol>
   <symbol id="svg-menu" viewBox="0 0 24 24">
     <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="feather feather-menu">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
       <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -72,18 +74,57 @@
   </symbol>
   <symbol id="svg-arrow-right" viewBox="0 0 24 24">
     <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="feather feather-chevron-right">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
       <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
     </svg>
   </symbol>
 </svg>
 
 <input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
 <input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation"></label>
-<label class="overlay toc-overlay" for="__toc"></label>
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
 <div class="announcement">
   <aside class="announcement-content">
@@ -120,8 +161,8 @@
             <a class="navbar-item" href="/sponsors">
                 <img src="/static/img/heart.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Sponsors
             </a>
-            <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
-                <img src="/static/img/twitter.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
+            <a class="navbar-item" href="https://fosstodon.org/@unicorn">
+                <img src="/static/img/mastodon.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
             </a>
             <div style="margin-top: .8rem; margin-right: .8rem;">
                 <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions" data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
@@ -147,6 +188,7 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
         <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
       </label>
     </div>
@@ -154,7 +196,16 @@
       <a href="../"><div class="brand">Unicorn</div></a>
     </div>
     <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -166,18 +217,19 @@
   
   
   
-</a><form class="sidebar-search-container" method="get" action="../search/">
-  <input class="sidebar-search" placeholder=Search name="q">
+</a><form class="sidebar-search-container" method="get" action="../search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
-</form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p><span class="caption-text">Basics</span></p>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 </ul>
-<p><span class="caption-text">Components</span></p>
+<p class="caption" role="heading"><span class="caption-text">Components</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../views/">Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/">Templates</a></li>
@@ -185,7 +237,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../child-components/">Child components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django-models/">Django Models</a></li>
 </ul>
-<p><span class="caption-text">Features</span></p>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../direct-view/">Direct View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../validation/">Forms and Validation</a></li>
@@ -197,18 +249,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../visibility/">Visibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../messages/">Messages</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../queue-requests/">Queue Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom-morphers/">Custom Morphers</a></li>
 </ul>
-<p><span class="caption-text">Misc</span></p>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cli/">CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a></li>
 </ul>
-<p><span class="caption-text">Info</span></p>
+<p class="caption" role="heading"><span class="caption-text">Info</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
@@ -219,72 +271,133 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/adamghill/django-unicorn">Code repo</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/sponsors/adamghill">Sponsor</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/django_unicorn/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/django_unicorn/components/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.components</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/components/fields/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.components.fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/components/mixins/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.components.mixins</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/components/unicorn_template_response/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.components.unicorn_template_response</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/components/unicorn_view/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.components.unicorn_view</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/components/updaters/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.components.updaters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/django_unicorn/templatetags/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.templatetags</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/templatetags/unicorn/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.templatetags.unicorn</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/django_unicorn/views/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.views</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/django_unicorn/views/action_parsers/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.views.action_parsers</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/django_unicorn/views/action_parsers/call_method/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.views.action_parsers.call_method</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/django_unicorn/views/action_parsers/sync_input/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.views.action_parsers.sync_input</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/django_unicorn/views/action_parsers/utils/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.views.action_parsers.utils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/views/objects/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.views.objects</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/django_unicorn/views/utils/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.views.utils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/cacher/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.cacher</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/call_method_parser/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.call_method_parser</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/db/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.db</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/decorators/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.decorators</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/errors/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.errors</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/serializer/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.serializer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/settings/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.settings</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/typer/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.typer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/typing/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.typing</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/urls/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.urls</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/django_unicorn/utils/"><code class="xref py py-mod docutils literal notranslate"><span class="pre">django_unicorn.utils</span></code></a></li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
+
       </div>
       
     </div>
   </aside>
-  <main class="main">
+  <div class="main">
     <div class="content">
-      <article role="main">
-        <label class="toc-overlay-icon toc-content-icon" for="__toc">
-          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-        </label>
-        <section id="faq">
-<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">#</a></h1>
 <section id="do-i-need-to-learn-a-new-frontend-framework-for-unicorn">
-<h2>Do I need to learn a new frontend framework for <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-learn-a-new-frontend-framework-for-unicorn" title="Permalink to this headline">¶</a></h2>
+<h2>Do I need to learn a new frontend framework for <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-learn-a-new-frontend-framework-for-unicorn" title="Permalink to this heading">#</a></h2>
 <p>Nope! <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> gives you some magical template tags and HTML attributes to sprinkle in normal Django HTML templates. The backend code is a simple class that ultimately derives from <code class="docutils literal notranslate"><span class="pre">TemplateView</span></code>. Keep using the same Django HTML templates, template tags, filters, etc and the best-in-class Django ORM without learning another new framework of the week.</p>
 </section>
 <section id="do-i-need-to-build-an-entire-api-to-use-unicorn">
-<h2>Do I need to build an entire API to use <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-build-an-entire-api-to-use-unicorn" title="Permalink to this headline">¶</a></h2>
+<h2>Do I need to build an entire API to use <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-build-an-entire-api-to-use-unicorn" title="Permalink to this heading">#</a></h2>
 <p>Nope! <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">REST</span> <span class="pre">framework</span></code> is pretty magical on its own, and if you will need a mobile app or other use for a REST API, it’s a great set of abstractions to follow REST best practices. But, it can be challenging implementing a robust API even with <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">REST</span> <span class="pre">framework</span></code>. And I wouldn’t even attempt to build an API up from scratch unless it was extremely limited.</p>
 </section>
 <section id="do-i-need-to-install-graphql-to-use-unicorn">
-<h2>Do I need to install GraphQL to use <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-install-graphql-to-use-unicorn" title="Permalink to this headline">¶</a></h2>
+<h2>Do I need to install GraphQL to use <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-install-graphql-to-use-unicorn" title="Permalink to this heading">#</a></h2>
 <p>Nope! GraphQL is an awesome piece of technology for specific use-cases and solves some pain points around creating a RESTful API, but it is another thing to wrestle with.</p>
 </section>
 <section id="do-i-need-to-run-an-annoying-separate-node-js-process-or-learn-any-tedious-webpack-configuration-incantations-to-use-unicorn">
-<h2>Do I need to run an annoying separate node.js process or learn any tedious Webpack configuration incantations to use <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-run-an-annoying-separate-node-js-process-or-learn-any-tedious-webpack-configuration-incantations-to-use-unicorn" title="Permalink to this headline">¶</a></h2>
-<p>Nope! <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> <a class="reference internal" href="../installation/"><span class="doc std std-doc">installs</span></a> just like any normal Django package and is seamless to implement. There <em>are</em> a few “magic” attributes to sprinkle into a Django HTML template, but other than that it’s just like building a regular server-side application.</p>
+<h2>Do I need to run an annoying separate node.js process or learn any tedious Webpack configuration incantations to use <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>?<a class="headerlink" href="#do-i-need-to-run-an-annoying-separate-node-js-process-or-learn-any-tedious-webpack-configuration-incantations-to-use-unicorn" title="Permalink to this heading">#</a></h2>
+<p>Nope! <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> <a class="reference internal" href="../installation/"><span class="std std-doc">installs</span></a> just like any normal Django package and is seamless to implement. There <em>are</em> a few “magic” attributes to sprinkle into a Django HTML template, but other than that it’s just like building a regular server-side application.</p>
 </section>
 <section id="does-this-replace-vue-js-or-react">
-<h2>Does this replace Vue.js or React?<a class="headerlink" href="#does-this-replace-vue-js-or-react" title="Permalink to this headline">¶</a></h2>
+<h2>Does this replace Vue.js or React?<a class="headerlink" href="#does-this-replace-vue-js-or-react" title="Permalink to this heading">#</a></h2>
 <p>Nope! In some cases, you might need to actually build an <abbr title="Single Page Application">SPA</abbr> in which case <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> really isn’t that helpful. In that case you might have to invest the time to learn a more involved frontend framework. Read <a class="reference external" href="https://tkainrad.dev/posts/use-vuejs-with-django/">Using VueJS alongside Django</a> for one approach, or check out <a class="reference external" href="https://www.django-unicorn.com/articles">other articles</a> about this.</p>
 </section>
 <section id="isn-t-calling-an-ajax-endpoint-on-every-input-slow">
-<h2>Isn’t calling an AJAX endpoint on every input slow?<a class="headerlink" href="#isn-t-calling-an-ajax-endpoint-on-every-input-slow" title="Permalink to this headline">¶</a></h2>
-<p>Not really! <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is ideal for when an AJAX call would already be required (such as hitting an API for typeahead search or update data in a database). If that isn’t required, the <a class="reference internal" href="../templates/#lazy"><span class="std std-doc">lazy</span></a> and <a class="reference internal" href="../templates/#debounce"><span class="std std-doc">debounce</span></a> modifiers can also be used to prevent an AJAX call on every change.</p>
+<h2>Isn’t calling an AJAX endpoint on every input slow?<a class="headerlink" href="#isn-t-calling-an-ajax-endpoint-on-every-input-slow" title="Permalink to this heading">#</a></h2>
+<p>Not really! <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is ideal for when an AJAX call would already be required (such as hitting an API for typeahead search or update data in a database). If that isn’t required, the <a class="reference internal" href="../templates/#lazy"><span class="std std-ref">lazy</span></a> and <a class="reference internal" href="../templates/#debounce"><span class="std std-ref">debounce</span></a> modifiers can also be used to prevent an AJAX call on every change.</p>
 </section>
 <section id="but-what-about-security">
-<h2>But, what about security?<a class="headerlink" href="#but-what-about-security" title="Permalink to this headline">¶</a></h2>
+<h2>But, what about security?<a class="headerlink" href="#but-what-about-security" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> follows the best practices of Django and requires a <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/csrf/#how-it-works">CSRF token</a> to be set on any page that has a component. This ensures that no nefarious AJAX POSTs can be executed. <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> also creates a unique component checksum with the Django <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-SECRET_KEY">secret key</a> on every data change which also ensures that all updates are valid.</p>
 </section>
 <section id="what-browsers-does-unicorn-support">
-<h2>What browsers does <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> support?<a class="headerlink" href="#what-browsers-does-unicorn-support" title="Permalink to this headline">¶</a></h2>
+<h2>What browsers does <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> support?<a class="headerlink" href="#what-browsers-does-unicorn-support" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> mostly targets modern browsers, but any PRs to help support legacy browsers would be appreciated.</p>
 </section>
 <section id="how-to-make-sure-that-the-new-javascript-is-served-when-a-new-version-of-unicorn-is-released">
-<h2>How to make sure that the new JavaScript is served when a new version of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is released?<a class="headerlink" href="#how-to-make-sure-that-the-new-javascript-is-served-when-a-new-version-of-unicorn-is-released" title="Permalink to this headline">¶</a></h2>
+<h2>How to make sure that the new JavaScript is served when a new version of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is released?<a class="headerlink" href="#how-to-make-sure-that-the-new-javascript-is-served-when-a-new-version-of-unicorn-is-released" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> works great using <a class="reference external" href="https://whitenoise.evans.io/en/stable/">whitenoise</a> to serve static assets with a filename based on a hash of the file. <a class="reference external" href="http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support">CompressedManifestStaticFilesStorage</a> works great for this purpose and is used by <a class="reference external" href="https://www.django-unicorn.com/">django-unicorn.com</a> for this very purpose. Example code can be found at <a class="reference external" href="https://github.com/adamghill/django-unicorn.com/blob/cb79932/project/settings.py#L72">https://github.com/adamghill/django-unicorn.com/</a>.</p>
 </section>
 <section id="what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js">
-<h2>What is the difference between <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> and lighter front-end frameworks like <code class="docutils literal notranslate"><span class="pre">htmx</span></code> or <code class="docutils literal notranslate"><span class="pre">alpine.js</span></code>?<a class="headerlink" href="#what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js" title="Permalink to this headline">¶</a></h2>
+<h2>What is the difference between <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> and lighter front-end frameworks like <code class="docutils literal notranslate"><span class="pre">htmx</span></code> or <code class="docutils literal notranslate"><span class="pre">alpine.js</span></code>?<a class="headerlink" href="#what-is-the-difference-between-unicorn-and-lighter-front-end-frameworks-like-htmx-or-alpine-js" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://htmx.org/">htmx</a> and <a class="reference external" href="https://github.com/alpinejs/alpine">alpine.js</a> are great libraries to provide interactivity to your HTML. Both of those libraries are generalized front-end framework that you could use with any server-side framework (or just regular HTML). They are both well-supported, battle-tested, and answers to how they work are probably Google-able (or on <a class="reference external" href="https://stackoverflow.com/questions/tagged/alpine.js">Stackoverflow</a>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> isn’t in the same league as either <code class="docutils literal notranslate"><span class="pre">htmx</span></code> or <code class="docutils literal notranslate"><span class="pre">alpine.js</span></code>. But, the benefit of <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is that it is tightly integrated with Django and it should “feel” like an extension of the core Django experience. For example:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../redirecting/"><span class="doc std std-doc">redirecting</span></a> from an action uses the Django <code class="docutils literal notranslate"><span class="pre">redirect</span></code> shortcut</p></li>
-<li><p><a class="reference internal" href="../validation/"><span class="doc std std-doc">validation</span></a> uses Django forms</p></li>
-<li><p><a class="reference internal" href="../django-models/"><span class="doc std std-doc">Django Models</span></a> are tightly integrated</p></li>
-<li><p><a class="reference internal" href="../messages/"><span class="doc std std-doc">Django messages</span></a> “just work” the way you would expect them to</p></li>
+<li><p><a class="reference internal" href="../redirecting/"><span class="std std-doc">redirecting</span></a> from an action uses the Django <code class="docutils literal notranslate"><span class="pre">redirect</span></code> shortcut</p></li>
+<li><p><a class="reference internal" href="../validation/"><span class="std std-doc">validation</span></a> uses Django forms</p></li>
+<li><p><a class="reference internal" href="../django-models/"><span class="std std-doc">Django Models</span></a> are tightly integrated</p></li>
+<li><p><a class="reference internal" href="../messages/"><span class="std std-doc">Django messages</span></a> “just work” the way you would expect them to</p></li>
 <li><p>you won’t have to create extra URLs/views for AJAX calls to send back HTML because <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> handles all of that for you</p></li>
 </ul>
 </section>
 </section>
 
-      </article>
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -295,10 +408,10 @@
                 </div>
                 <div class="title">Changelog</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="../settings/">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -309,19 +422,19 @@
               </div>
             </a>
         </div>
-
-        <div class="related-information">
-              Copyright &#169; 2021, Adam Hill
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="../_sources/faq.md.txt"
-               rel="nofollow">
-              Show Source
-            </a>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Adam Hill
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
         </div>
         
       </footer>
@@ -332,7 +445,7 @@
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -359,7 +472,15 @@
       
       
     </aside>
-  </main>
-</div>
-  </body>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    </body>
 </html>

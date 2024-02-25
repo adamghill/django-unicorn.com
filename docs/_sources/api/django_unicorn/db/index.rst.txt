@@ -1,0 +1,13 @@
+:py:mod:`django_unicorn.db`
+===========================
+
+.. py:module:: django_unicorn.db
+
+
+Module Contents
+---------------
+
+.. py:class:: DbModel(name: str, model_class: django.db.models.Model, *, defaults: Optional[dict] = None)
+
+
+

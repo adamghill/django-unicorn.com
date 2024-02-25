@@ -1,0 +1,14 @@
+:py:mod:`django_unicorn.views.utils`
+====================================
+
+.. py:module:: django_unicorn.views.utils
+
+
+Module Contents
+---------------
+
+.. py:function:: set_property_from_data(component_or_field: Union[django_unicorn.components.UnicornView, django_unicorn.components.UnicornField, django.db.models.Model], name: str, value: Any) -> None
+
+   Sets properties on the component based on passed-in data.
+
+

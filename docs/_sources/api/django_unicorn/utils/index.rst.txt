@@ -1,0 +1,54 @@
+:py:mod:`django_unicorn.utils`
+==============================
+
+.. py:module:: django_unicorn.utils
+
+
+Module Contents
+---------------
+
+.. py:data:: function_signature_cache
+
+   
+
+.. py:function:: generate_checksum(data: Union[bytes, str, Dict]) -> str
+
+   Generates a checksum for the passed-in data.
+
+   :param data: The raw input to generate the checksum against.
+
+   :returns: The generated checksum.
+
+
+.. py:function:: dicts_equal(dictionary_one: Dict, dictionary_two: Dict) -> bool
+
+   Return True if all keys and values are the same between two dictionaries.
+
+
+.. py:function:: get_method_arguments(func) -> List[str]
+
+   Gets the arguments for a method.
+
+   :returns: A list of strings, one for each argument.
+
+
+.. py:function:: sanitize_html(html: str) -> django.utils.safestring.SafeText
+
+   Escape all the HTML/XML special characters with their unicode escapes, so
+   value is safe to be output in JSON.
+
+   This is the same internals as `django.utils.html.json_script` except it takes a string
+   instead of an object to avoid calling DjangoJSONEncoder.
+
+
+.. py:function:: is_non_string_sequence(obj)
+
+   Checks whether the object is a sequence (i.e. `list`, `tuple`, `set`), but _not_ `str` or `bytes` type.
+   Helpful when you expect to loop over `obj`, but explicitly don't want to allow `str`.
+
+
+.. py:function:: is_int(s: str) -> bool
+
+   Checks whether a string is actually an integer.
+
+

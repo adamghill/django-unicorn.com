@@ -64,7 +64,7 @@ a.navbar-item {
 
 .navbar-item,
 .navbar-link {
-  color: #4a4a4a;
+  color: #4a4a4a !important;
   display: block;
   line-height: 1.5;
   padding: 0.5rem 0.75rem;

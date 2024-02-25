@@ -1,0 +1,50 @@
+:py:mod:`django_unicorn.call_method_parser`
+===========================================
+
+.. py:module:: django_unicorn.call_method_parser
+
+
+Module Contents
+---------------
+
+.. py:exception:: InvalidKwargError
+
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:function:: eval_value(value)
+
+   Uses `ast.literal_eval` to parse strings into an appropriate Python primitive.
+
+   Also returns an appropriate object for strings that look like they represent datetime,
+   date, time, duration, or UUID.
+
+
+.. py:function:: parse_kwarg(kwarg: str, *, raise_if_unparseable=False) -> Dict[str, Any]
+
+   Parses a potential kwarg as a string into a dictionary.
+
+   .. rubric:: Example
+
+   `parse_kwarg("test='1'")` == `{"test": "1"}`
+
+   :param kwarg: Potential kwarg as a string. e.g. "test='1'".
+   :param raise_if_unparseable: Raise an error if the `kwarg` cannot be parsed. Defaults to `False`.
+
+   :returns: Dictionary of key-value pairs.
+
+
+.. py:function:: parse_call_method_name(call_method_name: str) -> Tuple[str, Tuple[Any], Mapping[str, Any]]
+
+   Parses the method name from the request payload into a set of parameters to pass to
+   a method.
+
+   :param param call_method_name: String representation of a method name with parameters,
+                                  e.g. "set_name('Bob')"
+
+   :returns: Tuple of method_name, a list of arguments and a dict of keyword arguments
+
+

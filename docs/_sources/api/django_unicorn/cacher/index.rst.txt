@@ -1,0 +1,33 @@
+:py:mod:`django_unicorn.cacher`
+===============================
+
+.. py:module:: django_unicorn.cacher
+
+
+Module Contents
+---------------
+
+.. py:class:: PointerUnicornView(component_cache_key)
+
+
+
+.. py:class:: CacheableComponent(component: django_unicorn.views.UnicornView)
+
+
+   Updates a component into something that is cacheable/pickleable. Also set pointers to parents/children.
+   Use in a `with` statement or explicitly call `__enter__` `__exit__` to use. It will restore the original component
+   on exit.
+
+   .. py:method:: components() -> List[django_unicorn.views.UnicornView]
+
+
+
+.. py:function:: cache_full_tree(component: django_unicorn.views.UnicornView)
+
+
+.. py:function:: restore_from_cache(component_cache_key: str, request: django.http.HttpRequest = None) -> django_unicorn.views.UnicornView
+
+   Gets a cached unicorn view by key, restoring and getting cached parents and children
+   and setting the request.
+
+

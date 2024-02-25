@@ -1,0 +1,20 @@
+:py:mod:`django_unicorn.views.action_parsers.utils`
+===================================================
+
+.. py:module:: django_unicorn.views.action_parsers.utils
+
+
+Module Contents
+---------------
+
+.. py:function:: set_property_value(component: django_unicorn.components.UnicornView, property_name: str, property_value: Any, data: Optional[Dict] = None) -> None
+
+   Sets properties on the component.
+   Also updates the data dictionary which gets set back as part of the payload.
+
+   :param param component: Component to set attributes on.
+   :param param property_name: Name of the property.
+   :param param property_value: Value to set on the property.
+   :param param data: Dictionary that gets sent back with the response. Defaults to {}.
+
+

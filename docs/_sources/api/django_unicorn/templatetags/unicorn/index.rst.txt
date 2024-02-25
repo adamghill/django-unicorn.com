@@ -1,0 +1,38 @@
+:py:mod:`django_unicorn.templatetags.unicorn`
+=============================================
+
+.. py:module:: django_unicorn.templatetags.unicorn
+
+
+Module Contents
+---------------
+
+.. py:data:: register
+
+   
+
+.. py:data:: MINIMUM_ARGUMENT_COUNT
+   :value: 2
+
+   
+
+.. py:function:: unicorn_scripts()
+
+
+.. py:function:: unicorn_errors(context)
+
+
+.. py:function:: unicorn(parser, token)
+
+
+.. py:class:: UnicornNode(component_name: django.template.base.FilterExpression, args: Optional[List] = None, kwargs: Optional[Dict] = None, unparseable_kwargs: Optional[Dict] = None)
+
+
+   Bases: :py:obj:`django.template.Node`
+
+   .. py:method:: render(context)
+
+      Return the node rendered as a string.
+
+
+

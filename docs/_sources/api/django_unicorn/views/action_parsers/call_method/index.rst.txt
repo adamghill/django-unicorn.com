@@ -1,0 +1,15 @@
+:py:mod:`django_unicorn.views.action_parsers.call_method`
+=========================================================
+
+.. py:module:: django_unicorn.views.action_parsers.call_method
+
+
+Module Contents
+---------------
+
+.. py:function:: get_origin(type_hint)
+
+
+.. py:function:: handle(component_request: django_unicorn.views.objects.ComponentRequest, component: django_unicorn.components.UnicornView, payload: Dict)
+
+

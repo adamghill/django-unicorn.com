@@ -1,0 +1,41 @@
+:py:mod:`django_unicorn.views.objects`
+======================================
+
+.. py:module:: django_unicorn.views.objects
+
+
+Module Contents
+---------------
+
+.. py:class:: Action(data)
+
+
+   Action that gets queued.
+
+
+.. py:function:: sort_dict(d)
+
+
+.. py:class:: ComponentRequest(request, component_name)
+
+
+   Parses, validates, and stores all of the data from the message request.
+
+   .. py:method:: validate_checksum()
+
+      Validates that the checksum in the request matches the data.
+
+      :returns: Raises `AssertionError` if the checksums don't match.
+
+
+
+.. py:class:: Return(method_name, args=None, kwargs=None)
+
+
+   .. py:property:: value
+
+
+   .. py:method:: get_data()
+
+
+

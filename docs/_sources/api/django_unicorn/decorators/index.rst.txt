@@ -1,0 +1,16 @@
+:py:mod:`django_unicorn.decorators`
+===================================
+
+.. py:module:: django_unicorn.decorators
+
+
+Module Contents
+---------------
+
+.. py:function:: timed(func, *args, **kwargs)
+
+   Decorator that prints out the timing of a function.
+
+   Slightly altered version of https://gist.github.com/bradmontgomery/bd6288f09a24c06746bbe54afe4b8a82.
+
+

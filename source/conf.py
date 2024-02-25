@@ -1,29 +1,24 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-import os
-import sys
-
-sys.path.insert(0, os.path.abspath("....django-unicorn"))
-
+import toml
 
 # -- Project information -----------------------------------------------------
 
 project = "Unicorn"
-copyright = "2021, Adam Hill"
+copyright = "2023, Adam Hill"  # noqa: A001
 author = "Adam Hill"
 
-# The full version, including alpha/beta/rc tags
-release = "0.41.2"
+try:
+    pyproject = toml.load("../../pyproject.toml")
+
+    autoapi_dirs = ["../../django_unicorn"]
+except FileNotFoundError:
+    pyproject = toml.load("../../django-unicorn/pyproject.toml")
+
+    autoapi_dirs = [
+        "../../django-unicorn/django_unicorn",
+    ]
+
+version = pyproject["tool"]["poetry"]["version"]
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -32,13 +27,24 @@ release = "0.41.2"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
+    "sphinx.ext.duration",
+    "sphinx.ext.doctest",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.intersphinx",
     "myst_parser",
     "sphinx_copybutton",
     "sphinx.ext.napoleon",
     "sphinx.ext.autosectionlabel",
     "rst2pdf.pdfbuilder",
+    "autoapi.extension",
+    "sphinxext.opengraph",
 ]
+
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
+}
+intersphinx_disabled_domains = ["std"]
 
 autosectionlabel_prefix_document = True
 autosectionlabel_maxdepth = 3
@@ -102,8 +108,8 @@ html_theme_options = {
             <a class="navbar-item" href="/sponsors">
                 <img src="/static/img/heart.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;Sponsors
             </a>
-            <a class="navbar-item" href="https://twitter.com/DjangoUnicorn">
-                <img src="/static/img/twitter.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
+            <a class="navbar-item" href="https://fosstodon.org/@unicorn">
+                <img src="/static/img/mastodon.svg" style="max-height: 1.5em; margin-top: 6px; vertical-align: bottom;" />&nbsp;&nbsp;
             </a>
             <div style="margin-top: .8rem; margin-right: .8rem;">
                 <a class="github-button" href="https://github.com/adamghill/django-unicorn/discussions" data-size="large" aria-label="Discuss adamghill/django-unicorn on GitHub">Discuss</a>
@@ -130,3 +136,31 @@ myst_enable_extensions = ["linkify", "colon_fence"]
 pdf_documents = [
     ("index", "unicorn-latest", "Unicorn", "Adam Hill"),
 ]
+
+autoapi_root = "api"
+autoapi_add_toctree_entry = False
+autoapi_generate_api_docs = True
+# autoapi_keep_files = True  # useful for debugging generated errors
+autoapi_options = [
+    "members",
+    "undoc-members",
+    "show-inheritance",
+]
+autoapi_type = "python"
+autodoc_typehints = "signature"
+
+
+def skip_member(app, what, name, obj, skip, options):  # noqa: ARG001
+    if what == "data" and name.endswith(".logger"):
+        skip = True
+    elif "startunicorn" in name:
+        skip = True
+
+    return skip
+
+
+def setup(sphinx):
+    sphinx.connect("autoapi-skip-member", skip_member)
+
+
+ogp_site_url = "https://www.django-unicorn.com/"
