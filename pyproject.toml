@@ -31,6 +31,7 @@ rst2pdf = "*"
 sphinx-autoapi = "*"
 sphinxext-opengraph = "*"
 toml = "*"
+sphinx-design = "*"
 
 [tool.poe.tasks]
 r = { cmd = "./manage.py runserver 0:8000", help = "Run the dev server" }

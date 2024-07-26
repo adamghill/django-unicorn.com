@@ -32,6 +32,7 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
     "myst_parser",
+    "sphinx_design",
     "sphinx_copybutton",
     "sphinx.ext.napoleon",
     "sphinx.ext.autosectionlabel",
@@ -48,6 +49,8 @@ intersphinx_disabled_domains = ["std"]
 
 autosectionlabel_prefix_document = True
 autosectionlabel_maxdepth = 3
+
+myst_enable_extensions = ["colon_fence"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -137,6 +140,9 @@ pdf_documents = [
     ("index", "unicorn-latest", "Unicorn", "Adam Hill"),
 ]
 
+autoapi_dirs = [
+    "../../django-unicorn/django_unicorn",
+]
 autoapi_root = "api"
 autoapi_add_toctree_entry = False
 autoapi_generate_api_docs = True
