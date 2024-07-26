@@ -3,21 +3,21 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="Components" />
+<meta property="og:title" content="Getting Started" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.django-unicorn.com/components/" />
+<meta property="og:url" content="https://www.django-unicorn.com/getting-started/" />
 <meta property="og:site_name" content="Unicorn" />
-<meta property="og:description" content="Unicorn uses the term “component” to refer to a set of interactive functionality. A component consists of a Python view class which provides the backend code and a Django HTML template. Create a co..." />
+<meta property="og:description" content="Create a Django Project: Unicorn requires a working Django project before it can be used. While it is recommended that you have some experience working with Python and Django, below is a list of st..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="https://www.django-unicorn.com/None" />
-<meta property="og:image:alt" content="Unicorn uses the term “component” to refer to a set of interactive functionality. A component consists of a Python view class which provides the backend code..." />
-<meta name="description" content="Unicorn uses the term “component” to refer to a set of interactive functionality. A component consists of a Python view class which provides the backend code and a Django HTML template. Create a co..." />
+<meta property="og:image:alt" content="Create a Django Project: Unicorn requires a working Django project before it can be used. While it is recommended that you have some experience working with..." />
+<meta name="description" content="Create a Django Project: Unicorn requires a working Django project before it can be used. While it is recommended that you have some experience working with Python and Django, below is a list of st..." />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Views" href="../views/" /><link rel="prev" title="Installation" href="../installation/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Installation" href="../installation/" /><link rel="prev" title="Introduction" href="../" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
-        <title>Components - Unicorn</title>
+        <title>Getting Started - Unicorn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -227,9 +227,9 @@
   <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Components</span></p>
 <ul>
@@ -346,151 +346,52 @@
           </label>
         </div>
         <article role="main">
-          <section id="components">
-<h1>Components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> uses the term “component” to refer to a set of interactive functionality. A component consists of a Python <a class="reference internal" href="../views/"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">view</span></code></span></a> class which provides the backend code and a Django HTML <a class="reference internal" href="../templates/"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">template</span></code></span></a>.</p>
-<section id="create-a-component">
-<h2>Create a component<a class="headerlink" href="#create-a-component" title="Permalink to this heading">#</a></h2>
-<p>The easiest way to create your first component is to run the <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> Django management command after <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> is installed.</p>
-<p>The first argument to <code class="docutils literal notranslate"><span class="pre">startunicorn</span></code> is the Django app to add your component to. Every argument after the first is the name of a component to create.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create `hello-world` and `hello-magic` components in `myapp`</span>
-python<span class="w"> </span>manage.py<span class="w"> </span>startunicorn<span class="w"> </span>myapp<span class="w"> </span>hello-world<span class="w"> </span>hello-magic
-</pre></div>
+          <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
+<section id="create-a-django-project">
+<h2>Create a Django Project<a class="headerlink" href="#create-a-django-project" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> requires a working Django project before it can be used. While it is recommended that you have some experience working with Python and Django, below is a list of steps you would need do to use <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Install the latest version of Python<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> works with Python 3.8 or greater. If you don’t have Python installed, you will need to download and install it on your local machine.</p>
+<p class="sd-card-text">You can find the <a class="reference external" href="https://www.python.org/downloads/">latest version</a> of Python at <a class="reference external" href="https://www.python.org">python.org</a>.</p>
+<p class="sd-card-text">Once you have installed Python, make sure that it has been added to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code></p>
 </div>
-<p>That would create a file structure like the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myapp</span><span class="o">/</span>
-    <span class="n">components</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">hello_magic</span><span class="o">.</span><span class="n">py</span>
-    <span class="n">templates</span><span class="o">/</span>
-        <span class="n">myapp</span><span class="o">/</span>
-            <span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">.</span><span class="n">html</span>
-            <span class="n">hello</span><span class="o">-</span><span class="n">magic</span><span class="o">.</span><span class="n">html</span>
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Make sure that the app name specified is in the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> list in your Django settings file (normally <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>).</p>
-</div>
-</section>
-<section id="use-a-component">
-<h2>Use a component<a class="headerlink" href="#use-a-component" title="Permalink to this heading">#</a></h2>
-<p>Components usually reside in a regular Django template (unless it is a <a class="reference internal" href="../direct-view/"><span class="std std-doc">direct view</span></a>). The component is “included” (similar to the <code class="docutils literal notranslate"><span class="pre">include</span></code> templatetag) with a <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> templatetag.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
-{% load unicorn %}
-
-<span class="cm">&lt;!-- The CSRF token is required by Unicorn to prevent cross-site scripting attacks --&gt;</span>
-{% csrf_token %}
-
-<span class="cm">&lt;!--</span>
-<span class="cm">Include the `hello-world.html` HTML template with data provided by the `hello_world.HelloWorldView` Python view</span>
-<span class="cm">--&gt;</span>
-{% unicorn &#39;hello-world&#39; %}
-</pre></div>
-</div>
-</section>
-<section id="a-basic-component">
-<h2>A basic component<a class="headerlink" href="#a-basic-component" title="Permalink to this heading">#</a></h2>
-<p>An example component consists of the following Python view class and HTML template.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-
-<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
-</pre></div>
-</div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- hello-world.html --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">unicorn:model</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-  Hello {{ name|title }}
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> is the magic that ties the input to the backend component. When this component renders, the input element will include a value of “World” because that is the value of the <code class="docutils literal notranslate"><span class="pre">name</span></code> field in the view. It will read “Hello World” below the input element. When a user types “universe” into the input element, the component is re-rendered with the new <code class="docutils literal notranslate"><span class="pre">name</span></code> – the text will now be “Hello Universe”.</p>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Create a virtual environment<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Before installing Django, you will need to create a new directory for your project. It is also recommended to create a <a class="reference external" href="https://docs.python.org/3/library/venv.html">virtual environment</a> where you can install Django, <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code>, and any other dependencies. Once you have created and navigated to the directory, type the following command to create a virtual environment.</p>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">.venv</span></code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By default <code class="docutils literal notranslate"><span class="pre">unicorn:model</span></code> updates are triggered by listening to <code class="docutils literal notranslate"><span class="pre">input</span></code> events on the element. To listen for the <code class="docutils literal notranslate"><span class="pre">blur</span></code> event instead, use the <a class="reference internal" href="../templates/#lazy"><span class="std std-ref">lazy</span></a> modifier.</p>
+<p class="sd-card-text">Some package managers automatically create a virtual environment so this step might not be required. But, a virtual environment is suggested if directly using <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install dependencies.</p>
 </div>
-</section>
-<section id="pass-data-to-a-component">
-<h2>Pass data to a component<a class="headerlink" href="#pass-data-to-a-component" title="Permalink to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> can be passed into the <code class="docutils literal notranslate"><span class="pre">unicorn</span></code> templatetag from the outer template. They will be available in the component <a class="reference internal" href="../views/#component-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">component_args</span></code></span></a> and <a class="reference internal" href="../views/#component-kwargs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">component_kwargs</span></code></span></a> instance methods respectively.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
-{% load unicorn %}
-{% csrf_token %}
-
-{% unicorn &#39;hello-world&#39; &quot;Hello&quot; name=&quot;World&quot; %}
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Install Django and start a project<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">You are now ready to install Django and start your project.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>Django
+django-admin<span class="w"> </span>startproject<span class="w"> </span>project-name<span class="w"> </span>.
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-
-<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">kwarg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_kwargs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-
-        <span class="k">assert</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">kwarg</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Hello World&quot;</span>
-</pre></div>
+<p class="sd-card-text">If you have never created a Django project before, you may want to get acquainted with it first. There are several resources, including some <a class="reference external" href="https://docs.djangoproject.com/en/stable/intro/">official tutorials</a>, though the <a class="reference external" href="https://tutorial.djangogirls.org/en/django_start_project/">Django Girls Tutorial</a> is also highly recommended.</p>
 </div>
-<p>Any variable available in the template context can be passed in as an argument.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
-{% load unicorn %}
-{% csrf_token %}
-
-<span class="cm">&lt;!-- Access nested data from the dictionary in the template context and set on the `name` kwarg --&gt;</span>
-{% unicorn &#39;hello-world&#39; name=hello.world.name %}
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># views.py</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
-
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hello&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;world&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Galaxy&quot;</span><span class="p">}}}</span>
-
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The component view which can use the <code class="docutils literal notranslate"><span class="pre">name</span></code> kwarg.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
-<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
-
-<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">kwarg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">component_kwargs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-
-        <span class="k">assert</span> <span class="n">kwarg</span> <span class="o">==</span> <span class="s2">&quot;Galaxy&quot;</span>
-</pre></div>
-</div>
-</section>
-<section id="component-key">
-<h2>Component key<a class="headerlink" href="#component-key" title="Permalink to this heading">#</a></h2>
-<p>If there are multiple of the same components on the page, a <code class="docutils literal notranslate"><span class="pre">key</span></code> kwarg can be passed into the template. For example, <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn</span> <span class="pre">'hello-world'</span> <span class="pre">key='helloWorldKey'</span> <span class="pre">%}</span></code>. This is useful when a unique reference to a component is required, but it is optional.</p>
-</section>
-<section id="component-sub-folders">
-<h2>Component sub-folders<a class="headerlink" href="#component-sub-folders" title="Permalink to this heading">#</a></h2>
-<p>Components can be nested in sub-folders.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myapp</span><span class="o">/</span>
-    <span class="n">components</span><span class="o">/</span>
-        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">hello</span><span class="o">/</span>
-            <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-            <span class="n">world</span><span class="o">.</span><span class="n">py</span>
-    <span class="n">templates</span><span class="o">/</span>
-        <span class="n">myapp</span><span class="o">/</span>
-            <span class="n">hello</span><span class="o">/</span>
-                <span class="n">world</span><span class="o">.</span><span class="n">html</span>
-</pre></div>
-</div>
-<p>An example of how the above component would be included in a template.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
-{% load unicorn %}
-{% csrf_token %}
-
-{% unicorn &#39;hello.world&#39; %}
-</pre></div>
-</div>
+</details><p>Once you have a working Django project, you are ready to <a class="reference internal" href="../installation/"><span class="std std-doc">install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code></span></a>.</p>
 </section>
 </section>
 
@@ -499,23 +400,23 @@ python<span class="w"> </span>manage.py<span class="w"> </span>startunicorn<span
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../views/">
+          <a class="next-page" href="../installation/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Views</div>
+                <div class="title">Installation</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../installation/">
+          <a class="prev-page" href="../">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Installation</div>
+                <div class="title">Home</div>
                 
               </div>
             </a>
@@ -549,13 +450,8 @@ python<span class="w"> </span>manage.py<span class="w"> </span>startunicorn<span
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Components</a><ul>
-<li><a class="reference internal" href="#create-a-component">Create a component</a></li>
-<li><a class="reference internal" href="#use-a-component">Use a component</a></li>
-<li><a class="reference internal" href="#a-basic-component">A basic component</a></li>
-<li><a class="reference internal" href="#pass-data-to-a-component">Pass data to a component</a></li>
-<li><a class="reference internal" href="#component-key">Component key</a></li>
-<li><a class="reference internal" href="#component-sub-folders">Component sub-folders</a></li>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#create-a-django-project">Create a Django Project</a></li>
 </ul>
 </li>
 </ul>

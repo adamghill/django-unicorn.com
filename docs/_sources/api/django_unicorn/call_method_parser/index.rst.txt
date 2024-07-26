@@ -37,7 +37,7 @@ Module Contents
    :returns: Dictionary of key-value pairs.
 
 
-.. py:function:: parse_call_method_name(call_method_name: str) -> Tuple[str, Tuple[Any], Mapping[str, Any]]
+.. py:function:: parse_call_method_name(call_method_name: str) -> Tuple[str, Tuple[Any, Ellipsis], Mapping[str, Any]]
 
    Parses the method name from the request payload into a set of parameters to pass to
    a method.

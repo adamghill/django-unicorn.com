@@ -39,7 +39,7 @@ Module Contents
    Common base class for all non-exit exceptions.
 
 
-.. py:function:: dumps(data: Dict, *, fix_floats: bool = True, exclude_field_attributes: Optional[Tuple[str]] = None, sort_dict: bool = True) -> str
+.. py:function:: dumps(data: Dict, *, fix_floats: bool = True, exclude_field_attributes: Optional[Tuple[str, Ellipsis]] = None, sort_dict: bool = True) -> str
 
    Converts the passed-in dictionary to a string representation.
 

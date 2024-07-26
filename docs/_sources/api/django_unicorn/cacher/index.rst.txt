@@ -25,7 +25,7 @@ Module Contents
 .. py:function:: cache_full_tree(component: django_unicorn.views.UnicornView)
 
 
-.. py:function:: restore_from_cache(component_cache_key: str, request: django.http.HttpRequest = None) -> django_unicorn.views.UnicornView
+.. py:function:: restore_from_cache(component_cache_key: str, request: Optional[django.http.HttpRequest] = None) -> django_unicorn.views.UnicornView
 
    Gets a cached unicorn view by key, restoring and getting cached parents and children
    and setting the request.

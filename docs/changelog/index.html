@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.django-unicorn.com/changelog/" />
 <meta property="og:site_name" content="Unicorn" />
-<meta property="og:description" content="0.60.0: Silence warnings about multiple root elements for direct views., Handle force_render in nested children for direct views#663., Handle error when manually refreshing direct views., Handle co..." />
+<meta property="og:description" content="0.61.0: Add template_html to specify inline template HTML on the component., Add resolved method which only fires once even when there are multiple actions, e.g. during a debounce.. 0.60.0: Silence..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://www.django-unicorn.com/_images/social_previews/summary_changelog_42730650.png" />
-<meta property="og:image:alt" content="0.60.0: Silence warnings about multiple root elements for direct views., Handle force_render in nested children for direct views#663., Handle error when manu..." />
-<meta name="description" content="0.60.0: Silence warnings about multiple root elements for direct views., Handle force_render in nested children for direct views#663., Handle error when manually refreshing direct views., Handle co..." />
+<meta property="og:image" content="https://www.django-unicorn.com/None" />
+<meta property="og:image:alt" content="0.61.0: Add template_html to specify inline template HTML on the component., Add resolved method which only fires once even when there are multiple actions,..." />
+<meta name="description" content="0.61.0: Add template_html to specify inline template HTML on the component., Add resolved method which only fires once even when there are multiple actions, e.g. during a debounce.. 0.60.0: Silence..." />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Troubleshooting" href="../troubleshooting/" /><link rel="prev" title="FAQ" href="../faq/" />
 
@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
     
@@ -226,6 +227,7 @@
   <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 </ul>
@@ -347,7 +349,14 @@
           <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">#</a></h1>
 <section id="id1">
-<h2>0.60.0<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>0.61.0<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Add <a class="reference internal" href="../views/#template-html"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">template_html</span></code></span></a> to specify inline template HTML on the component.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">resolved</span></code> method which only fires once even when there are multiple actions, e.g. during a debounce.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.60.0<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Silence warnings about multiple root elements for direct views.</p></li>
 <li><p>Handle <code class="docutils literal notranslate"><span class="pre">force_render</span></code> in nested children for direct views <a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/663">#663</a>.</p></li>
@@ -364,21 +373,21 @@
 </pre></div>
 </div>
 </section>
-<section id="id2">
-<h2>0.59.0<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<section id="id3">
+<h2>0.59.0<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Update logic to find components <a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/655">#655</a> by <a class="reference external" href="https://github.com/jacksund">jacksund</a>.</p></li>
 <li><p>Add fallback location to look for components.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>0.58.1<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<section id="id4">
+<h2>0.58.1<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Try to prevent type hints from crashing components. <a class="reference external" href="https://github.com/adamghill/django-unicorn/issues/639">#639</a></p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>0.58.0<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<section id="id5">
+<h2>0.58.0<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>This release could not have been made possible without the generous support of <a class="reference external" href="https://github.com/winrid">https://github.com/winrid</a> and <a class="reference external" href="https://github.com/om-proptech">https://github.com/om-proptech</a>. Thank you for sponsoring me and believing in <code class="docutils literal notranslate"><span class="pre">django-unicorn</span></code>! It also includes critical improvements to nested components from <a class="reference external" href="https://github.com/imankulov">https://github.com/imankulov</a>.</p>
 <ul class="simple">
 <li><p>Handle a list of <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> or just a string instead of requiring a the <code class="docutils literal notranslate"><span class="pre">dict</span></code> version.</p></li>
@@ -389,27 +398,27 @@
 <p><strong>Breaking changes</strong></p>
 <p>Child components will not <em>by default</em> render the parent component anymore. If this is required for your child component, specify <code class="docutils literal notranslate"><span class="pre">self.parent.force_render</span> <span class="pre">=</span> <span class="pre">True</span></code> in any action that requires the parent to re-render. This change will reduce network bandwidth and isolates the amount of re-rendering required for nested components.</p>
 </section>
-<section id="id5">
-<h2>0.57.1<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<section id="id6">
+<h2>0.57.1<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Fix: Correctly serialize forms that have a a field with a Select widget.</p></li>
 </ul>
 </section>
-<section id="id6">
-<h2>0.57.0<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<section id="id7">
+<h2>0.57.0<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Warn if there is a missing root element.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">unicorn:id</span></code> to merge elements with <code class="docutils literal notranslate"><span class="pre">morphdom</span></code>.</p></li>
 </ul>
 </section>
-<section id="id7">
-<h2>0.56.1<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<section id="id8">
+<h2>0.56.1<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Handle Alpine.js being loaded with defer.</p></li>
 </ul>
 </section>
-<section id="id8">
-<h2>0.56.0<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<section id="id9">
+<h2>0.56.0<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Add support for using both Alpine.js and <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> together in a component (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/597">#597</a> by <a class="reference external" href="https://github.com/imankulov">imankulov</a>).</p></li>
 <li><p>Do not send a 304 if the child has a parent (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/595">#595</a>).</p></li>
@@ -417,8 +426,8 @@
 <li><p>More verbose error message when a component can not be loaded (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/453">#453</a> by <a class="reference external" href="https://github.com/nerdoc">nerdoc</a>).</p></li>
 </ul>
 </section>
-<section id="id9">
-<h2>0.55.0<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<section id="id10">
+<h2>0.55.0<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Support <code class="docutils literal notranslate"><span class="pre">List</span></code>/<code class="docutils literal notranslate"><span class="pre">list</span></code> type annotations for component actions and fields (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/582">#582</a>).</p></li>
 <li><p>Fix: calling a method in a parent will have the request available ([#583]<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/583">https://github.com/adamghill/django-unicorn/pull/583</a>).</p></li>
@@ -429,15 +438,15 @@
 <li><p>Dropped official support for Django 2.2 because its <a class="reference external" href="https://endoflife.date/django">end of life was April 1, 2022</a>.</p></li>
 </ul>
 </section>
-<section id="id10">
-<h2>0.54.0<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<section id="id11">
+<h2>0.54.0<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Coerce type annotated arguments in an action method to the specified type (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/571">#571</a>).</p></li>
 <li><p>Fix: Dictionary fields would sometimes create checksum errors (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/572">#572</a>).</p></li>
 </ul>
 </section>
-<section id="id11">
-<h2>0.53.0<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<section id="id12">
+<h2>0.53.0<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Support passing arguments into a component (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/560">#560</a>).</p></li>
 <li><p>Fix the handling of <code class="docutils literal notranslate"><span class="pre">None</span></code> for select elements. (<a class="reference external" href="https://github.com/adamghill/django-unicorn/pull/563">#563</a>).</p></li>
@@ -1258,17 +1267,18 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">0.60.0</a></li>
-<li><a class="reference internal" href="#id2">0.59.0</a></li>
-<li><a class="reference internal" href="#id3">0.58.1</a></li>
-<li><a class="reference internal" href="#id4">0.58.0</a></li>
-<li><a class="reference internal" href="#id5">0.57.1</a></li>
-<li><a class="reference internal" href="#id6">0.57.0</a></li>
-<li><a class="reference internal" href="#id7">0.56.1</a></li>
-<li><a class="reference internal" href="#id8">0.56.0</a></li>
-<li><a class="reference internal" href="#id9">0.55.0</a></li>
-<li><a class="reference internal" href="#id10">0.54.0</a></li>
-<li><a class="reference internal" href="#id11">0.53.0</a></li>
+<li><a class="reference internal" href="#id1">0.61.0</a></li>
+<li><a class="reference internal" href="#id2">0.60.0</a></li>
+<li><a class="reference internal" href="#id3">0.59.0</a></li>
+<li><a class="reference internal" href="#id4">0.58.1</a></li>
+<li><a class="reference internal" href="#id5">0.58.0</a></li>
+<li><a class="reference internal" href="#id6">0.57.1</a></li>
+<li><a class="reference internal" href="#id7">0.57.0</a></li>
+<li><a class="reference internal" href="#id8">0.56.1</a></li>
+<li><a class="reference internal" href="#id9">0.56.0</a></li>
+<li><a class="reference internal" href="#id10">0.55.0</a></li>
+<li><a class="reference internal" href="#id11">0.54.0</a></li>
+<li><a class="reference internal" href="#id12">0.53.0</a></li>
 <li><a class="reference internal" href="#v0-52-0">v0.52.0</a></li>
 <li><a class="reference internal" href="#v0-51-0">v0.51.0</a></li>
 <li><a class="reference internal" href="#v0-50-0">v0.50.0</a></li>
@@ -1380,5 +1390,6 @@
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     </body>
 </html>

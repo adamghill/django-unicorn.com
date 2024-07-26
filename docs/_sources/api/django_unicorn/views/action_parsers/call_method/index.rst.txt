@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: get_origin(type_hint)
+.. py:function:: get_origin(tp: Any) -> Optional[Any]
 
 
 .. py:function:: handle(component_request: django_unicorn.views.objects.ComponentRequest, component: django_unicorn.components.UnicornView, payload: Dict)

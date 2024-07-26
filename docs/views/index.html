@@ -10,7 +10,7 @@
 <meta property="og:description" content="Views contain a class that inherits from UnicornView for the component’s Python code. To follow typical naming conventions, the view will convert the component’s name to be more Pythonic. For examp..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://www.django-unicorn.com/_images/social_previews/summary_views_8b18f15a.png" />
+<meta property="og:image" content="https://www.django-unicorn.com/None" />
 <meta property="og:image:alt" content="Views contain a class that inherits from UnicornView for the component’s Python code. To follow typical naming conventions, the view will convert the compone..." />
 <meta name="description" content="Views contain a class that inherits from UnicornView for the component’s Python code. To follow typical naming conventions, the view will convert the component’s name to be more Pythonic. For examp..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
     
@@ -226,6 +227,7 @@
   <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 </ul>
@@ -469,6 +471,27 @@
 </pre></div>
 </div>
 </section>
+<section id="template-html">
+<h3>template_html<a class="headerlink" href="#template-html" title="Permalink to this heading">#</a></h3>
+<p>Template HTML can be defined inline on the component instead of using an external HTML file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
+<span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldView</span><span class="p">(</span><span class="n">UnicornView</span><span class="p">):</span>
+    <span class="n">template_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;div&gt;</span>
+<span class="s2">    &lt;div&gt;</span>
+<span class="s2">        Count: {{ count }}</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;button unicorn:click=&quot;increment&quot;&gt;+&lt;/button&gt;</span>
+<span class="s2">    &lt;button unicorn:click=&quot;decrement&quot;&gt;-&lt;/button&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+    <span class="o">...</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="instance-properties">
 <h2>Instance properties<a class="headerlink" href="#instance-properties" title="Permalink to this heading">#</a></h2>
@@ -607,21 +630,29 @@
 </pre></div>
 </div>
 </section>
-<section id="updating-name-value">
-<h3>updating(name, value)<a class="headerlink" href="#updating-name-value" title="Permalink to this heading">#</a></h3>
-<p>Gets called before each property that will get set.</p>
+<section id="updating-property-name-property-value">
+<h3>updating(property_name, property_value)<a class="headerlink" href="#updating-property-name-property-value" title="Permalink to this heading">#</a></h3>
+<p>Gets called before each property that will get set. This can be called multiple times in certain instances, e.g. during a debounce.</p>
 </section>
-<section id="updated-name-value">
-<h3>updated(name, value)<a class="headerlink" href="#updated-name-value" title="Permalink to this heading">#</a></h3>
-<p>Gets called after each property gets set.</p>
+<section id="updated-property-name-property-value">
+<h3>updated(property_name, property_value)<a class="headerlink" href="#updated-property-name-property-value" title="Permalink to this heading">#</a></h3>
+<p>Gets called after each property gets set. This can be called multiple times in certain instances, e.g. during a debounce.</p>
 </section>
-<section id="updating-property-name-value">
-<h3>updating_{property_name}(value)<a class="headerlink" href="#updating-property-name-value" title="Permalink to this heading">#</a></h3>
-<p>Gets called before the specified property gets set.</p>
+<section id="resolved-property-name-property-value">
+<h3>resolved(property_name, property_value)<a class="headerlink" href="#resolved-property-name-property-value" title="Permalink to this heading">#</a></h3>
+<p>Gets called after the specified property gets set. This will only get called once.</p>
 </section>
-<section id="updated-property-name-value">
-<h3>updated_{property_name}(value)<a class="headerlink" href="#updated-property-name-value" title="Permalink to this heading">#</a></h3>
-<p>Gets called after the specified property gets set.</p>
+<section id="id1">
+<h3>updating_{property_name}(property_value)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Gets called before the specified property gets set. This can be called multiple times in certain instances, e.g. during a debounce.</p>
+</section>
+<section id="id2">
+<h3>updated_{property_name}(property_value)<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Gets called after the specified property gets set. This can be called multiple times in certain instances, e.g. during a debounce.</p>
+</section>
+<section id="id3">
+<h3>resolved_{property_name}(property_value)<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Gets called after the specified property gets set. This will only get called once.</p>
 </section>
 <section id="calling-name-args">
 <h3>calling(name, args)<a class="headerlink" href="#calling-name-args" title="Permalink to this heading">#</a></h3>
@@ -649,7 +680,7 @@
 <p>Classes that derive from <code class="docutils literal notranslate"><span class="pre">UnicornView</span></code> can include a <code class="docutils literal notranslate"><span class="pre">Meta</span></code> class that provides some advanced options for the component.</p>
 <section id="exclude">
 <h3>exclude<a class="headerlink" href="#exclude" title="Permalink to this heading">#</a></h3>
-<p>By default, all public attributes of the component are included in the context of the Django template and available to JavaScript. One way to protect internal-only data is to prefix the atteibute name with <code class="docutils literal notranslate"><span class="pre">_</span></code> to indicate it should stay private.</p>
+<p>By default, all public attributes of the component are included in the context of the Django template and available to JavaScript. One way to protect internal-only data is to prefix the attribute name with <code class="docutils literal notranslate"><span class="pre">_</span></code> to indicate it should stay private.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_state.py</span>
 <span class="kn">from</span> <span class="nn">django_unicorn.components</span> <span class="kn">import</span> <span class="n">UnicornView</span>
 
@@ -809,6 +840,7 @@
 </li>
 <li><a class="reference internal" href="#class-properties">Class properties</a><ul>
 <li><a class="reference internal" href="#template-name">template_name</a></li>
+<li><a class="reference internal" href="#template-html">template_html</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#instance-properties">Instance properties</a><ul>
@@ -822,10 +854,12 @@
 <li><a class="reference internal" href="#instance-methods">Instance methods</a><ul>
 <li><a class="reference internal" href="#mount">mount()</a></li>
 <li><a class="reference internal" href="#hydrate">hydrate()</a></li>
-<li><a class="reference internal" href="#updating-name-value">updating(name, value)</a></li>
-<li><a class="reference internal" href="#updated-name-value">updated(name, value)</a></li>
-<li><a class="reference internal" href="#updating-property-name-value">updating_{property_name}(value)</a></li>
-<li><a class="reference internal" href="#updated-property-name-value">updated_{property_name}(value)</a></li>
+<li><a class="reference internal" href="#updating-property-name-property-value">updating(property_name, property_value)</a></li>
+<li><a class="reference internal" href="#updated-property-name-property-value">updated(property_name, property_value)</a></li>
+<li><a class="reference internal" href="#resolved-property-name-property-value">resolved(property_name, property_value)</a></li>
+<li><a class="reference internal" href="#id1">updating_{property_name}(property_value)</a></li>
+<li><a class="reference internal" href="#id2">updated_{property_name}(property_value)</a></li>
+<li><a class="reference internal" href="#id3">resolved_{property_name}(property_value)</a></li>
 <li><a class="reference internal" href="#calling-name-args">calling(name, args)</a></li>
 <li><a class="reference internal" href="#called-name-args">called(name, args)</a></li>
 <li><a class="reference internal" href="#complete">complete()</a></li>
@@ -859,5 +893,6 @@
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     </body>
 </html>

@@ -10,7 +10,7 @@
 <meta property="og:description" content="Module Contents:" />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://www.django-unicorn.com/_images/social_previews/summary_api_django_unicorn_components_unicorn_template_response_index_c88e97b0.png" />
+<meta property="og:image" content="https://www.django-unicorn.com/None" />
 <meta property="og:image:alt" content="Module Contents:" />
 <meta name="description" content="Module Contents:" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/unicorn.css" />
     
@@ -226,6 +227,7 @@
   <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started/">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../components/">Components</a></li>
 </ul>
@@ -406,6 +408,14 @@ attributes.</p>
 <p>An HTTP response class with a string as content.</p>
 <p>This content can be read, appended to, or replaced.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="django_unicorn.components.unicorn_template_response.UnicornTemplateResponse.resolve_template">
+<span class="sig-name descname"><span class="pre">resolve_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#django_unicorn.components.unicorn_template_response.UnicornTemplateResponse.resolve_template" title="Permalink to this definition">#</a></dt>
+<dd><p>Override the TemplateResponseMixin to resolve a list of Templates.</p>
+<p>Calls the super which accepts a template object, path-to-template, or list of paths if the first
+object in the sequence is not a Template.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="django_unicorn.components.unicorn_template_response.UnicornTemplateResponse.render">
 <span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#django_unicorn.components.unicorn_template_response.UnicornTemplateResponse.render" title="Permalink to this definition">#</a></dt>
 <dd><p>Render (thereby finalizing) the content of the response.</p>
@@ -484,6 +494,7 @@ attributes.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#django_unicorn.components.unicorn_template_response.UnicornTemplateResponse"><code class="docutils literal notranslate"><span class="pre">UnicornTemplateResponse</span></code></a><ul>
+<li><a class="reference internal" href="#django_unicorn.components.unicorn_template_response.UnicornTemplateResponse.resolve_template"><code class="docutils literal notranslate"><span class="pre">UnicornTemplateResponse.resolve_template()</span></code></a></li>
 <li><a class="reference internal" href="#django_unicorn.components.unicorn_template_response.UnicornTemplateResponse.render"><code class="docutils literal notranslate"><span class="pre">UnicornTemplateResponse.render()</span></code></a></li>
 </ul>
 </li>
@@ -509,5 +520,6 @@ attributes.</p>
     <script src="../../../../_static/scripts/furo.js"></script>
     <script src="../../../../_static/clipboard.min.js"></script>
     <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/design-tabs.js"></script>
     </body>
 </html>

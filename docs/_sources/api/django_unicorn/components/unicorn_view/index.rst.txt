@@ -70,12 +70,12 @@ Module Contents
       
 
    .. py:attribute:: component_args
-      :type: List
+      :type: Optional[List]
 
       
 
    .. py:attribute:: component_kwargs
-      :type: Dict
+      :type: Optional[Dict]
 
       
 
@@ -120,6 +120,11 @@ Module Contents
    .. py:method:: updated(name, value)
 
       Hook that gets called when a component's data is updated.
+
+
+   .. py:method:: resolved(name, value)
+
+      Hook that gets called when a component's data is resolved.
 
 
    .. py:method:: calling(name, args)
@@ -170,7 +175,7 @@ Module Contents
       :param model_names: Only include validation errors for specified fields. If none, validate everything.
 
 
-   .. py:method:: create(*, component_id: str, component_name: str, component_key: str = '', parent: UnicornView = None, request: django.http.HttpRequest = None, use_cache=True, component_args: Optional[List] = None, kwargs: Optional[Dict[str, Any]] = None) -> UnicornView
+   .. py:method:: create(*, component_id: str, component_name: str, component_key: str = '', parent: Optional[UnicornView] = None, request: Optional[django.http.HttpRequest] = None, use_cache=True, component_args: Optional[List] = None, kwargs: Optional[Dict[str, Any]] = None) -> UnicornView
       :staticmethod:
 
       Find and instantiate a component class based on `component_name`.

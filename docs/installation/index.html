@@ -7,14 +7,14 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.django-unicorn.com/installation/" />
 <meta property="og:site_name" content="Unicorn" />
-<meta property="og:description" content="Install Unicorn: Install Unicorn the same as any other Python package (preferably into a virtual environment). OR Integrate Unicorn with Django: 1. Add django_unicorn to the INSTALLED_APPS list in ..." />
+<meta property="og:description" content="Install Unicorn: Install Unicorn the same as any other Python package (preferably into a virtual environment). pip poetry pdm rye pipenv Integrate Unicorn with Django: 1. Add django_unicorn to the ..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://www.django-unicorn.com/_images/social_previews/summary_installation_dd93ef79.png" />
-<meta property="og:image:alt" content="Install Unicorn: Install Unicorn the same as any other Python package (preferably into a virtual environment). OR Integrate Unicorn with Django: 1. Add djang..." />
-<meta name="description" content="Install Unicorn: Install Unicorn the same as any other Python package (preferably into a virtual environment). OR Integrate Unicorn with Django: 1. Add django_unicorn to the INSTALLED_APPS list in ..." />
+<meta property="og:image" content="https://www.django-unicorn.com/None" />
+<meta property="og:image:alt" content="Install Unicorn: Install Unicorn the same as any other Python package (preferably into a virtual environment). pip poetry pdm rye pipenv Integrate Unicorn wi..." />
+<meta name="description" content="Install Unicorn: Install Unicorn the same as any other Python package (preferably into a virtual environment). pip poetry pdm rye pipenv Integrate Unicorn with Django: 1. Add django_unicorn to the ..." />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Components" href="../components/" /><link rel="prev" title="Introduction" href="../" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Components" href="../components/" /><link rel="prev" title="Getting Started" href="../getting-started/" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>Installation - Unicorn</title>
@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/unicorn.css" />
     
@@ -226,6 +227,7 @@
   <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a></li>
 </ul>
@@ -349,12 +351,42 @@
 <section id="install-unicorn">
 <h2>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code><a class="headerlink" href="#install-unicorn" title="Permalink to this heading">#</a></h2>
 <p>Install <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> the same as any other Python package (preferably into a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>).</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>django-unicorn
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+pip</label><div class="sd-tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>django-unicorn
 </pre></div>
 </div>
-<p>OR</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>add<span class="w"> </span>django-unicorn
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+poetry</label><div class="sd-tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>add<span class="w"> </span>django-unicorn
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+pdm</label><div class="sd-tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>add<span class="w"> </span>django-unicorn
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+rye</label><div class="sd-tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rye<span class="w"> </span>add<span class="w"> </span>django-unicorn
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+pipenv</label><div class="sd-tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pipenv<span class="w"> </span>install<span class="w"> </span>django-unicorn
+</pre></div>
+</div>
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -381,6 +413,10 @@
 </pre></div>
 </div>
 <p>3. Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">unicorn</span> <span class="pre">%}</span></code> to the top of the Django HTML template.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Generally, your Django HTML templates are typically created in the <code class="docutils literal notranslate"><span class="pre">myapp/templates/myapp</span></code> directory. You will need to add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">unicorn</span> <span class="pre">%}</span></code> at the top of each of the templates utilizing a <code class="docutils literal notranslate"><span class="pre">Unicorn</span></code> component. Alternatively, you can create one “base” template that is extended by other templates, in which case, you would only need to add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">unicorn</span> <span class="pre">%}</span></code> to the top of your base template.</p>
+</div>
 <p>4. Add <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">unicorn_scripts</span> <span class="pre">%}</span></code> into the Django HTML template and make sure there is a <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></code> in the template as well.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- index.html --&gt;</span>
 {% load unicorn %}
@@ -412,14 +448,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../">
+          <a class="prev-page" href="../getting-started/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">Getting Started</div>
                 
               </div>
             </a>
@@ -476,5 +512,6 @@
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     </body>
 </html>

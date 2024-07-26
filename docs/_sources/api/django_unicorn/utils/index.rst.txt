@@ -52,3 +52,8 @@ Module Contents
    Checks whether a string is actually an integer.
 
 
+.. py:function:: create_template(template_html: Union[str, collections.abc.Callable], engine_name: Optional[str] = None) -> django.template.backends.django.Template
+
+   Create a `Template` from a string or callable.
+
+

@@ -63,6 +63,14 @@ Module Contents
 
    This content can be read, appended to, or replaced.
 
+   .. py:method:: resolve_template(template)
+
+      Override the TemplateResponseMixin to resolve a list of Templates.
+
+      Calls the super which accepts a template object, path-to-template, or list of paths if the first
+      object in the sequence is not a Template.
+
+
    .. py:method:: render()
 
       Render (thereby finalizing) the content of the response.

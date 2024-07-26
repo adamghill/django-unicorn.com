@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: get_args(type_hint)
+.. py:function:: get_args(tp: Any) -> Tuple[Any, Ellipsis]
 
 
 .. py:data:: type_hints_cache
