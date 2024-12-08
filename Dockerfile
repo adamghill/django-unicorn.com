@@ -49,8 +49,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked --mount=type=cache,t
     apt-get install --no-install-recommends -y curl wget && \
     python manage.py collectstatic -v 2 --noinput && \
     python manage.py compress --force && \
-    python manage.py collectstatic -v 2 --noinput && \
-    python manage.py migrate
+    python manage.py collectstatic -v 2 --noinput
 
 HEALTHCHECK --interval=1m --timeout=10s --start-period=5s --retries=3 \
   CMD curl -f http://0.0.0.0:80/ || exit 1
